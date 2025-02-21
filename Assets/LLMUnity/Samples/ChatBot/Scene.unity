@@ -395,7 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325cfb8f0b2f3c669a22ef50427d9f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputContainer: {fileID: 574025143}
   chatContainer: {fileID: 367648479}
   playerColor: {r: 0.31764707, g: 0.6431373, b: 0.31764707, a: 1}
   aiColor: {r: 0.11372549, g: 0.11372549, b: 0.28627452, a: 1}
@@ -408,7 +407,6 @@ MonoBehaviour:
   bubbleSpacing: 10
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   stopButton: {fileID: 600245850}
-  piperTTS: {fileID: 1811927689}
 --- !u!114 &180020067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524782629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

@@ -32,7 +32,6 @@ public class NewChatBot : MonoBehaviour
     string playerText;
     string aiText;
     bool blockInput = true;
-    bool warmUpDone = false;
 
 
     void Start()
@@ -89,7 +88,7 @@ public class NewChatBot : MonoBehaviour
         bubbleImage.GetComponent<Image>().type = Image.Type.Sliced;
         bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(10, 10, 10, 10);
         bubbleImage.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-        
+
         TMP_Text bubbleText = Instantiate(new GameObject($"{type} Text"), bubbleImage.transform).AddComponent<TextMeshProUGUI>();
         bubbleText.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 0);
         bubbleText.text = text;
@@ -102,7 +101,6 @@ public class NewChatBot : MonoBehaviour
     }
     public void WarmUpCallback()
     {
-        warmUpDone = true;
         placeholder.text = $"Ask {llmCharacter.AIName} something...";
         AllowInput();
     }
@@ -111,7 +109,6 @@ public class NewChatBot : MonoBehaviour
     {
         aiText = text;
         aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
-        UpdateScrollView();
     }
 
     public void AllowInput()
@@ -119,7 +116,6 @@ public class NewChatBot : MonoBehaviour
         blockInput = false;
         inputField.interactable = true;
         inputField.Select();
-        UpdateScrollView();
         if (piperTTS == null || aiText == "" || aiText == null) return;
         print(aiText);
         piperTTS.OnInputSubmit(aiText);
@@ -153,10 +149,13 @@ public class NewChatBot : MonoBehaviour
 
     void UpdateScrollView()
     {
-        scrollRect.verticalNormalizedPosition = 0;
+        if (blockInput)
+        {
+            scrollRect.verticalNormalizedPosition = 0;
+        }
     }
     void Update()
     {
-        
+        UpdateScrollView();
     }
 }
