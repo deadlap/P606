@@ -1,5 +1,6 @@
 using LLMUnity;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
@@ -33,6 +34,17 @@ public class NewChatBot : MonoBehaviour
     string aiText;
     bool blockInput = true;
 
+    void OnEnable()
+    {
+        inputField.onSubmit.AddListener(OnInputFieldSubmit);
+        inputField.onValueChanged.AddListener(OnValueChanged);
+    }
+
+    void OnDisable()
+    {
+        inputField.onSubmit.RemoveListener(OnInputFieldSubmit);
+        inputField.onValueChanged.RemoveListener(OnValueChanged);
+    }
 
     void Start()
     {
@@ -41,8 +53,6 @@ public class NewChatBot : MonoBehaviour
         inputField.GetComponent<Image>().color = playerColor;
         inputField.textComponent.color = fontColor;
         placeholder.color = fontColor;
-        inputField.onSubmit.AddListener(OnInputFieldSubmit);
-        inputField.onValueChanged.AddListener(OnValueChanged);
         inputField.interactable = false;
         _ = llmCharacter.Warmup(WarmUpCallback);
     }
@@ -113,6 +123,10 @@ public class NewChatBot : MonoBehaviour
 
     public void AllowInput()
     {
+        if(aiTextBubble)
+        {
+            aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
+        }
         blockInput = false;
         inputField.interactable = true;
         inputField.Select();
@@ -139,6 +153,10 @@ public class NewChatBot : MonoBehaviour
 
     void OnValueChanged(string newText)
     {
+        if(newText.Contains("\\"))
+        {
+            inputField.text = newText.Replace("\\", "");
+        }
         // Get rid of newline character added when we press enter
         if (Input.GetKey(KeyCode.Return))
         {

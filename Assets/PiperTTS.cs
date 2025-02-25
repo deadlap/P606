@@ -9,7 +9,10 @@ public class PiperTTS : MonoBehaviour
     
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        if(GetComponent<AudioSource>() == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
     }
 
     //this method is async because it must await the audio generation.
