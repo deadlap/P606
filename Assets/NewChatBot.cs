@@ -1,4 +1,5 @@
 using LLMUnity;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 // This class is a new version of the ChatBot class from the LLMUnitySamples namespace.
@@ -14,6 +16,8 @@ public class NewChatBot : MonoBehaviour
 {
     [SerializeField] LLMCharacter llmCharacter;
     [SerializeField] PiperTTS piperTTS;
+    [SerializeField] GameObject chatGraphics;
+    [SerializeField] Button chatButton;
     [SerializeField] Transform chatContainer;
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] TMP_InputField inputField;
@@ -30,30 +34,45 @@ public class NewChatBot : MonoBehaviour
     List<GameObject> chatBubbles = new List<GameObject>();
     GameObject playerTextBubble;
     GameObject aiTextBubble;
+    string placeholderText = "Hold on...";
     string playerText;
     string aiText;
     bool blockInput = true;
+    bool chatIsActive;
+
+    void Awake()
+    {
+        chatGraphics.SetActive(false);
+    }
 
     void OnEnable()
     {
         inputField.onSubmit.AddListener(OnInputFieldSubmit);
         inputField.onValueChanged.AddListener(OnValueChanged);
+        inputField.onSelect.AddListener(InputFieldSelected);
+        chatButton.onClick.AddListener(InputFieldDeselected);
+        PlayerInputEvent.PlayerInteract += UpdateChatView;
     }
 
     void OnDisable()
     {
         inputField.onSubmit.RemoveListener(OnInputFieldSubmit);
         inputField.onValueChanged.RemoveListener(OnValueChanged);
+        inputField.onSelect.RemoveListener(InputFieldSelected);
+        chatButton.onClick.RemoveListener(InputFieldDeselected);
+        PlayerInputEvent.PlayerInteract -= UpdateChatView;
     }
+
 
     void Start()
     {
         if (font == null) font = Resources.GetBuiltinResource<TMP_FontAsset>("Arial SDF");
-        placeholder.text = "Hold on...";
+        placeholder.text = placeholderText;
         inputField.GetComponent<Image>().color = playerColor;
         inputField.textComponent.color = fontColor;
         placeholder.color = fontColor;
         inputField.interactable = false;
+        if (llmCharacter == null) return;
         _ = llmCharacter.Warmup(WarmUpCallback);
     }
 
@@ -72,10 +91,26 @@ public class NewChatBot : MonoBehaviour
         CreateChatBubble(message, true);
         UpdateScrollView();
         aiTextBubble = CreateChatBubble("Let me think...", false);
-        Task chatTask = llmCharacter.Chat(message, SetText, AllowInput);
+        Task chatTask = llmCharacter.Chat(message, SetText, AllowInputAgain);
         inputField.text = "";
     }
+    void InputFieldSelected(string arg0)
+    {
+        chatIsActive = true;
+        PlayerInputEvent.OnFreezePlayer();
+        print("Input field selected");
+    }
 
+    void InputFieldDeselected()
+    {
+        chatIsActive = false;
+        PlayerInputEvent.OnUnFreezePlayer();
+        piperTTS.audioSource.Stop();
+        print("Input field deselected");
+        chatGraphics.SetActive(false);
+    }
+
+    
     GameObject CreateChatBubble(string text, bool isPlayerMessage)
     {
         string type = isPlayerMessage ? "Player" : "AI";
@@ -109,6 +144,33 @@ public class NewChatBot : MonoBehaviour
 
         return chatBubble;
     }
+
+    void UpdateChatView()
+    {
+        if(chatIsActive) return;
+        StartCoroutine(UCV());
+    }
+
+    IEnumerator UCV()
+    {
+        if(PlayerController.instance.closestNPC == null) yield break;
+        if (chatContainer.childCount > 0)
+        {
+            for (int i = 0; i < chatContainer.childCount; i++)
+            {
+                Destroy(chatContainer.GetChild(i).gameObject);
+            }
+        }
+        chatGraphics.SetActive(true);
+        placeholder.text = placeholderText;
+        inputField.text = "";
+        InputFieldSelected(null);
+        yield return new WaitForSeconds(0.5f);
+        llmCharacter = PlayerController.instance.closestNPC.GetComponentInChildren<LLMCharacter>();
+        piperTTS = PlayerController.instance.closestNPC.GetComponentInChildren<PiperTTS>();
+        Start();
+    }
+
     public void WarmUpCallback()
     {
         placeholder.text = $"Ask {llmCharacter.AIName} something...";
@@ -118,12 +180,13 @@ public class NewChatBot : MonoBehaviour
     void SetText(string text)
     {
         aiText = text;
+        if(aiTextBubble.GetComponentInChildren<TMP_Text>() == null) return;
         aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
     }
 
-    public void AllowInput()
+    public void AllowInputAgain()
     {
-        if(aiTextBubble)
+        if (aiTextBubble)
         {
             aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
         }
@@ -133,6 +196,13 @@ public class NewChatBot : MonoBehaviour
         if (piperTTS == null || aiText == "" || aiText == null) return;
         print(aiText);
         piperTTS.OnInputSubmit(aiText);
+    }
+
+    public void AllowInput()
+    {
+        blockInput = false;
+        inputField.interactable = true;
+        inputField.Select();
     }
 
     public void CancelRequests()

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PiperTTS : MonoBehaviour
 {
     [SerializeField] PiperManager piperManager;
-    AudioSource audioSource;
+    [HideInInspector] public AudioSource audioSource;
     
     void Awake()
     {
