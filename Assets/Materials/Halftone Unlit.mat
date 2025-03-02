@@ -60,18 +60,29 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Falloff_Threshold: 1.5
+    - _Falloff_Threshold: 0
+    - _Full_Lit_Min: 1
+    - _Full_Shadow_Max: 0.701
     - _Lit_Threshold: 1
     - _Normal_Strength: 0
     - _Pattern_Density: 30
     - _Pattern_Rotation: 45
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Shadow_Strength: 0.9
+    - _Shadow_Size_Max: 1
+    - _Shadow_Size_Min: 0.427
+    - _Shadow_Strength: 0.99
+    - _Smoothness: 0.4
     - _Softness: 0
+    - _Specular_Light_Max: 1
+    - _Specular_Light_Min: 0
+    - _Specular_Size_Max: 1
+    - _Specular_Size_Min: 0
     - _Use_Screen_Space: 1
+    - _Use_Specular: 1
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 1}
+    - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

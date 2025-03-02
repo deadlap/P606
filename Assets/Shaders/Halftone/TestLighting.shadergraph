@@ -328,20 +328,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "efc1837e31574b43b11391e7e2185f17"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "4dac3a6dc4944db0a6a48044a9a5147c"
-                },
-                "m_SlotId": 666842928
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "fd84568928714d0ababd9f3c1be37ffc"
                 },
                 "m_SlotId": 0
@@ -493,6 +479,21 @@
         "z": 0.0,
         "w": 0.0
     },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "0864dd8ea84646bfa29a469a0d1a51e9",
+    "m_Id": 3,
+    "m_DisplayName": "Specular",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Specular",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
     "m_Labels": []
 }
 
@@ -783,8 +784,8 @@
     "m_DismissedVersion": 0,
     "m_KeywordType": 0,
     "m_KeywordDefinition": 1,
-    "m_KeywordScope": 0,
-    "m_KeywordStages": 63,
+    "m_KeywordScope": 1,
+    "m_KeywordStages": 2,
     "m_Entries": [],
     "m_Value": 1,
     "m_IsEditable": true
@@ -812,29 +813,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "2761314727d4484a88a3ba51a55ba97f",
-    "m_Id": 666842928,
-    "m_DisplayName": "Albedo",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "_Albedo",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
 }
 
 {
@@ -984,8 +962,8 @@
     "m_DismissedVersion": 0,
     "m_KeywordType": 0,
     "m_KeywordDefinition": 1,
-    "m_KeywordScope": 0,
-    "m_KeywordStages": 63,
+    "m_KeywordScope": 1,
+    "m_KeywordStages": 2,
     "m_Entries": [],
     "m_Value": 1,
     "m_IsEditable": true
@@ -1225,10 +1203,13 @@
             "m_Id": "00c4ae91c0724bc0a5ef68e14715bbe7"
         },
         {
-            "m_Id": "2761314727d4484a88a3ba51a55ba97f"
+            "m_Id": "a473d3e7267c4bdeacd48c34b6738897"
         },
         {
-            "m_Id": "a473d3e7267c4bdeacd48c34b6738897"
+            "m_Id": "a8bac56f40974711a4f839dad16db898"
+        },
+        {
+            "m_Id": "0864dd8ea84646bfa29a469a0d1a51e9"
         },
         {
             "m_Id": "30a53e8a7117452ea619fa22d33c05be"
@@ -2018,7 +1999,7 @@
     "m_Title": "Normal Map",
     "m_Position": {
         "x": -2173.0,
-        "y": -118.99986267089844
+        "y": -119.0
     }
 }
 
@@ -2159,6 +2140,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "a8bac56f40974711a4f839dad16db898",
+    "m_Id": 2,
+    "m_DisplayName": "Diffuse",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Diffuse",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "ab0eeb1618d740ecb1623217bb61a34f",
     "m_Name": "Keywords",
@@ -2266,8 +2262,8 @@
     "m_DismissedVersion": 0,
     "m_KeywordType": 0,
     "m_KeywordDefinition": 1,
-    "m_KeywordScope": 0,
-    "m_KeywordStages": 63,
+    "m_KeywordScope": 1,
+    "m_KeywordStages": 2,
     "m_Entries": [],
     "m_Value": 1,
     "m_IsEditable": true
@@ -2346,8 +2342,8 @@
     "m_DismissedVersion": 0,
     "m_KeywordType": 0,
     "m_KeywordDefinition": 1,
-    "m_KeywordScope": 0,
-    "m_KeywordStages": 63,
+    "m_KeywordScope": 1,
+    "m_KeywordStages": 2,
     "m_Entries": [],
     "m_Value": 1,
     "m_IsEditable": true
@@ -2505,8 +2501,8 @@
     "m_DismissedVersion": 0,
     "m_KeywordType": 0,
     "m_KeywordDefinition": 1,
-    "m_KeywordScope": 0,
-    "m_KeywordStages": 63,
+    "m_KeywordScope": 1,
+    "m_KeywordStages": 2,
     "m_Entries": [],
     "m_Value": 1,
     "m_IsEditable": true
@@ -2518,7 +2514,7 @@
     "m_ObjectId": "d549966b0c3a4d238caf694afe887cd0",
     "m_Title": "Base Shadow Sample",
     "m_Position": {
-        "x": -1270.0001220703125,
+        "x": -1269.9998779296875,
         "y": -954.9999389648438
     }
 }
@@ -2960,8 +2956,8 @@
     "m_ObjectId": "ffa59de3eb3d4a5e9a8d9e0e64dbc7ac",
     "m_Title": "Base Color Sample",
     "m_Position": {
-        "x": -1423.0001220703125,
-        "y": -457.9998779296875
+        "x": -1422.9998779296875,
+        "y": -458.0
     }
 }
 

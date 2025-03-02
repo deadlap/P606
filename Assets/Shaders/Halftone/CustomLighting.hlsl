@@ -15,7 +15,6 @@ struct CustomLightingData
     float4 shadowCoord;
     
     // Surface attributes
-    float3 albedo;
     float smoothness;
 };
 
@@ -27,36 +26,46 @@ float GetSmoothnessPower(float rawSmoothness)
 
 #ifndef SHADERGRAPH_PREVIEW
 // Calculates diffuse lighting, both color and normals
-float3 CustomLightHandling(CustomLightingData d, Light light)
+void CustomLightHandling(CustomLightingData d, Light light, out float diffuse, out float specular, out float3 color)
 {
     float3 radiance = light.color * (light.distanceAttenuation * light.shadowAttenuation);
     
-    float diffuse = saturate(dot(d.normalWS, light.direction));
+    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * (light.distanceAttenuation * light.shadowAttenuation));
     float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));
-    float specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
+    specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
     
-    float3 color = d.albedo * radiance * (diffuse + specular);
-    
-    return color;
+    color = radiance;
 }
 #endif
 
 // Return the color for the current pixel of custom lighting based upon the input data
-float3 CalculateCustomLighting(CustomLightingData d)
+void CalculateCustomLighting(CustomLightingData d, out float diffuse, out float specular, out float3 color)
 {
 #ifdef SHADERGRAPH_PREVIEW
     // In preview, estimate diffuse + specular
     float3 lightDir = float3(0.5, 0.5, 0);
-    float intensity = saturate(dot(d.normalWS, lightDir)) +
-        pow(saturate(dot(d.normalWS, normalize(d.viewDirectionWS + lightDir))), GetSmoothnessPower(d.smoothness));
-    return d.albedo * intensity;
+        
+    diffuse = saturate(dot(d.normalWS, lightDir) * 0.5 + 0.5);
+    
+    float specularDot = saturate(dot(d.normalWS, normalize(lightDir + d.viewDirectionWS)));
+    specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
+    
+    color = (diffuse + specular);
 #else
     // Get main light. Located in Universal RP/ShaderLibrary/Lighting.hlsl
     Light mainLight = GetMainLight(d.shadowCoord, d.positionWS, 1);
     
-    float3 color = 0;
+    diffuse = 0;
+    specular = 0;
+    color = 0;
     // Shade the main light
-    color += CustomLightHandling(d, mainLight);
+    float thisDiffuse = 0;
+    float thisSpecular = 0;
+    float3 thisColor = 0;
+    CustomLightHandling(d, mainLight, thisDiffuse, thisSpecular, thisColor);
+    diffuse += thisDiffuse;
+    specular += thisSpecular;
+    color += thisColor;
     
     #ifdef _ADDITIONAL_LIGHTS
         // Shade additional cone and point lights. Functions in URP/ShaderLibrary/Lighting.hlsl
@@ -64,25 +73,30 @@ float3 CalculateCustomLighting(CustomLightingData d)
         for (uint lightI = 0; lightI < numAdditionalLights; lightI++)
         {
             Light light = GetAdditionalLight(lightI, d.positionWS, 1);
-            color += CustomLightHandling(d, light);
+    
+            CustomLightHandling(d, light, thisDiffuse, thisSpecular, thisColor);
+            diffuse += thisDiffuse;
+            specular += thisSpecular;
+            color += thisColor;
         }
     #endif
     
-    return color;
+    // Exposure doesn't get blown out. Final color not oversaturated into white
+    float total = diffuse + dot(specular, float3(0.333, 0.333, 0.333)); // Get total diffuse + desaturated specular
+    color = total <= 0 ? color : color / total;
 #endif
 }
 
 // Above as a function that can be called from the ShaderGraph
 void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDirection,
-    float3 Albedo, float Smoothness,
-    out float3 Color)
+    float Smoothness,
+    out float Diffuse, out float Specular, out float3 Color)
 {
 
     CustomLightingData d;
     d.positionWS = Position;
     d.normalWS = Normal;
     d.viewDirectionWS = ViewDirection;
-    d.albedo = Albedo;
     d.smoothness = Smoothness;
     
 #ifdef SHADERGRAPH_PREVIEW
@@ -99,7 +113,7 @@ void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDi
     #endif
 #endif
 
-    Color = CalculateCustomLighting(d);
+    CalculateCustomLighting(d, Diffuse, Specular, Color);
 }
 
 #endif

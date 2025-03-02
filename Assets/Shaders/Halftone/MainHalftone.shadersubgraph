@@ -129,7 +129,7 @@
                 "m_Node": {
                     "m_Id": "cdeefb673af349a699d73530934d218e"
                 },
-                "m_SlotId": -1837397495
+                "m_SlotId": 514018858
             }
         },
         {
@@ -143,7 +143,7 @@
                 "m_Node": {
                     "m_Id": "cdeefb673af349a699d73530934d218e"
                 },
-                "m_SlotId": -1848791379
+                "m_SlotId": 1858198133
             }
         },
         {
@@ -478,33 +478,10 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "1532586a18924ab29349ea7f61510e85",
-    "m_Id": 1,
-    "m_DisplayName": "LightColor",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "LightColor",
-    "m_StageCapability": 2,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "15c3ce79b56d49759ae562e8627b8661",
     "m_Id": 0,
-    "m_DisplayName": "Lit Threshold",
+    "m_DisplayName": "Full Light Min",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -674,6 +651,21 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "49c130033b2c434bbd250149856a0878",
+    "m_Id": 1,
+    "m_DisplayName": "Shadow",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Shadow",
+    "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "55f40257054d4f9a855795692b595ce3",
     "m_Id": -1018550392,
     "m_DisplayName": "Circle Density",
@@ -683,29 +675,6 @@
     "m_StageCapability": 3,
     "m_Value": 30.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "566d36b0bb384a0dab6663f5082b8b0d",
-    "m_Id": 1,
-    "m_DisplayName": "LightColor",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "LightColor",
-    "m_StageCapability": 2,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
     "m_Labels": []
 }
 
@@ -729,7 +698,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.3400000035762787,
+    "m_Value": 1.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -859,7 +828,7 @@
     },
     "m_Slots": [
         {
-            "m_Id": "1532586a18924ab29349ea7f61510e85"
+            "m_Id": "49c130033b2c434bbd250149856a0878"
         }
     ],
     "synonyms": [],
@@ -926,7 +895,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "_Smoothness",
     "m_StageCapability": 2,
-    "m_Value": 0.0,
+    "m_Value": 1.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -954,27 +923,12 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "99e91cc88a3d4a12a0f96be82b737e2b",
     "m_Id": 0,
-    "m_DisplayName": "Falloff Threshold",
+    "m_DisplayName": "Full Shadow Max",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
     "m_StageCapability": 3,
     "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "9f49d7b1a5834b988d4c155c58c0efb0",
-    "m_Id": -1848791379,
-    "m_DisplayName": "Falloff Threshold",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "_Falloff_Threshold",
-    "m_StageCapability": 2,
-    "m_Value": 1.5,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -1001,10 +955,10 @@
     "m_Guid": {
         "m_GuidSerialized": "b2110c22-07d8-4158-91f9-64db3aa8d9a8"
     },
-    "m_Name": "Lit Threshold",
+    "m_Name": "Full Light Min",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Lit Threshold",
-    "m_DefaultReferenceName": "_Lit_Threshold",
+    "m_RefNameGeneratedByDisplayName": "Full Light Min",
+    "m_DefaultReferenceName": "_Full_Light_Min",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1075,21 +1029,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "b7d6fa28b3034db8ac47ebd6dbc8a55f",
-    "m_Id": -1837397495,
-    "m_DisplayName": "Lit Threshold",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "_Lit_Threshold",
-    "m_StageCapability": 2,
-    "m_Value": 1.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "b8d1c7b4cadc471e86323c671a7205e7",
     "m_Id": 0,
@@ -1118,24 +1057,16 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "c6ff2bd1f47449c28e534331a5243072",
-    "m_Id": -1920660686,
-    "m_DisplayName": "Albedo",
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "c5b8fdc9ce1b4f9fa4b7f1fd6e691744",
+    "m_Id": 514018858,
+    "m_DisplayName": "Full Light Min",
     "m_SlotType": 0,
     "m_Hidden": false,
-    "m_ShaderOutputName": "_Albedo",
+    "m_ShaderOutputName": "_Full_Light_Min",
     "m_StageCapability": 2,
-    "m_Value": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
+    "m_Value": 1.0,
+    "m_DefaultValue": 0.0,
     "m_Labels": []
 }
 
@@ -1168,22 +1099,19 @@
             "m_Id": "9046272526494b569a5d6ca2b19f6be7"
         },
         {
-            "m_Id": "c6ff2bd1f47449c28e534331a5243072"
-        },
-        {
             "m_Id": "651ae21f328d4690a4c0ecf476781acc"
         },
         {
-            "m_Id": "9f49d7b1a5834b988d4c155c58c0efb0"
+            "m_Id": "fd357ae6fd4242138e34a280f16dac89"
         },
         {
-            "m_Id": "b7d6fa28b3034db8ac47ebd6dbc8a55f"
+            "m_Id": "c5b8fdc9ce1b4f9fa4b7f1fd6e691744"
         },
         {
             "m_Id": "c4acc861cae64357a49c0247330647b9"
         },
         {
-            "m_Id": "566d36b0bb384a0dab6663f5082b8b0d"
+            "m_Id": "ddf8f135765c41798dffdaa1728259f5"
         }
     ],
     "synonyms": [],
@@ -1204,7 +1132,9 @@
         "c7cb6d94-5d14-4b14-8041-b83f6d9f91c5",
         "dfd5b003-5ed8-42bf-ac3a-37ec723cd23b",
         "d538c3a1-ab73-43df-b53b-44c16ed9d8c5",
-        "6b50df91-6133-4f20-b3d9-3c18bcc981ad"
+        "6b50df91-6133-4f20-b3d9-3c18bcc981ad",
+        "545509f8-f962-4073-a2d4-92044dfe757e",
+        "66c3823c-6c73-4487-85e0-0e2de040e911"
     ],
     "m_PropertyIds": [
         1030193356,
@@ -1215,10 +1145,27 @@
         1995894381,
         1250945029,
         -1837397495,
-        -1848791379
+        -1848791379,
+        1858198133,
+        514018858
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "ddf8f135765c41798dffdaa1728259f5",
+    "m_Id": 1,
+    "m_DisplayName": "Shadow",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Shadow",
+    "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
@@ -1228,10 +1175,10 @@
     "m_Guid": {
         "m_GuidSerialized": "8b3fa93c-9a68-422c-96b9-e3c84fb4f8f1"
     },
-    "m_Name": "Falloff Threshold",
+    "m_Name": "Full Shadow Max",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Falloff Threshold",
-    "m_DefaultReferenceName": "_Falloff_Threshold",
+    "m_RefNameGeneratedByDisplayName": "Full Shadow Max",
+    "m_DefaultReferenceName": "_Full_Shadow_Max",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1293,6 +1240,21 @@
         "m_Guid": ""
     },
     "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "fd357ae6fd4242138e34a280f16dac89",
+    "m_Id": 1858198133,
+    "m_DisplayName": "Full Shadow Max",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_Full_Shadow_Max",
+    "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
