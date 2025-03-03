@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Experimental.AI;
 using UnityEngine.TextCore.Text;
 
@@ -11,20 +12,20 @@ public class NPCGenerator : MonoBehaviour {
     [SerializeField] int NPCAmount;
     [SerializeField] int LockedRoleAmount;
     [SerializeField] List<NPC> NPCs;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    List<int> usedNames;
-    List<int> usedOccupations;
-    List<int> usedRelations;
-    void Start() {
-        usedNames = new List<int>(1){0};
-        usedOccupations = new List<int>(5) {0,1,2,3,4};
-        usedRelations = new List<int>(1) {0};
 
+    [SerializeField] List<int> unusedNames;
+    [SerializeField] List<int> unusedOccupations;
+    [SerializeField] List<int> unusedRelations;
+    void Start() {
+        //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
+        unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
+        unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length);
+        unusedRelations = PopulateList(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length);
+        
         for (int i = 0; i < NPCAmount; i++) {
             //Generate a new identity and npc to be used.
             NPC _npc = this.gameObject.AddComponent(typeof(NPC)) as NPC;
             Identity _identity = this.gameObject.AddComponent(typeof(Identity)) as Identity;
-
             // The first occupation is none, and the following 4 are locked to be used in every game.
             if (i < LockedRoleAmount) {
                 _identity.Occupation = (Identity.Occupations)i+1;
@@ -35,7 +36,8 @@ public class NPCGenerator : MonoBehaviour {
             
             _identity.Name = (Identity.Names)SelectName();
             _identity.Trait = (Identity.Traits)SelectTraits();
-            
+            _identity.PrimaryRole = Identity.PrimaryRoles.Civilian;
+
             _npc.SetIdentity(_identity);
             NPCs.Add(_npc);
         }
@@ -68,40 +70,49 @@ public class NPCGenerator : MonoBehaviour {
         //Here we select relations between all the npcs
         for (int i = 0; i < NPCs.Count; i++) {
             var nextNPCIndex = (i+1)%NPCs.Count;
-            var relation = (Identity.RelationTypes)SelectOccupation();
+            var relation = (Identity.RelationTypes)SelectRelationType();
             if (!NPCs[i].NPCIdentity.Relations.ContainsKey(NPCs[nextNPCIndex])){
                 NPCs[i].NPCIdentity.Relations.Add(NPCs[nextNPCIndex], relation);
+            }
+            if (!NPCs[nextNPCIndex].NPCIdentity.Relations.ContainsKey(NPCs[i])){
                 NPCs[nextNPCIndex].NPCIdentity.Relations.Add(NPCs[i], relation);
             }
         }
+
+        //We Select the victim and then the murderer
+        NPC victim = NPCs[Random.Range(0, NPCs.Count-1)];
+        var victimRelations = victim.NPCIdentity.Relations;
+        List<NPC> relationsNPCs = new List<NPC>(victimRelations.Keys);
+        NPC murderer = relationsNPCs[(Random.Range(0, victimRelations.Count))];
+
+        victim.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Victim;
+        murderer.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Murderer;
     }
 
     //Selects a random occupation that has not already been used for another character.
     int SelectOccupation(){
-        int value = Random.Range(LockedRoleAmount, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length);
-        if (usedOccupations.Contains(value)) {
-            value = SelectOccupation();
-        } else {
-            usedOccupations.Add(value);
-        }
-        return value;
+        int value = Random.Range(0, unusedOccupations.Count-1);
+        unusedOccupations.RemoveAt(value);
+        return unusedOccupations[value];
     }
 
     //Selects a random name that has not already been used for another character.
     int SelectName(){
-        // the variable used for min is 1, since 1 in the enums is always "none"
-        int value = Random.Range(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
-        if (usedNames.Contains(value)) {
-            value = SelectName();
-        } else {
-            usedNames.Add(value);
-        }
-        return value;
+        int value = Random.Range(0,unusedNames.Count-1);
+        unusedNames.RemoveAt(value);
+        return unusedNames[value];
     }
 
     //Selects a random trait.
     int SelectTraits(){
         return Random.Range(1, Identity.Traits.GetNames(typeof(Identity.Traits)).Length);;
+    }
+    int SelectRelationType(){
+        int value = Random.Range(0, unusedRelations.Count-1);
+        if(!System.Enum.IsDefined(typeof(Identity.MultiUseRelationTypes),unusedRelations[value])){
+            unusedRelations.RemoveAt(value);
+        }
+        return unusedRelations[value];
     }
 
 
@@ -117,14 +128,11 @@ public class NPCGenerator : MonoBehaviour {
 		}
         return list;
 	}
-    int SelectRelationType(){
-        // 2 cuz 0 is none and 1 is coworkers,
-        int value = Random.Range(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length);
-        if (usedRelations.Contains(value)) {
-            value = SelectRelationType();
-        } else {
-            usedRelations.Add(value);
+    List<int> PopulateList(int start, int size){
+        List<int> iList = new List<int>();
+        for (int i = start; i < size; i++) {
+            iList.Add(i);
         }
-        return value;
+        return iList;
     }
 }
