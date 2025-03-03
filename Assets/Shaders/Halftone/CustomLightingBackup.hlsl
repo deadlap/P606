@@ -2,8 +2,8 @@
 // https://nedmakesgames.medium.com/creating-custom-lighting-in-unitys-shader-graph-with-universal-render-pipeline-5ad442c27276
 
 // This prevents the script from being compiled twice
-#ifndef CUSTOM_LIGHTING_INCLUDED
-#define CUSTOM_LIGHTING_INCLUDED
+#ifndef CUSTOM_LIGHTING_2_INCLUDED
+#define CUSTOM_LIGHTING_2_INCLUDED
 
 // What data would this custom light include?
 struct CustomLightingData
@@ -26,15 +26,15 @@ float GetSmoothnessPower(float rawSmoothness)
 
 #ifndef SHADERGRAPH_PREVIEW
 // Calculates diffuse lighting, both color and normals
-void CustomLightHandling(CustomLightingData d, Light light, out float diffuse, out float specular, out float3 color, float attenuation)
+void CustomLightHandling(CustomLightingData d, Light light, out float diffuse, out float specular, out float3 color)
 {
-    attenuation = light.distanceAttenuation * light.shadowAttenuation;
+    float3 radiance = light.color * (light.distanceAttenuation * light.shadowAttenuation);
     
-    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * attenuation);
+    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * (light.distanceAttenuation * light.shadowAttenuation));
     float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));
     specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
     
-    color = light.color;
+    color = radiance;
 }
 #endif
 
@@ -62,13 +62,10 @@ void CalculateCustomLighting(CustomLightingData d, out float diffuse, out float 
     float thisDiffuse = 0;
     float thisSpecular = 0;
     float3 thisColor = 0;
-    float thisAttenuation = 0;
-    CustomLightHandling(d, mainLight, thisDiffuse, thisSpecular, thisColor, thisAttenuation);
+    CustomLightHandling(d, mainLight, thisDiffuse, thisSpecular, thisColor);
     diffuse += thisDiffuse;
     specular += thisSpecular;
-    color = thisColor;
-    
-    float highestAttenuation = thisDiffuse;
+    color += thisColor;
     
     #ifdef _ADDITIONAL_LIGHTS
         // Shade additional cone and point lights. Functions in URP/ShaderLibrary/Lighting.hlsl
@@ -77,19 +74,16 @@ void CalculateCustomLighting(CustomLightingData d, out float diffuse, out float 
         {
             Light light = GetAdditionalLight(lightI, d.positionWS, 1);
     
-            CustomLightHandling(d, light, thisDiffuse, thisSpecular, thisColor, thisAttenuation);
+            CustomLightHandling(d, light, thisDiffuse, thisSpecular, thisColor);
             diffuse += thisDiffuse;
             specular += thisSpecular;
-    
-            if (thisDiffuse > highestAttenuation)
-            {
-                highestAttenuation = thisDiffuse;
-                color = thisColor;
-            }
+            color += thisColor;
         }
-#endif
+    #endif
     
-    
+    // Exposure doesn't get blown out. Final color not oversaturated into white
+    float total = diffuse + dot(specular, float3(0.333, 0.333, 0.333)); // Get total diffuse + desaturated specular
+    color = total <= 0 ? color : color / total;
 #endif
 }
 

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Halftone Unlit
+  m_Name: No Specular Halftone
   m_Shader: {fileID: -6465566751694194690, guid: f27cb65a99de1494897696f93af4ae3b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -76,10 +76,10 @@ Material:
     - _Softness: 0
     - _Specular_Light_Max: 1
     - _Specular_Light_Min: 0
-    - _Specular_Size_Max: 1
+    - _Specular_Size_Max: 0
     - _Specular_Size_Min: 0
     - _Use_Screen_Space: 1
-    - _Use_Specular: 0
+    - _Use_Specular: 1
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
