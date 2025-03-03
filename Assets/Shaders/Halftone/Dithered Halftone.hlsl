@@ -16,8 +16,6 @@ struct CustomLightingData
     
     // Surface attributes
     float smoothness;
-    float pattern;
-    float2 lightBlend;
 };
 
 // Translate a [0, 1] smoothness value to an exponent
@@ -28,9 +26,11 @@ float GetSmoothnessPower(float rawSmoothness)
 
 #ifndef SHADERGRAPH_PREVIEW
 // Calculates diffuse lighting, both color and normals
-void CustomLightHandling(CustomLightingData d, Light light, out float diffuse, out float specular, out float3 color)
-{    
-    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * (light.distanceAttenuation * light.shadowAttenuation));
+void CustomLightHandling(CustomLightingData d, Light light, out float diffuse, out float specular, out float3 color, float attenuation)
+{
+    attenuation = light.distanceAttenuation * light.shadowAttenuation;
+    
+    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * attenuation);
     float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));
     specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
     
@@ -62,13 +62,13 @@ void CalculateCustomLighting(CustomLightingData d, out float diffuse, out float 
     float thisDiffuse = 0;
     float thisSpecular = 0;
     float3 thisColor = 0;
-    CustomLightHandling(d, mainLight, thisDiffuse, thisSpecular, thisColor);
+    float thisAttenuation = 0;
+    CustomLightHandling(d, mainLight, thisDiffuse, thisSpecular, thisColor, thisAttenuation);
     diffuse += thisDiffuse;
     specular += thisSpecular;
     color = thisColor;
     
-    float highestDiffuse = thisDiffuse;
-    float patternDiffuse = 0;
+    float highestAttenuation = thisDiffuse;
     
     #ifdef _ADDITIONAL_LIGHTS
         // Shade additional cone and point lights. Functions in URP/ShaderLibrary/Lighting.hlsl
@@ -77,24 +77,14 @@ void CalculateCustomLighting(CustomLightingData d, out float diffuse, out float 
         {
             Light light = GetAdditionalLight(lightI, d.positionWS, 1);
     
-            CustomLightHandling(d, light, thisDiffuse, thisSpecular, thisColor);
+            CustomLightHandling(d, light, thisDiffuse, thisSpecular, thisColor, thisAttenuation);
             diffuse += thisDiffuse;
             specular += thisSpecular;
     
-            if (thisDiffuse > highestDiffuse)
+            if (thisDiffuse > highestAttenuation)
             {
-                patternDiffuse = highestDiffuse;
-                highestDiffuse = thisDiffuse;
-                float stepped = smoothstep(d.lightBlend.x, d.lightBlend.y, highestDiffuse);
-                stepped = smoothstep(stepped, stepped - 0, 1 - d.pattern);
-                color = (1 - stepped) * thisColor + color * (stepped);
-            }
-            else if(thisDiffuse > patternDiffuse)
-            {
-                patternDiffuse = thisDiffuse;
-                float stepped = smoothstep(d.lightBlend.x, d.lightBlend.y, patternDiffuse/(patternDiffuse+highestDiffuse));
-                stepped = saturate(smoothstep(stepped, stepped - 0, 1 - d.pattern));
-                color = (1 - stepped) * thisColor + color * (stepped);
+                highestAttenuation = thisDiffuse;
+                color = thisColor;
             }
         }
 #endif
@@ -105,7 +95,7 @@ void CalculateCustomLighting(CustomLightingData d, out float diffuse, out float 
 
 // Above as a function that can be called from the ShaderGraph
 void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDirection,
-    float Smoothness, float Pattern, float2 LightBlend,
+    float Smoothness,
     out float Diffuse, out float Specular, out float3 Color)
 {
 
@@ -114,8 +104,6 @@ void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDi
     d.normalWS = Normal;
     d.viewDirectionWS = ViewDirection;
     d.smoothness = Smoothness;
-    d.pattern = Pattern;
-    d.lightBlend = LightBlend;
     
 #ifdef SHADERGRAPH_PREVIEW
     // In preview, there's no shadows or bakedGI
