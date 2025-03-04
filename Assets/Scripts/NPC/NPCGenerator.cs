@@ -16,7 +16,17 @@ public class NPCGenerator : MonoBehaviour {
     [SerializeField] List<int> unusedNames;
     [SerializeField] List<int> unusedOccupations;
     [SerializeField] List<int> unusedRelations;
+    [SerializeField] GameObject NPCBasePrefab;
+    
+    [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
+
     void Start() {
+
+        MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
+            | Identity.RelationTypes.Acquaintances | Identity.RelationTypes.Friends 
+            | Identity.RelationTypes.Business_Partners | Identity.RelationTypes.Family;
+            // | Identity.RelationTypes.Neighbor;
+
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
         unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
         unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length);
@@ -24,8 +34,9 @@ public class NPCGenerator : MonoBehaviour {
         
         for (int i = 0; i < NPCAmount; i++) {
             //Generate a new identity and npc to be used.
-            NPC _npc = this.gameObject.AddComponent(typeof(NPC)) as NPC;
-            Identity _identity = this.gameObject.AddComponent(typeof(Identity)) as Identity;
+            var npc_gameobject = Instantiate(NPCBasePrefab);
+            NPC _npc = npc_gameobject.gameObject.AddComponent(typeof(NPC)) as NPC;
+            Identity _identity = npc_gameobject.gameObject.AddComponent(typeof(Identity)) as Identity;
             // The first occupation is none, and the following 4 are locked to be used in every game.
             if (i < LockedRoleAmount) {
                 _identity.Occupation = (Identity.Occupations)i+1;
@@ -40,12 +51,15 @@ public class NPCGenerator : MonoBehaviour {
 
             _npc.SetIdentity(_identity);
             NPCs.Add(_npc);
+            npc_gameobject.gameObject.AddComponent(typeof(NPCSpawnPointFinder));
+            npc_gameobject.gameObject.AddComponent(typeof(NPCInitialPromptGenerator));
+            npc_gameobject.gameObject.name = System.Enum.GetName(typeof(Identity.Names),_identity.Name);
         }
 
         //Initialize each characters relation to eachother as none
         for (int i = 0; i < NPCs.Count; i++) {
             Identity _identity = NPCs[i].NPCIdentity;
-            for (int j = 0; j < NPCs.Count-1; j++) {
+            for (int j = 0; j < NPCs.Count; j++) {
                 if (j == i) continue; // Skip self-referencing
                 NPC npckey = NPCs[j];
 
@@ -57,25 +71,29 @@ public class NPCGenerator : MonoBehaviour {
         //Set coworker relations between the first 4 npcs
         for (int i = 0; i < LockedRoleAmount; i++) {
             Identity _identity = NPCs[i].NPCIdentity;
-            for (int j = 0; j < LockedRoleAmount-1; j++) {
+            for (int j = 0; j < LockedRoleAmount; j++) {
                 if (j == i) continue; // Skip self-referencing
                 NPC npckey = NPCs[j];
-                if (!_identity.Relations.ContainsKey(npckey)) {  // Prevent duplicate additions
+                if (_identity.Relations.ContainsKey(npckey)) {  // Prevent duplicate additions
                     _identity.Relations[npckey] = Identity.RelationTypes.CoWorkers;
                 }
             }
         }
+        //Shuffle the order of npc
         NPCs = ShuffleList(NPCs);
 
         //Here we select relations between all the npcs
         for (int i = 0; i < NPCs.Count; i++) {
             var nextNPCIndex = (i+1)%NPCs.Count;
+            NPCs[i].Index = i;
             var relation = (Identity.RelationTypes)SelectRelationType();
-            if (!NPCs[i].NPCIdentity.Relations.ContainsKey(NPCs[nextNPCIndex])){
-                NPCs[i].NPCIdentity.Relations.Add(NPCs[nextNPCIndex], relation);
+            if (NPCs[i].NPCIdentity.Relations.ContainsKey(NPCs[nextNPCIndex]) 
+                && NPCs[i].NPCIdentity.Relations[NPCs[nextNPCIndex]] == Identity.RelationTypes.None){
+                NPCs[i].NPCIdentity.Relations[NPCs[nextNPCIndex]] = relation;
             }
-            if (!NPCs[nextNPCIndex].NPCIdentity.Relations.ContainsKey(NPCs[i])){
-                NPCs[nextNPCIndex].NPCIdentity.Relations.Add(NPCs[i], relation);
+            if (NPCs[nextNPCIndex].NPCIdentity.Relations.ContainsKey(NPCs[i]) && 
+                NPCs[nextNPCIndex].NPCIdentity.Relations[NPCs[i]] == Identity.RelationTypes.None){
+                NPCs[nextNPCIndex].NPCIdentity.Relations[NPCs[i]] = relation;
             }
         }
 
@@ -108,11 +126,13 @@ public class NPCGenerator : MonoBehaviour {
         return Random.Range(1, Identity.Traits.GetNames(typeof(Identity.Traits)).Length);;
     }
     int SelectRelationType(){
-        int value = Random.Range(0, unusedRelations.Count-1);
-        if(!System.Enum.IsDefined(typeof(Identity.MultiUseRelationTypes),unusedRelations[value])){
-            unusedRelations.RemoveAt(value);
+
+        int index = Random.Range(0, unusedRelations.Count);
+        Identity.RelationTypes value = (Identity.RelationTypes)index;
+        if(!MultiUseRelationTypes.HasFlag(value)){
+            unusedRelations.RemoveAt(index);
         }
-        return unusedRelations[value];
+        return unusedRelations[index];
     }
 
 

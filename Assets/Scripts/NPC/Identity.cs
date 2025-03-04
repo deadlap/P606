@@ -46,15 +46,6 @@ public class Identity : MonoBehaviour {
         Sad,
         Annoyed,
     }
-    public enum MultiUseRelationTypes {
-        None = 0,
-        Rivalry = 3,
-        Acquaintances = 5,
-        Friends = 6,
-        Business_Partners = 7,
-        Family = 8,
-        Neighbor = 9,
-    }
     public enum RelationTypes {
         None,
         CoWorkers,
@@ -66,7 +57,7 @@ public class Identity : MonoBehaviour {
         Friends,
         Business_Partners,
         Family,
-        Neighbor,
+        // Neighbor,
     }
 
     public enum Motives {
