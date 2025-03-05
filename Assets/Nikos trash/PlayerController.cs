@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
                     closestNPC = npcs[i];
                 }
             }
-            Debug.Log($"{closestNPC.name} is the closest NPC to the player.");
+            // Debug.Log($"{closestNPC.name} is the closest NPC to the player.");
         }
     }
 

@@ -1,6 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// Generates the initial (unseen by player) prompt for the LLMCharacter to use
+///  Maybe change this to create a txt file so we can use RAG.
+/// </summary>
+
 public class NPCInitialPromptGenerator : MonoBehaviour {
 
     [SerializeField] NPC Npc;
@@ -9,23 +14,8 @@ public class NPCInitialPromptGenerator : MonoBehaviour {
     string InitialPrompt;
 
     [TextAreaAttribute(20, 30)]
-    [SerializeField] string GeneratedPrompt;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
-        Npc = GetComponent<NPC>();
-        NPCIdentity = GetComponent<Identity>();
-        InitialPrompt = "something something game setting text and rules for the ai. " + 
-            "Your Name is: " + NPCIdentity.Name + ". Your Occupation is: " + NPCIdentity.Occupation + 
-            ". Your personality trait is: " + NPCIdentity.Trait + ". Your role in this game is: " + NPCIdentity.PrimaryRole + ". ";
-        GeneratedPrompt = InitialPrompt + GetRelationText();
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
-    }
-
+    public string GeneratedPrompt;
+    
     string GetRelationText(){
         string text = "";
         string startText = "You know: ";
@@ -36,5 +26,14 @@ public class NPCInitialPromptGenerator : MonoBehaviour {
             }
         }
         return text;
+    }
+    public string GeneratePrompt(){
+        Npc = GetComponent<NPC>();
+        NPCIdentity = GetComponent<Identity>();
+        InitialPrompt = "something something game setting text and rules for the ai. " + 
+            "Your Name is: " + NPCIdentity.Name + ". Your Occupation is: " + NPCIdentity.Occupation + 
+            ". Your personality trait is: " + NPCIdentity.Trait + ". Your role in this game is: " + NPCIdentity.PrimaryRole + ". ";
+        GeneratedPrompt = InitialPrompt + GetRelationText();
+        return GeneratedPrompt;
     }
 }

@@ -287,6 +287,7 @@ MonoBehaviour:
   speed: 5
   interactButtonPrefab: {fileID: 392154265601354612, guid: 718572254ae65524e8272aa527f24885, type: 3}
   closestNPC: {fileID: 0}
+  interactFillTime: 0.5
 --- !u!114 &583622829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   contextSize: 8192
   batchSize: 512
-  model: Hermes-3-Llama-3.2-3B.Q8_0.gguf
+  model: Hermes-3-Llama-3.2-3B.Q4_K_M.gguf
   chatTemplate: chatml
   lora: 
   loraWeights: 

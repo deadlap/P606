@@ -105,6 +105,9 @@ public class NPCGenerator : MonoBehaviour {
 
         victim.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Victim;
         murderer.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Murderer;
+        foreach (NPC npc in NPCs) {
+            npc.StartUp();
+        }
     }
 
     //Selects a random occupation that has not already been used for another character.

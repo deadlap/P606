@@ -5,14 +5,8 @@ public class NPCSpawnPointFinder : MonoBehaviour {
     [SerializeField] NPC Npc;
     [SerializeField] Identity NPCIdentity;
     
-    void Start() {
+    public void Start() {
         Npc = GetComponent<NPC>();
         NPCIdentity = GetComponent<Identity>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
