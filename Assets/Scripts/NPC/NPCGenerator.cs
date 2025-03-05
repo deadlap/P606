@@ -8,7 +8,6 @@ using UnityEngine.TextCore.Text;
 
 public class NPCGenerator : MonoBehaviour {
 
-
     [SerializeField] int NPCAmount;
     [SerializeField] int LockedRoleAmount;
     [SerializeField] List<NPC> NPCs;
@@ -51,7 +50,6 @@ public class NPCGenerator : MonoBehaviour {
 
             _npc.SetIdentity(_identity);
             NPCs.Add(_npc);
-            npc_gameobject.gameObject.AddComponent(typeof(NPCSpawnPointFinder));
             npc_gameobject.gameObject.AddComponent(typeof(NPCInitialPromptGenerator));
             npc_gameobject.gameObject.name = System.Enum.GetName(typeof(Identity.Names),_identity.Name);
         }
@@ -85,7 +83,6 @@ public class NPCGenerator : MonoBehaviour {
         //Here we select relations between all the npcs
         for (int i = 0; i < NPCs.Count; i++) {
             var nextNPCIndex = (i+1)%NPCs.Count;
-            NPCs[i].Index = i;
             var relation = (Identity.RelationTypes)SelectRelationType();
             if (NPCs[i].NPCIdentity.Relations.ContainsKey(NPCs[nextNPCIndex]) 
                 && NPCs[i].NPCIdentity.Relations[NPCs[nextNPCIndex]] == Identity.RelationTypes.None){
@@ -105,8 +102,10 @@ public class NPCGenerator : MonoBehaviour {
 
         victim.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Victim;
         murderer.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Murderer;
-        foreach (NPC npc in NPCs) {
-            npc.StartUp();
+        for (int i = 0; i < NPCs.Count; i++) {
+            // transform.GetChild(i).gameObject.SetActive(true);
+            transform.GetChild(i).SetParent(NPCs[i].gameObject.transform);
+            NPCs[i].StartUp();
         }
     }
 
@@ -137,7 +136,6 @@ public class NPCGenerator : MonoBehaviour {
         }
         return unusedRelations[index];
     }
-
 
     //Tror vi shuffler listen her.
 	public List<NPC> ShuffleList(List<NPC> list) {

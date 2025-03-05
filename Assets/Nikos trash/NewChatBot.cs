@@ -166,7 +166,7 @@ public class NewChatBot : MonoBehaviour
         inputField.text = "";
         InputFieldSelected(null);
         yield return new WaitForSeconds(0.5f);
-        llmCharacter = PlayerController.instance.closestNPC.GetComponent<LLMCharacter>();
+        llmCharacter = PlayerController.instance.closestNPC.GetComponentInChildren<LLMCharacter>();
         piperTTS = PlayerController.instance.closestNPC.GetComponentInChildren<PiperTTS>();
         Start();
     }
