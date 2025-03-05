@@ -1439,13 +1439,16 @@
     "m_Name": "Specular",
     "m_ChildObjectList": [
         {
+            "m_Id": "c3d4bbf910034ff8bb21c37676c1e8fa"
+        },
+        {
+            "m_Id": "71f46273c1ef4996bf9d0440037202ef"
+        },
+        {
             "m_Id": "ab4effeae3a2419791f5a7ddccb1fc03"
         },
         {
             "m_Id": "bd241873641c40d3a39dd74068813c41"
-        },
-        {
-            "m_Id": "c3d4bbf910034ff8bb21c37676c1e8fa"
         }
     ]
 }
@@ -2317,12 +2320,6 @@
         },
         {
             "m_Id": "c995bcb51e374b099cfac7ce9756815b"
-        },
-        {
-            "m_Id": "42f04ed319ad4157847a787f66f6d280"
-        },
-        {
-            "m_Id": "71f46273c1ef4996bf9d0440037202ef"
         }
     ]
 }
@@ -2579,6 +2576,9 @@
     "m_ObjectId": "32b569aaf7c14362a0bf310dd54649b0",
     "m_Name": "Pattern",
     "m_ChildObjectList": [
+        {
+            "m_Id": "42f04ed319ad4157847a787f66f6d280"
+        },
         {
             "m_Id": "0515ea2751894072902d32b17447feb9"
         },
@@ -2847,8 +2847,8 @@
     "m_ObjectId": "4146ed0b765b4b2aa17e94e0d5392e7f",
     "m_Title": "Base Color Sample",
     "m_Position": {
-        "x": -3338.000244140625,
-        "y": -856.0000610351563
+        "x": -3338.0,
+        "y": -856.0
     }
 }
 
@@ -4251,8 +4251,8 @@
     "m_ObjectId": "8ee338de319b47ac80903383181c0f4d",
     "m_Title": "Base Shadow Sample",
     "m_Position": {
-        "x": -3426.000244140625,
-        "y": 920.0000610351563
+        "x": -3426.0,
+        "y": 920.0
     }
 }
 
@@ -4976,8 +4976,8 @@
     "m_ObjectId": "b34d9d12b70e418b87ad61981d5e6185",
     "m_Title": "Normal Map",
     "m_Position": {
-        "x": -4609.00048828125,
-        "y": -124.00001525878906
+        "x": -4609.0,
+        "y": -124.0
     }
 }
 
@@ -5817,10 +5817,10 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": 45.0,
-    "m_FloatType": 0,
+    "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.0,
-        "y": 1.0
+        "y": 90.0
     }
 }
 
@@ -6782,16 +6782,16 @@
     "m_RefNameGeneratedByDisplayName": "Light Blend MinMax",
     "m_DefaultReferenceName": "_Light_Blend_MinMax",
     "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
+    "m_GeneratePropertyBlock": false,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_DismissedVersion": 0,
     "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
+    "overrideHLSLDeclaration": true,
+    "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.0,
+        "x": -0.5,
         "y": 1.0,
         "z": 0.0,
         "w": 0.0
