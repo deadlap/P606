@@ -13,10 +13,14 @@ public class NPC : MonoBehaviour {
     public void StartUp(){
         llmCharacter = GetComponentInChildren<LLMCharacter>();
         PromptGenerator = GetComponent<NPCInitialPromptGenerator>();
+        
+        
         llmCharacter.AIName =  System.Enum.GetName(typeof(Identity.Names), NPCIdentity.Name);
         var prompt = PromptGenerator.GeneratePrompt();
+        
         //Set the initial prompt for the AI chatbot, with its personality etc.
         llmCharacter.SetPrompt(prompt, true);
+        transform.position = NPCSpawnPointFinder.Instance.FindSpawnPoint(NPCIdentity.Occupation).SpawnPosition();
     }
 
     // Update is called once per frame
