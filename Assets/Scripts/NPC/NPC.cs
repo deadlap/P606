@@ -6,6 +6,7 @@ public class NPC : MonoBehaviour {
     public Identity NPCIdentity;
     public LLMCharacter llmCharacter;
     public NPCInitialPromptGenerator PromptGenerator;
+    public GameObject spawnPoint;
 
     public void SetIdentity(Identity ID) {
         NPCIdentity = ID;
@@ -20,6 +21,7 @@ public class NPC : MonoBehaviour {
         
         //Set the initial prompt for the AI chatbot, with its personality etc.
         llmCharacter.SetPrompt(prompt, true);
+        spawnPoint = NPCSpawnPointFinder.Instance.FindSpawnPoint(NPCIdentity.Occupation).gameObject;
         transform.position = NPCSpawnPointFinder.Instance.FindSpawnPoint(NPCIdentity.Occupation).SpawnPosition();
     }
 
