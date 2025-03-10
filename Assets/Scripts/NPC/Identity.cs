@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Identity : MonoBehaviour {
     public Names Name;
     public PrimaryRoles PrimaryRole;
@@ -41,17 +41,18 @@ public class Identity : MonoBehaviour {
         Entertainer,
         Welder
     }
-    public enum RelationTypes {
-        None,
-        CoWorkers,
-        Married,
-        Lovers,
-        Rivalry,
-        Ex,
-        Acquaintances,
-        Friends,
-        Business_Partners,
-        Family,
+    
+    [Flags] public enum RelationTypes {
+        None = 0,
+        CoWorkers = 1,
+        Married = 2,
+        Lovers = 4,
+        Rivalry = 8,
+        Ex = 16,
+        Acquaintances = 32,
+        Friends = 64,
+        Business_Partners = 128,
+        Family = 256,
     }
 
     public enum Motives {

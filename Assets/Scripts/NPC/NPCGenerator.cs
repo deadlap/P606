@@ -24,15 +24,16 @@ public class NPCGenerator : MonoBehaviour {
     [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
 
     void Start() {
-        MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
-            | Identity.RelationTypes.Acquaintances | Identity.RelationTypes.Friends 
-            | Identity.RelationTypes.Business_Partners | Identity.RelationTypes.Family;
+        // MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
+        //     | Identity.RelationTypes.Acquaintances | Identity.RelationTypes.Friends 
+        //     | Identity.RelationTypes.Business_Partners | Identity.RelationTypes.Family;
 
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
-        unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
-        unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length);
-        unusedRelations = PopulateList(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length);
+        unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length-1);
+        unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length-1);
+        unusedRelations = PopulateListType2(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length-1);
         NPCs = new List<NPC>();
+
 
         for (int i = 0; i < NPCAmount; i++) {
             //Generate a new identity and npc to be used.
@@ -89,9 +90,10 @@ public class NPCGenerator : MonoBehaviour {
         //Here we select relations between all the npcs
         for (int i = 0; i < NPCs.Count; i++) {
             var nextNPCIndex = (i+1)%NPCs.Count;
-            var relation = (Identity.RelationTypes)SelectRelationType();
+            Identity.RelationTypes relation = Identity.RelationTypes.None;
             if (NPCs[i].NPCIdentity.Relations.ContainsKey(NPCs[nextNPCIndex]) 
                 && NPCs[i].NPCIdentity.Relations[NPCs[nextNPCIndex]] == Identity.RelationTypes.None){
+                relation = (Identity.RelationTypes) SelectRelationType();
                 NPCs[i].NPCIdentity.Relations[NPCs[nextNPCIndex]] = relation;
             }
             if (NPCs[nextNPCIndex].NPCIdentity.Relations.ContainsKey(NPCs[i]) && 
@@ -117,26 +119,33 @@ public class NPCGenerator : MonoBehaviour {
 
     //Selects a random occupation that has not already been used for another character.
     int SelectOccupation(){
-        int value = Random.Range(0, unusedOccupations.Count-1);
-        unusedOccupations.RemoveAt(value);
-        return unusedOccupations[value];
+        int index = Random.Range(0, unusedOccupations.Count);
+        var temp_occupation = unusedOccupations[index];
+        unusedOccupations.RemoveAt(index);
+        return temp_occupation;
     }
 
     //Selects a random name that has not already been used for another character.
     int SelectName(){
-        int value = Random.Range(0,unusedNames.Count-1);
-        unusedNames.RemoveAt(value);
-        return unusedNames[value];
+        int index = Random.Range(0,unusedNames.Count);
+        var temp_name = unusedNames[index];
+        unusedNames.RemoveAt(index);
+        return temp_name;
     }
 
     int SelectRelationType(){
-
         int index = Random.Range(0, unusedRelations.Count);
-        Identity.RelationTypes value = (Identity.RelationTypes)index;
+        Identity.RelationTypes value = (Identity.RelationTypes)unusedRelations[index];
+        Debug.Log("index" + index);
+        Debug.Log("Value" + value);
+        Debug.Log(!MultiUseRelationTypes.HasFlag(value));
+        Debug.Log(MultiUseRelationTypes != value);
+        
         if(!MultiUseRelationTypes.HasFlag(value)){
             unusedRelations.RemoveAt(index);
         }
-        return unusedRelations[index];
+        int temp = (int)value;
+        return temp;
     }
 
     //Tror vi shuffler listen her.
@@ -155,6 +164,13 @@ public class NPCGenerator : MonoBehaviour {
         List<int> iList = new List<int>();
         for (int i = start; i < size; i++) {
             iList.Add(i);
+        }
+        return iList;
+    }
+    List<int> PopulateListType2(int start, int size){
+        List<int> iList = new List<int>();
+        for (int i = start; i < size; i++) {
+            iList.Add((int)Mathf.Pow(2,i));
         }
         return iList;
     }
