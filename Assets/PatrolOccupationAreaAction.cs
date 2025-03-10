@@ -40,8 +40,8 @@ public partial class PatrolOccupationAreaAction : Action
         if(Agent.Value.GetComponent<Identity>() == null) return;
         identity = Agent.Value.GetComponent<Identity>();
         occupation = identity.Occupation.ToString();
-        if(Agent.Value.GetComponent<NPC>().spawnPoint == null) return; 
-        patrolArea = Agent.Value.GetComponent<NPC>().spawnPoint;
+        if(Agent.Value.GetComponent<NPC>().SpawnPoint == null) return; 
+        patrolArea = Agent.Value.GetComponent<NPC>().SpawnPoint.gameObject;
         Debug.Log($"im {Agent.Value.name} and im a {occupation}. i like to walk around {patrolArea.name}");
         hasInitialized = true;
     }

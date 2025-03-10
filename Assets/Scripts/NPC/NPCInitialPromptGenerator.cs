@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System;
 
 /// <summary>
 /// Generates the initial (unseen by player) prompt for the LLMCharacter to use
