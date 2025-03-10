@@ -1,22 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.EditorTools;
 
 public class NPCGenerator : MonoBehaviour {
-
+    [Tooltip("How many NPCs should be created")]
     [SerializeField] int NPCAmount;
+    [Tooltip("Fixed NPC occupations that should always be generated, Chef, Janitor, Waiter, Bartender by standard so 4")]
     [SerializeField] int LockedRoleAmount;
-    [SerializeField] List<NPC> NPCs;
-
+    
+    //List of the generated NPCs, used to generate relations between them.
+    List<NPC> NPCs;
+    [Tooltip("List of unused names, each time a name is selected it is deleted from this list")]
     [SerializeField] List<int> unusedNames;
+    [Tooltip("List of unused occupations, each time an occupation is selected it is deleted from this list")]
     [SerializeField] List<int> unusedOccupations;
+    [Tooltip("List of 'unused' relation types, some relationtypes can be used multiple times and are not removed after use")]
     [SerializeField] List<int> unusedRelations;
+    [Tooltip("NPC prefab")]
     [SerializeField] GameObject NPCBasePrefab;
     
+    [Tooltip("Enum of relationtypes that can be used multiple times.")]
     [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
 
     void Start() {
-
         MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
             | Identity.RelationTypes.Acquaintances | Identity.RelationTypes.Friends 
             | Identity.RelationTypes.Business_Partners | Identity.RelationTypes.Family;
@@ -25,7 +32,8 @@ public class NPCGenerator : MonoBehaviour {
         unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
         unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length);
         unusedRelations = PopulateList(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length);
-        
+        NPCs = new List<NPC>();
+
         for (int i = 0; i < NPCAmount; i++) {
             //Generate a new identity and npc to be used.
             var npc_gameobject = Instantiate(NPCBasePrefab);
@@ -40,12 +48,14 @@ public class NPCGenerator : MonoBehaviour {
             }
             
             _identity.Name = (Identity.Names)SelectName();
-            _identity.Trait = (Identity.Traits)SelectTraits();
             _identity.PrimaryRole = Identity.PrimaryRoles.Civilian;
-
+            _identity.Openness = Random.Range(0,2)*100;
+            _identity.Conscientiousness = Random.Range(0,2)*100;
+            _identity.Extraversion = Random.Range(0,2)*100;
+            _identity.Agreeableness = Random.Range(0,2)*100;
+            _identity.Neuroticism = Random.Range(0,2)*100;
             _npc.SetIdentity(_identity);
             NPCs.Add(_npc);
-            npc_gameobject.gameObject.AddComponent(typeof(NPCInitialPromptGenerator));
             npc_gameobject.gameObject.name = System.Enum.GetName(typeof(Identity.Names),_identity.Name);
             npc_gameobject.GetComponentInChildren<TMP_Text>().text = System.Enum.GetName(typeof(Identity.Names),_identity.Name);
         }
@@ -119,10 +129,6 @@ public class NPCGenerator : MonoBehaviour {
         return unusedNames[value];
     }
 
-    //Selects a random trait.
-    int SelectTraits(){
-        return Random.Range(1, Identity.Traits.GetNames(typeof(Identity.Traits)).Length);;
-    }
     int SelectRelationType(){
 
         int index = Random.Range(0, unusedRelations.Count);
@@ -151,5 +157,16 @@ public class NPCGenerator : MonoBehaviour {
             iList.Add(i);
         }
         return iList;
+    }
+    public NPC GetVictim(){
+        foreach (NPC npc in NPCs) {
+            if (npc.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim){
+                return npc;
+            }
+        }
+        return null;
+    }
+    public int GetNPCAmount(){
+        return NPCs.Count;
     }
 }

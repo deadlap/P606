@@ -5,9 +5,14 @@ public class Identity : MonoBehaviour {
     public Names Name;
     public PrimaryRoles PrimaryRole;
     public Occupations Occupation;
-    public Traits Trait;
     public Dictionary<NPC, RelationTypes> Relations;
     public Motives Motive;
+
+    public int Openness;
+    public int Conscientiousness;
+    public int Extraversion;
+    public int Agreeableness;
+    public int Neuroticism;
 
     static public int RelationsAmount;
     void Awake() {
@@ -35,15 +40,6 @@ public class Identity : MonoBehaviour {
         Magician,
         Entertainer,
         Welder
-    }
-    public enum Traits {
-        None,
-        Angry,
-        Grumpy,
-        Happy,
-        Forgetful,
-        Sad,
-        Annoyed,
     }
     public enum RelationTypes {
         None,

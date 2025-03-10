@@ -5,19 +5,10 @@ using UnityEngine;
 public class NPCSpawnPointFinder : MonoBehaviour {
 
     public static NPCSpawnPointFinder Instance;
-    // [SerializeField] Identity.Occupations Passengers;
-    // [SerializeField] Identity.Occupations Workers;
     [SerializeField] List<NPCSpawnPoint> UnusedSpawnPoints;
     [SerializeField] NPCSpawnPoint FallBackSpawnPoint;
 
     void Awake() {
-        // Passengers = Identity.Occupations.European_Painter 
-        // | Identity.Occupations.Egg_Merchant | Identity.Occupations.Teacher | Identity.Occupations.Business_Person 
-        // | Identity.Occupations.Mafioso | Identity.Occupations.Magician | Identity.Occupations.Entertainer | Identity.Occupations.Welder;
-
-        // Workers = Identity.Occupations.Chef | Identity.Occupations.Janitor
-        // | Identity.Occupations.Waiter | Identity.Occupations.Bartender;
-
         Instance = this;
         var temp_list = GameObject.FindGameObjectsWithTag("NPCSpawnPoint");
         foreach (GameObject obj in temp_list) {
@@ -32,7 +23,7 @@ public class NPCSpawnPointFinder : MonoBehaviour {
         if (temp_spawn == null) {
             temp_spawn = SearchListForSpawnTag(Identity.Occupations.None);
         }
-        if (temp_spawn == null) {
+        if (temp_spawn == null && FallBackSpawnPoint != null) {
             return FallBackSpawnPoint;
         }
         return temp_spawn;
