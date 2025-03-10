@@ -30,7 +30,7 @@ public class NPCInitialPromptGenerator : MonoBehaviour {
     public string GeneratePrompt(){
         Npc = GetComponent<NPC>();
         NPCIdentity = GetComponent<Identity>();
-        InitialPrompt = "something something game setting text and rules for the ai. " + 
+        InitialPrompt = "" + 
             "Your Name is: " + GetStringName(NPCIdentity.Name) + ". Your Occupation is: " + NPCIdentity.Occupation + 
             ". Your personality trait is: " + NPCIdentity.Trait + ". Your role in this game is: " + NPCIdentity.PrimaryRole + ". ";
         GeneratedPrompt = InitialPrompt + GetRelationText();

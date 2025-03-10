@@ -1,10 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Experimental.AI;
-using UnityEngine.TextCore.Text;
+using TMPro;
 
 public class NPCGenerator : MonoBehaviour {
 
@@ -24,7 +20,6 @@ public class NPCGenerator : MonoBehaviour {
         MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
             | Identity.RelationTypes.Acquaintances | Identity.RelationTypes.Friends 
             | Identity.RelationTypes.Business_Partners | Identity.RelationTypes.Family;
-            // | Identity.RelationTypes.Neighbor;
 
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
         unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
@@ -52,6 +47,7 @@ public class NPCGenerator : MonoBehaviour {
             NPCs.Add(_npc);
             npc_gameobject.gameObject.AddComponent(typeof(NPCInitialPromptGenerator));
             npc_gameobject.gameObject.name = System.Enum.GetName(typeof(Identity.Names),_identity.Name);
+            npc_gameobject.GetComponentInChildren<TMP_Text>().text = System.Enum.GetName(typeof(Identity.Names),_identity.Name);
         }
 
         //Initialize each characters relation to eachother as none

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class Identity : MonoBehaviour {
     public Names Name;
@@ -57,7 +56,6 @@ public class Identity : MonoBehaviour {
         Friends,
         Business_Partners,
         Family,
-        // Neighbor,
     }
 
     public enum Motives {
