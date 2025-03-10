@@ -136,11 +136,6 @@ public class NPCGenerator : MonoBehaviour {
     int SelectRelationType(){
         int index = Random.Range(0, unusedRelations.Count);
         Identity.RelationTypes value = (Identity.RelationTypes)unusedRelations[index];
-        Debug.Log("index" + index);
-        Debug.Log("Value" + value);
-        Debug.Log(!MultiUseRelationTypes.HasFlag(value));
-        Debug.Log(MultiUseRelationTypes != value);
-        
         if(!MultiUseRelationTypes.HasFlag(value)){
             unusedRelations.RemoveAt(index);
         }
