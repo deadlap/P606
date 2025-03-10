@@ -803,17 +803,6 @@ Transform:
   - {fileID: 60681697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1242744700 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4504032577600738560, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
-  m_PrefabInstance: {fileID: 7038667058436654856}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1285638831
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1285638833}
+  - component: {fileID: 1285638834}
   m_Layer: 0
   m_Name: LLM
   m_TagString: Untagged
@@ -845,6 +835,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285638834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285638831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advancedOptions: 1
+  remote: 0
+  port: 13333
+  numThreads: -1
+  numGPULayers: 0
+  debug: 0
+  parallelPrompts: -1
+  dontDestroyOnLoad: 1
+  contextSize: 8192
+  batchSize: 512
+  model: Hermes-3-Llama-3.2-3B.Q4_K_M.gguf
+  chatTemplate: chatml
+  lora: 
+  loraWeights: 
+  flashAttention: 0
+  APIKey: 
+  SSLCert: 
+  SSLCertPath: 
+  SSLKey: 
+  SSLKeyPath: 
+  minContextLength: 0
+  maxContextLength: 131072
+  embeddingsOnly: 0
+  embeddingLength: 3072
 --- !u!1 &1377057603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,7 +1913,7 @@ PrefabInstance:
     - target: {fileID: 613715426609430785, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 856238052052927883, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13183634
@@ -1931,15 +1957,15 @@ PrefabInstance:
     - target: {fileID: 953646410506000548, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 1737665818415789487, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 2421573433790202379, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 2425560187154714622, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: m_Name
       value: NPCSpawner
@@ -1947,27 +1973,27 @@ PrefabInstance:
     - target: {fileID: 3666916650902522831, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 4063710760629898132, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 4966391107686745528, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 5058815822108854426, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 5263018280538989118, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 5363032851956540519, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 5653835932468008011, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: FallBackSpawnPoint
       value: 
@@ -1975,28 +2001,29 @@ PrefabInstance:
     - target: {fileID: 6120880607035553995, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 6195510606724110059, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 6267621557899575211, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 6611833556578634106, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 8316089792220473841, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
+      objectReference: {fileID: 1285638834}
     - target: {fileID: 8816138450462934308, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
-      objectReference: {fileID: 1242744700}
-    m_RemovedComponents: []
+      objectReference: {fileID: 1285638834}
+    m_RemovedComponents:
+    - {fileID: 4504032577600738560, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

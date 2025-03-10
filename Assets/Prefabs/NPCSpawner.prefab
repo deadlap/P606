@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 856238052052927883}
   - component: {fileID: 3214144184578217289}
   - component: {fileID: 5653835932468008011}
-  - component: {fileID: 4504032577600738560}
   m_Layer: 0
   m_Name: NPCSpawner
   m_TagString: Untagged
@@ -256,42 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnusedSpawnPoints: []
   FallBackSpawnPoint: {fileID: 0}
---- !u!114 &4504032577600738560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2425560187154714622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  advancedOptions: 1
-  remote: 0
-  port: 13333
-  numThreads: -1
-  numGPULayers: 0
-  debug: 0
-  parallelPrompts: -1
-  dontDestroyOnLoad: 1
-  contextSize: 8192
-  batchSize: 512
-  model: Hermes-3-Llama-3.2-3B.Q4_K_M.gguf
-  chatTemplate: chatml
-  lora: 
-  loraWeights: 
-  flashAttention: 0
-  APIKey: 
-  SSLCert: 
-  SSLCertPath: 
-  SSLKey: 
-  SSLKeyPath: 
-  minContextLength: 0
-  maxContextLength: 131072
-  embeddingsOnly: 0
-  embeddingLength: 3072
 --- !u!1 &2835683591943222434
 GameObject:
   m_ObjectHideFlags: 0
