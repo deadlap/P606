@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4303595785376199832}
   - component: {fileID: 1741391728588292203}
   - component: {fileID: 8469798257644469566}
+  - component: {fileID: 6562020013552287493}
   m_Layer: 5
   m_Name: InteractButton
   m_TagString: Untagged
@@ -103,6 +104,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6562020013552287493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392154265601354612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ccbbf09d1173e4c8261026f25c4056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2888399084534796672
 GameObject:
   m_ObjectHideFlags: 0
