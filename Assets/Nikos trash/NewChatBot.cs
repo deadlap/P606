@@ -93,6 +93,11 @@ public class NewChatBot : MonoBehaviour
         aiTextBubble = CreateChatBubble("Let me think...", false);
         if (usingRagData)
         {
+            if (ragData == null)
+            {
+                Debug.LogError("No RAG Data is found. \"Disable Using Rag Data\" or add a RAG Data and try again.");   
+                return;
+            }
             message = await ragData.CheckRAG(message, 1);
             print($"User says: {message}");
             _ = llmCharacter.Chat(message, SetText, AllowInputAgain);
