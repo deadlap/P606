@@ -1,19 +1,19 @@
 using LLMUnity;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 // This class is a new version of the ChatBot class from the LLMUnitySamples namespace.
 public class NewChatBot : MonoBehaviour
 {
+    [SerializeField] RAGData ragData;
+    [SerializeField] bool usingRagData;
     [SerializeField] LLMCharacter llmCharacter;
     [SerializeField] PiperTTS piperTTS;
     [SerializeField] GameObject chatGraphics;
@@ -36,6 +36,7 @@ public class NewChatBot : MonoBehaviour
     GameObject aiTextBubble;
     string placeholderText = "Hold on...";
     string playerText;
+    string message;
     string aiText;
     bool blockInput = true;
     bool chatIsActive;
@@ -62,8 +63,7 @@ public class NewChatBot : MonoBehaviour
         chatButton.onClick.RemoveListener(InputFieldDeselected);
         PlayerInputEvent.PlayerInteract -= UpdateChatView;
     }
-
-
+    
     void Start()
     {
         if (font == null) font = Resources.GetBuiltinResource<TMP_FontAsset>("Arial SDF");
@@ -76,7 +76,7 @@ public class NewChatBot : MonoBehaviour
         _ = llmCharacter.Warmup(WarmUpCallback);
     }
 
-    void OnInputFieldSubmit(string newText)
+    async void OnInputFieldSubmit(string newText)
     {
         inputField.ActivateInputField();
         if (blockInput || newText.Trim() == "" || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -86,14 +86,24 @@ public class NewChatBot : MonoBehaviour
         }
         blockInput = true;
         // replace vertical_tab
-        string message = inputField.text.Replace("\v", "\n");
+        message = inputField.text.Replace("\v", "\n");
 
         CreateChatBubble(message, true);
         UpdateScrollView();
         aiTextBubble = CreateChatBubble("Let me think...", false);
-        Task chatTask = llmCharacter.Chat(message, SetText, AllowInputAgain);
+        if (usingRagData)
+        {
+            message = await ragData.CheckRAG(message, 1);
+            print($"User says: {message}");
+            _ = llmCharacter.Chat(message, SetText, AllowInputAgain);
+        }
+        else
+        {
+            _ = llmCharacter.Chat(message, SetText, AllowInputAgain);
+        }
         inputField.text = "";
     }
+    
     void InputFieldSelected(string arg0)
     {
         chatIsActive = true;
@@ -110,7 +120,6 @@ public class NewChatBot : MonoBehaviour
         chatGraphics.SetActive(false);
     }
 
-    
     GameObject CreateChatBubble(string text, bool isPlayerMessage)
     {
         string type = isPlayerMessage ? "Player" : "AI";
