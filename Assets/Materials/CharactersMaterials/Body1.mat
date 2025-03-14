@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HalftoneFace
+  m_Name: Body1
   m_Shader: {fileID: -6465566751694194690, guid: f27cb65a99de1494897696f93af4ae3b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -39,7 +39,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Texture:
-        m_Texture: {fileID: 2800000, guid: 53288569c2768ca4cbee669f8f602b3c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 036229112841c454d87164de13ae6a99, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
@@ -82,7 +82,7 @@ Material:
     - _Use_Specular: 0
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Light_Blend_MinMax: {r: -0.5, g: 1, b: 0, a: 0}
     - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
