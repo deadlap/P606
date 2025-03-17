@@ -182,6 +182,7 @@ public class NewChatBot : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         llmCharacter = PlayerController.instance.closestNPC.GetComponentInChildren<LLMCharacter>();
         piperTTS = PlayerController.instance.closestNPC.GetComponentInChildren<PiperTTS>();
+        ragData = PlayerController.instance.closestNPC.GetComponentInChildren<RAGData>();
         Start();
     }
 

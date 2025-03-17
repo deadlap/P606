@@ -5,16 +5,18 @@ using UnityEngine;
 public class RAGData : MonoBehaviour
 {
     [SerializeField] RAG rag;
-    [SerializeField] public TextAsset textAsset;
+    [SerializeField] public TextAsset ragText;
 
     void Start()
     {
         LoadRAG();
     }
 
-    async void LoadRAG()
+    public async void LoadRAG()
     {
-        await rag.Add(textAsset.text);
+        if(ragText == null) return;
+        print("rag loaded");
+        await rag.Add(ragText.text);
     }
 
     public async Task<string> CheckRAG(string message, int k)
