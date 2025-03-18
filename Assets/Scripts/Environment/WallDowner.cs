@@ -7,13 +7,33 @@ namespace RoomFocusing
         private int playersInside = 0;
         [HideInInspector] public float goDownLength = 0.4f;
 
+        private bool isCopy = false;
+
         private float currentGoDown = 0f;
 
         private float startY;
 
+        [SerializeField] private Material shadowMaterial;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
+            if (isCopy) return; isCopy = true;
+
+            // Create a copy of this that has a shadow
+            GameObject shadowCopy = Instantiate(gameObject, transform.position, transform.rotation);
+            Renderer shadowRenderer = shadowCopy.GetComponent<Renderer>();
+            shadowRenderer.materials = new Material[] { shadowMaterial };
+            shadowRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+            shadowCopy.GetComponent<WallDowner>().enabled = false;
+
+            // Disable this objects shadow and colliders
+            GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            foreach (Collider collider in GetComponents<Collider>())
+            {
+                collider.enabled = false;
+            }
+
             startY = transform.position.y;
         }
 
