@@ -13,6 +13,8 @@ public partial class PatrolOccupationAreaAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
 
+    [SerializeReference] public BlackboardVariable<float> speed;
+
     NavMeshAgent navMeshAgent;
     Identity identity;
     string occupation;
@@ -36,6 +38,7 @@ public partial class PatrolOccupationAreaAction : Action
             return Status.Failure;
         }
         navMeshAgent = Agent.Value.GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = speed;
         Initialize();
         return Status.Running;
     }
@@ -43,7 +46,13 @@ public partial class PatrolOccupationAreaAction : Action
     protected override Status OnUpdate()
     {
         WalkToPoint();
-        return Status.Success;
+        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.5f)
+        {
+            Debug.Log($"{Agent.Value.name} reached point");
+            pointGiven = false;
+            return Status.Success;
+        }
+        return Status.Running;
     }
 
     protected override void OnEnd()
@@ -77,12 +86,6 @@ public partial class PatrolOccupationAreaAction : Action
             currentPoint = patrolArea.RandomPatrolPoint();
             navMeshAgent.SetDestination(currentPoint);
             pointGiven = true;
-        }
-        
-        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.5f)
-        {
-            Debug.Log($"{Agent.Value.name} reached point");
-            pointGiven = false;
         }
     }
 }
