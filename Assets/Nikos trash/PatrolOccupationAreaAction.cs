@@ -13,8 +13,6 @@ public partial class PatrolOccupationAreaAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
 
-    [SerializeReference] public BlackboardVariable<float> speed;
-
     NavMeshAgent navMeshAgent;
     Identity identity;
     string occupation;
@@ -38,7 +36,6 @@ public partial class PatrolOccupationAreaAction : Action
             return Status.Failure;
         }
         navMeshAgent = Agent.Value.GetComponent<NavMeshAgent>();
-        navMeshAgent.speed = speed;
         Initialize();
         return Status.Running;
     }

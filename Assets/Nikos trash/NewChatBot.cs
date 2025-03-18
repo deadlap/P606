@@ -31,7 +31,7 @@ public class NewChatBot : MonoBehaviour
     [SerializeField] int bubbleHeight = 35;
     [SerializeField] Sprite sprite;
 
-    List<GameObject> chatBubbles = new List<GameObject>();
+    List<GameObject> chatBubbles = new();
     GameObject playerTextBubble;
     GameObject aiTextBubble;
     string placeholderText = "Hold on...";
@@ -40,6 +40,7 @@ public class NewChatBot : MonoBehaviour
     string aiText;
     bool blockInput = true;
     bool chatIsActive;
+    bool canExitChat = true;
 
     void Awake()
     {
@@ -78,6 +79,7 @@ public class NewChatBot : MonoBehaviour
 
     async void OnInputFieldSubmit(string newText)
     {
+        canExitChat = false;
         inputField.ActivateInputField();
         if (blockInput || newText.Trim() == "" || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
@@ -87,8 +89,7 @@ public class NewChatBot : MonoBehaviour
         blockInput = true;
         // replace vertical_tab
         message = inputField.text.Replace("\v", "\n");
-
-        CreateChatBubble(message, true);
+        playerTextBubble = CreateChatBubble(message, true);
         UpdateScrollView();
         aiTextBubble = CreateChatBubble("Let me think...", false);
         if (usingRagData)
@@ -118,6 +119,7 @@ public class NewChatBot : MonoBehaviour
 
     void InputFieldDeselected()
     {
+        if (!canExitChat) return;
         chatIsActive = false;
         PlayerInputEvent.OnUnFreezePlayer();
         piperTTS.audioSource.Stop();
@@ -179,7 +181,7 @@ public class NewChatBot : MonoBehaviour
         placeholder.text = placeholderText;
         inputField.text = "";
         InputFieldSelected(null);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         llmCharacter = PlayerController.instance.closestNPC.GetComponentInChildren<LLMCharacter>();
         piperTTS = PlayerController.instance.closestNPC.GetComponentInChildren<PiperTTS>();
         ragData = PlayerController.instance.closestNPC.GetComponentInChildren<RAGData>();
@@ -205,14 +207,17 @@ public class NewChatBot : MonoBehaviour
         {
             aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
         }
-        blockInput = false;
-        inputField.interactable = true;
-        inputField.Select();
+        AllowInput();
         if (piperTTS == null || aiText == "" || aiText == null) return;
         print(aiText);
         piperTTS.OnInputSubmit(aiText);
+        canExitChat = true;
     }
 
+    void AddTextToLog()
+    {
+        
+    }
     public void AllowInput()
     {
         blockInput = false;
