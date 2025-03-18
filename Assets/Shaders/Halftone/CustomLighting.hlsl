@@ -30,7 +30,7 @@ float GetSmoothnessPower(float rawSmoothness)
 // Calculates diffuse lighting, both color and normals
 void CustomLightHandling(CustomLightingData d, Light light, out float diffuse, out float specular, out float3 color)
 {    
-    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * (light.distanceAttenuation * light.shadowAttenuation));
+    diffuse = saturate((dot(d.normalWS, light.direction) * 0.5 + 0.5) * (pow(light.distanceAttenuation, 0.1) * light.shadowAttenuation));
     float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));
     specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
     
