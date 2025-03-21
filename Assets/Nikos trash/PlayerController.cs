@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public GameObject closestNPC = null;
     [SerializeField] float interactFillTime = 0.5f;
 
+    Vector2 moveDirection;
     void Awake()
     {
         if(instance == null)
@@ -57,8 +58,10 @@ public class PlayerController : MonoBehaviour
     }
     void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 direction = context.ReadValue<Vector2>();
-        movement = new Vector3(direction.x, 0, direction.y);
+        moveDirection = context.ReadValue<Vector2>();
+        
+        Vector2 direction = new(moveDirection.x, moveDirection.y);
+        movement = new(direction.x, 0, direction.y);
     }
 
     void OnInteract(InputAction.CallbackContext context)
@@ -75,6 +78,16 @@ public class PlayerController : MonoBehaviour
         if (!canPlayerAct) return;
         if (characterController)
             characterController.Move(movement * speed * Time.deltaTime);
+    }
+
+    void Rotate()
+    {
+        Vector3 rotationDirection = new Vector3(moveDirection.x, 0f, moveDirection.y).normalized;
+        if (rotationDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(rotationDirection, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * speed);
+        }
     }
 
     IEnumerator Interact(InputAction.CallbackContext context)
@@ -106,6 +119,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        Rotate();
         if (npcs.Count > 0)
         {
             IdentifyClosestNPC();
