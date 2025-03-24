@@ -9,6 +9,7 @@ namespace RoomFocusing
         [SerializeField, Tooltip("Assign the walls to go down in this room")] private WallDowner[] wallsToDown;
         [SerializeField, Tooltip("Assign the lamps to light up in this room")] private LightDamper[] lampsToBrighten;
         [SerializeField, Tooltip("Assign the decorations to be shown in this room") ] private DecorationHider decorationsToShow;
+        [SerializeField, Tooltip("Water")] private WaterFocus waterFocus;
 
         private List<ShadowPerson> npcsInside = new List<ShadowPerson>();
 
@@ -20,7 +21,6 @@ namespace RoomFocusing
         void Awake()
         {
             GetComponent<Rigidbody>().useGravity = false;
-            decorationsToShow.delay = lowerLength;
             if (wallsToDown.Length == 0)
             {
                 Debug.LogWarning($"There are no WallDowners assigned to {name}");
@@ -34,7 +34,16 @@ namespace RoomFocusing
             {
                 light.dampenLength = lowerLength;
             }
-            decorationsToShow.PlayerExited(0);
+            if(decorationsToShow != null)
+            {
+                decorationsToShow.delay = lowerLength;
+                decorationsToShow.PlayerEntered(0);
+            }
+            if(waterFocus != null)
+            {
+                waterFocus.delay = lowerLength;
+                waterFocus.PlayerEntered(0);
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -57,8 +66,8 @@ namespace RoomFocusing
 
             playersInside++;
 
-            decorationsToShow.PlayerEntered();
-
+            decorationsToShow?.PlayerEntered();
+            waterFocus?.PlayerEntered();
             foreach (ShadowPerson npcShadow in npcsInside)
             {
                 npcShadow.AddPlayers();
@@ -106,7 +115,8 @@ namespace RoomFocusing
                 light.PlayerExited();
             }
 
-            decorationsToShow.PlayerExited();
+            decorationsToShow?.PlayerExited();
+            waterFocus?.PlayerExited();
         }
     }
 }
