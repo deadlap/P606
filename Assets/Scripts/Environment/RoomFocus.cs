@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace RoomFocusing
@@ -10,6 +11,9 @@ namespace RoomFocusing
         [SerializeField, Tooltip("Assign the lamps to light up in this room")] private LightDamper[] lampsToBrighten;
         [SerializeField, Tooltip("Assign the decorations to be shown in this room") ] private DecorationHider decorationsToShow;
         [SerializeField, Tooltip("Water")] private WaterFocus waterFocus;
+        [SerializeField] TextMeshProUGUI roomNameText;
+        [SerializeField] string roomName;
+
 
         private List<ShadowPerson> npcsInside = new List<ShadowPerson>();
 
@@ -64,6 +68,8 @@ namespace RoomFocusing
             //Debug.Log($"{other.name} entered {name}");
             if (!other.CompareTag("Player")) return;
 
+            if(roomNameText != null)
+                roomNameText.text = roomName;
             playersInside++;
 
             decorationsToShow?.PlayerEntered();
