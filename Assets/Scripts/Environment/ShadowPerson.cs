@@ -6,6 +6,7 @@ namespace RoomFocusing
     {
         [SerializeField] private GameObject mainLook;
         [SerializeField] private GameObject shadowLook;
+        [SerializeField] private GameObject nameTag;
 
         private int playersCanSee = 0;
 
@@ -25,6 +26,7 @@ namespace RoomFocusing
         {
             mainLook.SetActive(playersCanSee > 0);
             shadowLook.SetActive(playersCanSee < 1);
+            nameTag.SetActive(playersCanSee > 0);
         }
     }
 }
