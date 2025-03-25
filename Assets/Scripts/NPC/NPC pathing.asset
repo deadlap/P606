@@ -49,7 +49,7 @@ MonoBehaviour:
   - rid: 160975335092650181
   - rid: 160975335092650270
   - rid: 455622483398361167
-  m_VersionTimestamp: 638779023022432745
+  m_VersionTimestamp: 638784962230610485
   m_DebugInfo: {fileID: 360442243576096749}
   m_RuntimeGraph: {fileID: 3907142626549115114}
   AssetID:
@@ -77,11 +77,6 @@ MonoBehaviour:
       Type:
         m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      Tooltip: 
-    - Name: speed
-      Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
       Tooltip: 
     NamedChildren: []
   - Name: Wait (Range)
@@ -234,7 +229,6 @@ MonoBehaviour:
           m_Value1: 3197720600021553059
         m_FieldValues:
         - rid: 160975335092650273
-        - rid: 455622642637209677
     - rid: 160975335092650271
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -361,25 +355,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 3
-    - rid: 455622642637209677
-      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        FieldName: speed
-        Type:
-          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-            PublicKeyToken=b77a5c561934e089
-        LocalValue:
-          rid: 455622642637209678
-        LinkedVariable:
-          rid: -2
-    - rid: 455622642637209678
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 5
 --- !u!114 &360442243576096749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +396,7 @@ MonoBehaviour:
         AuthoringAssetID:
           m_Value0: 6076017495656173406
           m_Value1: 17885014075698998987
-        m_DebugInfo: {fileID: 0}
+        m_DebugInfo: {fileID: 360442243576096749}
         Root:
           rid: 455622644992311386
         BlackboardReference:
@@ -489,8 +464,6 @@ MonoBehaviour:
           rid: 455622644992311390
         Agent:
           rid: 455622644992311394
-        speed:
-          rid: 455622644992311395
     - rid: 455622644992311393
       type: {class: WaitRangeAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -513,14 +486,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 455622644992311395
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 5
     - rid: 455622644992311396
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
