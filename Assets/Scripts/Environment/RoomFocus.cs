@@ -46,7 +46,6 @@ namespace RoomFocusing
             if(waterFocus != null)
             {
                 waterFocus.delay = lowerLength;
-                waterFocus.PlayerEntered(0);
             }
         }
 

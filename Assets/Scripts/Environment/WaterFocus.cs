@@ -30,7 +30,7 @@ namespace RoomFocusing
             StopCoroutine(nameof(UpdateLooks));
             StartCoroutine(nameof(UpdateLooks));
         }
-
+        
         IEnumerator UpdateLooks()
         {
             float targetTime = 0;

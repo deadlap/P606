@@ -69,8 +69,6 @@ public class PlayerController : MonoBehaviour
         if (closestNPC == null) return;
         if (!canPlayerAct) return;
         StartCoroutine(Interact(context));
-      
-        Debug.Log($"Player interacted with {closestNPC.name}. Hello!");
     }
 
     void Move()
@@ -82,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void Rotate()
     {
+        if (!canPlayerAct) return;
         Vector3 rotationDirection = new Vector3(moveDirection.x, 0f, moveDirection.y).normalized;
         if (rotationDirection != Vector3.zero)
         {
@@ -112,9 +111,9 @@ public class PlayerController : MonoBehaviour
         }
         // if the player holds the interact button until the fill amount reaches 1, the interaction is successful.
         start = end;
-        yield return new WaitForSeconds(0);
         interactButtonFillImage.fillAmount = 0;
         PlayerInputEvent.OnPlayerInteract();
+        Debug.Log($"Player interacted with {closestNPC.name}. Hello!");
     }
     void Update()
     {
@@ -132,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
     void IdentifyClosestNPC()
     {
-        float minDistance = 100;
+        float minDistance = float.MaxValue;
         if (npcs.Count == 0)
         {
             closestNPC = null;
