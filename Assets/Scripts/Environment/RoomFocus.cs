@@ -10,9 +10,8 @@ namespace RoomFocusing
         [SerializeField, Tooltip("Assign the walls to go down in this room")] private WallDowner[] wallsToDown;
         [SerializeField, Tooltip("Assign the lamps to light up in this room")] private LightDamper[] lampsToBrighten;
         [SerializeField, Tooltip("Assign the decorations to be shown in this room") ] private DecorationHider decorationsToShow;
-        [SerializeField, Tooltip("Water")] private WaterFocus waterFocus;
-        [SerializeField] TextMeshProUGUI roomNameText;
-        [SerializeField] string roomName;
+        [SerializeField, Tooltip("Assign Water")] private WaterFocus waterFocus;
+        [SerializeField] private string nameOfRoom;
 
 
         private List<ShadowPerson> npcsInside = new List<ShadowPerson>();
@@ -67,8 +66,7 @@ namespace RoomFocusing
             //Debug.Log($"{other.name} entered {name}");
             if (!other.CompareTag("Player")) return;
 
-            if(roomNameText != null)
-                roomNameText.text = roomName;
+            RoomName.Instance.AddRoomName(nameOfRoom);
             playersInside++;
 
             decorationsToShow?.PlayerEntered();
@@ -105,6 +103,7 @@ namespace RoomFocusing
             //Debug.Log($"{other.name} exited {name}");
             if (!other.CompareTag("Player")) return;
 
+            RoomName.Instance.RemoveRoomName(nameOfRoom);
             playersInside--;
 
             foreach (ShadowPerson npcShadow in npcsInside)
