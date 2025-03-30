@@ -6,6 +6,10 @@ using System.Collections.Generic;
 public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerClickHandler
 
 {
+    public bool startDraggingNow = false;
+    private bool isDragging = false;
+
+
     private Vector3 originalPosition;
     private RectTransform rectTransform;
     private Canvas canvas;
@@ -53,6 +57,60 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         }
     }
 }
+
+
+    private void Update()
+{
+    if (startDraggingNow)
+    {
+        startDraggingNow = false;
+
+        // Simulate the pointer down logic
+        isDragging = true;
+        canvasGroup.blocksRaycasts = false;
+        transform.SetAsLastSibling(); // bring to front
+    }
+
+    // If we are manually dragging, follow the mouse
+    if (isDragging)
+    {
+        Vector3 globalMousePos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(
+            canvas.transform as RectTransform,
+            Input.mousePosition,
+            null,
+            out globalMousePos))
+        {
+            rectTransform.position = globalMousePos;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+            canvasGroup.blocksRaycasts = true;
+
+            // Snap/drop logic
+            SquareDropZone closestSquare = GetClosestDropZone();
+            if (closestSquare != null && !closestSquare.IsOccupied())
+            {
+                rectTransform.position = closestSquare.transform.position;
+                closestSquare.AssignOccupant(this);
+                originalPosition = rectTransform.position;
+            }
+            else
+            {
+                rectTransform.position = originalPosition;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
 
     public void OnPointerDown(PointerEventData eventData)
     {

@@ -121,6 +121,16 @@ public class BookManager : MonoBehaviour
         page1.SetActive(true);
         page2.SetActive(false);
         page3.SetActive(false);
+        GuideThing guideThingInstance = FindFirstObjectByType<GuideThing>();
+        if (guideThingInstance != null)
+        {
+            guideThingInstance.NewPage();
+            GuideThing.PageIsActive = false;
+        }
+        else
+        {
+            Debug.LogWarning("GuideThing instance not found in the scene.");
+        }
     }
 
     public void BookMark2()
@@ -128,6 +138,16 @@ public class BookManager : MonoBehaviour
         page2.SetActive(true);
         page1.SetActive(false);
         page3.SetActive(false);
+        GuideThing guideThingInstance = FindFirstObjectByType<GuideThing>();
+        if (guideThingInstance != null)
+        {
+            guideThingInstance.NewPage();
+            GuideThing.PageIsActive = false;
+        }
+        else
+        {
+            Debug.LogWarning("GuideThing instance not found in the scene.");
+        }
     }
 
 
@@ -136,6 +156,16 @@ public class BookManager : MonoBehaviour
         page3.SetActive(true);
         page1.SetActive(false);
         page2.SetActive(false);
+        GuideThing guideThingInstance = FindFirstObjectByType<GuideThing>();
+        if (guideThingInstance != null)
+        {
+            guideThingInstance.NewPage();
+            GuideThing.PageIsActive = false;
+        }
+        else
+        {
+            Debug.LogWarning("GuideThing instance not found in the scene.");
+        }
     }
 
     // WaxStamp Things________________________________________________________________________________________________

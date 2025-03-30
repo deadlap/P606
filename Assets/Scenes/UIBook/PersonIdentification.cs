@@ -18,11 +18,11 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
     [Header("Double Click Settings")]
 
     
-    [SerializeField] private float doubleClickThreshold = 0.3f; // in seconds
+    //[SerializeField] private float doubleClickThreshold = 0.3f; // in seconds
 
     
 
-    private float lastClickTime = -1f;
+    //private float lastClickTime = -1f;
 
     public static bool SomeoneIsSelected = false;
 
@@ -54,4 +54,7 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
         if (occupationDisplay != null)
             occupationDisplay.text = occupation;
     }
+
+
+
 }
