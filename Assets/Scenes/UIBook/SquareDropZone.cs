@@ -1,16 +1,29 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SquareDropZone : MonoBehaviour
 {
+    public static List<SquareDropZone> allDropZones = new List<SquareDropZone>();
+
     public float snapRadius = 50f;
     private RectTransform rectTransform;
 
-    // 🔒 New: Track if someone is snapped here
     public DraggableImage currentOccupant;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+    }
+
+    private void OnEnable()
+    {
+        if (!allDropZones.Contains(this))
+            allDropZones.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        allDropZones.Remove(this);
     }
 
     public Vector3 GetSnapPosition()

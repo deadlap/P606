@@ -33,12 +33,15 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         originalPosition = rectTransform.position;
     }
 
+    private List<SquareDropZone> GetAvailableDropZones()
+{
+    return SquareDropZone.allDropZones;
+}
+
+    
     private void Start()
 {
-    if (dropZones.Count == 0)
-    {
-        dropZones.AddRange(FindObjectsByType<SquareDropZone>(FindObjectsSortMode.None));
-    }
+    
 
     // 🔍 Auto-snap check on start
     foreach (var square in dropZones)
@@ -168,28 +171,30 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
     }
 
     private SquareDropZone GetClosestDropZone()
+{
+    SquareDropZone closest = null;
+    float minDistance = float.MaxValue;
+
+    foreach (var dropZone in SquareDropZone.allDropZones)
     {
-        SquareDropZone closest = null;
-        float minDistance = float.MaxValue;
+        if (dropZone == null || !dropZone.gameObject.activeInHierarchy)
+            continue;
 
-        foreach (var dropZone in dropZones)
+        float distance = Vector3.Distance(rectTransform.position, dropZone.transform.position);
+        if (distance < snapRadius && distance < minDistance)
         {
-            float distance = Vector3.Distance(rectTransform.position, dropZone.transform.position);
-            if (distance < snapRadius && distance < minDistance)
-            {
-                closest = dropZone;
-                minDistance = distance;
-            }
+            closest = dropZone;
+            minDistance = distance;
         }
-
-        return closest;
     }
+
+    return closest;
+}
 
     public void OnPointerClick(PointerEventData eventData)
 {
     if (eventData.clickCount == 1) // optional: you could make this double click if you want
     {
-        Debug.Log("RawImage clicked: " + name);
         BookCover previewer = FindFirstObjectByType<BookCover>();
         if (previewer != null)
         {
