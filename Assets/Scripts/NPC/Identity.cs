@@ -7,6 +7,8 @@ public class Identity : MonoBehaviour {
     public Occupations Occupation;
     public Dictionary<NPC, RelationTypes> Relations;
     public Motives Motive;
+    public List<Locations> Schedule;
+    public List<List<NPC>> SchedulePairings;
 
     public int Openness;
     public int Conscientiousness;
@@ -19,6 +21,9 @@ public class Identity : MonoBehaviour {
         RelationsAmount = 2;
         Relations = new Dictionary<NPC, RelationTypes>();
     }
+    // public void MakeInitialScheduleList(){
+        
+    // }
     public enum PrimaryRoles {
         None,
         Civilian,
@@ -32,16 +37,40 @@ public class Identity : MonoBehaviour {
         Janitor,
         Waiter,
         Bartender,
-        European_Painter,
-        Egg_Merchant,
-        Teacher,
-        Business_Person,
-        Mafioso,
+        Painter,
+        Doctor,
+        Lawyer,
         Magician,
-        Entertainer,
-        Welder
+        Musician,
+        Oil_Tycoon,
+        Pilot,
+        Admiral,
+        Priest,
+        Actress,
+        Merchant,
+        Athlete,
+        Sherif
     }
-    
+    //     [Flags] public enum Occupations {
+    //     None = 0,
+    //     Chef = 1,
+    //     Janitor = 2,
+    //     Waiter = 4,
+    //     Bartender = 8,
+    //     Painter = 16,
+    //     Doctor = 32,
+    //     Lawyer = 64,
+    //     Magician = 128,
+    //     Musician = 256,
+    //     Oil_Tycoon = 512,
+    //     Pilot = 1024,
+    //     Admiral = 2048,
+    //     Priest = 4096,
+    //     Actress = 8192,
+    //     Merchant,
+    //     Athlete,
+    //     Sherif
+    // }
     [Flags] public enum RelationTypes {
         None = 0,
         CoWorkers = 1,
@@ -74,5 +103,14 @@ public class Identity : MonoBehaviour {
         Jessica,
         Rachel,
         James, Mary, Robert, Patricia, Linda, Michael, Barbara, William, Elizabeth, David, Susan, Richard, Nancy, Charles, Karen, Joseph, Betty, Thomas, Margaret, Christopher, Sandra, Daniel, Shirley, Matthew, Carol, Anthony, Diane, Mark, Brenda, Donald, Kathleen, Steven, Janet, Paul, Ruth, Andrew, Helen, Kenneth, Donna, Edward, Sharon, Brian, Cheryl, George, Judith, Timothy, Joan, Ronald, Virginia, Kevin, Marilyn, Jeffrey, Dorothy,
+    }
+    public enum Locations {
+        None, //Currently used to lie about whereabouts for the murderer
+        Kitchen,
+        Ballroom,
+        Hallway,
+        Bar,
+        Pool,
+        Cabin,
     }
 }

@@ -22,6 +22,8 @@ public class NPCGenerator : MonoBehaviour {
     
     [Tooltip("Enum of relationtypes that can be used multiple times.")]
     [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
+    [Tooltip("Enum of occupations that work on the boat.")]
+    [SerializeField] Identity.Occupations BoatJobOccupations;
 
     void Start() {
         // MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
@@ -103,13 +105,23 @@ public class NPCGenerator : MonoBehaviour {
         }
 
         //We Select the victim and then the murderer
-        NPC victim = NPCs[Random.Range(0, NPCs.Count-1)];
+        NPC victim = NPCs[Random.Range(0, NPCs.Count)];
         var victimRelations = victim.NPCIdentity.Relations;
         List<NPC> relationsNPCs = new List<NPC>(victimRelations.Keys);
         NPC murderer = relationsNPCs[(Random.Range(0, victimRelations.Count))];
 
         victim.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Victim;
         murderer.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Murderer;
+
+        GameStats.INSTANCE.Murderer = murderer;
+        GameStats.INSTANCE.Victim = victim;
+
+        GameStats.INSTANCE.TimeOfDeath = Random.Range(0,GameStats.INSTANCE.ScheduleLength);
+
+        GenerateNPCSchedules();
+
+        GenerateSchedulePairings();
+
         for (int i = 0; i < NPCs.Count; i++) {
             // transform.GetChild(i).gameObject.SetActive(true);
             transform.GetChild(i).SetParent(NPCs[i].gameObject.transform);
@@ -179,5 +191,69 @@ public class NPCGenerator : MonoBehaviour {
     }
     public int GetNPCAmount(){
         return NPCs.Count;
+    }
+    void GenerateNPCSchedules(){
+        foreach (NPC npc in NPCs) {
+            npc.NPCIdentity.Schedule = new List<Identity.Locations>();
+        }
+        for (int i = 0; i < GameStats.INSTANCE.ScheduleLength; i++) {
+            foreach (NPC npc in NPCs) {
+                if ((Identity.PrimaryRoles)npc.NPCIdentity.PrimaryRole == (Identity.PrimaryRoles)Identity.PrimaryRoles.Victim && i >= GameStats.INSTANCE.TimeOfDeath){
+                    npc.NPCIdentity.Schedule.Add(Identity.Locations.Cabin);
+                    goto endLoop;
+                }
+                if ((Identity.PrimaryRoles)npc.NPCIdentity.PrimaryRole == (Identity.PrimaryRoles)Identity.PrimaryRoles.Murderer && i == GameStats.INSTANCE.TimeOfDeath){
+                    npc.NPCIdentity.Schedule.Add(Identity.Locations.None);
+                    goto endLoop;
+                }
+
+                if (GameStats.INSTANCE.WorkingHours.Contains(i)){
+                    switch((Identity.Occupations)npc.NPCIdentity.Occupation) {
+                        case (Identity.Occupations)Identity.Occupations.Chef:
+                            npc.NPCIdentity.Schedule.Add(Identity.Locations.Kitchen);
+                            goto endLoop;
+                        case (Identity.Occupations)Identity.Occupations.Waiter:
+                            npc.NPCIdentity.Schedule.Add(PickRandomLocation(1,3));
+                            goto endLoop;
+                        case (Identity.Occupations)Identity.Occupations.Bartender:
+                            npc.NPCIdentity.Schedule.Add(Identity.Locations.Bar);
+                            goto endLoop;
+                        case (Identity.Occupations)Identity.Occupations.Janitor:
+                            npc.NPCIdentity.Schedule.Add(PickRandomLocation(0,0));
+                            goto endLoop;
+                        default:
+                        goto SelectRandomPosition;
+                    }
+                }
+                SelectRandomPosition:
+                    npc.NPCIdentity.Schedule.Add(PickRandomLocation(0,0));
+                endLoop:
+                    continue;
+            }
+        }
+    }
+
+    Identity.Locations PickRandomLocation(int start, int end) {
+        //If both are 0 we just want a completely random position except kitchen and none
+        //First 2 arent used as random as they are kitchen or None, none currently being used for the murderer lying about where they are.
+        if (end == 0 && start == 0)
+            return (Identity.Locations)Random.Range(2, System.Enum.GetValues(typeof(Identity.Locations)).Length); 
+
+        return (Identity.Locations)Random.Range(start,end);
+        
+    }
+    void GenerateSchedulePairings(){
+        foreach (NPC npc in NPCs) {
+            npc.NPCIdentity.SchedulePairings = new List<List<NPC>>();
+            for (int i = 0; i < GameStats.INSTANCE.ScheduleLength; i++) {
+                npc.NPCIdentity.SchedulePairings.Add(new List<NPC>());
+                foreach (NPC NPCToMeet in NPCs) {
+                    if (NPCToMeet.NPCIdentity.name == npc.NPCIdentity.name)
+                        continue;
+                    if (npc.NPCIdentity.Schedule[i] == NPCToMeet.NPCIdentity.Schedule[i])
+                        npc.NPCIdentity.SchedulePairings[i].Add(NPCToMeet);
+                }
+            }
+        }
     }
 }

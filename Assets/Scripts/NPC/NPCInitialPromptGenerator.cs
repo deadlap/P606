@@ -14,21 +14,27 @@ public class NPCInitialPromptGenerator : MonoBehaviour {
     [SerializeField] Identity NPCIdentity;
 
     [TextAreaAttribute(10, 15)]
-    public string GeneratedPrompt;    
+    public string GeneratedPrompt;
     [TextAreaAttribute(10, 15)]
     [SerializeField] string Prompt;
-    
+
     string GetRelationText(){
         string text = "";
         string startText = "You know: ";
+        string occupationText = ", their occupation is: ";
         string endText = ", your relationship to them is: ";
         foreach(KeyValuePair<NPC,Identity.RelationTypes> relation in NPCIdentity.Relations) {
             if (relation.Value != Identity.RelationTypes.None) {
-                text += startText + GetStringName(relation.Key.NPCIdentity.Name) + endText + relation.Value + ". ";
+                text += startText + GetStringName(relation.Key.NPCIdentity.Name) + endText + occupationText + relation.Key.NPCIdentity.Occupation + relation.Value + ". ";
             }
         }
         return text;
     }
+
+    string GenerateScheduleText(){
+        return "";
+    }
+
     public string GeneratePrompt(){
         Npc = GetComponent<NPC>();
         NPCIdentity = GetComponent<Identity>();
