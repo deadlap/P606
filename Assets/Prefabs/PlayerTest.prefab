@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2442530116162455525}
   - component: {fileID: 976406605480053795}
   - component: {fileID: 7418204201632683007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerTest
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8585920432353536997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2359612569540756553
@@ -52,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4911221733861849526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -260,3 +261,119 @@ MonoBehaviour:
   interactButtonPrefab: {fileID: 392154265601354612, guid: 718572254ae65524e8272aa527f24885, type: 3}
   closestNPC: {fileID: 0}
   interactFillTime: 0.5
+--- !u!1001 &8119401175902456846
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5638153717854468286}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b8e0198096a4b6841a7cb2fe7d4fcb0f, type: 2}
+    - target: {fileID: -6652725513331149018, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d6e9fd81df00074aa6fa4812310c411, type: 2}
+    - target: {fileID: -4157524182732408741, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4157524182732408741, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b8e0198096a4b6841a7cb2fe7d4fcb0f, type: 2}
+    - target: {fileID: -4157524182732408741, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e5a36110601e94abc309f011b75da0, type: 2}
+    - target: {fileID: 919132149155446097, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      propertyPath: m_Name
+      value: CharacterNormal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7815798424926620570}
+  m_SourcePrefab: {fileID: 100100000, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+--- !u!4 &8585920432353536997 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+  m_PrefabInstance: {fileID: 8119401175902456846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8965683380285026655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+  m_PrefabInstance: {fileID: 8119401175902456846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7815798424926620570
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8965683380285026655}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d85442d694af1c24f9ac8d26b1a9ba7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

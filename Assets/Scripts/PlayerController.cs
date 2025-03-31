@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     Image interactButtonFillImage;
     [HideInInspector] public GameObject closestNPC = null;
     [SerializeField] float interactFillTime = 0.5f;
+    Animator animator;
 
     Vector2 moveDirection;
     void Awake()
@@ -37,6 +38,10 @@ public class PlayerController : MonoBehaviour
             playerInput = gameObject.AddComponent<PlayerInput>();
         else
             playerInput = GetComponent<PlayerInput>();
+        if(GetComponentInChildren<Animator>() == null)
+            Debug.LogWarning("PlayerController: No Animator component found on the player object.");
+        else
+            animator = GetComponentInChildren<Animator>();
     }
 
     void OnEnable()
@@ -76,6 +81,14 @@ public class PlayerController : MonoBehaviour
         if (!canPlayerAct) return;
         if (characterController)
             characterController.Move(movement * speed * Time.deltaTime);
+        if (movement != Vector3.zero)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     void Rotate()

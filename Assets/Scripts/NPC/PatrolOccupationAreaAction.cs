@@ -8,12 +8,13 @@ using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine.AI;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "PatrolOccupationArea", story: "[Agent] patrols the occupation area.", category: "Action", id: "91a45c5c312f4295a3cf3b87f195602c")]
+[NodeDescription(name: "PatrolOccupationArea", story: "[Agent] patrols with the occupation area", category: "Action", id: "91a45c5c312f4295a3cf3b87f195602c")]
 public partial class PatrolOccupationAreaAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
+    [SerializeReference] public BlackboardVariable<Animator> Animator;
+    [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
 
-    NavMeshAgent navMeshAgent;
     Identity identity;
     string occupation;
     bool hasInitialized;
@@ -35,16 +36,16 @@ public partial class PatrolOccupationAreaAction : Action
             Debug.Log("Agent does not have a NavMeshAgent");
             return Status.Failure;
         }
-        navMeshAgent = Agent.Value.GetComponent<NavMeshAgent>();
         Initialize();
+        WalkToPoint();
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        WalkToPoint();
-        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.5f)
+        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.3f)
         {
+            Animator.Value.SetBool("isWalking", false);
             Debug.Log($"{Agent.Value.name} reached point");
             pointGiven = false;
             return Status.Success;
@@ -80,8 +81,9 @@ public partial class PatrolOccupationAreaAction : Action
     {
         if (!pointGiven)
         {
+            Animator.Value.SetBool("isWalking", true);
             currentPoint = patrolArea.RandomPatrolPoint();
-            navMeshAgent.SetDestination(currentPoint);
+            NavMeshAgent.Value.SetDestination(currentPoint);
             pointGiven = true;
         }
     }

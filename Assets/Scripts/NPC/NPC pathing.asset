@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: NPC pathing Blackboard
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638779023022432745
+  VersionTimestamp: 638790234494029379
   AssetID:
     m_Value0: 6076017495656173406
     m_Value1: 17885014075698998987
   m_Blackboard:
     m_Variables:
     - rid: 160975335092650201
+    - rid: 455622935956947039
+    - rid: 455622935956947054
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
@@ -30,6 +32,22 @@ MonoBehaviour:
           m_Value0: 1
           m_Value1: 0
         Name: Self
+        m_Value: {fileID: 0}
+    - rid: 455622935956947039
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8077896109664035766
+          m_Value1: 3744674199870944766
+        Name: Animator
+        m_Value: {fileID: 0}
+    - rid: 455622935956947054
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4253914196132063450
+          m_Value1: 15840392064816786172
+        Name: Nav Mesh Agent
         m_Value: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -49,7 +67,7 @@ MonoBehaviour:
   - rid: 160975335092650181
   - rid: 160975335092650270
   - rid: 455622483398361167
-  m_VersionTimestamp: 638784962230610485
+  m_VersionTimestamp: 638790234494029379
   m_DebugInfo: {fileID: 360442243576096749}
   m_RuntimeGraph: {fileID: 3907142626549115114}
   AssetID:
@@ -68,7 +86,7 @@ MonoBehaviour:
     Variables: []
     NamedChildren: []
   - Name: PatrolOccupationArea
-    Story: '[Agent] patrols the occupation area.'
+    Story: '[Agent] patrols with the occupation area'
     RuntimeTypeID:
       m_Value0: 10755210749163644049
       m_Value1: 3197720600021553059
@@ -76,6 +94,16 @@ MonoBehaviour:
     - Name: Agent
       Type:
         m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Animator
+      Type:
+        m_SerializableType: UnityEngine.Animator, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: NavMeshAgent
+      Type:
+        m_SerializableType: UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       Tooltip: 
     NamedChildren: []
@@ -229,6 +257,8 @@ MonoBehaviour:
           m_Value1: 3197720600021553059
         m_FieldValues:
         - rid: 160975335092650273
+        - rid: 455622935956947068
+        - rid: 455622935956947069
     - rid: 160975335092650271
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -355,6 +385,64 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 3
+    - rid: 455622935956947068
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Animator
+        Type:
+          m_SerializableType: UnityEngine.Animator, UnityEngine.AnimationModule,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 455622935956947070
+        LinkedVariable:
+          rid: 455622935956947073
+    - rid: 455622935956947069
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: NavMeshAgent
+        Type:
+          m_SerializableType: UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 455622935956947071
+        LinkedVariable:
+          rid: 455622935956947074
+    - rid: 455622935956947070
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 455622935956947071
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 455622935956947073
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 8077896109664035766
+          m_Value1: 3744674199870944766
+        Name: Animator
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 455622935956947074
+      type: {class: 'TypedVariableModel`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 4253914196132063450
+          m_Value1: 15840392064816786172
+        Name: Nav Mesh Agent
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
 --- !u!114 &360442243576096749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,104 +469,110 @@ MonoBehaviour:
   m_Name: NPC pathing
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 455622644992311385
+  - rid: 455622935956947075
   RootGraph:
-    rid: 455622644992311385
+    rid: 455622935956947075
   m_DebugInfo: {fileID: 360442243576096749}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 455622644992311385
+    - rid: 455622935956947075
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
           m_Value0: 6076017495656173406
           m_Value1: 17885014075698998987
-        m_DebugInfo: {fileID: 360442243576096749}
+        m_DebugInfo: {fileID: 0}
         Root:
-          rid: 455622644992311386
+          rid: 455622935956947076
         BlackboardReference:
-          rid: 455622644992311387
+          rid: 455622935956947077
         BlackboardGroupReferences: []
         ProcessedNodes: []
         m_RunningNodes: []
         m_NodesToEnd:
-          rid: 455622644992311388
+          rid: 455622935956947078
         m_EndedNodes:
-          rid: 455622644992311389
-        m_VersionTimestamp: 638779023022432745
-    - rid: 455622644992311386
+          rid: 455622935956947079
+        m_VersionTimestamp: 638790234494029379
+    - rid: 455622935956947076
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 5963648818120016735
           m_Value1: 15585443684214234029
         Graph:
-          rid: 455622644992311385
+          rid: 455622935956947075
         m_Parent:
           rid: -2
         m_Child:
-          rid: 455622644992311390
+          rid: 455622935956947080
         Repeat: 1
-    - rid: 455622644992311387
+    - rid: 455622935956947077
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 455622644992311391
+          rid: 455622935956947081
         m_Source: {fileID: -4488043659203103091}
-    - rid: 455622644992311388
+    - rid: 455622935956947078
       type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
       data: 
-    - rid: 455622644992311389
+    - rid: 455622935956947079
       type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
       data: 
-    - rid: 455622644992311390
+    - rid: 455622935956947080
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 3793706119098958224
           m_Value1: 15278724566614722133
         Graph:
-          rid: 455622644992311385
+          rid: 455622935956947075
         m_Parent:
-          rid: 455622644992311386
+          rid: 455622935956947076
         m_Children:
-        - rid: 455622644992311392
-        - rid: 455622644992311393
-    - rid: 455622644992311391
+        - rid: 455622935956947082
+        - rid: 455622935956947083
+    - rid: 455622935956947081
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 455622644992311394
-    - rid: 455622644992311392
+        - rid: 455622935956947084
+        - rid: 455622935956947085
+        - rid: 455622935956947086
+    - rid: 455622935956947082
       type: {class: PatrolOccupationAreaAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 3793706119098958224
           m_Value1: 15278724566614722133
         Graph:
-          rid: 455622644992311385
+          rid: 455622935956947075
         m_Parent:
-          rid: 455622644992311390
+          rid: 455622935956947080
         Agent:
-          rid: 455622644992311394
-    - rid: 455622644992311393
+          rid: 455622935956947084
+        Animator:
+          rid: 455622935956947085
+        NavMeshAgent:
+          rid: 455622935956947086
+    - rid: 455622935956947083
       type: {class: WaitRangeAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 10379795616905835045
           m_Value1: 13319279876875898796
         Graph:
-          rid: 455622644992311385
+          rid: 455622935956947075
         m_Parent:
-          rid: 455622644992311390
+          rid: 455622935956947080
         Min:
-          rid: 455622644992311396
+          rid: 455622935956947087
         Max:
-          rid: 455622644992311397
-    - rid: 455622644992311394
+          rid: 455622935956947088
+    - rid: 455622935956947084
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -486,7 +580,23 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 455622644992311396
+    - rid: 455622935956947085
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8077896109664035766
+          m_Value1: 3744674199870944766
+        Name: Animator
+        m_Value: {fileID: 0}
+    - rid: 455622935956947086
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4253914196132063450
+          m_Value1: 15840392064816786172
+        Name: Nav Mesh Agent
+        m_Value: {fileID: 0}
+    - rid: 455622935956947087
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -494,7 +604,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 0
-    - rid: 455622644992311397
+    - rid: 455622935956947088
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -519,7 +629,9 @@ MonoBehaviour:
     m_Value1: 17885014075698998987
   m_Variables:
   - rid: 160975335092650183
-  m_VersionTimestamp: 638779023022432745
+  - rid: 455622935956947038
+  - rid: 455622935956947053
+  m_VersionTimestamp: 638790234494029379
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: -4488043659203103091}
@@ -533,6 +645,26 @@ MonoBehaviour:
           m_Value0: 1
           m_Value1: 0
         Name: Self
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 455622935956947038
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 8077896109664035766
+          m_Value1: 3744674199870944766
+        Name: Animator
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 455622935956947053
+      type: {class: 'TypedVariableModel`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 4253914196132063450
+          m_Value1: 15840392064816786172
+        Name: Nav Mesh Agent
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
