@@ -10,13 +10,11 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
     private bool isDragging = false;
 
 
-    private Vector3 originalPosition;
     private RectTransform rectTransform;
     private Canvas canvas;
     private CanvasGroup canvasGroup;
 
-    private SquareDropZone currentSquare = null; // ✅ Track where we're currently snapped
-    private static List<SquareDropZone> dropZones = new List<SquareDropZone>();
+    [SerializeField] private SquareDropZone currentSquare = null; // ✅ Track where we're currently snapped
 
     public float snapRadius = 50f;
     public float detachThreshold = 30f;
@@ -30,36 +28,9 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        originalPosition = rectTransform.position;
+        if (currentSquare == null) Debug.LogWarning($"{name} is not assigned a square in the book and therefore will not function correctly");
+        currentSquare.AssignOccupant(this);
     }
-
-    private List<SquareDropZone> GetAvailableDropZones()
-{
-    return SquareDropZone.allDropZones;
-}
-
-    
-    private void Start()
-{
-    
-
-    // 🔍 Auto-snap check on start
-    foreach (var square in dropZones)
-    {
-        float distance = Vector3.Distance(rectTransform.position, square.transform.position);
-        if (distance < snapRadius)
-        {
-            if (!square.IsOccupied())
-            {
-                square.AssignOccupant(this);
-                currentSquare = square;
-                originalPosition = rectTransform.position;
-                
-            }
-            break;
-        }
-    }
-}
 
 
     private void Update()
@@ -71,7 +42,6 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         // Simulate the pointer down logic
         isDragging = true;
         canvasGroup.blocksRaycasts = false;
-        transform.SetAsLastSibling(); // bring to front
     }
 
     // If we are manually dragging, follow the mouse
@@ -86,25 +56,6 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         {
             rectTransform.position = globalMousePos;
         }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            canvasGroup.blocksRaycasts = true;
-
-            // Snap/drop logic
-            SquareDropZone closestSquare = GetClosestDropZone();
-            if (closestSquare != null && !closestSquare.IsOccupied())
-            {
-                rectTransform.position = closestSquare.transform.position;
-                closestSquare.AssignOccupant(this);
-                originalPosition = rectTransform.position;
-            }
-            else
-            {
-                rectTransform.position = originalPosition;
-            }
-        }
     }
 }
 
@@ -118,14 +69,6 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
     public void OnPointerDown(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        transform.SetAsLastSibling();
-
-        // ✅ Clear current square (we're moving away)
-        if (currentSquare != null)
-        {
-            currentSquare.ClearOccupant();
-            currentSquare = null;
-        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -149,25 +92,25 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
         if (closestSquare != null)
         {
-            float distance = Vector3.Distance(rectTransform.position, closestSquare.transform.position);
-
-            if (distance <= snapRadius)
+            if (!closestSquare.IsOccupied())
             {
-                if (!closestSquare.IsOccupied())
+                // ✅ Clear current square (we're moving away)
+                if (currentSquare != null)
                 {
-                    // ✅ Snap to square
-                    rectTransform.position = closestSquare.transform.position;
-                    closestSquare.AssignOccupant(this);
-                    currentSquare = closestSquare;
-                    originalPosition = rectTransform.position;
-                    return;
+                    currentSquare.ClearOccupant();
+                    currentSquare = null;
                 }
-                
+
+                // ✅ Snap to square
+                transform.position = closestSquare.transform.position;
+                closestSquare.AssignOccupant(this);
+                currentSquare = closestSquare;
+                return;
             }
         }
 
         // ❌ Snap failed or invalid → return to last position
-        rectTransform.position = originalPosition;
+        transform.position = currentSquare.transform.position;
     }
 
     private SquareDropZone GetClosestDropZone()
