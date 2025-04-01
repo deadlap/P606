@@ -113,7 +113,7 @@ public class NewChatBot : MonoBehaviour
     void InputFieldSelected(string arg0)
     {
         chatIsActive = true;
-        PlayerInputEvent.OnFreezePlayer();
+        PlayerInputEvent.OnEnterDialog();
         print("Input field selected");
     }
 
@@ -121,8 +121,8 @@ public class NewChatBot : MonoBehaviour
     {
         if (!canExitChat) return;
         chatIsActive = false;
-        PlayerInputEvent.OnUnFreezePlayer();
-        piperTTS.audioSource.Stop();
+        PlayerInputEvent.OnExitDialog();
+        piperTTS.audioSource?.Stop();
         print("Input field deselected");
         chatGraphics.SetActive(false);
     }

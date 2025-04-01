@@ -6,9 +6,9 @@ public class PlayerInputEvent : MonoBehaviour
     public static event Action PlayerInteract;
     public static void OnPlayerInteract() => PlayerInteract?.Invoke();
 
-    public static event Action FreezePlayer;
-    public static void OnFreezePlayer() => FreezePlayer?.Invoke();
+    public static event Action EnterDialog;
+    public static void OnEnterDialog() => EnterDialog?.Invoke();
 
-    public static event Action UnFreezePlayer;
-    public static void OnUnFreezePlayer() => UnFreezePlayer?.Invoke();
+    public static event Action ExitDialog;
+    public static void OnExitDialog() => ExitDialog?.Invoke();
 }

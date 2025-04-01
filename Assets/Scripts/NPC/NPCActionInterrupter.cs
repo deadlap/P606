@@ -1,26 +1,41 @@
+using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NPCActionInterrupter : MonoBehaviour
 {
     NavMeshAgent navMeshAgent;
+    Animator animator;
+    BehaviorGraphAgent behaviorGraphAgent;
     float originalSpeed;
-    float orginalAcceleration;
+    float originalAcceleration;
+    
+    void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
+        behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
+        originalSpeed = navMeshAgent.speed;
+        originalAcceleration = navMeshAgent.acceleration;
+    }
+    
     void OnEnable()
     {
-        PlayerInputEvent.FreezePlayer += Interrupt;
-        PlayerInputEvent.UnFreezePlayer += Resume;
+        PlayerInputEvent.EnterDialog += Interrupt;
+        PlayerInputEvent.ExitDialog += Resume;
     }
 
     void OnDisable()
     {
-        PlayerInputEvent.FreezePlayer -= Interrupt;
-        PlayerInputEvent.UnFreezePlayer -= Resume;
+        PlayerInputEvent.EnterDialog -= Interrupt;
+        PlayerInputEvent.ExitDialog -= Resume;
     }
 
     void Interrupt()
     {
         if (PlayerController.instance.closestNPC != gameObject) return;
+        behaviorGraphAgent.enabled = false;
+        animator.SetBool("isWalking", false);
         transform.LookAt(PlayerController.instance.transform);
         navMeshAgent.speed = 0;
         navMeshAgent.acceleration = float.MaxValue; // Makes the NPC stop immediately.
@@ -29,12 +44,8 @@ public class NPCActionInterrupter : MonoBehaviour
     void Resume()
     {
         if (PlayerController.instance.closestNPC != gameObject) return;
+        behaviorGraphAgent.enabled = true;
         navMeshAgent.speed = originalSpeed;
-        navMeshAgent.acceleration = orginalAcceleration;
-    }
-    void Awake()
-    {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        originalSpeed = navMeshAgent.speed;
+        navMeshAgent.acceleration = originalAcceleration;
     }
 }

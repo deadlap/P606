@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     Image interactButtonFillImage;
     [HideInInspector] public GameObject closestNPC = null;
     [SerializeField] float interactFillTime = 0.5f;
+    [SerializeField] Vector3 interactButtonOffset = new Vector3(0, 2, 0);
     Animator animator;
 
     Vector2 moveDirection;
@@ -49,8 +50,8 @@ public class PlayerController : MonoBehaviour
         playerInput.actions["Move"].performed += OnMove;
         playerInput.actions["Move"].canceled += OnMove;
         playerInput.actions["Interact"].performed += OnInteract;
-        PlayerInputEvent.FreezePlayer += () => canPlayerAct = false;
-        PlayerInputEvent.UnFreezePlayer += () => canPlayerAct = true;
+        PlayerInputEvent.EnterDialog += () => canPlayerAct = false;
+        PlayerInputEvent.ExitDialog += () => canPlayerAct = true;
     }
 
     void OnDisable()
@@ -58,8 +59,8 @@ public class PlayerController : MonoBehaviour
         playerInput.actions["Move"].performed -= OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
         playerInput.actions["Interact"].performed -= OnInteract;
-        PlayerInputEvent.FreezePlayer -= () => canPlayerAct = false;
-        PlayerInputEvent.UnFreezePlayer -= () => canPlayerAct = true;
+        PlayerInputEvent.EnterDialog -= () => canPlayerAct = false;
+        PlayerInputEvent.ExitDialog -= () => canPlayerAct = true;
     }
     void OnMove(InputAction.CallbackContext context)
     {
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
         start = end;
         interactButtonFillImage.fillAmount = 0;
         PlayerInputEvent.OnPlayerInteract();
-        Debug.Log($"Player interacted with {closestNPC.name}. Hello!");
+        animator.SetBool("isWalking", false);
     }
     void Update()
     {
@@ -179,7 +180,7 @@ public class PlayerController : MonoBehaviour
         if (currentInteractButton != null)
         {
             currentInteractButton.transform.SetParent(closestNPC.transform);
-            currentInteractButton.transform.localPosition = new Vector3(0, 2, 0);
+            currentInteractButton.transform.localPosition = interactButtonOffset;
         }
     }
 

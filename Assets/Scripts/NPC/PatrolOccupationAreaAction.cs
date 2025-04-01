@@ -23,17 +23,18 @@ public partial class PatrolOccupationAreaAction : Action
     Vector3 currentPoint;
     bool pointGiven;
     bool pointReached;
+
     protected override Status OnStart()
     {
         if (Agent.Value == null)
         {
-            Debug.Log("No agent assigned.");
+            Debug.LogWarning("No agent assigned.");
             return Status.Failure;
         }
 
         if (Agent.Value.GetComponent<NavMeshAgent>() == null)
         {
-            Debug.Log("Agent does not have a NavMeshAgent");
+            Debug.LogWarning("Agent does not have a NavMeshAgent");
             return Status.Failure;
         }
         Initialize();
@@ -62,14 +63,14 @@ public partial class PatrolOccupationAreaAction : Action
         if(hasInitialized) return;
         if (Agent.Value.GetComponent<Identity>() == null)
         {
-            Debug.Log($"{Agent.Value.name} has no Identity set.");
+            Debug.LogWarning($"{Agent.Value.name} has no Identity set.");
             return;
         }
         identity = Agent.Value.GetComponent<Identity>();
         occupation = identity.Occupation.ToString();
         if (Agent.Value.GetComponent<NPC>().SpawnPoint == null)
         {
-            Debug.Log($"{Agent.Value.name} has no SpawnPoint set.");
+            Debug.LogWarning($"{Agent.Value.name} has no SpawnPoint set.");
             return;
         }
         patrolArea = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
