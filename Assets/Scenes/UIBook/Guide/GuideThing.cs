@@ -16,12 +16,16 @@ public class GuideThing : MonoBehaviour
     public GameObject GuidePage2;
     public GameObject GuidePage3;
 
-    
+    private Transform inFrontOfBook;
+    private Transform behindBook;
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        // ----- FELIX KOMMENTAR -----
+        // Træt så lavede en scuff løsning der slap for at expose variabler
+        inFrontOfBook = transform.parent.parent.GetChild(0);
+        behindBook = transform.parent.parent.GetChild(1);
     }
 
 
@@ -30,10 +34,18 @@ public class GuideThing : MonoBehaviour
         GuidePage1.SetActive(false);
         GuidePage2.SetActive(false);
         GuidePage3.SetActive(false);
+
+        PageIsActive = false;
+
+        transform.SetParent(behindBook);
     }
 
     public void WhenButtonPressed()
     {
+        // ----- FELIX KOMMENTAR -----
+        // Følgende gør at spørgsmålstegnet skifter mellem at være foran og bagved bogen ift om det er aktivt
+        transform.SetParent(transform.parent == behindBook ? inFrontOfBook : behindBook);
+
         if (page1.activeSelf && PageIsActive == false)
         {
             GuidePage1.SetActive(true);

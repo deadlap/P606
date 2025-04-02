@@ -10,10 +10,10 @@ public class BookManager : MonoBehaviour
     [SerializeField] private Button scrollUpButton;
     [SerializeField] private Button scrollDownButton;
 
-    private Vector3 targetScale = new Vector3(0.16f, 0.28f, 0.28f); // Set your desired target scale here
+    private Vector3 targetScale = Vector3.one; // Set your desired target scale here
 
-    private Vector3 targetScalebook = new Vector3(17.22f, 9.67f, 9.27f); // Set your desired target scale here
-    private Vector3 targetScalebookShrink = new Vector3(3.44000006f,1.93372798f,1.85230792f);
+    private Vector3 targetScalebook = Vector3.one; // Set your desired target scale here
+    private Vector3 targetScalebookShrink = Vector3.zero;
     private float shrinkDuration = 0.5f;
 
     public bool test;

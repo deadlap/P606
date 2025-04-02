@@ -2,10 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 
 public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerClickHandler
 
 {
+    [SerializeField] private bool endlessSpawner = false;
+
     public bool startDraggingNow = false;
     private bool isDragging = false;
 
@@ -28,8 +31,7 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        if (currentSquare == null) Debug.LogWarning($"{name} is not assigned a square in the book and therefore will not function correctly");
-        currentSquare.AssignOccupant(this);
+        if (currentSquare != null) currentSquare.AssignOccupant(this);
     }
 
 
@@ -68,6 +70,25 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        // ----- FELIX KOMMENTAR -----
+        // Tilføjede følgende 13 linjer til at erstatte hele draggable spawner scriptet, bør også betyde hele Update() kan fjernes
+        if (endlessSpawner)
+        {
+            // Remember where in hiearchy this is
+            int siblingIndex = transform.GetSiblingIndex();
+            // Create a clone to stay here
+            Transform myClone = Instantiate(gameObject, transform.parent).transform;
+            // Make this no longer part of the grid
+            transform.SetParent(transform.parent.parent);
+            // Make sure the clone will be where this once was
+            myClone.SetSiblingIndex(siblingIndex);
+            // Make sure this no longer spawns clones
+            endlessSpawner = false;
+        }
+
+        // Make this be rendered in front of others
+        transform.SetAsLastSibling();
+
         canvasGroup.blocksRaycasts = true;
     }
 
@@ -109,8 +130,16 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
             }
         }
 
-        // ❌ Snap failed or invalid → return to last position
-        transform.position = currentSquare.transform.position;
+        // ❌ Snap failed or invalid → return to last position or destroy if no last position
+        if (currentSquare == null)
+        {
+            Debug.Log($"{name} was dropped into nothing and had no place assigned as its home. It's gonna self destruct");
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.position = currentSquare.transform.position;
+        }
     }
 
     private SquareDropZone GetClosestDropZone()
