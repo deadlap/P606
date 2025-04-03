@@ -11,13 +11,13 @@ public partial class FrontFlipAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Animator> Animator;
+    [SerializeReference] public BlackboardVariable<int> TargetValue;
 
-    int targetValue = 500;
     protected override Status OnStart()
     {
-        int randomValue = Random.Range(1, targetValue);
+        int randomValue = Random.Range(1, TargetValue.Value);
         Debug.Log($"Random value for {Agent.Value.name}: {randomValue}");
-        if (randomValue != (targetValue - 1)) return Status.Failure; // - 1 since Random.Range is maxExclusive
+        if (randomValue != (TargetValue.Value - 1)) return Status.Failure; // - 1 since Random.Range is maxExclusive
         Animator.Value.SetTrigger("FrontFlip");
         return Status.Running;
     }
