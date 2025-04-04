@@ -5222,9 +5222,8 @@ GameObject:
   - component: {fileID: 467491989}
   - component: {fileID: 467491991}
   - component: {fileID: 467491990}
-  - component: {fileID: 467491994}
-  - component: {fileID: 467491992}
   - component: {fileID: 467491993}
+  - component: {fileID: 467491992}
   m_Layer: 0
   m_Name: Hallway
   m_TagString: Untagged
@@ -5343,27 +5342,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6064625, y: 1, z: 10.052945}
   m_Center: {x: -7.594322, y: 0.49988717, z: 14.815979}
---- !u!65 &467491994
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467491988}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &481538714
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,6 +6276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446839970521792323, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+      propertyPath: _llm
+      value: 
+      objectReference: {fileID: 41300929}
     - target: {fileID: 856238052052927883, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6338,11 +6320,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1268738002812240906, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 875900297897700866, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 1418684182232964720, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 1611708661268705195, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
@@ -6350,31 +6332,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 2973339821796088007, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 2838358102797533445, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 3947547244558590117, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 3073965807186153098, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 5116805918708301921, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 3145589444271982787, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 5120901964196293128, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 3844490585803437217, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 5398433335379387657, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 4356946924949096355, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 5426885207915092612, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 4622122962143075634, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 5555837252525016849, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 5365289196991046532, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
@@ -6382,15 +6364,11 @@ PrefabInstance:
       propertyPath: FallBackSpawnPoint
       value: 
       objectReference: {fileID: 1272335537}
-    - target: {fileID: 7042735913128858538, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 6461414957858888103, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 7091977557353259731, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
-      propertyPath: _llm
-      value: 
-      objectReference: {fileID: 41300929}
-    - target: {fileID: 7525029723113092627, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 7171603760441286657, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
@@ -6398,11 +6376,11 @@ PrefabInstance:
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 8156983727756000382, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 8665079450579271401, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
-    - target: {fileID: 8796658007695648893, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+    - target: {fileID: 9040787451764635976, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: _llm
       value: 
       objectReference: {fileID: 41300929}
@@ -20823,8 +20801,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 42.35153, y: 1, z: 4.58}
-  m_Center: {x: -1.0434226, y: 0.49996936, z: -2.3320584}
+  m_Size: {x: 51.237026, y: 1, z: 4.58}
+  m_Center: {x: -5.486036, y: 0.49995875, z: -2.3319964}
 --- !u!114 &2121232726
 MonoBehaviour:
   m_ObjectHideFlags: 0
