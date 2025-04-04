@@ -70,6 +70,7 @@ public partial class PatrolOccupationAreaAction : Action
         if (!pointGiven)
         {
             Animator.Value.SetBool("isWalking", true);
+            Animator.Value.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
             currentPoint = patrolArea.RandomPatrolPoint();
             NavMeshAgent.Value.SetDestination(currentPoint);
             pointGiven = true;

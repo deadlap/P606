@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     Vector3 movement;
     bool canPlayerAct = true;
-    [SerializeField] float speed = 5f;
+    [SerializeField] float movementSpeed = 5f;
     CharacterController characterController;
     PlayerInput playerInput;
     List<GameObject> npcs = new List<GameObject>();
@@ -81,10 +82,12 @@ public class PlayerController : MonoBehaviour
     {
         if (!canPlayerAct) return;
         if (characterController)
-            characterController.Move(movement * speed * Time.deltaTime);
+            characterController.Move(movement * movementSpeed * Time.deltaTime);
         if (movement != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
+            animator.SetFloat("walkSpeed", movementSpeed);
+
         }
         else
         {
@@ -99,7 +102,7 @@ public class PlayerController : MonoBehaviour
         if (rotationDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(rotationDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * speed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * movementSpeed);
         }
     }
 
