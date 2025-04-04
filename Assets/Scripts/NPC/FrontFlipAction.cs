@@ -16,7 +16,6 @@ public partial class FrontFlipAction : Action
     protected override Status OnStart()
     {
         int randomValue = Random.Range(1, TargetValue.Value);
-        Debug.Log($"Random value for {Agent.Value.name}: {randomValue}");
         if (randomValue != (TargetValue.Value - 1)) return Status.Failure; // - 1 since Random.Range is maxExclusive
         Animator.Value.SetTrigger("FrontFlip");
         return Status.Running;

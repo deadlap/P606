@@ -14,15 +14,11 @@ public partial class PatrolOccupationAreaAction : Action
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
-
-    Identity identity;
-    string occupation;
-    bool hasInitialized;
+    [SerializeReference] public BlackboardVariable<string> Occupation;
     
     PatrolArea patrolArea;
     Vector3 currentPoint;
     bool pointGiven;
-    bool pointReached;
 
     protected override Status OnStart()
     {
@@ -31,20 +27,34 @@ public partial class PatrolOccupationAreaAction : Action
             Debug.LogWarning("No agent assigned.");
             return Status.Failure;
         }
-
         if (Agent.Value.GetComponent<NavMeshAgent>() == null)
         {
             Debug.LogWarning("Agent does not have a NavMeshAgent");
+            return Status.Failure;
+        }
+        if (Occupation == "")
+        {
+            Debug.LogWarning("No occupation assigned.");
             return Status.Failure;
         }
         Initialize();
         WalkToPoint();
         return Status.Running;
     }
+    void Initialize()
+    {
+        if (Agent.Value.GetComponent<NPC>().SpawnPoint == null)
+        {
+            Debug.LogWarning($"{Agent.Value.name} has no SpawnPoint set.");
+            return;
+        }
+        patrolArea = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
+        Debug.Log($"im {Agent.Value.name} and im a {Occupation.Value}. i like to walk around {patrolArea.name}");
+    }
 
     protected override Status OnUpdate()
     {
-        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.3f)
+        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.5f)
         {
             Animator.Value.SetBool("isWalking", false);
             Debug.Log($"{Agent.Value.name} reached point");
@@ -54,29 +64,6 @@ public partial class PatrolOccupationAreaAction : Action
         return Status.Running;
     }
 
-    protected override void OnEnd()
-    {
-    }
-    
-    void Initialize()
-    {
-        if(hasInitialized) return;
-        if (Agent.Value.GetComponent<Identity>() == null)
-        {
-            Debug.LogWarning($"{Agent.Value.name} has no Identity set.");
-            return;
-        }
-        identity = Agent.Value.GetComponent<Identity>();
-        occupation = identity.Occupation.ToString();
-        if (Agent.Value.GetComponent<NPC>().SpawnPoint == null)
-        {
-            Debug.LogWarning($"{Agent.Value.name} has no SpawnPoint set.");
-            return;
-        }
-        patrolArea = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
-        Debug.Log($"im {Agent.Value.name} and im a {occupation}. i like to walk around {patrolArea.name}");
-        hasInitialized = true;
-    }
 
     void WalkToPoint()
     {
