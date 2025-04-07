@@ -21,7 +21,8 @@ namespace RoomFocusing
             if (isCopy) return; isCopy = true;
 
             // Create a copy of this that has a shadow
-            GameObject shadowCopy = Instantiate(gameObject, transform.position, transform.rotation);
+            GameObject shadowCopy = Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
+            shadowCopy.name = "shadowWall";
             Renderer shadowRenderer = shadowCopy.GetComponent<Renderer>();
             shadowRenderer.materials = new Material[] { shadowMaterial };
             shadowRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;

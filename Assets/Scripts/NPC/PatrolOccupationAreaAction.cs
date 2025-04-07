@@ -56,7 +56,7 @@ public partial class PatrolOccupationAreaAction : Action
     {
         if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.5f)
         {
-            Animator.Value.SetBool("isWalking", false);
+            Animator.Value?.SetBool("isWalking", false);
             Debug.Log($"{Agent.Value.name} reached point");
             pointGiven = false;
             return Status.Success;
@@ -69,7 +69,7 @@ public partial class PatrolOccupationAreaAction : Action
     {
         if (!pointGiven)
         {
-            Animator.Value.SetBool("isWalking", true);
+            Animator.Value?.SetBool("isWalking", true);
             Animator.Value.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
             currentPoint = patrolArea.RandomPatrolPoint();
             NavMeshAgent.Value.SetDestination(currentPoint);
