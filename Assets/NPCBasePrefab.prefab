@@ -550,7 +550,8 @@ MonoBehaviour:
   head: {fileID: 5731105227633668822}
   body: {fileID: 3056182157420117419}
   shadowMaterial: {fileID: 2100000, guid: 4e645cd55e4d4ac45afb4aa76c78e0c7, type: 2}
-  accessories: []
+  accessories:
+  - {fileID: 3637683000013470645}
   originalHead: []
   originalBody: []
 --- !u!1001 &704100989017148045
@@ -784,6 +785,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72508245c10fe4845bca90e1a17f098e, type: 3}
+--- !u!1 &3637683000013470645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308568578854397187, guid: 72508245c10fe4845bca90e1a17f098e, type: 3}
+  m_PrefabInstance: {fileID: 2274811481887678134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7183452443474819156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8944570031277041378, guid: 72508245c10fe4845bca90e1a17f098e, type: 3}
