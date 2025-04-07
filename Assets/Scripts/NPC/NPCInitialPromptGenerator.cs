@@ -32,13 +32,28 @@ public class NPCInitialPromptGenerator : MonoBehaviour {
     }
 
     string GenerateScheduleText(){
-        return "";
+        string text = "";
+        for (int i = 0; i < NPCIdentity.Schedule.Count; i++) {
+            text += "From " + (i+GameStats.INSTANCE.ScheduleOffset) + " to " +
+            (i+GameStats.INSTANCE.ScheduleOffset+1) + " you were at " + NPCIdentity.Schedule[i];
+            if (NPCIdentity.SchedulePairings[i].Count > 0){ 
+                text += ", and you saw ";
+                for (int j = 0; j < NPCIdentity.SchedulePairings[i].Count; j++) {
+                    text += NPCIdentity.SchedulePairings[i][j].NPCIdentity.name;
+                    if (j != NPCIdentity.SchedulePairings[i].Count-1) {
+                        text += " and ";
+                    }
+                }
+            }
+            text += ". ";
+        }
+        return text;
     }
 
     public string GeneratePrompt(){
         Npc = GetComponent<NPC>();
         NPCIdentity = GetComponent<Identity>();
-        return (string.Format(Prompt, 
+        GeneratedPrompt = (string.Format(Prompt, 
             GameObject.FindGameObjectWithTag("NPCGenerator").GetComponent<NPCGenerator>().GetVictim().NPCIdentity.Name,
             GetStringName(NPCIdentity.Name),
             NPCIdentity.Occupation,
@@ -48,8 +63,10 @@ public class NPCInitialPromptGenerator : MonoBehaviour {
             NPCIdentity.Conscientiousness,
             NPCIdentity.Extraversion,
             NPCIdentity.Agreeableness,
-            NPCIdentity.Neuroticism
+            NPCIdentity.Neuroticism,
+            GenerateScheduleText()
         ));
+        return GeneratedPrompt;
     }
     public string GetStringName(Identity.Names name){
         return System.Enum.GetName(typeof(Identity.Names),name);

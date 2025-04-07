@@ -41,15 +41,10 @@ public class Identity : MonoBehaviour {
         Doctor,
         Lawyer,
         Magician,
-        Musician,
         Oil_Tycoon,
-        Pilot,
         Admiral,
         Priest,
-        Actress,
-        Merchant,
-        Athlete,
-        Sherif
+        Saxophonist
     }
     //     [Flags] public enum Occupations {
     //     None = 0,
