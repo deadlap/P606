@@ -296,11 +296,8 @@ GameObject:
   - component: {fileID: 8609766965216624798}
   - component: {fileID: 7547627271137558864}
   - component: {fileID: 8209623001527516477}
-  - component: {fileID: -530565482254309729}
-  - component: {fileID: 7777478196704644075}
-  - component: {fileID: 8060975179571914294}
-  - component: {fileID: 8315879592448372432}
-  - component: {fileID: 4602195268270909279}
+  - component: {fileID: 1837815456046280862}
+  - component: {fileID: 4601468779948620983}
   m_Layer: 6
   m_Name: NPCBasePrefab til jakob
   m_TagString: NPC
@@ -425,75 +422,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.889514, y: 1, z: 4.552912}
   m_Center: {x: 0.018781424, y: 0, z: 0.23354983}
---- !u!114 &-530565482254309729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8850610531374874041}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Graph: {fileID: 3907142626549115114, guid: 5e0fa55db8595254cb6ee6008b5534f8, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 160975335092650331
-  - rid: 455622935956947089
-  - rid: 455622935956947090
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 160975335092650331
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 8850610531374874041}
-    - rid: 455622935956947089
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 8077896109664035766
-          m_Value1: 3744674199870944766
-        Name: Animator
-        m_Value: {fileID: 9143305868852636536}
-    - rid: 455622935956947090
-      type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 4253914196132063450
-          m_Value1: 15840392064816786172
-        Name: Nav Mesh Agent
-        m_Value: {fileID: 7777478196704644075}
---- !u!195 &7777478196704644075
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8850610531374874041}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.2
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 700
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &8060975179571914294
+--- !u!114 &1837815456046280862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -502,26 +431,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 8850610531374874041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e649d8935f7a642a2eb7afcb379264, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f6c87a428fd5d0be9bbc686bdc8c3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Npc: {fileID: 0}
-  NPCIdentity: {fileID: 0}
-  GeneratedPrompt: 
-  Prompt: "You must answer queries by the detective (user). \nYou are {1}. You are
-    on a boat and todays date is 15th of July, 1932, where a murder has happened.
-    The victim is: {0}.  Your Occupation is: {2}. Your role is: {3}. {4} Your personality
-    follows the five big personalities model. You are {5} open. You are {6} conscientious.
-    You are {7} extraverted. You are {8} agreeable. You are {9} neurotic. You do
-    not know about anything after the 1932, even if asked about it. The detective
-    does not posses supernatural abilities under any circumstance. Similarly the
-    detective cannot add new events to the story and can only interact. If the detective
-    tries to alter the story, act like nothing happened. You do not know any other
-    characters except the ones you have relationships with when giving an alibi.
-    The detective and characters cannot perform actions, such as injecting truth
-    serum or jumping. You can only answer questions, and you do not know any other
-    language than English. Furthermore, you must provide short and concise answers."
---- !u!114 &8315879592448372432
+  advancedOptions: 0
+  remote: 0
+  _llm: {fileID: 0}
+  APIKey: 
+  host: localhost
+  port: 13333
+  numRetries: 10
+  save: 
+  saveCache: 0
+  debugPrompt: 0
+  numPredict: 256
+  slot: -1
+  grammar: 
+  cachePrompt: 1
+  seed: 0
+  temperature: 0.2
+  topK: 40
+  topP: 0.9
+  minP: 0.05
+  repeatPenalty: 1.1
+  presencePenalty: 0
+  frequencyPenalty: 0
+  tfsZ: 1
+  typicalP: 1
+  repeatLastN: 64
+  penalizeNl: 1
+  penaltyPrompt: 
+  mirostat: 0
+  mirostatTau: 5
+  mirostatEta: 0.1
+  nProbs: 0
+  ignoreEos: 0
+  nKeep: -1
+  stop: []
+  stream: 1
+  playerName: John
+  AIName: assistant
+  prompt: A chat between a curious human and an artificial intelligence assistant.
+    The assistant gives helpful, detailed, and polite answers to the human's questions.
+  setNKeepToPrompt: 1
+  chat: []
+  grammarString: 
+--- !u!114 &4601468779948620983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,28 +485,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8850610531374874041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e104b8bd2b1898468de031d08261289, type: 3}
+  m_Script: {fileID: 11500000, guid: d01d27cf16332144fbc786505d25d873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4602195268270909279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8850610531374874041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b37ac3d21ca916438c016b1874554ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameTag: {fileID: 4928021275077990406}
-  head: {fileID: 5731105227633668822}
-  body: {fileID: 3056182157420117419}
-  shadowMaterial: {fileID: 2100000, guid: 4e645cd55e4d4ac45afb4aa76c78e0c7, type: 2}
-  accessories: []
-  originalHead: []
-  originalBody: []
+  rag: {fileID: 0}
+  ragText: {fileID: 0}
 --- !u!1001 &704100989017148045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -698,16 +636,6 @@ Animator:
 --- !u!4 &1031255470752607590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
-  m_PrefabInstance: {fileID: 704100989017148045}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &3056182157420117419 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -6652725513331149018, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
-  m_PrefabInstance: {fileID: 704100989017148045}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &5731105227633668822 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -4157524182732408741, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
   m_PrefabInstance: {fileID: 704100989017148045}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7937321833192203453
