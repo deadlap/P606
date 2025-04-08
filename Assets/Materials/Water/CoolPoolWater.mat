@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GreyWater
+  m_Name: CoolPoolWater
   m_Shader: {fileID: -6465566751694194690, guid: a6c21ad1c42211a4bb25cfe46a55c0f0, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -109,7 +109,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _Choppiness: 0.1
+    - _Choppiness: 0.01
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -127,30 +127,30 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Opacity: 0.95
+    - _Opacity: 0.8
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Sailing_Speed: 0.015
-    - _Size: 25
+    - _Sailing_Speed: 0
+    - _Size: 2
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Wave_Amount: 2
+    - _Wave_Amount: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkFoamColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+    - _DarkFoamColor: {r: 0.18039216, g: 0.56078434, b: 0.8705883, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightFoamColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _LightFoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _Sailing_Direction: {r: 0, g: -1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 0.4528302, g: 0.44215024, b: 0.44215024, a: 1}
+    - _WaterColor: {r: 0.20784307, g: 0.6431373, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

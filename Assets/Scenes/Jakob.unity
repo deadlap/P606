@@ -407,85 +407,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 6f5af2056e6d94a4d83fe07ac8d174a1, type: 2}
   m_BuildHeightMesh: 0
---- !u!1 &30974274
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 30974277}
-  - component: {fileID: 30974276}
-  - component: {fileID: 30974275}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &30974275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30974274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &30974276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30974274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &30974277
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30974274}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38749686
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,6 +3914,113 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &378153517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 123.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -73.765
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: _llm
+      value: 
+      objectReference: {fileID: 41300929}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: prompt
+      value: "Your name is {Name}, and I want you to act as {Determiner} {Occupation}
+        from 1936. I want you to respond and answer in accordance with {Determiner}
+        {Occupation}, using the tone, manner, and vocabulary {Determiner} {Occupation}
+        would use. You must know all of the knowledge of {Determiner} {Occupation}.
+        You are from England. You do not understand other languages than English.
+        Your answers should be short and concise.\r\n\r\nYour relations are as follows:\r\n{Name}
+        knows {RelationName}, who is {Determiner} {RelationOccupation}, and they
+        are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner} {RelationOccupation},
+        and they are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner}
+        {RelationOccupation}, and they are {Relation}.\r\n\r\nThe status of you is
+        as follows:\r\nLocation: On a cruise ship in the North Atlantic Ocean\r\nStatus:
+        It is April 20th 1936, and {Name} is on the cruise ship. A murder has happened,
+        and {Victim} is now dead. A private detective will question the passengers
+        about the murder.\r\n\r\nThe interactions are as follows:\r\nThe detective
+        will engage in a conversation with {Name} regarding the murder of {Victim}
+        on the cruise ship. The detective wants to know who committed the murder,
+        and will thereby ask {Name} questions. {Name} did not commit the murder and
+        is therefore cooperative in the investigation.\r\n\r\nThe detective will
+        question {Name} regarding their relations to the other passengers, and {Name}
+        will answer accordingly.\r\n\r\nThe detective will question {Name} about
+        where {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about unrelated
+        topics discovered after April 20th 1936, and {Name} will act ignorant and
+        confused.\r\n\r\nThe detective will question {Name} about unrelated events
+        that happened after April 20th 1936, and {Name} will act ignorant and confused.\r\n\r\nThe
+        detective will ask {Name} about knowledge that happened after April 20th
+        1936, and {Name} will act ignorant and confused.\r\n\r\nIf the detective
+        questions {Name} in other languages than English, and {Name} will act ignorant
+        and confused.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601468779948620983, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: rag
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850610531374874041, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_Name
+      value: NPCBasePrefab til jakob (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4928021275077990406, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 179b7b15684a14347856030994b1df4f, type: 3}
 --- !u!1 &378763309
 GameObject:
   m_ObjectHideFlags: 0
@@ -13073,6 +13101,113 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 75c9f9041001f0e419ebb4185eb4ae7d, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1001 &1275231766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -56.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: _llm
+      value: 
+      objectReference: {fileID: 41300929}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: prompt
+      value: "Your name is {Name}, and I want you to act as {Determiner} {Occupation}
+        from 1936. I want you to respond and answer in accordance with {Determiner}
+        {Occupation}, using the tone, manner, and vocabulary {Determiner} {Occupation}
+        would use. You must know all of the knowledge of {Determiner} {Occupation}.
+        You are from England. You do not understand other languages than English.
+        Your answers should be short and concise.\r\n\r\nYour relations are as follows:\r\n{Name}
+        knows {RelationName}, who is {Determiner} {RelationOccupation}, and they
+        are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner} {RelationOccupation},
+        and they are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner}
+        {RelationOccupation}, and they are {Relation}.\r\n\r\nThe status of you is
+        as follows:\r\nLocation: On a cruise ship in the North Atlantic Ocean\r\nStatus:
+        It is April 20th 1936, and {Name} is on the cruise ship. A murder has happened,
+        and {Victim} is now dead. A private detective will question the passengers
+        about the murder.\r\n\r\nThe interactions are as follows:\r\nThe detective
+        will engage in a conversation with {Name} regarding the murder of {Victim}
+        on the cruise ship. The detective wants to know who committed the murder,
+        and will thereby ask {Name} questions. {Name} did not commit the murder and
+        is therefore cooperative in the investigation.\r\n\r\nThe detective will
+        question {Name} regarding their relations to the other passengers, and {Name}
+        will answer accordingly.\r\n\r\nThe detective will question {Name} about
+        where {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about unrelated
+        topics discovered after April 20th 1936, and {Name} will act ignorant and
+        confused.\r\n\r\nThe detective will question {Name} about unrelated events
+        that happened after April 20th 1936, and {Name} will act ignorant and confused.\r\n\r\nThe
+        detective will ask {Name} about knowledge that happened after April 20th
+        1936, and {Name} will act ignorant and confused.\r\n\r\nIf the detective
+        questions {Name} in other languages than English, and {Name} will act ignorant
+        and confused.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601468779948620983, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: rag
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850610531374874041, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_Name
+      value: NPCBasePrefab til jakob (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4928021275077990406, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 179b7b15684a14347856030994b1df4f, type: 3}
 --- !u!1 &1285521664
 GameObject:
   m_ObjectHideFlags: 0
@@ -17933,6 +18068,113 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731896313}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1737770100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 90.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -78.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414034068539995604, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: _llm
+      value: 
+      objectReference: {fileID: 41300929}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: prompt
+      value: "Your name is {Name}, and I want you to act as {Determiner} {Occupation}
+        from 1936. I want you to respond and answer in accordance with {Determiner}
+        {Occupation}, using the tone, manner, and vocabulary {Determiner} {Occupation}
+        would use. You must know all of the knowledge of {Determiner} {Occupation}.
+        You are from England. You do not understand other languages than English.
+        Your answers should be short and concise.\r\n\r\nYour relations are as follows:\r\n{Name}
+        knows {RelationName}, who is {Determiner} {RelationOccupation}, and they
+        are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner} {RelationOccupation},
+        and they are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner}
+        {RelationOccupation}, and they are {Relation}.\r\n\r\nThe status of you is
+        as follows:\r\nLocation: On a cruise ship in the North Atlantic Ocean\r\nStatus:
+        It is April 20th 1936, and {Name} is on the cruise ship. A murder has happened,
+        and {Victim} is now dead. A private detective will question the passengers
+        about the murder.\r\n\r\nThe interactions are as follows:\r\nThe detective
+        will engage in a conversation with {Name} regarding the murder of {Victim}
+        on the cruise ship. The detective wants to know who committed the murder,
+        and will thereby ask {Name} questions. {Name} did not commit the murder and
+        is therefore cooperative in the investigation.\r\n\r\nThe detective will
+        question {Name} regarding their relations to the other passengers, and {Name}
+        will answer accordingly.\r\n\r\nThe detective will question {Name} about
+        where {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about unrelated
+        topics discovered after April 20th 1936, and {Name} will act ignorant and
+        confused.\r\n\r\nThe detective will question {Name} about unrelated events
+        that happened after April 20th 1936, and {Name} will act ignorant and confused.\r\n\r\nThe
+        detective will ask {Name} about knowledge that happened after April 20th
+        1936, and {Name} will act ignorant and confused.\r\n\r\nIf the detective
+        questions {Name} in other languages than English, and {Name} will act ignorant
+        and confused.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601468779948620983, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: rag
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850610531374874041, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: m_Name
+      value: NPCBasePrefab til jakob (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4928021275077990406, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 179b7b15684a14347856030994b1df4f, type: 3}
 --- !u!1 &1743826691
 GameObject:
   m_ObjectHideFlags: 0
@@ -18664,15 +18906,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5638153717854468286, guid: 6e03012e2775b1449bd106fc7e91ef06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.51
+      value: 140.24
       objectReference: {fileID: 0}
     - target: {fileID: 5638153717854468286, guid: 6e03012e2775b1449bd106fc7e91ef06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5638153717854468286, guid: 6e03012e2775b1449bd106fc7e91ef06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.05
+      value: -60.75
       objectReference: {fileID: 0}
     - target: {fileID: 5638153717854468286, guid: 6e03012e2775b1449bd106fc7e91ef06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20977,6 +21219,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: _llm
+      value: 
+      objectReference: {fileID: 41300929}
+    - target: {fileID: 1837815456046280862, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+      propertyPath: prompt
+      value: "Your name is {Name}, and I want you to act as {Determiner} {Occupation}
+        from 1936. I want you to respond and answer in accordance with {Determiner}
+        {Occupation}, using the tone, manner, and vocabulary {Determiner} {Occupation}
+        would use. You must know all of the knowledge of {Determiner} {Occupation}.
+        You are from England. You do not understand other languages than English.
+        Your answers should be short and concise.\r\n\r\nYour relations are as follows:\r\n{Name}
+        knows {RelationName}, who is {Determiner} {RelationOccupation}, and they
+        are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner} {RelationOccupation},
+        and they are {Relation}.\r\n\r\n{Name} knows {RelationName}, who is {Determiner}
+        {RelationOccupation}, and they are {Relation}.\r\n\r\nThe status of you is
+        as follows:\r\nLocation: On a cruise ship in the North Atlantic Ocean\r\nStatus:
+        It is April 20th 1936, and {Name} is on the cruise ship. A murder has happened,
+        and {Victim} is now dead. A private detective will question the passengers
+        about the murder.\r\n\r\nThe interactions are as follows:\r\nThe detective
+        will engage in a conversation with {Name} regarding the murder of {Victim}
+        on the cruise ship. The detective wants to know who committed the murder,
+        and will thereby ask {Name} questions. {Name} did not commit the murder and
+        is therefore cooperative in the investigation.\r\n\r\nThe detective will
+        question {Name} regarding their relations to the other passengers, and {Name}
+        will answer accordingly.\r\n\r\nThe detective will question {Name} about
+        where {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about where
+        {Name} was, and {Name} will answer that {Name} was {Preposition} {Location}
+        between {Time} and {Time+1}, and {Name} saw {ActivityName}, {ActivityName},
+        and {ActivityName}.\r\n\r\nThe detective will question {Name} about unrelated
+        topics discovered after April 20th 1936, and {Name} will act ignorant and
+        confused.\r\n\r\nThe detective will question {Name} about unrelated events
+        that happened after April 20th 1936, and {Name} will act ignorant and confused.\r\n\r\nThe
+        detective will ask {Name} about knowledge that happened after April 20th
+        1936, and {Name} will act ignorant and confused.\r\n\r\nIf the detective
+        questions {Name} in other languages than English, and {Name} will act ignorant
+        and confused.\r"
+      objectReference: {fileID: 0}
     - target: {fileID: 4601468779948620983, guid: 179b7b15684a14347856030994b1df4f, type: 3}
       propertyPath: rag
       value: 
@@ -20993,6 +21278,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+--- !u!1001 &7988397132564409524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 729251170162056030, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_Name
+      value: Jakob
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393888528232351122, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66c6dd9534183a14d9685e113d3c06c3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -21003,7 +21345,10 @@ SceneRoots:
   - {fileID: 669943326}
   - {fileID: 41300930}
   - {fileID: 7228025971435214864}
+  - {fileID: 1275231766}
+  - {fileID: 1737770100}
+  - {fileID: 378153517}
   - {fileID: 1142504226}
-  - {fileID: 30974277}
+  - {fileID: 7988397132564409524}
   - {fileID: 1708285438}
   - {fileID: 16229105}
