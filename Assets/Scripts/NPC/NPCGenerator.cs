@@ -10,7 +10,7 @@ public class NPCGenerator : MonoBehaviour {
     [SerializeField] int LockedRoleAmount;
     
     //List of the generated NPCs, used to generate relations between them.
-    List<NPC> NPCs;
+    public List<NPC> NPCs;
     [Tooltip("List of unused names, each time a name is selected it is deleted from this list")]
     [SerializeField] List<int> unusedNames;
     [Tooltip("List of unused occupations, each time an occupation is selected it is deleted from this list")]
@@ -233,7 +233,7 @@ public class NPCGenerator : MonoBehaviour {
         }
     }
 
-    Identity.Locations PickRandomLocation(int start, int end) {
+    public Identity.Locations PickRandomLocation(int start, int end) {
         //If both are 0 we just want a completely random position except kitchen and none
         //First 2 arent used as random as they are kitchen or None, none currently being used for the murderer lying about where they are.
         if (end == 0 && start == 0)
@@ -250,8 +250,28 @@ public class NPCGenerator : MonoBehaviour {
                 foreach (NPC NPCToMeet in NPCs) {
                     if (NPCToMeet.NPCIdentity.name == npc.NPCIdentity.name)
                         continue;
-                    if (npc.NPCIdentity.Schedule[i] == NPCToMeet.NPCIdentity.Schedule[i])
+                    if (npc.NPCIdentity.Schedule[i] == NPCToMeet.NPCIdentity.Schedule[i] && npc.NPCIdentity.Schedule[i] != Identity.Locations.Cabin)
                         npc.NPCIdentity.SchedulePairings[i].Add(NPCToMeet);
+                }
+            }
+        }
+
+    //Generates "fake schedule" for murderer
+    var murderer = GameStats.INSTANCE.Murderer;
+    int time = GameStats.INSTANCE.TimeOfDeath;
+    if (murderer.NPCIdentity.Schedule[time] == Identity.Locations.None) {
+        murderer.NPCIdentity.Schedule[time] = PickRandomLocation(0,0);
+        if (murderer.NPCIdentity.Schedule[time] == Identity.Locations.Cabin){
+            return;
+        }
+        int randomFakeNPCMeets = Random.Range(0,3);
+        List<string> usednpcs = new List<string>();
+        usednpcs.Add(murderer.NPCIdentity.Name.ToString());
+        while (usednpcs.Count-1 <= randomFakeNPCMeets) {
+            var randomNPC = NPCs[Random.Range(0,NPCs.Count)];
+                if (!usednpcs.Contains(randomNPC.NPCIdentity.Name.ToString())){
+                    murderer.NPCIdentity.SchedulePairings[time].Add(randomNPC);
+                    usednpcs.Add(randomNPC.NPCIdentity.Name.ToString());
                 }
             }
         }

@@ -46,32 +46,12 @@ public class Identity : MonoBehaviour {
         Priest,
         Saxophonist
     }
-    //     [Flags] public enum Occupations {
-    //     None = 0,
-    //     Chef = 1,
-    //     Janitor = 2,
-    //     Waiter = 4,
-    //     Bartender = 8,
-    //     Painter = 16,
-    //     Doctor = 32,
-    //     Lawyer = 64,
-    //     Magician = 128,
-    //     Musician = 256,
-    //     Oil_Tycoon = 512,
-    //     Pilot = 1024,
-    //     Admiral = 2048,
-    //     Priest = 4096,
-    //     Actress = 8192,
-    //     Merchant,
-    //     Athlete,
-    //     Sherif
-    // }
     [Flags] public enum RelationTypes {
         None = 0,
         CoWorkers = 1,
         Married = 2,
         Lovers = 4,
-        Rivalry = 8,
+        Rivals = 8,
         Ex = 16,
         Acquaintances = 32,
         Friends = 64,

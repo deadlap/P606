@@ -1392,10 +1392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8656460a89ee43b45b58ed0b4cc12abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  movementSpeed: 5
   interactButtonPrefab: {fileID: 392154265601354612, guid: 718572254ae65524e8272aa527f24885, type: 3}
   closestNPC: {fileID: 0}
   interactFillTime: 0.5
+  interactButtonOffset: {x: 0, y: 2, z: 0}
 --- !u!114 &1908030390
 MonoBehaviour:
   m_ObjectHideFlags: 0
