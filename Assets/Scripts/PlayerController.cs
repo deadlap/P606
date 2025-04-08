@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -12,15 +13,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float movementSpeed = 5f;
     CharacterController characterController;
     PlayerInput playerInput;
-    List<GameObject> npcs = new List<GameObject>();
+    List<GameObject> npcs = new();
     [SerializeField] GameObject interactButtonPrefab;
     GameObject currentInteractButton;
     Image interactButtonFillImage;
-    [HideInInspector] public GameObject closestNPC = null;
+    [HideInInspector] public GameObject interactNPC = null;
+    GameObject closestNPC = null;
     [SerializeField] float interactFillTime = 0.5f;
     [SerializeField] Vector3 interactButtonOffset = new Vector3(0, 2, 0);
     Animator animator;
-
+    bool isInteracting;
+    
     Vector2 moveDirection;
     void Awake()
     {
@@ -106,6 +109,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Interact(InputAction.CallbackContext context)
     {
+        isInteracting = true;
+        interactNPC = closestNPC;
         if(interactButtonFillImage == null) yield break;
         var start = interactButtonFillImage.fillAmount;
         var end = 1f;
@@ -125,10 +130,10 @@ public class PlayerController : MonoBehaviour
             yield break;
         }
         // if the player holds the interact button until the fill amount reaches 1, the interaction is successful.
-        start = end;
         interactButtonFillImage.fillAmount = 0;
         PlayerInputEvent.OnPlayerInteract();
         animator.SetBool("isWalking", false);
+        isInteracting = false;
     }
     void Update()
     {
@@ -146,6 +151,8 @@ public class PlayerController : MonoBehaviour
 
     void IdentifyClosestNPC()
     {
+        if(isInteracting) return;
+        if(!canPlayerAct) return;
         float minDistance = float.MaxValue;
         if (npcs.Count == 0)
         {
@@ -162,12 +169,12 @@ public class PlayerController : MonoBehaviour
                     closestNPC = npcs[i];
                 }
             }
-            // Debug.Log($"{closestNPC.name} is the closest NPC to the player.");
         }
     }
 
     void CreateInteractButton()
     {
+        if(!canPlayerAct) return;
         if (closestNPC == null) return;
         if(currentInteractButton != null) return;
         currentInteractButton = Instantiate(interactButtonPrefab, closestNPC.transform.position, Quaternion.identity);
@@ -177,6 +184,7 @@ public class PlayerController : MonoBehaviour
 
     void SetInteractButtonPosition()
     {
+        if(!canPlayerAct) return;
         if (closestNPC == null) return;
         if (currentInteractButton != null)
         {

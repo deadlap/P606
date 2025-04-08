@@ -33,7 +33,7 @@ public class NPCActionInterrupter : MonoBehaviour
 
     void Interrupt()
     {
-        if (PlayerController.instance.closestNPC != gameObject) return;
+        if (PlayerController.instance.interactNPC != gameObject) return;
         behaviorGraphAgent.enabled = false;
         animator.SetBool("isWalking", false);
         transform.LookAt(PlayerController.instance.transform);
@@ -43,7 +43,7 @@ public class NPCActionInterrupter : MonoBehaviour
 
     void Resume()
     {
-        if (PlayerController.instance.closestNPC != gameObject) return;
+        if (PlayerController.instance.interactNPC != gameObject) return;
         behaviorGraphAgent.enabled = true;
         navMeshAgent.speed = originalSpeed;
         navMeshAgent.acceleration = originalAcceleration;
