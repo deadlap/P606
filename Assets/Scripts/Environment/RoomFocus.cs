@@ -12,8 +12,7 @@ namespace RoomFocusing
         [SerializeField, Tooltip("Assign the decorations to be shown in this room") ] private DecorationHider decorationsToShow;
         [SerializeField, Tooltip("Assign Water")] private WaterFocus waterFocus;
         [SerializeField] private string nameOfRoom;
-
-
+        
         private List<ShadowPerson> npcsInside = new List<ShadowPerson>();
 
         private int playersInside = 0;
