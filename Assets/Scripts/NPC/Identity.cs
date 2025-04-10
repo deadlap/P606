@@ -16,7 +16,7 @@ public class Identity : MonoBehaviour {
     public int Agreeableness;
     public int Neuroticism;
 
-    static public int RelationsAmount;
+    public int RelationsAmount;
     void Awake() {
         RelationsAmount = 2;
         Relations = new Dictionary<NPC, RelationTypes>();

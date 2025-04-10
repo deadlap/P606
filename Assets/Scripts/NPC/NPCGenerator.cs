@@ -22,14 +22,8 @@ public class NPCGenerator : MonoBehaviour {
     
     [Tooltip("Enum of relationtypes that can be used multiple times.")]
     [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
-    [Tooltip("Enum of occupations that work on the boat.")]
-    [SerializeField] Identity.Occupations BoatJobOccupations;
 
     void Start() {
-        // MultiUseRelationTypes =  Identity.RelationTypes.None | Identity.RelationTypes.Rivalry 
-        //     | Identity.RelationTypes.Acquaintances | Identity.RelationTypes.Friends 
-        //     | Identity.RelationTypes.Business_Partners | Identity.RelationTypes.Family;
-
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
         unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length-1);
         unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length-1);
@@ -112,9 +106,9 @@ public class NPCGenerator : MonoBehaviour {
 
         victim.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Victim;
         murderer.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Murderer;
-
-        GameStats.INSTANCE.Murderer = murderer;
+        Debug.Log(GameStats.INSTANCE != null);
         GameStats.INSTANCE.Victim = victim;
+        GameStats.INSTANCE.Murderer = murderer;
 
         GameStats.INSTANCE.TimeOfDeath = Random.Range(0,GameStats.INSTANCE.ScheduleLength);
 
@@ -123,9 +117,7 @@ public class NPCGenerator : MonoBehaviour {
         GenerateSchedulePairings();
 
         for (int i = 0; i < NPCs.Count; i++) {
-            // transform.GetChild(i).gameObject.SetActive(true);
             transform.GetChild(i).SetParent(NPCs[i].gameObject.transform);
-            NPCs[i].StartUp();
         }
     }
 

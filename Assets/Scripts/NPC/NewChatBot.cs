@@ -202,7 +202,7 @@ public class NewChatBot : MonoBehaviour
     {
         aiText = text;
         print(aiText);
-        phoneticSoundPlayer.StartSpeak(aiText);
+        phoneticSoundPlayer?.StartSpeak(aiText);
         if(aiTextBubble.GetComponentInChildren<TMP_Text>() == null) return;
         aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
     }
