@@ -25,4 +25,11 @@ public class PatrolArea : MonoBehaviour
         pointPosition += randomPatrolPoint.transform.position;
         return pointPosition;
     }
+
+    public Transform RandomPosition()
+    {
+        var randomPosition = patrolPoints[Random.Range(0, patrolPoints.Count)];
+        //var position = new Vector3(randomPosition.transform.position.x, 1, randomPosition.transform.position.z);
+        return randomPosition;
+    }
 }

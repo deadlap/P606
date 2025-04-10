@@ -27,19 +27,19 @@ public partial class SetOccupationAction : Action
         switch (Occupation.Value.ToLower())
         {
             case "chef":
-                OccupationEnum.ObjectValue = Identity.Value.Occupation;
+                OccupationEnum.ObjectValue = 0;
                 break;
             case "waiter":
-                OccupationEnum.ObjectValue = Identity.Value.Occupation;
+                OccupationEnum.ObjectValue = 1;
                 break;
             case "bartender":
-                OccupationEnum.ObjectValue = Identity.Value.Occupation;
+                OccupationEnum.ObjectValue = 2;
                 break;
             case "janitor":
-                OccupationEnum.ObjectValue = Identity.Value.Occupation;
+                OccupationEnum.ObjectValue = 3;
                 break;
             default:
-                OccupationEnum.ObjectValue = OccupationEnum.ObjectValue;
+                OccupationEnum.ObjectValue = 4;
                 break;
         }
         return Status.Success;

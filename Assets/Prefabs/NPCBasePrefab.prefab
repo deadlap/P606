@@ -443,6 +443,7 @@ MonoBehaviour:
   - rid: 160975335092650331
   - rid: 455622935956947089
   - rid: 455622935956947090
+  - rid: 2461528596856439391
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -472,6 +473,14 @@ MonoBehaviour:
           m_Value1: 15840392064816786172
         Name: Nav Mesh Agent
         m_Value: {fileID: 7777478196704644075}
+    - rid: 2461528596856439391
+      type: {class: 'BlackboardVariable`1[[PatrolArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6995397596843548209
+          m_Value1: 7688321744750321926
+        Name: Kitchen
+        m_Value: {fileID: 0}
 --- !u!195 &7777478196704644075
 NavMeshAgent:
   m_ObjectHideFlags: 0

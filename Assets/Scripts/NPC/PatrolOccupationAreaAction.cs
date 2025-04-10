@@ -1,23 +1,24 @@
 using System;
-using System.Collections;
 using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine.AI;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "PatrolOccupationArea", story: "[Agent] patrols with the occupation area", category: "Action", id: "91a45c5c312f4295a3cf3b87f195602c")]
+[NodeDescription(name: "PatrolOccupationArea", story: "[Agent] patrols with the [PatrolArea]", category: "Action", id: "91a45c5c312f4295a3cf3b87f195602c")]
 public partial class PatrolOccupationAreaAction : Action
 {
+    [SerializeReference] public BlackboardVariable<PatrolArea> PatrolArea;
+    [SerializeReference] public BlackboardVariable<bool> RandomPoint;
+    [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
     [SerializeReference] public BlackboardVariable<string> Occupation;
-    
-    PatrolArea patrolArea;
-    Vector3 currentPoint;
+
+    Transform currentPoint;
+    Vector3 currentPointPosition;
     bool pointGiven;
 
     protected override Status OnStart()
@@ -48,31 +49,37 @@ public partial class PatrolOccupationAreaAction : Action
             Debug.LogWarning($"{Agent.Value.name} has no SpawnPoint set.");
             return;
         }
-        patrolArea = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
-        Debug.Log($"im {Agent.Value.name} and im a {Occupation.Value}. i like to walk around {patrolArea.name}");
+        PatrolArea.Value = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
     }
 
     protected override Status OnUpdate()
     {
-        if (Vector2.Distance(currentPoint, Agent.Value.transform.position) < 0.5f)
+        if (Vector2.Distance(currentPointPosition, Agent.Value.transform.position) < 0.5f)
         {
             Animator.Value?.SetBool("isWalking", false);
-            Debug.Log($"{Agent.Value.name} reached point");
+            CurrentPoint.Value = currentPoint;
             pointGiven = false;
             return Status.Success;
         }
         return Status.Running;
     }
 
-
     void WalkToPoint()
     {
         if (!pointGiven)
         {
             Animator.Value?.SetBool("isWalking", true);
-            Animator.Value.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
-            currentPoint = patrolArea.RandomPatrolPoint();
-            NavMeshAgent.Value.SetDestination(currentPoint);
+            Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
+            if (RandomPoint.Value)
+            {
+                currentPointPosition = PatrolArea.Value.RandomPatrolPoint();
+            }
+            else
+            {
+                currentPoint = PatrolArea.Value.RandomPosition();
+                currentPointPosition = new(currentPoint.position.x, 1, currentPoint.position.z);
+            }
+            NavMeshAgent.Value.SetDestination(currentPointPosition);
             pointGiven = true;
         }
     }
