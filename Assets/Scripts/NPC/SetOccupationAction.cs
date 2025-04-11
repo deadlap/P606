@@ -13,6 +13,7 @@ public partial class SetOccupationAction : Action
     [SerializeReference] public BlackboardVariable<string> Occupation;
     [SerializeReference] public BlackboardVariable<OccupationEnum> OccupationEnum;
     [SerializeReference] public BlackboardVariable<Identity> Identity;
+    [SerializeReference] public BlackboardVariable<PatrolArea> OwnCabin;
 
 
     protected override Status OnStart()
@@ -42,7 +43,17 @@ public partial class SetOccupationAction : Action
                 OccupationEnum.ObjectValue = 4;
                 break;
         }
-        return Status.Success;
+        return Status.Running;
+    }
+
+    protected override Status OnUpdate()
+    {
+        if (Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>())
+        {
+            OwnCabin.Value = Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
+            return Status.Success;
+        }
+        return Status.Running;
     }
 }
 

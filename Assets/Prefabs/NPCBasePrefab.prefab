@@ -446,6 +446,9 @@ MonoBehaviour:
   - rid: 455622935956947090
   - rid: 2461528596856439391
   - rid: 2461528614345114022
+  - rid: 2461528614345114325
+  - rid: 2461528614345114326
+  - rid: 2461528617184657937
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -491,6 +494,30 @@ MonoBehaviour:
           m_Value1: 734071498895025129
         Name: ActionVFX
         m_Value: {fileID: 4318127640594046121}
+    - rid: 2461528614345114325
+      type: {class: 'BlackboardVariable`1[[PatrolArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4600507200915646649
+          m_Value1: 502362015545743050
+        Name: BarArea
+        m_Value: {fileID: 0}
+    - rid: 2461528614345114326
+      type: {class: 'BlackboardVariable`1[[PatrolArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 9908583260272699631
+          m_Value1: 6932057636428533395
+        Name: DiningArea
+        m_Value: {fileID: 0}
+    - rid: 2461528617184657937
+      type: {class: 'BlackboardVariable`1[[PatrolArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15110227244856878205
+          m_Value1: 7414133563858961461
+        Name: Pool
+        m_Value: {fileID: 0}
 --- !u!195 &7777478196704644075
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -578,6 +605,7 @@ MonoBehaviour:
   shadowMaterial: {fileID: 2100000, guid: 4e645cd55e4d4ac45afb4aa76c78e0c7, type: 2}
   accessories:
   - {fileID: 3637683000013470645}
+  - {fileID: 9142334531862572155}
   originalHead: []
   originalBody: []
 --- !u!1001 &704100989017148045
@@ -891,6 +919,11 @@ Transform:
 --- !u!2083052967 &4318127640594046121 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 7801436112823275617, guid: 7a851d05f5ddf254691103ff2d9ad598, type: 3}
+  m_PrefabInstance: {fileID: 6316675585764166856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9142334531862572155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2974994979466748083, guid: 7a851d05f5ddf254691103ff2d9ad598, type: 3}
   m_PrefabInstance: {fileID: 6316675585764166856}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7937321833192203453
