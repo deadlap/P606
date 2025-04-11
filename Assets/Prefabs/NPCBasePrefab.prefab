@@ -448,6 +448,7 @@ MonoBehaviour:
   - rid: 2461528614345114022
   - rid: 2461528614345114325
   - rid: 2461528614345114326
+  - rid: 2461528617184657937
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -508,6 +509,14 @@ MonoBehaviour:
           m_Value0: 9908583260272699631
           m_Value1: 6932057636428533395
         Name: DiningArea
+        m_Value: {fileID: 0}
+    - rid: 2461528617184657937
+      type: {class: 'BlackboardVariable`1[[PatrolArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15110227244856878205
+          m_Value1: 7414133563858961461
+        Name: Pool
         m_Value: {fileID: 0}
 --- !u!195 &7777478196704644075
 NavMeshAgent:
