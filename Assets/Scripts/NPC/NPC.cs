@@ -2,6 +2,9 @@ using UnityEngine;
 using LLMUnity;
 using UnityEngine.AI;
 using Unity.VisualScripting;
+using RoomFocusing;
+using System.Collections.Generic;
+using System;
 
 
 public class NPC : MonoBehaviour {
@@ -29,17 +32,18 @@ public class NPC : MonoBehaviour {
         transform.position = SpawnPoint.SpawnPosition();
         GetComponent<NavMeshAgent>().enabled = true;
         
-        var ragText = Resources.Load<TextAsset>("Rags/"+NPCIdentity.Occupation.ToString());
+        var ragText = Resources.Load<TextAsset>("RAGs/"+NPCIdentity.Occupation.ToString());
         llmCharacter.gameObject.GetComponentInChildren<RAGData>().ragText = ragText;
         llmCharacter.gameObject.GetComponentInChildren<RAGData>().LoadRAG();
 
-        // Body.GetComponent<Renderer>().material = Resources.Load<Material>("Outfits/"+NPCIdentity.Occupation.ToString());;
-        // Instantiate(Resources.Load<GameObject>("Prefabs/Accessories/"+NPCIdentity.Occupation.ToString()), transform);
+        var bodymat = Resources.Load<Material>("Outfits/"+NPCIdentity.Occupation.ToString()) as Material;
 
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
+        // if (bodymat != null)
+        //    Body.GetComponent<Renderer>().materials[0] = bodymat;
+        // var accessory = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()) as GameObject;
+        // if (accessory != null)
+        //     Instantiate(accessory, transform);
+        // var headMatArr = Head.GetComponent<Renderer>().materials;
+        // gameObject.GetComponent<ShadowPerson>().GetLooks(Head.GetComponent<Renderer>().materials,Body.GetComponent<Renderer>().materials);
     }
 }
