@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.EditorTools;
 
 public class NPCGenerator : MonoBehaviour {
     [Tooltip("How many NPCs should be created")]
