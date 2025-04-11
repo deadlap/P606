@@ -43,8 +43,17 @@ public partial class SetOccupationAction : Action
                 OccupationEnum.ObjectValue = 4;
                 break;
         }
-        OwnCabin.Value = Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
-        return Status.Success;
+        return Status.Running;
+    }
+
+    protected override Status OnUpdate()
+    {
+        if (Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>())
+        {
+            OwnCabin.Value = Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
+            return Status.Success;
+        }
+        return Status.Running;
     }
 }
 
