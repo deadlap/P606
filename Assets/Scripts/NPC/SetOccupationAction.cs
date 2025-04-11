@@ -14,6 +14,7 @@ public partial class SetOccupationAction : Action
     [SerializeReference] public BlackboardVariable<OccupationEnum> OccupationEnum;
     [SerializeReference] public BlackboardVariable<Identity> Identity;
     [SerializeReference] public BlackboardVariable<PatrolArea> OwnCabin;
+    [SerializeReference] public BlackboardVariable<bool> OccupationGiven;
 
 
     protected override Status OnStart()
@@ -51,6 +52,7 @@ public partial class SetOccupationAction : Action
         if (Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>())
         {
             OwnCabin.Value = Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
+            OccupationGiven.Value = true;
             return Status.Success;
         }
         return Status.Running;

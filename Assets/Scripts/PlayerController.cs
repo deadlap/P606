@@ -174,7 +174,6 @@ public class PlayerController : MonoBehaviour
 
     void CreateInteractButton()
     {
-        if(!canPlayerAct) return;
         if (closestNPC == null) return;
         if(currentInteractButton != null) return;
         currentInteractButton = Instantiate(interactButtonPrefab, closestNPC.transform.position, Quaternion.identity);
@@ -184,7 +183,6 @@ public class PlayerController : MonoBehaviour
 
     void SetInteractButtonPosition()
     {
-        if(!canPlayerAct) return;
         if (closestNPC == null) return;
         if (currentInteractButton != null)
         {
@@ -204,7 +202,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             npcs.Add(other.gameObject);
-            Debug.Log($"Player entered the NPC {other.gameObject.name}'s trigger zone");
+            //Debug.Log($"Player entered the NPC {other.gameObject.name}'s trigger zone");
         }
     }
 
@@ -213,7 +211,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             npcs.Remove(other.gameObject);
-            Debug.Log($"Player exited the NPC {other.gameObject.name}'s trigger zone");
+            //Debug.Log($"Player exited the NPC {other.gameObject.name}'s trigger zone");
         }
     }
 }

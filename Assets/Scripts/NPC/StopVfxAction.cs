@@ -21,7 +21,7 @@ public partial class StopVfxAction : Action
         {
             Debug.LogWarning("VFX is null");
         }
-        return Status.Success;
+        return Status.Running;
     }
 }
 
