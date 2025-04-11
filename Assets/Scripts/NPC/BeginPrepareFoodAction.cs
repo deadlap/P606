@@ -12,7 +12,7 @@ public partial class BeginPrepareFoodAction : Action
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<int> FoodGuestsWaiting;
     [SerializeReference] public BlackboardVariable<int> FoodDifficulty;
-    [SerializeReference] public BlackboardVariable<bool> IsPreparingFood;
+    [SerializeReference] public BlackboardVariable<bool> IsWorking;
 
     protected override Status OnStart()
     {
@@ -21,8 +21,8 @@ public partial class BeginPrepareFoodAction : Action
             Debug.LogWarning("No agent assigned.");
             return Status.Failure;
         }
-        if (IsPreparingFood) return Status.Failure;
-        IsPreparingFood.Value = true;
+        if (IsWorking) return Status.Failure;
+        IsWorking.Value = true;
         FoodDifficulty.Value = UnityEngine.Random.Range(3, 7);
         return Status.Running;
     }

@@ -49,12 +49,13 @@ public partial class PatrolOccupationAreaAction : Action
             Debug.LogWarning($"{Agent.Value.name} has no SpawnPoint set.");
             return;
         }
+        if (PatrolArea.Value != null) return;
         PatrolArea.Value = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
     }
 
     protected override Status OnUpdate()
     {
-        if (Vector2.Distance(currentPointPosition, Agent.Value.transform.position) < 0.5f)
+        if (Vector2.Distance(currentPointPosition, Agent.Value.transform.position) < 0.2f)
         {
             Animator.Value?.SetBool("isWalking", false);
             CurrentPoint.Value = currentPoint;

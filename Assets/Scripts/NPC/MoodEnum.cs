@@ -4,7 +4,7 @@ using Unity.Behavior;
 [BlackboardEnum]
 public enum MoodEnum
 {
-    Socialize,
+    Antisocial,
 	Hungry,
 	Thirsty,
 	Pool

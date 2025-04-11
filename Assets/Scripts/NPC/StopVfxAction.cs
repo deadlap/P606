@@ -13,7 +13,7 @@ public partial class StopVfxAction : Action
 
     protected override Status OnStart()
     {
-        if (VFX.Value != null)
+        if (VFX.Value != null || VFX.Value.gameObject.activeSelf)
         {
             VFX.Value.Stop();
         }

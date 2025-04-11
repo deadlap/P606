@@ -10,7 +10,7 @@ using UnityEngine.VFX;
 public partial class FoodDoneAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
-    [SerializeReference] public BlackboardVariable<bool> IsPreparingFood;
+    [SerializeReference] public BlackboardVariable<bool> IsWorking;
     [SerializeReference] public BlackboardVariable<int> FoodDifficulty;
     [SerializeReference] public BlackboardVariable<int> FoodGuestsWaiting;
     [SerializeReference] public BlackboardVariable<int> FoodReady;
@@ -20,12 +20,15 @@ public partial class FoodDoneAction : Action
     protected override Status OnStart()
     {
         Animator.Value?.SetTrigger("resetState");
-        VFX.Value.Stop();
+        if (VFX.Value != null || VFX.Value.gameObject.activeSelf)
+        {
+            VFX.Value.Stop();
+        }
         foodProgress++;
         Debug.Log($"Food is not done yet ({foodProgress}/{FoodDifficulty.Value}).");
         if (foodProgress == FoodDifficulty.Value)
         {
-            IsPreparingFood.Value = false;
+            IsWorking.Value = false;
             foodProgress = 0;
             FoodGuestsWaiting.Value--;
             FoodReady.Value++;

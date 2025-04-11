@@ -21,7 +21,10 @@ public partial class PrepareFoodAction : Action
     protected override Status OnStart()
     {
         Animator.Value.Play("PreparingFood");
-        VFX.Value.Play();
+        if(VFX.Value != null || VFX.Value.gameObject.activeSelf)
+        {
+            VFX.Value.Play();
+        }
         return Status.Running;
     }
 
