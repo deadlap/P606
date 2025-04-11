@@ -61,7 +61,7 @@ namespace RoomFocusing
             Material[] headMaterials = head.materials;
             Material[] bodyMaterials = body.materials;
             headMaterials[headMaterials.Length - 1] = headMaterials[1];
-            bodyMaterials[bodyMaterials.Length - 1] = bodyMaterials[1];
+            bodyMaterials[bodyMaterials.Length - 1] = Resources.Load<Material>("Outfits/"+transform.GetComponent<NPC>().NPCIdentity.Occupation.ToString()) as Material;;
             originalHead = headMaterials;
             originalBody = bodyMaterials;
             hasGottenLooks = true;
