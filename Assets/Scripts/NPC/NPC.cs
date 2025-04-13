@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using RoomFocusing;
 using System.Collections.Generic;
 using System;
+using Unity.Behavior;
 
 
 public class NPC : MonoBehaviour {
@@ -36,8 +37,16 @@ public class NPC : MonoBehaviour {
         llmCharacter.gameObject.GetComponentInChildren<RAGData>().ragText = ragText;
         llmCharacter.gameObject.GetComponentInChildren<RAGData>().LoadRAG();
 
-        var bodymat = Resources.Load<Material>("Outfits/"+NPCIdentity.Occupation.ToString()) as Material;
+        if (NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim) {
+            llmCharacter.enabled = false;
+            GetComponent<NavMeshAgent>().enabled = false;
+            tag = "Untagged";
+            GetComponent<BehaviorGraphAgent>().enabled = false;
+            // GetComponentInChildren<Animator>().enabled = false;
+        }
 
+
+        // var bodymat = Resources.Load<Material>("Outfits/"+NPCIdentity.Occupation.ToString()) as Material;
         // if (bodymat != null)
         //    Body.GetComponent<Renderer>().materials[0] = bodymat;
         // var accessory = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()) as GameObject;
