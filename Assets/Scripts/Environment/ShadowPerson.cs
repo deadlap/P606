@@ -60,8 +60,12 @@ namespace RoomFocusing
             if (hasGottenLooks) return;
             Material[] headMaterials = head.materials;
             Material[] bodyMaterials = body.materials;
-            headMaterials[headMaterials.Length - 1] = headMaterials[1];
-            bodyMaterials[bodyMaterials.Length - 1] = Resources.Load<Material>("Outfits/"+transform.GetComponent<NPC>().NPCIdentity.Occupation.ToString()) as Material;;
+            if (GetComponent<NPC>().NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim){
+                headMaterials[headMaterials.Length - 1] = Resources.Load<Material>("Faces/Victim") as Material;
+            } else {
+                headMaterials[headMaterials.Length - 1] = headMaterials[1];
+            }
+            bodyMaterials[bodyMaterials.Length - 1] = Resources.Load<Material>("Outfits/"+GetComponent<NPC>().NPCIdentity.Occupation.ToString()) as Material;
             originalHead = headMaterials;
             originalBody = bodyMaterials;
             hasGottenLooks = true;

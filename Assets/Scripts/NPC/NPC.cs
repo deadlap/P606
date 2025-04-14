@@ -13,14 +13,14 @@ public class NPC : MonoBehaviour {
     public LLMCharacter llmCharacter;
     public NPCInitialPromptGenerator PromptGenerator;
     public NPCSpawnPoint SpawnPoint;
-    [SerializeField] GameObject Body;
-    [SerializeField] GameObject Head;
+    [SerializeField] GameObject BodyGameObject;
+    [SerializeField] GameObject HeadGameObject;
     public void SetIdentity(Identity ID) {
         NPCIdentity = ID;
     }
     void Start() {
-        Body = transform.Find("CharacterNormal/Body").gameObject;
-        Head = transform.Find("CharacterNormal/Head").gameObject;
+        BodyGameObject = transform.Find("CharacterNormal/Body").gameObject;
+        HeadGameObject = transform.Find("CharacterNormal/Head").gameObject;
 
         llmCharacter = GetComponentInChildren<LLMCharacter>();
         PromptGenerator = GetComponent<NPCInitialPromptGenerator>();
@@ -40,8 +40,8 @@ public class NPC : MonoBehaviour {
         if (NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim) {
             llmCharacter.enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;
-            tag = "Untagged";
             GetComponent<BehaviorGraphAgent>().enabled = false;
+            Invoke("RemoveTag",0.5f);
             // GetComponentInChildren<Animator>().enabled = false;
         }
 
@@ -54,5 +54,8 @@ public class NPC : MonoBehaviour {
         //     Instantiate(accessory, transform);
         // var headMatArr = Head.GetComponent<Renderer>().materials;
         // gameObject.GetComponent<ShadowPerson>().GetLooks(Head.GetComponent<Renderer>().materials,Body.GetComponent<Renderer>().materials);
+    }
+    void RemoveTag(){
+        tag = "Untagged";
     }
 }
