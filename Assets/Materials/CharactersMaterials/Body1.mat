@@ -39,7 +39,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Texture:
-        m_Texture: {fileID: 2800000, guid: 70ab5c2d10929634eb35b647cade2908, type: 3}
+        m_Texture: {fileID: 2800000, guid: 852cc1123899439498cb28ed4b0051da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Height_Map:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
@@ -63,6 +67,7 @@ Material:
     - _Falloff_Threshold: 0
     - _Full_Lit_Min: 1
     - _Full_Shadow_Max: 0.701
+    - _Height_Strength: 0.005
     - _Lit_Threshold: 1
     - _Normal_Strength: 0
     - _Pattern_Density: 30
