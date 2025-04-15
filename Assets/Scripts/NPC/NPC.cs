@@ -39,13 +39,13 @@ public class NPC : MonoBehaviour {
 
         if (NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim) {
             llmCharacter.enabled = false;
-            GetComponent<NavMeshAgent>().enabled = false;
-            GetComponent<BehaviorGraphAgent>().enabled = false;
             Invoke("RemoveTag",0.5f);
+            GetComponentInChildren<Animator>().Play("Dead");
+
             // GetComponentInChildren<Animator>().enabled = false;
         }
 
-
+        // If shadowperson ever changes this code can be used again
         // var bodymat = Resources.Load<Material>("Outfits/"+NPCIdentity.Occupation.ToString()) as Material;
         // if (bodymat != null)
         //    Body.GetComponent<Renderer>().materials[0] = bodymat;
@@ -57,5 +57,7 @@ public class NPC : MonoBehaviour {
     }
     void RemoveTag(){
         tag = "Untagged";
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<BehaviorGraphAgent>().enabled = false;
     }
 }
