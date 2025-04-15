@@ -63,7 +63,8 @@ namespace RoomFocusing
             if (GetComponent<NPC>().NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim){
                 headMaterials[headMaterials.Length - 1] = Resources.Load<Material>("Faces/Victim") as Material;
             } else {
-                headMaterials[headMaterials.Length - 1] = headMaterials[1];
+                int rand = Random.Range(1,8);
+                headMaterials[headMaterials.Length - 1] = Resources.Load<Material>("Faces/Face"+rand) as Material;
             }
             bodyMaterials[bodyMaterials.Length - 1] = Resources.Load<Material>("Outfits/"+GetComponent<NPC>().NPCIdentity.Occupation.ToString()) as Material;
             originalHead = headMaterials;
