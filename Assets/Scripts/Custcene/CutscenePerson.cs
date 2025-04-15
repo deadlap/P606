@@ -40,8 +40,11 @@ namespace Cutscene
             UpdateMaterial(bodyRenderer, npcInfo.bodyMaterial);
             UpdateMaterial(headRenderer, npcInfo.headMaterial);
 
-            Transform spawnedHat = Instantiate(npcInfo.hat, headRenderer.transform.position, Quaternion.identity).transform;
-            spawnedHat.SetParent(headRenderer.transform);
+            if (npcInfo.hat != null)
+            {
+                Transform spawnedHat = Instantiate(npcInfo.hat, headRenderer.transform.position, Quaternion.identity).transform;
+                spawnedHat.SetParent(headRenderer.transform);
+            }
             myOccupation = npcInfo.occupation;
             myName = npcInfo.myName;
             name = $"NPC {myName}";

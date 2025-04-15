@@ -10,16 +10,19 @@ namespace Cutscene
         public GameObject hat;
         public Identity.Occupations occupation;
         public string myName;
+        public bool isDead;
 
-        public CutsceneNPCInfo(Material bodyMat, Material headMat, GameObject extraClothing, Identity.Occupations theOccupation, string theName)
+        public CutsceneNPCInfo(Material bodyMat, Material headMat, GameObject extraClothing, Identity.Occupations theOccupation, string theName, bool isDead = false)
         {
             bodyMaterial = bodyMat;
             headMaterial = headMat;
-            hat = extraClothing;
+            if (extraClothing != null) hat = extraClothing;
+            else hat = null;
             occupation = theOccupation;
             myName = theName;
+            this.isDead = isDead;
         }
 
-        public override string ToString() => $"(Body: {bodyMaterial.name}, head: {headMaterial.name}, hat: {hat.name}, occupation: {occupation}, name: {myName})";
+        public override string ToString() => $"(Body: {bodyMaterial.name}, head: {headMaterial.name}, hat: {(hat != null ? hat.name : "none")}, occupation: {occupation}, name: {myName})";
     }
 }
