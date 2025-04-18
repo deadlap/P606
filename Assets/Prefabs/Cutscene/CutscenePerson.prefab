@@ -102,11 +102,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<size=2>MIKE
+  m_text: '<size=2>{0}
 
-    <size=1.4>as
+    <size=1.4>as the
 
-    the<size=2> MAGICIAN'
+    <size=2>{1}'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ffb62e2cacac0f244a6514796c9f29a5, type: 2}
   m_sharedMaterial: {fileID: -7163002938430897749, guid: ffb62e2cacac0f244a6514796c9f29a5, type: 2}
@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyRenderer: {fileID: 4841192731794903756}
   headRenderer: {fileID: 2796202723417136561}
+  nameField: {fileID: 6408375977282464889}
   isTesting: 0
   whoAmI:
     bodyMaterial: {fileID: 2100000, guid: b7ce0b8150b87bd458f324154649d39e, type: 2}

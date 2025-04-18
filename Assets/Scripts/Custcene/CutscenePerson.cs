@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace Cutscene
 {
@@ -7,6 +8,7 @@ namespace Cutscene
     {
         [SerializeField] private Renderer bodyRenderer;
         [SerializeField] private Renderer headRenderer;
+        [SerializeField] private TextMeshPro nameField;
         private Identity.Occupations myOccupation;
         private string myName;
 
@@ -27,12 +29,6 @@ namespace Cutscene
 #endif
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void AssignLooks(CutsceneNPCInfo npcInfo)
         {
             Debug.Log("I was told by manager");
@@ -48,6 +44,8 @@ namespace Cutscene
             myOccupation = npcInfo.occupation;
             myName = npcInfo.myName;
             name = $"NPC {myName}";
+
+            nameField.text = string.Format(nameField.text, myName, myOccupation);
 
             Debug.Log(npcInfo);
         }
