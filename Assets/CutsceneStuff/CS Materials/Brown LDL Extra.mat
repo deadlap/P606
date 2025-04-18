@@ -24,9 +24,9 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 71764748f7cb6334988fdffcb2f32d3d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _INVERSEDOTS
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -125,6 +125,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _INVERSEDOTS: 1
+    - _InverseDots: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
