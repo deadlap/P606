@@ -45,7 +45,7 @@ namespace Cutscene
             myName = npcInfo.myName;
             name = $"NPC {myName}";
 
-            nameField.text = string.Format(nameField.text, myName, myOccupation);
+            nameField.text = string.Format(nameField.text, myName, myOccupation.ToString().Replace('_', ' '));
 
             Debug.Log(npcInfo);
         }
