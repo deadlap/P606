@@ -9,6 +9,8 @@ public class HoverQuestionMarks : MonoBehaviour
     [System.Serializable]
     public class HoverTooltipGroup
     {
+        // We hover tooltips should be activateable for any amount of hover targets, whether one or 100
+        [SerializeField] public GameObject[] hoverTargets;
         public GameObject hoverTarget1;
         public GameObject hoverTarget2;
         public GameObject tooltip;
@@ -41,39 +43,46 @@ public class HoverQuestionMarks : MonoBehaviour
             if (group.tooltip != null)
                 group.tooltip.SetActive(false);
 
-            if (group.hoverTarget1 != null)
+            // Make it possible to get a group from its hoverTargets
+            foreach (GameObject hoverTarget in group.hoverTargets)
             {
-                targetToGroup[group.hoverTarget1] = group;
-                AddEventTriggers(group.hoverTarget1);
+                targetToGroup[hoverTarget] = group;
+                AddEventTriggers(hoverTarget);
             }
 
-            if (group.hoverTarget2 != null)
-            {
-                targetToGroup[group.hoverTarget2] = group;
-                AddEventTriggers(group.hoverTarget2);
-            }
+            //if (group.hoverTarget1 != null)
+            //{
+            //    targetToGroup[group.hoverTarget1] = group;
+            //    AddEventTriggers(group.hoverTarget1);
+            //}
+
+            //if (group.hoverTarget2 != null)
+            //{
+            //    targetToGroup[group.hoverTarget2] = group;
+            //    AddEventTriggers(group.hoverTarget2);
+            //}
 
             hoverCounts[group] = 0;
         }
     }
 
 
-    // Det her kan vel nok slettes.
-    void Update()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            if (hit.collider.gameObject == Bookmark1 ||
-                hit.collider.gameObject == Bookmark2 ||
-                hit.collider.gameObject == Bookmark3)
-            {
-                textMeshProObject.SetActive(true);
-                return;
-            }
-        }
-        textMeshProObject.SetActive(false);
-    }
+    //// Det her kan vel nok slettes.
+    //void Update()
+    //{
+    //    Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+    //    if (Physics.Raycast(ray, out RaycastHit hit))
+    //    {
+    //        if (hit.collider.gameObject == Bookmark1 ||
+    //            hit.collider.gameObject == Bookmark2 ||
+    //            hit.collider.gameObject == Bookmark3)
+    //        {
+    //            textMeshProObject.SetActive(true);
+    //            return;
+    //        }
+    //    }
+    //    textMeshProObject.SetActive(false);
+    //}
   
 
     private void AddEventTriggers(GameObject target)

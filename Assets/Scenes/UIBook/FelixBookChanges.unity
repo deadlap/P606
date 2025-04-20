@@ -11363,8 +11363,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1459992147}
   m_HandleRect: {fileID: 1459992146}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.35
+  m_Value: 0.9999998
+  m_Size: 0.34999996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15249,18 +15249,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 816170622}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1568149749}
-        m_TargetAssemblyTypeName: GuideThing, Assembly-CSharp
-        m_MethodName: NewPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -21744,18 +21732,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1568149749}
-        m_TargetAssemblyTypeName: GuideThing, Assembly-CSharp
-        m_MethodName: NewPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1463983752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23601,7 +23577,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568149747}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b8da5b3f4f349144a1eb6f86eb06f42, type: 3}
   m_Name: 
@@ -25018,18 +24994,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 816170622}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1568149749}
-        m_TargetAssemblyTypeName: GuideThing, Assembly-CSharp
-        m_MethodName: NewPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -30754,25 +30718,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groups:
-  - hoverTarget1: {fileID: 231464747}
+  - hoverTargets:
+    - {fileID: 231464747}
+    - {fileID: 1410683313}
+    hoverTarget1: {fileID: 231464747}
     hoverTarget2: {fileID: 1410683313}
     tooltip: {fileID: 1017809100}
-  - hoverTarget1: {fileID: 1491742405}
+  - hoverTargets:
+    - {fileID: 1491742405}
+    - {fileID: 2049220743}
+    hoverTarget1: {fileID: 1491742405}
     hoverTarget2: {fileID: 2049220743}
     tooltip: {fileID: 321545143}
-  - hoverTarget1: {fileID: 1338854383}
+  - hoverTargets:
+    - {fileID: 1338854383}
+    - {fileID: 583430541}
+    - {fileID: 1619808088}
+    - {fileID: 1026896596}
+    - {fileID: 1463983749}
+    hoverTarget1: {fileID: 1338854383}
     hoverTarget2: {fileID: 583430541}
     tooltip: {fileID: 165910574}
-  - hoverTarget1: {fileID: 2092492811}
+  - hoverTargets:
+    - {fileID: 2092492811}
+    - {fileID: 233702693}
+    hoverTarget1: {fileID: 2092492811}
     hoverTarget2: {fileID: 233702693}
     tooltip: {fileID: 356323977}
-  - hoverTarget1: {fileID: 1578159932}
+  - hoverTargets:
+    - {fileID: 1578159932}
+    - {fileID: 1476965340}
+    hoverTarget1: {fileID: 1578159932}
     hoverTarget2: {fileID: 1476965340}
     tooltip: {fileID: 751762947}
-  - hoverTarget1: {fileID: 202701016}
+  - hoverTargets:
+    - {fileID: 202701016}
+    - {fileID: 452381566}
+    hoverTarget1: {fileID: 202701016}
     hoverTarget2: {fileID: 452381566}
     tooltip: {fileID: 1715530}
-  - hoverTarget1: {fileID: 1820732525}
+  - hoverTargets:
+    - {fileID: 1820732525}
+    - {fileID: 1520618245}
+    hoverTarget1: {fileID: 1820732525}
     hoverTarget2: {fileID: 1520618245}
     tooltip: {fileID: 134721002}
   delay: 0.5
