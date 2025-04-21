@@ -6,19 +6,20 @@ using Unity.Properties;
 using UnityEngine.AI;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "PatrolOccupationArea", story: "[Agent] patrols with the [PatrolArea]", category: "Action", id: "91a45c5c312f4295a3cf3b87f195602c")]
+[NodeDescription(name: "PatrolOccupationArea", story: "[Agent] patrols the [PatrolArea]", category: "Action", id: "91a45c5c312f4295a3cf3b87f195602c")]
 public partial class PatrolOccupationAreaAction : Action
 {
     [SerializeReference] public BlackboardVariable<PatrolArea> PatrolArea;
     [SerializeReference] public BlackboardVariable<bool> RandomPoint;
+    [SerializeReference] public BlackboardVariable<bool> WillGetInLine;
     [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
+    [SerializeReference] public BlackboardVariable<string> DeadPersonOccupation;
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
     [SerializeReference] public BlackboardVariable<string> Occupation;
 
     Transform currentPoint;
-    Vector3 currentPointPosition;
     bool pointGiven;
 
     protected override Status OnStart()
@@ -38,6 +39,12 @@ public partial class PatrolOccupationAreaAction : Action
             Debug.LogWarning("No occupation assigned.");
             return Status.Failure;
         }
+        if (Agent.Value.GetComponent<NPC>().isDead)
+        {
+            DeadPersonOccupation.Value = Agent.Value.GetComponent<Identity>().Occupation.ToString();
+            Debug.LogWarning($"{Agent.Value.name} the {DeadPersonOccupation.Value} is dead.");
+            return Status.Failure;
+        }
         Initialize();
         WalkToPoint();
         return Status.Running;
@@ -49,18 +56,28 @@ public partial class PatrolOccupationAreaAction : Action
             Debug.LogWarning($"{Agent.Value.name} has no SpawnPoint set.");
             return;
         }
+        currentPoint = null;
+        pointGiven = false;
         if (PatrolArea.Value != null) return;
         PatrolArea.Value = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
     }
 
     protected override Status OnUpdate()
-    {
-        if (Vector2.Distance(currentPointPosition, Agent.Value.transform.position) < 0.2f)
+    { 
+        if(!pointGiven) return Status.Running;
+        if (NavMeshAgent.Value.pathPending)
         {
-            Animator.Value?.SetBool("isWalking", false);
-            CurrentPoint.Value = currentPoint;
-            pointGiven = false;
-            return Status.Success;
+            Animator.Value?.SetBool("isWalking", true);
+            Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
+        }
+        else if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
+        { 
+            if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude <= 0)
+            {
+                Animator.Value?.SetBool("isWalking", false);
+                pointGiven = false;
+                return Status.Success;
+            } 
         }
         return Status.Running;
     }
@@ -73,14 +90,23 @@ public partial class PatrolOccupationAreaAction : Action
             Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
             if (RandomPoint.Value)
             {
-                currentPointPosition = PatrolArea.Value.RandomPatrolPoint();
+                currentPoint = PatrolArea.Value.RandomPatrolPoint();
+            }
+            else if (WillGetInLine.Value && !RandomPoint.Value)
+            {
+                currentPoint = PatrolArea.Value.FindPlaceInQueue();
+                if (currentPoint == null)
+                {
+                    Debug.LogWarning($"No space in the line for {NavMeshAgent.Value.name}.");
+                    return;
+                }
             }
             else
             {
-                currentPoint = PatrolArea.Value.RandomPosition();
-                currentPointPosition = new(currentPoint.position.x, 1, currentPoint.position.z);
+                currentPoint = PatrolArea.Value.FindRandomUnreservedPoint();
             }
-            NavMeshAgent.Value.SetDestination(currentPointPosition);
+            CurrentPoint.Value = currentPoint;
+            NavMeshAgent.Value.SetDestination(CurrentPoint.Value.position);
             pointGiven = true;
         }
     }

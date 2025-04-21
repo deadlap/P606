@@ -13,10 +13,7 @@ public partial class PrepareFoodAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Animator> Animator;
-    [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
     [SerializeReference] public BlackboardVariable<VisualEffect> VFX;
-    float RotationSpeed = 5f; 
-    float facingAccuracy = 0.95f;
 
     protected override Status OnStart()
     {
@@ -24,22 +21,6 @@ public partial class PrepareFoodAction : Action
         if(VFX.Value != null || VFX.Value.gameObject.activeSelf)
         {
             VFX.Value.Play();
-        }
-        return Status.Running;
-    }
-
-    protected override Status OnUpdate()
-    {
-        return FacePoint(CurrentPoint.Value.gameObject);
-    }
-    
-    Status FacePoint(GameObject target)
-    {
-        Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, target.transform.rotation, Time.deltaTime * RotationSpeed);
-        float dotProduct = Vector3.Dot(Agent.Value.transform.forward, target.transform.forward);
-        if (dotProduct > facingAccuracy)
-        {
-            return Status.Success;
         }
         return Status.Running;
     }

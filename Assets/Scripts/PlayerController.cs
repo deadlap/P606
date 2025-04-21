@@ -111,26 +111,28 @@ public class PlayerController : MonoBehaviour
     {
         isInteracting = true;
         interactNPC = closestNPC;
-        if(interactButtonFillImage == null) yield break;
+        if(currentInteractButton == null) yield break;
         var start = interactButtonFillImage.fillAmount;
         var end = 1f;
         float elapsedTime = 0;
         // while the player holds the interact button, the fill amount of the interact button increases.
         while (context.ReadValueAsButton() && elapsedTime < end)
         {
-            if (interactButtonFillImage == null) yield break;
             yield return null;
             elapsedTime += Time.deltaTime / interactFillTime;
-            interactButtonFillImage.fillAmount = Mathf.Lerp(start, end, elapsedTime);
+            if (currentInteractButton != null)
+                interactButtonFillImage.fillAmount = Mathf.Lerp(start, end, elapsedTime);
         }
         // if the player releases the interact button before the fill amount reaches 1, the interaction is cancelled.
         if (!context.ReadValueAsButton())
         {
-            interactButtonFillImage.fillAmount = 0;
+            if (currentInteractButton != null) 
+                interactButtonFillImage.fillAmount = 0;
             yield break;
         }
         // if the player holds the interact button until the fill amount reaches 1, the interaction is successful.
-        interactButtonFillImage.fillAmount = 0;
+        if (currentInteractButton != null)
+            interactButtonFillImage.fillAmount = 0;
         PlayerInputEvent.OnPlayerInteract();
         animator.SetBool("isWalking", false);
         isInteracting = false;
@@ -145,13 +147,12 @@ public class PlayerController : MonoBehaviour
             CreateInteractButton();
             SetInteractButtonPosition();
         }
-        if (npcs.Count == 0)
+        if (npcs.Count <= 0)
             DestroyInteractButton();
     }
 
     void IdentifyClosestNPC()
     {
-        if(isInteracting) return;
         if(!canPlayerAct) return;
         float minDistance = float.MaxValue;
         if (npcs.Count == 0)
@@ -174,11 +175,11 @@ public class PlayerController : MonoBehaviour
 
     void CreateInteractButton()
     {
+        if (!canPlayerAct) return;
         if (closestNPC == null) return;
         if(currentInteractButton != null) return;
         currentInteractButton = Instantiate(interactButtonPrefab, closestNPC.transform.position, Quaternion.identity);
         interactButtonFillImage = currentInteractButton.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
-        print(interactButtonFillImage.name); 
     }
 
     void SetInteractButtonPosition()
@@ -202,7 +203,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             npcs.Add(other.gameObject);
-            //Debug.Log($"Player entered the NPC {other.gameObject.name}'s trigger zone");
         }
     }
 
@@ -211,7 +211,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             npcs.Remove(other.gameObject);
-            //Debug.Log($"Player exited the NPC {other.gameObject.name}'s trigger zone");
         }
     }
 }

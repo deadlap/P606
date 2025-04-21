@@ -15,6 +15,7 @@ public class NPC : MonoBehaviour {
     public NPCSpawnPoint SpawnPoint;
     [SerializeField] GameObject BodyGameObject;
     [SerializeField] GameObject HeadGameObject;
+    [HideInInspector] public bool isDead = false;
     public void SetIdentity(Identity ID) {
         NPCIdentity = ID;
     }
@@ -39,6 +40,7 @@ public class NPC : MonoBehaviour {
 
         if (NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim) {
             llmCharacter.enabled = false;
+            isDead = true;
             Invoke("RemoveTag",0.5f);
             GetComponentInChildren<Animator>().Play("Dead");
 

@@ -12,11 +12,11 @@ public partial class FoodDoneAction : Action
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<bool> IsWorking;
     [SerializeReference] public BlackboardVariable<int> FoodDifficulty;
-    [SerializeReference] public BlackboardVariable<int> FoodGuestsWaiting;
-    [SerializeReference] public BlackboardVariable<int> FoodReady;
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<VisualEffect> VFX;
-    int foodProgress;
+    [SerializeReference] public BlackboardVariable<int> FoodProgress;
+    [SerializeReference] public BlackboardVariable<int> FoodGuestCount;
+    [SerializeReference] public BlackboardVariable<int> FoodReady;
     protected override Status OnStart()
     {
         Animator.Value?.SetTrigger("resetState");
@@ -24,14 +24,14 @@ public partial class FoodDoneAction : Action
         {
             VFX.Value.Stop();
         }
-        foodProgress++;
-        Debug.Log($"Food is not done yet ({foodProgress}/{FoodDifficulty.Value}).");
-        if (foodProgress == FoodDifficulty.Value)
+        FoodProgress.Value++;
+        Debug.Log($"Food is not done yet ({FoodProgress.Value}/{FoodDifficulty.Value}).");
+        if (FoodProgress.Value == FoodDifficulty.Value)
         {
             IsWorking.Value = false;
-            foodProgress = 0;
-            FoodGuestsWaiting.Value--;
+            FoodProgress.Value = 0;
             FoodReady.Value++;
+            FoodGuestCount.Value--;
             Debug.Log("Food is done!");
         }
         return Status.Running;
