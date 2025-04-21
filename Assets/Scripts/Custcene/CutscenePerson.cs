@@ -31,7 +31,7 @@ namespace Cutscene
 
         public void AssignLooks(CutsceneNPCInfo npcInfo)
         {
-            Debug.Log("I was told by manager");
+            //Debug.Log("I was told by manager");
 
             UpdateMaterial(bodyRenderer, npcInfo.bodyMaterial);
             UpdateMaterial(headRenderer, npcInfo.headMaterial);
@@ -40,14 +40,22 @@ namespace Cutscene
             {
                 Transform spawnedHat = Instantiate(npcInfo.hat, headRenderer.transform.position, Quaternion.identity).transform;
                 spawnedHat.SetParent(headRenderer.transform);
+                spawnedHat.localRotation = Quaternion.Euler(new Vector3(0f, -90f, -90f));
             }
+            if (npcInfo.carriable != null)
+            {
+                Transform spawnedCarriable = Instantiate(npcInfo.carriable, bodyRenderer.transform.position, Quaternion.identity).transform;
+                spawnedCarriable.SetParent(bodyRenderer.transform);
+                spawnedCarriable.localRotation = Quaternion.Euler(new Vector3(0f, -90f, -90f));
+            }
+
             myOccupation = npcInfo.occupation;
             myName = npcInfo.myName;
             name = $"NPC {myName}";
 
             nameField.text = string.Format(nameField.text, myName, myOccupation.ToString().Replace('_', ' '));
 
-            Debug.Log(npcInfo);
+            //Debug.Log(npcInfo);
         }
 
         private void UpdateMaterial(Renderer renderer, Material material)

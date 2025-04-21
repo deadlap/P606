@@ -32,12 +32,11 @@ namespace Cutscene
         /// <summary>
         /// Transfers the identity of this NPC to the CutsceneManager, so that the NPC can be rendered correctly and do the correct actions in the cutscene.
         /// </summary>
-        /// <param name="npcIdentity"></param>
-        /// <param name="bodyMat"></param>
-        /// <param name="headMat"></param>
-        public void TransferInfo(Identity npcIdentity, Material bodyMat = null, Material headMat = null, GameObject extraClothing = null)
+        /// <param name="npcIdentity">The Identity for the given NPC</param>
+        /// <param name="headMat">The face material the given NPC has</param>
+        public void TransferInfo(Identity npcIdentity, Material headMat)
         {
-            TransferInfo(new CutsceneNPCInfo(bodyMat, headMat, extraClothing, npcIdentity.Occupation, npcIdentity.name));
+            IntroCutsceneManager.instance.InformOfNPC(npcIdentity, headMat);
         }
 
         private CutsceneNPCInfo CheckNullValues(CutsceneNPCInfo info)

@@ -8,6 +8,7 @@ namespace Cutscene
         public Material bodyMaterial;
         public Material headMaterial;
         public GameObject hat;
+        public GameObject carriable;
         public Identity.Occupations occupation;
         public string myName;
         public bool isDead;
@@ -18,6 +19,7 @@ namespace Cutscene
             headMaterial = headMat;
             if (extraClothing != null) hat = extraClothing;
             else hat = null;
+            carriable = null;
             occupation = theOccupation;
             myName = theName;
             this.isDead = isDead;
