@@ -96,7 +96,7 @@ Transform:
   - {fileID: 6604811352286153306}
   m_Father: {fileID: 5673581794914598679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3527507595145396848
+--- !u!1001 &6639354317285797297
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -104,57 +104,85 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 880825555923889658}
     m_Modifications:
-    - target: {fileID: 6923977891389231760, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
-      propertyPath: m_Name
-      value: 'PriestHat '
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 37.74
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 37.74
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 37.74
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.075
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071067
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e75cfaac6dad39944bcd898b0cc451bd, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ccb35451ff06e424eb0c3db38191b578, type: 2}
+    - target: {fileID: 919132149155446097, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+      propertyPath: m_Name
+      value: 'PriestHat '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
 --- !u!4 &6604811352286153306 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7736403066372065322, guid: 65a43c0a3926dff42acd8118bbb390b9, type: 3}
-  m_PrefabInstance: {fileID: 3527507595145396848}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 297fd0897a027d4438f3c14696a82651, type: 3}
+  m_PrefabInstance: {fileID: 6639354317285797297}
   m_PrefabAsset: {fileID: 0}

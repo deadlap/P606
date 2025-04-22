@@ -42,9 +42,7 @@ namespace Cutscene
             }
             if (npcInfo.carriable != null)
             {
-                Transform spawnedCarriable = Instantiate(npcInfo.carriable, bodyRenderer.transform.position, Quaternion.identity).transform;
-                spawnedCarriable.SetParent(bodyRenderer.transform);
-                spawnedCarriable.localRotation = Quaternion.Euler(new Vector3(0f, -90f, -90f));
+                Instantiate(npcInfo.carriable, bodyRenderer.transform);
             }
 
             myOccupation = npcInfo.occupation;
