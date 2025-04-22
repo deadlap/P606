@@ -122,6 +122,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &708033962038862562
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +192,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &962389014843791827
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +262,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1156222991166150861
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +315,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4819319016751155640
 MonoBehaviour:
@@ -329,6 +332,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1175440689521861318
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,9 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 0
 --- !u!1 &1250323278589565411
@@ -454,6 +458,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1288004139295676366
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +528,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1327996042923181438
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,9 +577,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &1339218528145499256
@@ -645,6 +651,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1387708887564446799
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +774,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1543290305860035894
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,9 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 0
 --- !u!1 &1650339278277152070
@@ -889,6 +897,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &1988304592702627724
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,9 +943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &2191576859874199517
@@ -1008,6 +1017,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &2228520076838916739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,9 +1077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &2245124989029650125
@@ -1141,6 +1151,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &2290537306729913466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,9 +1211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &2459775249941966422
@@ -1274,6 +1285,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &2595325429973924588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1355,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &2601761311813774411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1425,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &2839895866074482358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,9 +1485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &3051500500130501082
@@ -1545,6 +1559,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &3238823137171133796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,9 +1662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &3512711783363037163
@@ -1711,9 +1726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &3532583178763605515
@@ -1785,6 +1800,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &3774754961533356653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1870,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &3825516493952510571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,7 +1923,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6507742379310445906
 MonoBehaviour:
@@ -1923,6 +1940,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4025193231189009668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2010,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4277409109421130116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,9 +2123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &4373182892819846760
@@ -2161,7 +2180,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8521183752051769035
 MonoBehaviour:
@@ -2178,6 +2197,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4455911571091648080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,9 +2257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &4563242239084798694
@@ -2311,6 +2331,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4642681433265466771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2384,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.3
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8449535430883445547
 MonoBehaviour:
@@ -2380,6 +2401,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4819691437643390632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2471,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4868097621400818989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,6 +2541,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4878291125779272967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,6 +2611,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4895406932526788279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,7 +2664,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3179860210524607418
 MonoBehaviour:
@@ -2656,6 +2681,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &4967592750442232211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,6 +2751,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &5120469492972738928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +2927,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &5250389697448195378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,6 +3050,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &5880925127530469126
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,9 +3110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &5930201958453760859
@@ -3135,9 +3164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &5953153593233522635
@@ -3258,6 +3287,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &6360368133195562960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3327,6 +3357,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &6472414312714161423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,6 +3427,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &6611187790450018265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,6 +3497,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &6739546532822707578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,6 +3567,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &6770711674741917323
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,6 +3637,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &6888060369535780745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3760,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &7046473295281061277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,9 +3820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &7067020986459691311
@@ -3848,9 +3884,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &7156560193889143262
@@ -3922,6 +3958,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &7560137479956418579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,6 +4028,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8123320738998514082
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,6 +4098,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8151053928513448182
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,9 +4159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 0
 --- !u!1 &8286455996534124006
@@ -4194,6 +4233,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8320693000952556635
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,7 +4261,7 @@ Transform:
   m_GameObject: {fileID: 8320693000952556635}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.41, y: 0, z: -6.26}
+  m_LocalPosition: {x: -2.41, y: 0, z: -6.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4246,7 +4286,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1028180351932806640
 MonoBehaviour:
@@ -4263,6 +4303,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8533432389067171228
 GameObject:
   m_ObjectHideFlags: 0
@@ -4385,6 +4426,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8555481982086342091
 GameObject:
   m_ObjectHideFlags: 0
@@ -4454,6 +4496,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8724812158033723713
 GameObject:
   m_ObjectHideFlags: 0
@@ -4523,6 +4566,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8742492936638979532
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,6 +4636,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8744127186900044498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4661,6 +4706,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8837442696986494554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4730,6 +4776,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &8991660334450428762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4779,9 +4826,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
   radius: 4
 --- !u!1 &8994030403902709803
@@ -4853,6 +4900,7 @@ MonoBehaviour:
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
+  patrolPointIndex: 0
 --- !u!1 &9200256546359753009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,8 +4946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82711d39eff788c4f8d7b52811f40f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallBackPoint: {fileID: 0}
   patrolPoints: []
   availablePoints: []
+  queuePoints: []
   guestPoints: []
-  radius: 4
+  radius: 1

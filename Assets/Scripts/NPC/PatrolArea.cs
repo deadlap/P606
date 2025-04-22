@@ -15,7 +15,7 @@ public class PatrolArea : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            Transform point = transform.GetChild(i);
+            var point = transform.GetChild(i);
             patrolPoints.Add(point);
         }
     }

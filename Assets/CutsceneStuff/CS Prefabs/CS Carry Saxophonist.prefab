@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2071811356794423215
+--- !u!1 &1683775399638680838
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,71 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 45322036004862193}
-  m_Layer: 0
-  m_Name: CS Carry Saxophonist
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &45322036004862193
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071811356794423215}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3109239828079304195}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3329183183573903093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7202852270874081345}
-  m_Layer: 0
-  m_Name: SaxOffset
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7202852270874081345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3329183183573903093}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.054741267, y: 0.1954783, z: 0.010928948, w: 0.97911805}
-  m_LocalPosition: {x: 0.496, y: 0.228, z: -0.096}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8578337981481042789}
-  m_Father: {fileID: 3109239828079304195}
-  m_LocalEulerAnglesHint: {x: -6.4, y: 22.581, z: 0}
---- !u!1 &5197889017721298257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3109239828079304195}
+  - component: {fileID: 7028467540051068628}
   m_Layer: 0
   m_Name: SaxRotator
   m_TagString: Untagged
@@ -80,23 +16,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3109239828079304195
+--- !u!4 &7028467540051068628
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197889017721298257}
+  m_GameObject: {fileID: 1683775399638680838}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.019999996, y: 0.013333333, z: 0.019999998}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7202852270874081345}
-  m_Father: {fileID: 45322036004862193}
+  - {fileID: 1441027292604045117}
+  m_Father: {fileID: 9048203644161753859}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &7954569930025581312
+--- !u!1 &3276509921702942556
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,10 +40,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5943738705455328519}
-  - component: {fileID: 5527693351406668029}
-  - component: {fileID: 6636574239680579594}
-  - component: {fileID: 2278068387227964878}
+  - component: {fileID: 5270991476871482551}
+  - component: {fileID: 2926195357415772692}
+  - component: {fileID: 9034626303693088558}
+  - component: {fileID: 113579885485591769}
   m_Layer: 0
   m_Name: Dark
   m_TagString: Untagged
@@ -115,36 +51,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5943738705455328519
+--- !u!4 &5270991476871482551
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7954569930025581312}
+  m_GameObject: {fileID: 3276509921702942556}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1677715, y: -0.00007569789, z: -0.0005326683, w: 0.9858258}
   m_LocalPosition: {x: -0, y: -0.65, z: 2}
   m_LocalScale: {x: 1.6, y: -0.0040602833, z: 1.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 9186310536489759293}
+  m_Father: {fileID: 3356453651859170232}
   m_LocalEulerAnglesHint: {x: 19.317, y: -0.02, z: -0.065}
---- !u!33 &5527693351406668029
+--- !u!33 &2926195357415772692
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7954569930025581312}
+  m_GameObject: {fileID: 3276509921702942556}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6636574239680579594
+--- !u!23 &9034626303693088558
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7954569930025581312}
+  m_GameObject: {fileID: 3276509921702942556}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -183,13 +119,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2278068387227964878
+--- !u!136 &113579885485591769
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7954569930025581312}
+  m_GameObject: {fileID: 3276509921702942556}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -206,13 +142,77 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!1001 &8108407377865614478
+--- !u!1 &4069175512164652781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441027292604045117}
+  m_Layer: 0
+  m_Name: SaxOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441027292604045117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069175512164652781}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.054741267, y: 0.1954783, z: 0.010928948, w: 0.97911805}
+  m_LocalPosition: {x: 0.496, y: 0.228, z: -0.096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2802559355502580448}
+  m_Father: {fileID: 7028467540051068628}
+  m_LocalEulerAnglesHint: {x: -6.4, y: 22.581, z: 0}
+--- !u!1 &5631492453278471622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9048203644161753859}
+  m_Layer: 0
+  m_Name: CS Carry Saxophonist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9048203644161753859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631492453278471622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7028467540051068628}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2408873432953435403
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7202852270874081345}
+    m_TransformParent: {fileID: 1441027292604045117}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 814c7a92446cbf9459c4ebaff062fe12, type: 3}
       propertyPath: m_LocalScale.x
@@ -295,16 +295,16 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1151388028547126963, guid: 814c7a92446cbf9459c4ebaff062fe12, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5943738705455328519}
+      addedObject: {fileID: 5270991476871482551}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 814c7a92446cbf9459c4ebaff062fe12, type: 3}
---- !u!4 &8578337981481042789 stripped
+--- !u!4 &2802559355502580448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 814c7a92446cbf9459c4ebaff062fe12, type: 3}
-  m_PrefabInstance: {fileID: 8108407377865614478}
+  m_PrefabInstance: {fileID: 2408873432953435403}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &9186310536489759293 stripped
+--- !u!4 &3356453651859170232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: 814c7a92446cbf9459c4ebaff062fe12, type: 3}
-  m_PrefabInstance: {fileID: 8108407377865614478}
+  m_PrefabInstance: {fileID: 2408873432953435403}
   m_PrefabAsset: {fileID: 0}

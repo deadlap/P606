@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1047523857715287484
+--- !u!1 &1921619612046682958
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,71 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7979876785012372738}
-  m_Layer: 0
-  m_Name: CS Hat Oil Tycoon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7979876785012372738
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047523857715287484}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1848168117356970319}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
---- !u!1 &6456750303387431489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2691725580244949626}
-  m_Layer: 0
-  m_Name: HatOffset
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2691725580244949626
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6456750303387431489}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.239, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5684678854495183666}
-  m_Father: {fileID: 1848168117356970319}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6965993956257195780
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1848168117356970319}
+  - component: {fileID: 4379084388664235726}
   m_Layer: 0
   m_Name: HatRotator
   m_TagString: Untagged
@@ -80,93 +16,185 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1848168117356970319
+--- !u!4 &4379084388664235726
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965993956257195780}
+  m_GameObject: {fileID: 1921619612046682958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02222222, y: 0.022222225, z: 0.02222222}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1542567049783739594}
+  m_Father: {fileID: 4736540574331325401}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2205495264530947012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542567049783739594}
+  m_Layer: 0
+  m_Name: HatOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1542567049783739594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205495264530947012}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.239, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5747552781254933793}
+  m_Father: {fileID: 4379084388664235726}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6700086413316307128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4736540574331325401}
+  m_Layer: 0
+  m_Name: CS Hat Oil Tycoon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4736540574331325401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700086413316307128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2691725580244949626}
-  m_Father: {fileID: 7979876785012372738}
+  - {fileID: 4379084388664235726}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4238814120574772412
+--- !u!1001 &5208924997879290570
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2691725580244949626}
+    m_TransformParent: {fileID: 1542567049783739594}
     m_Modifications:
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.79
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.79
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.79
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9186379089322745140, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
       propertyPath: m_Name
       value: OilHat
       objectReference: {fileID: 0}
+    - target: {fileID: 3154719795325769685, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154719795325769685, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e75cfaac6dad39944bcd898b0cc451bd, type: 2}
+    - target: {fileID: 3154719795325769685, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7cfe862aa79c2104a9369cf94d91c520, type: 2}
+    - target: {fileID: 8098895894243333426, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098895894243333426, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e75cfaac6dad39944bcd898b0cc451bd, type: 2}
+    - target: {fileID: 8098895894243333426, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 816b8bdf8fb5dd143bc8809e39fc929c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
---- !u!4 &5684678854495183666 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+--- !u!4 &5747552781254933793 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8374236458224502670, guid: c4ae876fa14d0c04a8b933853cda219c, type: 3}
-  m_PrefabInstance: {fileID: 4238814120574772412}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 00ad437da19a5f74dbc9331d912af968, type: 3}
+  m_PrefabInstance: {fileID: 5208924997879290570}
   m_PrefabAsset: {fileID: 0}
