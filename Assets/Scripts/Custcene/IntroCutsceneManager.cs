@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace Cutscene
 {
@@ -16,14 +18,17 @@ namespace Cutscene
     public class IntroCutsceneManager : MonoBehaviour
     {
         [HideInInspector] public static IntroCutsceneManager instance;
-        [SerializeField] private CutscenePerson[] personel;
-        [SerializeField] private Material[] bodyMaterials;
-        [SerializeField] private GameObject[] hats;
-        [SerializeField] private GameObject[] carriables;
+        [SerializeField, Tooltip("Assign the cutscene variations here. In order of Crew, noChef, noWaiter, noJanitor, noBartender")] private TimelineAsset[] cutsceneTimelines; 
+        [SerializeField, Tooltip("Who are the actors in the cutscene")] private CutscenePerson[] personel;
+        [SerializeField, Tooltip("What are the outfits, in order of Identity.Occupations")] private Material[] bodyMaterials;
+        [SerializeField, Tooltip("What are the hat prefabs, in order of Identity.Occupations")] private GameObject[] hats;
+        [SerializeField, Tooltip("What do they carry, in order of Identity.Occupations")] private GameObject[] carriables;
 
         private CutsceneVariations cutsceneVariation = CutsceneVariations.crewAlive;
 
         private List<CutsceneNPCInfo> people = new List<CutsceneNPCInfo>();
+
+        private bool hasBegunCutscene = false;
 
         private void Awake()
         {
@@ -148,7 +153,12 @@ namespace Cutscene
 
         public void BeginCutscene()
         {
-            Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}");
+            if (hasBegunCutscene) return;
+            hasBegunCutscene = true;
+
+            Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}. Currently just playing variation {CutsceneVariations.crewAlive}");
+            GetComponent<PlayableDirector>().playableAsset = cutsceneTimelines[0];
+            GetComponent<PlayableDirector>().Play();
         }
     }
 }
