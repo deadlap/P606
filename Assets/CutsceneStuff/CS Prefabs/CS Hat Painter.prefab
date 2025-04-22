@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &669080511306457073
+--- !u!1 &4397965108960633400
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2814764319783906756}
-  m_Layer: 0
-  m_Name: CS Hat Painter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2814764319783906756
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669080511306457073}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5011106186293711934}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
---- !u!1 &1009974943853569143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6723141739080677177}
+  - component: {fileID: 8411303148704913475}
   m_Layer: 0
   m_Name: HatOffset
   m_TagString: Untagged
@@ -48,23 +16,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6723141739080677177
+--- !u!4 &8411303148704913475
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009974943853569143}
+  m_GameObject: {fileID: 4397965108960633400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.31099987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4843965874611509818}
-  m_Father: {fileID: 5011106186293711934}
+  - {fileID: 7251058639275189942}
+  m_Father: {fileID: 5847478784105503027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1029276415781346845
+--- !u!1 &5296794291971734085
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +40,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5011106186293711934}
+  - component: {fileID: 7741424935845262723}
+  m_Layer: 0
+  m_Name: CS Hat Painter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7741424935845262723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296794291971734085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5847478784105503027}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6511408365193476852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5847478784105503027}
   m_Layer: 0
   m_Name: HatRotator
   m_TagString: Untagged
@@ -80,29 +80,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5011106186293711934
+--- !u!4 &5847478784105503027
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029276415781346845}
+  m_GameObject: {fileID: 6511408365193476852}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09349853, y: -0, z: 0.000000014901161, w: 0.9956194}
+  m_LocalRotation: {x: 0.4510604, y: -0.45106047, z: -0.544559, w: 0.54455906}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.02222222, y: 0.02222222, z: 0.022222219}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6723141739080677177}
-  m_Father: {fileID: 2814764319783906756}
+  - {fileID: 8411303148704913475}
+  m_Father: {fileID: 7741424935845262723}
   m_LocalEulerAnglesHint: {x: -10.73, y: 0, z: 0}
---- !u!1001 &3222427582308047259
+--- !u!1001 &802074999261717783
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6723141739080677177}
+    m_TransformParent: {fileID: 8411303148704913475}
     m_Modifications:
     - target: {fileID: 7262816570794137883, guid: 495374f351de3e942a7fb4b6d5f77f12, type: 3}
       propertyPath: m_Name
@@ -165,8 +165,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495374f351de3e942a7fb4b6d5f77f12, type: 3}
---- !u!4 &4843965874611509818 stripped
+--- !u!4 &7251058639275189942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8034814932802405281, guid: 495374f351de3e942a7fb4b6d5f77f12, type: 3}
-  m_PrefabInstance: {fileID: 3222427582308047259}
+  m_PrefabInstance: {fileID: 802074999261717783}
   m_PrefabAsset: {fileID: 0}
