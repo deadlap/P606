@@ -4,6 +4,7 @@ public class SpawnConsumables : MonoBehaviour
 {
     public GameObject[] foodPrefabs;
     public GameObject[] drinkPrefabs;
+    public GameObject[] shaker;
 
     Vector3 foodSpawnPosition = new(0, 0, 0);
     Vector3 drinkSpawnPosition = new(0, 0, 0);
@@ -22,8 +23,9 @@ public class SpawnConsumables : MonoBehaviour
         return Instantiate(drinkPrefabs[0], agent.transform.position + drinkSpawnPosition, Quaternion.identity, agent.transform);
     }
 
-    public void DestroyConsumable(GameObject consumable)
+    public GameObject SpawnShaker(GameObject agent)
     {
-        Destroy(consumable);
+        var randomDrink = Random.Range(0, drinkPrefabs.Length);
+        return Instantiate(shaker[0], agent.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity, agent.transform);
     }
 }

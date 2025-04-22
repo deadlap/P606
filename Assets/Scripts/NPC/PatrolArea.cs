@@ -34,10 +34,11 @@ public class PatrolArea : MonoBehaviour
 
         pointObj = new("RandomPatrolPoint");
         pointObj.transform.position = pointPosition;
+        pointObj.transform.rotation = randomPatrolPoint.transform.rotation;
         return pointObj.transform;
     }
 
-    public Transform FindRandomUnreservedPoint()
+    public Transform FindRandomUnreservedPoint(GameObject occupant)
     {
         availablePoints.Clear();
         for (int i = 0; i < patrolPoints.Count; i++)
@@ -54,9 +55,10 @@ public class PatrolArea : MonoBehaviour
         randomPosition.GetComponent<PatrolPoint>().isReserved = true;
         randomPosition.GetComponent<PatrolPoint>().isBeingServed = false;
         randomPosition.GetComponent<PatrolPoint>().hasBeenServed = false;
+        randomPosition.GetComponent<PatrolPoint>().occupant = occupant;
         return randomPosition;
     }
-    public Transform FindGuestToServe(bool isBringingFood = false)
+    public Transform FindGuestToServe(GameObject occupant, bool isBringingFood = false)
     {
         guestPoints.Clear();
         for (int i = 0; i < patrolPoints.Count; i++)
@@ -70,34 +72,39 @@ public class PatrolArea : MonoBehaviour
                 guestPoints.Add(patrolPoints[i]);
             }
         }
-        if(guestPoints.Count == 0) return FindRandomUnreservedPoint();
-        var guestPosition = guestPoints[Random.Range(0, guestPoints.Count)];
-        return guestPosition;
+        if(guestPoints.Count == 0) return FindRandomUnreservedPoint(occupant);
+        var transform = guestPoints[Random.Range(0, guestPoints.Count)];
+        transform.GetComponent<PatrolPoint>().occupant = occupant;
+        return transform;
     }
 
-    public Transform FindPlaceInQueue()
+    public Transform FindPlaceInQueue(GameObject occupant)
     {
         for (int i = 0; i < patrolPoints.Count; i++)
         {
-            queuePoints.Add(patrolPoints[i]);
+            if (!queuePoints.Contains(patrolPoints[i]))
+            {
+                queuePoints.Add(patrolPoints[i]);
+            }
             var patrolPoint = patrolPoints[i].GetComponent<PatrolPoint>();
             patrolPoint.patrolPointIndex = i;
             if (!patrolPoint.isReserved)
             {
                 patrolPoint.isReserved = true;
+                patrolPoint.GetComponent<PatrolPoint>().occupant = occupant;
                 return patrolPoints[i];
             }
         }
         return RandomPatrolPoint();
     }
 
-    public Transform FindGuestInQueue()
+    public Transform FindGuestInQueue(GameObject occupant)
     {
         var patrolPoint = patrolPoints[0].GetComponent<PatrolPoint>();
         if (patrolPoint.isReserved)
         {
             return patrolPoints[0];
         }
-        return FindRandomUnreservedPoint();
+        return FindRandomUnreservedPoint(occupant);
     }
 }

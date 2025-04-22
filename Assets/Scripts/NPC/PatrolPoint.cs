@@ -6,6 +6,7 @@ public class PatrolPoint : MonoBehaviour
     public bool isBeingServed;
     public bool hasBeenServed;
     public int patrolPointIndex;
+    public GameObject occupant;
     int NPCCount;
 
     void Awake()
@@ -23,7 +24,7 @@ public class PatrolPoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("NPC"))
+        if (other.gameObject == occupant)
         {
             NPCCount++;
         }
@@ -31,7 +32,7 @@ public class PatrolPoint : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("NPC"))
+        if (other.gameObject == occupant)
         {
             isReserved = NPCCheck();
         }
@@ -39,7 +40,7 @@ public class PatrolPoint : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("NPC"))
+        if (other.gameObject == occupant)
         {
             NPCCount--;
             if (NPCCount <= 0)

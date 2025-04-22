@@ -27,13 +27,13 @@ public partial class TakeOrderAction : Action
         
         if(BringsFood.Value)
         {
-            currentPoint = PatrolArea.Value.FindGuestToServe(true);
+            currentPoint = PatrolArea.Value.FindGuestToServe(NavMeshAgent.Value.gameObject, true);
             NavMeshAgent.Value.SetDestination(currentPoint.position);
         }
         
         if (!BringsFood.Value && !ServesQueue.Value)
         {
-            currentPoint = PatrolArea.Value.FindGuestToServe();
+            currentPoint = PatrolArea.Value.FindGuestToServe(NavMeshAgent.Value.gameObject);
             if(!currentPoint.GetComponent<PatrolPoint>())
             {
                 Debug.LogWarning("No guest to serve.");
@@ -44,7 +44,7 @@ public partial class TakeOrderAction : Action
 
         if (!BringsFood.Value && ServesQueue.Value)
         {
-            currentPoint = PatrolArea.Value.FindGuestInQueue();
+            currentPoint = PatrolArea.Value.FindGuestInQueue(NavMeshAgent.Value.gameObject);
             if (currentPoint.GetComponent<PatrolPoint>().isBeingServed)
             {
             }
@@ -52,7 +52,7 @@ public partial class TakeOrderAction : Action
 
         if (!BringsFood.Value && ServesQueue.Value)
         {
-            currentPoint = PatrolArea.Value.FindGuestInQueue();
+            currentPoint = PatrolArea.Value.FindGuestInQueue(NavMeshAgent.Value.gameObject);
         }
 
 
@@ -99,8 +99,8 @@ public partial class TakeOrderAction : Action
                 {
                     currentPoint.GetComponent<PatrolPoint>().isBeingServed = true;
                 }
-
-                CurrentPoint.Value = currentPoint;
+                if(!ServesQueue.Value)
+                    CurrentPoint.Value = currentPoint;
                 return Status.Success;
             }
         }

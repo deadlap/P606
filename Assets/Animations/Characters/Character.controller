@@ -176,10 +176,13 @@ AnimatorStateMachine:
     m_Position: {x: 470, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4258445973831434379}
-    m_Position: {x: 450, y: 10, z: 0}
+    m_Position: {x: 420, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7794803885365026317}
-    m_Position: {x: 480, y: 90, z: 0}
+    m_Position: {x: 630, y: 10, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8867879887691423642}
+    m_Position: {x: 840, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 2748502078402947150}
@@ -387,6 +390,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: f67467f84bc8be94bb6e512eace546a2, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &8867879887691423642
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BartenderShake
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 254f8b16dda883040afff84b40be3e00, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

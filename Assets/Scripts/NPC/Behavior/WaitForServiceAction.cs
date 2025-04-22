@@ -31,7 +31,7 @@ public partial class WaitForServiceAction : Action
     }
     protected override Status OnUpdate()
     {
-        if (CurrentPoint.Value.GetComponent<PatrolPoint>().hasBeenServed == false)
+        if (!patrolPoint.hasBeenServed)
         {
             if(PatrolArea.Value != null)
             {
@@ -39,9 +39,10 @@ public partial class WaitForServiceAction : Action
                 {
                     if (!PatrolArea.Value.queuePoints[patrolPoint.patrolPointIndex - 1].GetComponent<PatrolPoint>().isReserved)
                     {
-                        currentPoint = PatrolArea.Value.FindPlaceInQueue();
+                        currentPoint = PatrolArea.Value.FindPlaceInQueue(NavMeshAgent.Value.gameObject);
                         CurrentPoint.Value = currentPoint;
-                        NavMeshAgent.Value.SetDestination(CurrentPoint.Value.position);
+                        patrolPoint = CurrentPoint.Value.GetComponent<PatrolPoint>();
+                        NavMeshAgent.Value.SetDestination(patrolPoint.transform.position);
                         pointGiven = true;
                     }
                 }

@@ -94,7 +94,7 @@ public partial class PatrolOccupationAreaAction : Action
             }
             else if (WillGetInLine.Value && !RandomPoint.Value)
             {
-                currentPoint = PatrolArea.Value.FindPlaceInQueue();
+                currentPoint = PatrolArea.Value.FindPlaceInQueue(NavMeshAgent.Value.gameObject);
                 if (currentPoint == null)
                 {
                     Debug.LogWarning($"No space in the line for {NavMeshAgent.Value.name}.");
@@ -103,7 +103,7 @@ public partial class PatrolOccupationAreaAction : Action
             }
             else
             {
-                currentPoint = PatrolArea.Value.FindRandomUnreservedPoint();
+                currentPoint = PatrolArea.Value.FindRandomUnreservedPoint(NavMeshAgent.Value.gameObject);
             }
             CurrentPoint.Value = currentPoint;
             NavMeshAgent.Value.SetDestination(CurrentPoint.Value.position);
