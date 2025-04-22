@@ -22,14 +22,7 @@ public class HoverQuestionMarks : MonoBehaviour
     [Tooltip("Delay before showing tooltip.")]
     public float delay = 0.5f;
 
-
-    public GameObject Bookmark1;
-    public GameObject Bookmark2;
-    public GameObject Bookmark3;
-
     public Camera mainCamera; // Assign your main camera in Inspector
-
-    public GameObject textMeshProObject; // The object to show/hide on hover
 
 
     private Dictionary<GameObject, HoverTooltipGroup> targetToGroup = new();
@@ -50,40 +43,10 @@ public class HoverQuestionMarks : MonoBehaviour
                 AddEventTriggers(hoverTarget);
             }
 
-            //if (group.hoverTarget1 != null)
-            //{
-            //    targetToGroup[group.hoverTarget1] = group;
-            //    AddEventTriggers(group.hoverTarget1);
-            //}
-
-            //if (group.hoverTarget2 != null)
-            //{
-            //    targetToGroup[group.hoverTarget2] = group;
-            //    AddEventTriggers(group.hoverTarget2);
-            //}
-
             hoverCounts[group] = 0;
         }
     }
 
-
-    //// Det her kan vel nok slettes.
-    //void Update()
-    //{
-    //    Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-    //    if (Physics.Raycast(ray, out RaycastHit hit))
-    //    {
-    //        if (hit.collider.gameObject == Bookmark1 ||
-    //            hit.collider.gameObject == Bookmark2 ||
-    //            hit.collider.gameObject == Bookmark3)
-    //        {
-    //            textMeshProObject.SetActive(true);
-    //            return;
-    //        }
-    //    }
-    //    textMeshProObject.SetActive(false);
-    //}
-  
 
     private void AddEventTriggers(GameObject target)
     {
