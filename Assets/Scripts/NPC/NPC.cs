@@ -43,19 +43,13 @@ public class NPC : MonoBehaviour {
             isDead = true;
             Invoke("RemoveTag",0.5f);
             GetComponentInChildren<Animator>().Play("Dead");
-
-            // GetComponentInChildren<Animator>().enabled = false;
         }
-
-        // If shadowperson ever changes this code can be used again
-        // var bodymat = Resources.Load<Material>("Outfits/"+NPCIdentity.Occupation.ToString()) as Material;
-        // if (bodymat != null)
-        //    Body.GetComponent<Renderer>().materials[0] = bodymat;
-        // var accessory = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()) as GameObject;
-        // if (accessory != null)
-        //     Instantiate(accessory, transform);
-        // var headMatArr = Head.GetComponent<Renderer>().materials;
-        // gameObject.GetComponent<ShadowPerson>().GetLooks(Head.GetComponent<Renderer>().materials,Body.GetComponent<Renderer>().materials);
+        var accessory_hat = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()+"Hat") as GameObject;
+        if (accessory_hat != null)
+            Instantiate(accessory_hat, HeadGameObject.transform);
+        var accessory_hand = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()+"Hand") as GameObject;
+        if (accessory_hand != null)
+            Instantiate(accessory_hand, BodyGameObject.transform);
     }
     void RemoveTag(){
         tag = "Untagged";
