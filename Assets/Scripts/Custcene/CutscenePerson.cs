@@ -38,9 +38,7 @@ namespace Cutscene
 
             if (npcInfo.hat != null)
             {
-                Transform spawnedHat = Instantiate(npcInfo.hat, headRenderer.transform.position, Quaternion.identity).transform;
-                spawnedHat.SetParent(headRenderer.transform);
-                spawnedHat.localRotation = Quaternion.Euler(new Vector3(0f, -90f, -90f));
+                Instantiate(npcInfo.hat, headRenderer.transform);
             }
             if (npcInfo.carriable != null)
             {
