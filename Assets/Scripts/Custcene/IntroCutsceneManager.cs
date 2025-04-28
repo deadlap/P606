@@ -156,6 +156,8 @@ namespace Cutscene
             if (hasBegunCutscene) return;
             hasBegunCutscene = true;
 
+            Cursor.visible = false;
+
             if (mustGetNPCs)
             {
                 foreach (CutsceneNPCInfoTransferer npcWithInfo in CutsceneNPCInfoTransferer.infoTransferers)
