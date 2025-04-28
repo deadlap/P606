@@ -619,6 +619,11 @@ namespace LLMUnity
             if (!callbackCalled) callback?.Invoke(result);
             return result;
         }
+
+        public async Task Warmup(object v)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     /// \cond HIDE

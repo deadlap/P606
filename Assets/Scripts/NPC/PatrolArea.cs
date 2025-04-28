@@ -40,7 +40,8 @@ public class PatrolArea : MonoBehaviour
 
     public Transform FindRandomUnreservedPoint(GameObject occupant)
     {
-        availablePoints.Clear();
+        if(availablePoints != null)
+            availablePoints.Clear();
         for (int i = 0; i < patrolPoints.Count; i++)
         {
             var patrolPoint = patrolPoints[i].GetComponent<PatrolPoint>();
@@ -60,7 +61,8 @@ public class PatrolArea : MonoBehaviour
     }
     public Transform FindGuestToServe(GameObject occupant, bool isBringingFood = false)
     {
-        guestPoints.Clear();
+        if(guestPoints != null)
+            guestPoints.Clear();
         for (int i = 0; i < patrolPoints.Count; i++)
         {
             var patrolPoint = patrolPoints[i].GetComponent<PatrolPoint>();

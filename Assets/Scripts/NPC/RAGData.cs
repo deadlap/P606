@@ -7,11 +7,6 @@ public class RAGData : MonoBehaviour
     [SerializeField] RAG rag;
     [SerializeField] public TextAsset ragText;
 
-    void Start()
-    {
-        LoadRAG();
-    }
-
     public async void LoadRAG()
     {
         if(ragText == null) return;

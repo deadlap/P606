@@ -34,9 +34,9 @@ public class NPC : MonoBehaviour {
         transform.position = SpawnPoint.SpawnPosition();
         GetComponent<NavMeshAgent>().enabled = true;
         
-        var ragText = Resources.Load<TextAsset>("RAGs/"+NPCIdentity.Occupation.ToString());
-        llmCharacter.gameObject.GetComponentInChildren<RAGData>().ragText = ragText;
-        llmCharacter.gameObject.GetComponentInChildren<RAGData>().LoadRAG();
+        //var ragText = Resources.Load<TextAsset>("RAGs/"+NPCIdentity.Occupation.ToString());
+        //llmCharacter.gameObject.GetComponentInChildren<RAGData>().ragText = ragText;
+        //llmCharacter.gameObject.GetComponentInChildren<RAGData>().LoadRAG();
 
         if (NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim) {
             llmCharacter.enabled = false;

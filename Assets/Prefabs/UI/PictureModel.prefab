@@ -131,7 +131,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6455137766828583106}
   - component: {fileID: 5424256185254362765}
-  - component: {fileID: 551462273432078474}
   - component: {fileID: 6946871265792515586}
   m_Layer: 6
   m_Name: SelfieCam
@@ -197,7 +196,7 @@ Camera:
     m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -206,14 +205,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &551462273432078474
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057504912624273376}
-  m_Enabled: 1
 --- !u!114 &6946871265792515586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac73057307e83ec478a04ece74a0e67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyRenderer: {fileID: 4841192731794903756}
+  headRenderer: {fileID: 2796202723417136561}
 --- !u!1001 &6954571881041192426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +402,16 @@ PrefabInstance:
 --- !u!4 &994973946009534594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7876023681238672744, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+  m_PrefabInstance: {fileID: 6954571881041192426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2796202723417136561 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4157524182732408741, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+  m_PrefabInstance: {fileID: 6954571881041192426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4841192731794903756 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6652725513331149018, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
   m_PrefabInstance: {fileID: 6954571881041192426}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7424504193129120257 stripped

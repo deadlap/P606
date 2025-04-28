@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float interactFillTime = 0.5f;
     [SerializeField] Vector3 interactButtonOffset = new Vector3(0, 2, 0);
     Animator animator;
-    bool isInteracting;
     
     Vector2 moveDirection;
     void Awake()
@@ -109,7 +107,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Interact(InputAction.CallbackContext context)
     {
-        isInteracting = true;
         interactNPC = closestNPC;
         if(currentInteractButton == null) yield break;
         var start = interactButtonFillImage.fillAmount;
@@ -135,7 +132,6 @@ public class PlayerController : MonoBehaviour
             interactButtonFillImage.fillAmount = 0;
         PlayerInputEvent.OnPlayerInteract();
         animator.SetBool("isWalking", false);
-        isInteracting = false;
     }
     void Update()
     {

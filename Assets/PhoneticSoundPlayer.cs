@@ -16,9 +16,9 @@ public class PhoneticSoundPlayer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         int index = 0;
-        for (char c = 'a'; c <= 'z'; c++)
+        for (char character = 'a'; character <= 'z'; character++)
         {
-            phoneticSoundsMap.Add(c, phoneticSounds[index]);
+            phoneticSoundsMap.Add(character, phoneticSounds[index]);
             index++;
         }
     }

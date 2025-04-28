@@ -12,11 +12,13 @@ using Image = UnityEngine.UI.Image;
 // This class is a new version of the ChatBot class from the LLMUnitySamples namespace.
 public class NewChatBot : MonoBehaviour
 {
+    public static NewChatBot instance;
+
     [SerializeField] RAGData ragData;
     [SerializeField] bool usingRagData;
     [SerializeField] LLMCharacter llmCharacter;
-    [SerializeField] PiperTTS piperTTS;
-    [SerializeField] PhoneticSoundPlayer phoneticSoundPlayer;
+    //[SerializeField] PiperTTS piperTTS;
+    //[SerializeField] PhoneticSoundPlayer phoneticSoundPlayer;
     [SerializeField] GameObject chatGraphics;
     [SerializeField] Button chatButton;
     [SerializeField] Transform chatContainer;
@@ -32,13 +34,11 @@ public class NewChatBot : MonoBehaviour
     [SerializeField] int bubbleHeight = 35;
     [SerializeField] Sprite sprite;
 
-    List<GameObject> chatBubbles = new();
     GameObject playerTextBubble;
-    GameObject aiTextBubble;
+    GameObject npcTextBubble;
     string placeholderText = "Hold on...";
-    string playerText;
-    string message;
-    string aiText;
+    string playerMessage;
+    string npcMessage;
     bool blockInput = true;
     bool chatIsActive;
     bool canExitChat = true;
@@ -46,6 +46,10 @@ public class NewChatBot : MonoBehaviour
     void Awake()
     {
         chatGraphics.SetActive(false);
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
     }
 
     void OnEnable()
@@ -54,7 +58,7 @@ public class NewChatBot : MonoBehaviour
         inputField.onValueChanged.AddListener(OnValueChanged);
         inputField.onSelect.AddListener(InputFieldSelected);
         chatButton.onClick.AddListener(InputFieldDeselected);
-        PlayerInputEvent.PlayerInteract += UpdateChatView;
+        PlayerInputEvent.PlayerInteract += UpdateChat;
     }
 
     void OnDisable()
@@ -63,7 +67,7 @@ public class NewChatBot : MonoBehaviour
         inputField.onValueChanged.RemoveListener(OnValueChanged);
         inputField.onSelect.RemoveListener(InputFieldSelected);
         chatButton.onClick.RemoveListener(InputFieldDeselected);
-        PlayerInputEvent.PlayerInteract -= UpdateChatView;
+        PlayerInputEvent.PlayerInteract -= UpdateChat;
     }
     
     void Start()
@@ -78,6 +82,49 @@ public class NewChatBot : MonoBehaviour
         _ = llmCharacter.Warmup(WarmUpCallback);
     }
 
+    void OnInputFieldSubmit(string newText)
+    {
+        _ = InputFieldSubmit(newText);
+    }
+
+    async Task InputFieldSubmit(string newText)
+    {
+        canExitChat = false;
+        inputField.ActivateInputField();
+
+        if (blockInput || newText.Trim() == "" || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            StartCoroutine(BlockInteraction()); // Consider refactoring this into a Task-based async method if needed
+            return;
+        }
+
+        blockInput = true;
+
+        // replace vertical_tab
+        playerMessage = inputField.text.Replace("\v", "\n");
+        playerTextBubble = CreateChatBubble(playerMessage, true);
+        UpdateScrollView();
+        npcTextBubble = CreateChatBubble("Let me think...", false);
+
+        if (usingRagData)
+        {
+            if (ragData == null)
+            {
+                Debug.LogError("No RAG Data is found. \"Disable Using Rag Data\" or add a RAG Data and try again.");
+                return;
+            }
+
+            playerMessage = await ragData.CheckRAG(playerMessage, 1);
+            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
+        }
+        else
+        {
+            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
+        }
+
+        inputField.text = "";
+    }
+    /*
     async void OnInputFieldSubmit(string newText)
     {
         canExitChat = false;
@@ -89,10 +136,10 @@ public class NewChatBot : MonoBehaviour
         }
         blockInput = true;
         // replace vertical_tab
-        message = inputField.text.Replace("\v", "\n");
-        playerTextBubble = CreateChatBubble(message, true);
+        playerMessage = inputField.text.Replace("\v", "\n");
+        playerTextBubble = CreateChatBubble(playerMessage, true);
         UpdateScrollView();
-        aiTextBubble = CreateChatBubble("Let me think...", false);
+        npcTextBubble = CreateChatBubble("Let me think...", false);
         if (usingRagData)
         {
             if (ragData == null)
@@ -100,15 +147,16 @@ public class NewChatBot : MonoBehaviour
                 Debug.LogError("No RAG Data is found. \"Disable Using Rag Data\" or add a RAG Data and try again.");   
                 return;
             }
-            message = await ragData.CheckRAG(message, 1);
-            _ = llmCharacter.Chat(message, SetText, AllowInputAgain);
+            playerMessage = await ragData.CheckRAG(playerMessage, 1);
+            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
         }
         else
         {
-            _ = llmCharacter.Chat(message, SetText, AllowInputAgain);
+            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
         }
         inputField.text = "";
     }
+    */
     
     void InputFieldSelected(string arg0)
     {
@@ -121,11 +169,13 @@ public class NewChatBot : MonoBehaviour
         if (!canExitChat) return;
         chatIsActive = false;
         PlayerInputEvent.OnExitDialog();
-        if(piperTTS)
-            piperTTS.audioSource.Stop();
-        if(phoneticSoundPlayer)
-            phoneticSoundPlayer.audioSource.Stop();
+        //if(piperTTS)
+            //piperTTS.audioSource.Stop();
+        //if(phoneticSoundPlayer)
+            //phoneticSoundPlayer.audioSource.Stop();
         chatGraphics.SetActive(false);
+        llmCharacter = null;
+        CancelRequests();
     }
 
     GameObject CreateChatBubble(string text, bool isPlayerMessage)
@@ -162,13 +212,13 @@ public class NewChatBot : MonoBehaviour
         return chatBubble;
     }
 
-    void UpdateChatView()
+    void UpdateChat()
     {
         if(chatIsActive) return;
-        StartCoroutine(UCV());
+        StartCoroutine(UpdateChatView());
     }
 
-    IEnumerator UCV()
+    IEnumerator UpdateChatView()
     {
         if(PlayerController.instance.interactNPC == null) yield break;
         if (chatContainer.childCount > 0)
@@ -184,11 +234,16 @@ public class NewChatBot : MonoBehaviour
         InputFieldSelected(null);
         yield return new WaitForSeconds(0.1f);
         llmCharacter = PlayerController.instance.interactNPC.GetComponentInChildren<LLMCharacter>();
-        if (PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>())
-            piperTTS = PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>();
-        if (PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>())
-            phoneticSoundPlayer = PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>();
+        //if (PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>())
+            //piperTTS = PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>();
+        //if (PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>())
+            //phoneticSoundPlayer = PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>();
         ragData = PlayerController.instance.interactNPC.GetComponentInChildren<RAGData>();
+        for (int i = 0; i < PlayerController.instance.interactNPC.GetComponent<ChatLog>().playerMessages.Count; i++)
+        {
+            playerTextBubble = CreateChatBubble(PlayerController.instance.interactNPC.GetComponent<ChatLog>().playerMessages[i], true);
+            npcTextBubble = CreateChatBubble(PlayerController.instance.interactNPC.GetComponent<ChatLog>().npcMessages[i], false);
+        }
         Start();
     }
 
@@ -200,29 +255,33 @@ public class NewChatBot : MonoBehaviour
 
     void SetText(string text)
     {
-        aiText = text;
-        print(aiText);
-        phoneticSoundPlayer?.StartSpeak(aiText);
-        if(aiTextBubble.GetComponentInChildren<TMP_Text>() == null) return;
-        aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
+        npcMessage = text;
+        print(npcMessage);
+        //phoneticSoundPlayer?.StartSpeak(npcMessage);
+        if(npcTextBubble.GetComponentInChildren<TMP_Text>() == null) return;
+        npcTextBubble.GetComponentInChildren<TMP_Text>().text = npcMessage;
     }
 
     public void AllowInputAgain()
     {
-        if (aiTextBubble)
+        if (npcTextBubble)
         {
-            aiTextBubble.GetComponentInChildren<TMP_Text>().text = aiText;
+            npcTextBubble.GetComponentInChildren<TMP_Text>().text = npcMessage;
+            AddTextToLog();
         }
         AllowInput();
-        if (piperTTS == null || aiText == "" || aiText == null) return;
-        piperTTS.OnInputSubmit(aiText);
+        //if (piperTTS == null || npcMessage == "" || npcMessage == null) return;
+        //piperTTS.OnInputSubmit(npcMessage);
         canExitChat = true;
     }
 
     void AddTextToLog()
     {
-        
+        PlayerController.instance.interactNPC.GetComponent<ChatLog>().AddTextToLog(playerTextBubble.GetComponentInChildren<TMP_Text>().text, npcMessage);
+        chatContainer.GetComponent<ContentSizeFitter>().enabled = false;
+        chatContainer.GetComponent<ContentSizeFitter>().enabled = true;
     }
+
     public void AllowInput()
     {
         blockInput = false;
@@ -232,6 +291,7 @@ public class NewChatBot : MonoBehaviour
 
     public void CancelRequests()
     {
+        if(llmCharacter == null) return;
         llmCharacter.CancelRequests();
         AllowInput();
     }
