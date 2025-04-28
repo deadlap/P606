@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2559444787786629140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CarryOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6308057997940949870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CarryRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6806727838956010809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PainterHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -176,9 +184,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b7ce0b8150b87bd458f324154649d39e, type: 2}
+    - target: {fileID: -516098083770646512, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
       propertyPath: m_Name
       value: PaintBrush
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 32cc5796ce2f0d64381614c42e89f0cd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

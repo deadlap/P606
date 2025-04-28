@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2438380317342116507}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HatRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6354859853128764902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AdmiralHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704483367486178570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HatOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3756473180518285571, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -1823322365421230674, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
@@ -184,13 +188,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: ccb35451ff06e424eb0c3db38191b578, type: 2}
+    - target: {fileID: -1025663018108745142, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
       propertyPath: m_Name
       value: Navyhat
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8442510506162454399, guid: 1617e7bf6a75556409c9d3c5f36f7922, type: 3}
       propertyPath: m_Materials.Array.size

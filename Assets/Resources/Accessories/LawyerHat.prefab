@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2797315468610340394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LawyerHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7540549197551807075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HatRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120285565622649833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HatOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,9 +172,29 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 816b8bdf8fb5dd143bc8809e39fc929c, type: 2}
+    - target: {fileID: -4651800203008967333, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4238807746152051198, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1489621941204889177, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
       propertyPath: m_Name
       value: Lawyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945328307572309693, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4456552493683872785, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
       propertyPath: m_Materials.Array.size
@@ -188,6 +208,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 57e54b6940bac1a4f97492c3de916ce2, type: 2}
+    - target: {fileID: 4676254348787820899, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5659739933548363960, guid: 02672f405c7f92d4aad496006eed2148, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2

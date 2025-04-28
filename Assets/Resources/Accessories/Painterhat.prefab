@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8411303148704913475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HatOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7741424935845262723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Painterhat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5847478784105503027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HatRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,6 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Beret '
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef5f8f1a178650140b166cae1bec6a48, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3154719795325769685, guid: ef5f8f1a178650140b166cae1bec6a48, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
@@ -188,6 +192,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: b7ce0b8150b87bd458f324154649d39e, type: 2}
+    - target: {fileID: 3396913584297481876, guid: ef5f8f1a178650140b166cae1bec6a48, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699652204047898494, guid: ef5f8f1a178650140b166cae1bec6a48, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
