@@ -7,8 +7,8 @@ public class Objectives : MonoBehaviour {
 
     public enum ObjectiveEnum{
         locateVictim,
-        AccuseMurderer,
         UncoverMurderer,
+        AccuseMurderer,
     }
 
     [SerializeField] TextMeshProUGUI TitleTextElement;
@@ -19,7 +19,7 @@ public class Objectives : MonoBehaviour {
     ObjectiveEnum currentObjective;
 
     public static event Action<ObjectiveEnum> ChangeTextEvent;
-    // public static event Action ;
+    public static void OnChangeTextEvent(ObjectiveEnum value) => ChangeTextEvent?.Invoke(value);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {

@@ -5,6 +5,7 @@ public class GameStats : MonoBehaviour {
     public static GameStats INSTANCE;
     //game time limit in seconds
     public float TimeLimit;
+    public float EventTriggerTime;
     //When the murder took place the previous day
     public int TimeOfDeath;
     public NPC Victim;
