@@ -1,10 +1,26 @@
+using RoomFocusing;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Cutscene
 {
     public class CutsceneNPCInfoTransferer : MonoBehaviour
     {
+        #region For intro cutscene manager to get the information of the NPC
+        [HideInInspector] public static List<CutsceneNPCInfoTransferer> infoTransferers { get; private set; } = new List<CutsceneNPCInfoTransferer>();
+
+        private void OnEnable()
+        {
+            infoTransferers.Add(this);
+        }
+
+        private void OnDisable()
+        {
+            infoTransferers.Remove(this);
+        }
+        #endregion
+
         /// <summary>
         /// Transfers info of this NPC to the CutsceneManager, so that the NPC can be rendered correctly and do the correct actions in the cutscene.
         /// </summary>
@@ -34,8 +50,19 @@ namespace Cutscene
         /// </summary>
         /// <param name="npcIdentity">The Identity for the given NPC</param>
         /// <param name="headMat">The face material the given NPC has</param>
-        public void TransferInfo(Identity npcIdentity, Material headMat)
+        public void TransferInfo(Identity npcIdentity = null, Material headMat = null)
         {
+            if (npcIdentity == null)
+            {
+                npcIdentity = GetComponent<Identity>();
+            }
+
+            if (headMat == null)
+            {
+                GetComponent<ShadowPerson>().GetLooks();
+                headMat = GetComponent<ShadowPerson>().originalHead[1];
+            }
+
             IntroCutsceneManager.instance.InformOfNPC(npcIdentity, headMat);
         }
 

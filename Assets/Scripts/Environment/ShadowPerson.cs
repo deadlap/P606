@@ -55,7 +55,8 @@ namespace RoomFocusing
             }
         }
 
-        private void GetLooks()
+        // Made GetLooks() public so that the Manager can make sure the NPC they're cosplaying actually has a face material assigned
+        public void GetLooks()
         {
             if (hasGottenLooks) return;
             Material[] headMaterials = head.materials;

@@ -151,10 +151,18 @@ namespace Cutscene
             }
         }
 
-        public void BeginCutscene()
+        public void BeginCutscene(bool mustGetNPCs = false)
         {
             if (hasBegunCutscene) return;
             hasBegunCutscene = true;
+
+            if (mustGetNPCs)
+            {
+                foreach (CutsceneNPCInfoTransferer npcWithInfo in CutsceneNPCInfoTransferer.infoTransferers)
+                {
+                    npcWithInfo.TransferInfo();
+                }
+            }
 
             Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}. Currently just playing variation {CutsceneVariations.crewAlive}");
             GetComponent<PlayableDirector>().playableAsset = cutsceneTimelines[0];

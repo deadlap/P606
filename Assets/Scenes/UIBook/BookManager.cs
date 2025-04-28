@@ -46,7 +46,7 @@ public class BookManager : MonoBehaviour
         else if (scrollInput < 0f)
             ScrollDown();
 
-        if (Input.GetKeyDown(KeyCode.E) && istransitioning == false)
+        if (Input.GetKeyDown(KeyCode.Q) && istransitioning == false)
         {
             if (!book.activeSelf)
             {
