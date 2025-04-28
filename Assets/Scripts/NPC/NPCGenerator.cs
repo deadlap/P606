@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 
 public class NPCGenerator : MonoBehaviour {
+    public static NPCGenerator INSTANCE;
     [Tooltip("How many NPCs should be created")]
     [SerializeField] int NPCAmount;
     [Tooltip("Fixed NPC occupations that should always be generated, Chef, Janitor, Waiter, Bartender by standard so 4")]
@@ -23,6 +24,7 @@ public class NPCGenerator : MonoBehaviour {
     [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
 
     void Start() {
+        INSTANCE = this;
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
         unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length-1);
         unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length-1);
@@ -196,7 +198,7 @@ public class NPCGenerator : MonoBehaviour {
                 if ((Identity.PrimaryRoles)npc.NPCIdentity.PrimaryRole == (Identity.PrimaryRoles)Identity.PrimaryRoles.Murderer && i == GameStats.INSTANCE.TimeOfDeath){
                     npc.NPCIdentity.Schedule.Add(Identity.Locations.None);
                     goto endLoop;
-                }
+                }   
 
                 if (GameStats.INSTANCE.WorkingHours.Contains(i)){
                     switch((Identity.Occupations)npc.NPCIdentity.Occupation) {
