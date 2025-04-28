@@ -24,7 +24,9 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
 
     public static List<NPC> NPCS;
     NPC npc;
-    
+
+    private RenderTexture myPhoto;
+
     void Start() {
 
         if (NPCS == null){
@@ -33,7 +35,10 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
         npc = NPCS[0];
         NPCS.RemoveAt(0);
         personName = npc.NPCIdentity.name;
-        image.texture = npc.GetComponent<TakeNPCPicture>().outPutTexture;
+        TakeNPCPicture photoCam = npc.GetComponent<TakeNPCPicture>();
+        myPhoto = photoCam.outPutTexture;
+        photoCam.TakePicture();
+        image.texture = myPhoto;
         occupation = npc.NPCIdentity.Occupation.ToString().Replace("_", " ");
     }
 
@@ -66,7 +71,7 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
         if (occupationDisplay != null)
             occupationDisplay.text = occupation;
         if (rightSideImage != null)
-            rightSideImage.texture = npc.GetComponent<TakeNPCPicture>().outPutTexture;
+            rightSideImage.texture = myPhoto;
         
     }
 

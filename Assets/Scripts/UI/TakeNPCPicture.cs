@@ -24,7 +24,9 @@ public class TakeNPCPicture : MonoBehaviour
     [SerializeField] private Camera m_Camera;
     [SerializeField] private RenderTexture basicTextureSetup;
     public RenderTexture outPutTexture { get; private set; }
+#if UNITY_EDITOR
     [SerializeField] private RawImage testShowcase;
+#endif
     [SerializeField] private GameObject model;
 
     [Header("NPC look info")]
@@ -40,16 +42,20 @@ public class TakeNPCPicture : MonoBehaviour
         }
     }
 
-    public void TakePicture()
+    public RenderTexture TakePicture()
     {
         int identityID = (int)GetComponent<Identity>().Occupation;
         Debug.Log($"{name} got Occupation #{identityID}, which means bodyMat {bodyMats[identityID].name} ({bodyMats[identityID]})");
         GetComponent<ShadowPerson>().GetLooks();
         Material headMat = GetComponent<ShadowPerson>().originalHead[1];
         model.GetComponent<PictureModel>().AssignLooks(headMat, bodyMats[identityID], hats[identityID], carriables[identityID]);
-        testShowcase.texture = outPutTexture;
+#if UNITY_EDITOR
+        if (testShowcase != null)
+            testShowcase.texture = outPutTexture;
+#endif
         // Maybe delay the deactivation with a frame
         StartCoroutine(DelayDeath());
+        return outPutTexture;
     }
 
     private IEnumerator DelayDeath()
@@ -59,7 +65,6 @@ public class TakeNPCPicture : MonoBehaviour
 
         // Kill the model
         model.SetActive(false);
-        Destroy(this);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

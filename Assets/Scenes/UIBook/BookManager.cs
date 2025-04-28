@@ -29,6 +29,8 @@ public class BookManager : MonoBehaviour
 
     private void Start()
     {
+        book.transform.localScale = targetScalebookShrink;
+
         if (scrollUpButton != null)
             scrollUpButton.onClick.AddListener(ScrollUp);
 
