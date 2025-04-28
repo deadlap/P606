@@ -13,7 +13,6 @@ public partial class WaitForServiceAction : Action
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
     [SerializeReference] public BlackboardVariable<PatrolArea> PatrolArea;
-    [SerializeReference] public BlackboardVariable<PatrolOccupationAreaAction> PatrolOccupationArea;
     PatrolPoint patrolPoint;
     Transform currentPoint;
     bool pointGiven;

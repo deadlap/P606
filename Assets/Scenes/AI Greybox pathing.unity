@@ -6165,8 +6165,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2425560187154714622, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 669435026}
   m_SourcePrefab: {fileID: 100100000, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+--- !u!1 &669435025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2425560187154714622, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+  m_PrefabInstance: {fileID: 669435024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &669435026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669435025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d04cf82ebab4b4c8b63d32224859a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warmUpOnStart: 0
 --- !u!1 &676380309
 GameObject:
   m_ObjectHideFlags: 0
@@ -20985,6 +21006,8 @@ MonoBehaviour:
   - {fileID: 945243153157175728, guid: 888edbd514cfa574e8b38246866f6452, type: 3}
   shaker:
   - {fileID: 5262910982909050393, guid: bc579176124c3b24b942132ebdf52808, type: 3}
+  broom:
+  - {fileID: 2729242651848617100, guid: 826a922d9de307f4abd7258e6abae623, type: 3}
 --- !u!4 &2136011758
 Transform:
   m_ObjectHideFlags: 0
@@ -21210,6 +21233,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2662499446171245944, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6c0a4a6439bc45745ac97651bf56205c, type: 3}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_FillOrigin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102609559005046298, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_FillClockwise
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793516717418251599, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
