@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 8060975179571914294}
   - component: {fileID: 8315879592448372432}
   - component: {fileID: 4602195268270909279}
+  - component: {fileID: 6413998578779800670}
   m_Layer: 6
   m_Name: NPCBasePrefab
   m_TagString: NPC
@@ -699,6 +700,18 @@ MonoBehaviour:
   - {fileID: 9142334531862572155}
   originalHead: []
   originalBody: []
+--- !u!114 &6413998578779800670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8850610531374874041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7512afe7ee462e4aa60436513b86f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9202541562102599002
 GameObject:
   m_ObjectHideFlags: 0
