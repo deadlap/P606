@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour {
     public NPCInitialPromptGenerator PromptGenerator;
     public NPCSpawnPoint SpawnPoint;
     [SerializeField] GameObject BodyGameObject;
+    [SerializeField] GameObject PersonalItemGameObject;
     [SerializeField] GameObject HeadGameObject;
     [HideInInspector] public bool isDead = false;
     public void SetIdentity(Identity ID) {
@@ -21,6 +22,7 @@ public class NPC : MonoBehaviour {
     }
     void Start() {
         BodyGameObject = transform.Find("CharacterNormal/Body").gameObject;
+        PersonalItemGameObject = transform.Find("CharacterNormal/Body/PersonalItem").gameObject;
         HeadGameObject = transform.Find("CharacterNormal/Head").gameObject;
 
         llmCharacter = GetComponentInChildren<LLMCharacter>();
@@ -49,7 +51,7 @@ public class NPC : MonoBehaviour {
             Instantiate(accessory_hat, HeadGameObject.transform);
         var accessory_hand = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()+"Hand") as GameObject;
         if (accessory_hand != null)
-            Instantiate(accessory_hand, BodyGameObject.transform);
+            Instantiate(accessory_hand, PersonalItemGameObject.transform);
     }
     void RemoveTag(){
         tag = "Untagged";
