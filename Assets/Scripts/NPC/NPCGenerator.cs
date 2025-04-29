@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using System.Linq;
 public class NPCGenerator : MonoBehaviour {
     public static NPCGenerator INSTANCE;
     [Tooltip("How many NPCs should be created")]
@@ -102,8 +102,12 @@ public class NPCGenerator : MonoBehaviour {
         //We Select the victim and then the murderer
         NPC victim = NPCs[Random.Range(0, NPCs.Count)];
         var victimRelations = victim.NPCIdentity.Relations;
-        List<NPC> relationsNPCs = new List<NPC>(victimRelations.Keys);
-        NPC murderer = relationsNPCs[(Random.Range(0, victimRelations.Count))];
+        // List<NPC> relationsNPCs = new List<NPC>(victimRelations.Keys);
+        List<NPC> relationsNPCs = victimRelations
+            .Where(pair => pair.Value != Identity.RelationTypes.None)
+            .Select(pair => pair.Key)
+            .ToList();
+        NPC murderer = relationsNPCs[Random.Range(0, relationsNPCs.Count)];
 
         victim.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Victim;
         murderer.NPCIdentity.PrimaryRole = Identity.PrimaryRoles.Murderer;
