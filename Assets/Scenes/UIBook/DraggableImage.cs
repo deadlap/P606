@@ -113,33 +113,31 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
         if (closestSquare != null)
         {
-            if (!closestSquare.IsOccupied())
+            if (closestSquare.IsOccupied())
             {
-                // ✅ Clear current square (we're moving away)
-                if (currentSquare != null)
-                {
-                    currentSquare.ClearOccupant();
-                    currentSquare = null;
-                }
-
-                // ✅ Snap to square
-                transform.position = closestSquare.transform.position;
-                closestSquare.AssignOccupant(this);
-                currentSquare = closestSquare;
-                return;
+                // Remove the occupant
+                Destroy(closestSquare.currentOccupant.gameObject);
+                closestSquare.ClearOccupant();
             }
+
+            // ✅ Clear current square (we're moving away)
+            if (currentSquare != null)
+            {
+                currentSquare.ClearOccupant();
+                currentSquare = null;
+            }
+
+            // ✅ Snap to square
+            transform.position = closestSquare.transform.position;
+            closestSquare.AssignOccupant(this);
+            currentSquare = closestSquare;
+            return;
         }
 
-        // ❌ Snap failed or invalid → return to last position or destroy if no last position
-        if (currentSquare == null)
-        {
-            Debug.Log($"{name} was dropped into nothing and had no place assigned as its home. It's gonna self destruct");
-            Destroy(gameObject);
-        }
-        else
-        {
-            transform.position = currentSquare.transform.position;
-        }
+        // ❌ Snap failed or invalid → destroy self
+        if (currentSquare != null)
+            currentSquare.ClearOccupant();
+        Destroy(gameObject);
     }
 
     private SquareDropZone GetClosestDropZone()

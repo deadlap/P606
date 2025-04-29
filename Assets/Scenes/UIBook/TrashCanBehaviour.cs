@@ -2,28 +2,15 @@ using UnityEngine;
 
 public class TrashCanBehaviour : MonoBehaviour
 {
-    private SquareDropZone dropZone;
+    [SerializeField] private SquareDropZone[] dropZones;
 
-    private void Awake()
+    public void ClearDropZones()
     {
-        dropZone = GetComponent<SquareDropZone>();
-        if (dropZone == null)
+        foreach (SquareDropZone dropZone in dropZones)
         {
-            Debug.LogError("TrashCanBehaviour requires a SquareDropZone component!");
-        }
-    }
-
-    private void Update()
-    {
-        if (dropZone.currentOccupant != null)
-        {
-            GameObject toDelete = dropZone.currentOccupant.gameObject;
+            if (dropZone.currentOccupant != null)
+                Destroy(dropZone.currentOccupant.gameObject);
             dropZone.ClearOccupant();
-
-            // Optional: play sound or animation here
-
-            Destroy(toDelete);
-            //Debug.Log("🗑️ Deleted dropped object: " + toDelete.name);
         }
     }
 }
