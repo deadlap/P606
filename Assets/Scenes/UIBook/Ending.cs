@@ -4,8 +4,8 @@ using TMPro;
 
 public class Ending : MonoBehaviour
 {
-    public GameObject blackScreen;
-    public GameObject Popup;
+    public GameObject blackScreen; // Reference to the black screen GameObject
+    public GameObject Popup; // Reference to the popup GameObject aka, where the text saying, are you sure you wanna go further.
 
     public GameObject newspaper; // Reference to the newspaper GameObject
      public float fadeDuration = 2f; // Time it takes to fade in
