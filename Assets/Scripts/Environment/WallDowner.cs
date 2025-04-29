@@ -11,7 +11,7 @@ namespace RoomFocusing
 
         private float currentGoDown = 0f;
 
-        [SerializeField, Tooltip("Y-value when wall is in its lowered position")] private float lowY = -4.5f;
+        [Tooltip("Y-value when wall is in its lowered position")] private float lowY = -5.25f;
 
         private float startY;
 
