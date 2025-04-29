@@ -5,16 +5,8 @@ using System;
 public class EvidenceDisplayManager : MonoBehaviour
 {
     public static EvidenceDisplayManager Instance;
-
-
-    public enum EvidenceType{
-        Knife,
-        PocketWatch,
-        Diary,
-        Note,
-    }
  
-    public static event Action<EvidenceType> OnPickUpEvidence;
+    public static event Action<Evidence.EvidenceType> OnPickUpEvidence;
 
     [Header("Evidence")]
 
@@ -26,10 +18,9 @@ public class EvidenceDisplayManager : MonoBehaviour
    
    [Header("UI Elements")]
 
-    public TextMeshProUGUI evidenceNumberText; 
+    public TextMeshProUGUI evidenceNameText; 
     public TextMeshProUGUI descriptionText;
-    public TextMeshProUGUI ownerText;
-    public TextMeshProUGUI mentionedByText;
+    public TextMeshProUGUI infoText;
 
     void Awake()
     {
@@ -41,34 +32,29 @@ public class EvidenceDisplayManager : MonoBehaviour
     public void DisplayEvidence(Evidence evidence)
     {
         
-        evidenceNumberText.text = $"<b>Evidence {evidence.evidenceNumber}</b>";
+        evidenceNameText.text = $"<b>{evidence.evidenceName}</b>";
         descriptionText.text = $"<b>Description:</b> {evidence.description}";
-        ownerText.text = $"<b>Owner:</b> {evidence.owner}";
-        mentionedByText.text = "<b>Mentioned By:</b>\n";
+        infoText.text = $"<b>Info:</b> {evidence.info}";
 
-        foreach (string name in evidence.mentionedBy)
-        {
-            mentionedByText.text += "- " + name + "\n";
-        }
     }
 
     
    
 
-    private void ShowEvidence(EvidenceType evidenceType)
+    private void ShowEvidence(Evidence.EvidenceType evidenceType)
     {
         switch (evidenceType)
         {
-            case EvidenceType.Knife:
+            case Evidence.EvidenceType.Knife:
                 knife.SetActive(true);
                 break;
-            case EvidenceType.PocketWatch:
+            case Evidence.EvidenceType.Pocket_Watch:
                 pocketWatch.SetActive(true);
                 break;
-            case EvidenceType.Diary:
+            case Evidence.EvidenceType.Diary:
                 diary.SetActive(true);
                 break;
-            case EvidenceType.Note:
+            case Evidence.EvidenceType.Note:
                 note.SetActive(true);
                 break;
         }

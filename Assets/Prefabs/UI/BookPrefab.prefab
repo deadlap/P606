@@ -33,10 +33,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7996125135347666625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 475, y: -475}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5855219994091222974
 CanvasRenderer:
@@ -89,17 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A bloody jacket
-  owner: Unknown
-  mentionedBy:
-  - John
-  - Garry
-  - Pter
-  - 4
-  - e
-  - extra
-  - second
-  - last
-  evidenceNumber: 2
+  info: 
+  evidenceName: 
+  type: 0
 --- !u!1 &80264123255323256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1513,7 @@ GameObject:
   - component: {fileID: 5548910262103407963}
   - component: {fileID: 3468443746837646838}
   m_Layer: 5
-  m_Name: Belongs to who?
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1544,7 +1536,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.4}
   m_AnchorMax: {x: 1, y: 0.5375}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: -40, y: -50}
+  m_SizeDelta: {x: -40, y: 248.906}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5548910262103407963
 CanvasRenderer:
@@ -1660,7 +1652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3383124890509601056
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3581,10 +3573,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7996125135347666625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -150}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3160541746455083846
 CanvasRenderer:
@@ -3637,10 +3629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A bloody knife
-  owner: Unknown
-  mentionedBy:
-  - Garry
-  evidenceNumber: 1
+  info: 
+  evidenceName: 
+  type: 0
 --- !u!1 &1394889884179708968
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,10 +5236,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7996125135347666625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 475, y: -150}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2414378889005120812
 CanvasRenderer:
@@ -5301,10 +5292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A bloody knife
-  owner: Unknown
-  mentionedBy:
-  - Garry
-  evidenceNumber: 1
+  info: 
+  evidenceName: 
+  type: 0
 --- !u!1 &1912066683806076746
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,7 +5307,7 @@ GameObject:
   - component: {fileID: 220657171529864499}
   - component: {fileID: 4655650732061918737}
   m_Layer: 5
-  m_Name: NumberOfEvidence
+  m_Name: NameOfEvidence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6715,10 +6705,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8291341355342503614
 CanvasRenderer:
@@ -7752,10 +7742,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 260, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1695416620112279147
 CanvasRenderer:
@@ -8712,8 +8702,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8643693694352321932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.65}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11634,10 +11624,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 410, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5071043230164567777
 CanvasRenderer:
@@ -13296,10 +13286,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 560, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6536597636646276314
 CanvasRenderer:
@@ -13593,9 +13583,9 @@ RectTransform:
   m_Father: {fileID: 4532069149050807778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -47, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2188611478673655793
 CanvasRenderer:
@@ -14913,14 +14903,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2c4c60659c27c4fba06f6ff2357553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knife: {fileID: 0}
-  pocketWatch: {fileID: 0}
-  diary: {fileID: 0}
-  note: {fileID: 0}
-  evidenceNumberText: {fileID: 4655650732061918737}
+  knife: {fileID: 5358484555081398780}
+  pocketWatch: {fileID: 4945981795968502445}
+  diary: {fileID: 8802224855158155408}
+  note: {fileID: 8750157805823863188}
+  evidenceNameText: {fileID: 4655650732061918737}
   descriptionText: {fileID: 1991240435434822204}
-  ownerText: {fileID: 3468443746837646838}
-  mentionedByText: {fileID: 159505924443534421}
+  infoText: {fileID: 3468443746837646838}
 --- !u!114 &7640667700724734705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14968,10 +14957,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 410, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5499121561838393576
 CanvasRenderer:
@@ -15384,11 +15373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A golden pocket watch
-  owner: Unknown
-  mentionedBy:
-  - John
-  - Garry
-  evidenceNumber: 2
+  info: From this evidence you can tell the time of death is not between
+  evidenceName: golden pocket watch
+  type: 1
 --- !u!1 &5024538673122510274
 GameObject:
   m_ObjectHideFlags: 0
@@ -15498,10 +15485,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 560, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7500238905256228567
 CanvasRenderer:
@@ -15708,10 +15695,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 260, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1183361526298432919
 CanvasRenderer:
@@ -16718,10 +16705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A bloody knife
-  owner: Unknown
-  mentionedBy:
-  - Garry
-  evidenceNumber: 1
+  info: 'From the knife, you can tell the suspects are possible among: \n'
+  evidenceName: Bloody Knife
+  type: 0
 --- !u!1 &5381474585342203819
 GameObject:
   m_ObjectHideFlags: 0
@@ -17098,10 +17084,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7996125135347666625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -475}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2569533943908574338
 CanvasRenderer:
@@ -17154,17 +17140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A bloody jacket
-  owner: Unknown
-  mentionedBy:
-  - John
-  - Garry
-  - Pter
-  - 4
-  - e
-  - extra
-  - second
-  - last
-  evidenceNumber: 2
+  info: 
+  evidenceName: 
+  type: 0
 --- !u!1 &5515659248154332330
 GameObject:
   m_ObjectHideFlags: 0
@@ -17307,7 +17285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &163182772594741534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17503,10 +17481,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 260, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4973455623333827543
 CanvasRenderer:
@@ -18732,10 +18710,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 560, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6169697557846167848
 CanvasRenderer:
@@ -19166,10 +19144,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5865424850103831085
 CanvasRenderer:
@@ -19625,10 +19603,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 410, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5148141202680332084
 CanvasRenderer:
@@ -20130,10 +20108,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &127076496936794245
 CanvasRenderer:
@@ -20367,7 +20345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1137443588968689245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20815,8 +20793,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 928259373553811943}
   m_HandleRect: {fileID: 1558933734373533133}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.35
+  m_Value: 0.9999998
+  m_Size: 0.34999996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21581,10 +21559,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 560, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &584545040564999647
 CanvasRenderer:
@@ -21740,10 +21718,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -75}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5723470336389525103
 CanvasRenderer:
@@ -22531,10 +22509,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 540284529293852717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 410, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5650040996774682479
 CanvasRenderer:
@@ -23255,10 +23233,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4064882245694026545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 260, y: -225}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6073439577325251764
 CanvasRenderer:
@@ -23357,7 +23335,7 @@ GameObject:
   - component: {fileID: 4102332564090696454}
   - component: {fileID: 1991240435434822204}
   m_Layer: 5
-  m_Name: Info
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25565,11 +25543,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A written Note
-  owner: Unknown
-  mentionedBy:
-  - John
-  - Garry
-  evidenceNumber: 2
+  info: From this evidence you can tell the time of death is not between
+  evidenceName: Written Note
+  type: 3
 --- !u!1 &8759089338283854675
 GameObject:
   m_ObjectHideFlags: 0
@@ -25732,10 +25708,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A well used Diary
-  owner: Malthe
-  mentionedBy:
-  - Lucas
-  evidenceNumber: 2
+  info: 'From the victims diary you can tell the victim knows: \n'
+  evidenceName: Victims Diary
+  type: 2
 --- !u!1 &8837295725298196510
 GameObject:
   m_ObjectHideFlags: 0

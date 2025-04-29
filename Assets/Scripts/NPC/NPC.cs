@@ -52,6 +52,9 @@ public class NPC : MonoBehaviour {
         var accessory_hand = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()+"Hand") as GameObject;
         if (accessory_hand != null)
             Instantiate(accessory_hand, PersonalItemGameObject.transform);
+        if (NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Civilian){
+            GameStats.INSTANCE.CivillianNPCs.Add(this);
+        }
     }
     void RemoveTag(){
         tag = "Untagged";

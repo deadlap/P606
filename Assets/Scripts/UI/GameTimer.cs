@@ -45,12 +45,12 @@ public class GameTimer : MonoBehaviour {
     void UpdateDisplay(){
         int minutes = Mathf.FloorToInt(timer / 60f);
         int seconds = Mathf.FloorToInt(timer % 60f);
-        image.fillAmount = timer/GameStats.INSTANCE.TimeLimit;
+        image.fillAmount = Mathf.Clamp01(timer/(GameStats.INSTANCE.TimeLimit*60f));
         if (timerText != null)
             timerText.text = string.Format("Time left: {0:00}:{1:00}", minutes, seconds);
     }
 
     public void TimesUp(){
-
+        runTimer = false;
     }
 }

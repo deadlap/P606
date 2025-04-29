@@ -10,12 +10,14 @@ public class GameStats : MonoBehaviour {
     public int TimeOfDeath;
     public NPC Victim;
     public NPC Murderer;
-
+    public List<NPC> CivillianNPCs;
+    public List<int> Times;
     public int ScheduleLength;
     public int ScheduleOffset; //Given the lists are from 0..schedulelength, in text and such needs to be offset by a value to give the actual times it represents
     public List<int> WorkingHours;
 
     void Awake() {
         INSTANCE = this;
+        CivillianNPCs = new List<NPC>();
     }
 }
