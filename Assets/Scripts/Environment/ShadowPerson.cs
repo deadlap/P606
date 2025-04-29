@@ -20,6 +20,8 @@ namespace RoomFocusing
 
         private int hasTriedUpdateLooks = 0;
 
+        private static List<int> usedFaces = new List<int>();
+
         public void AddPlayers(int howMany = 1)
         {
             GetLooks();
@@ -67,7 +69,15 @@ namespace RoomFocusing
             if (GetComponent<NPC>().NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Victim){
                 headMaterials[headMaterials.Length - 1] = Resources.Load<Material>("Faces/Victim") as Material;
             } else {
-                int rand = Random.Range(1,8);
+                
+                int rand = Random.Range(1,8 - usedFaces.Count);
+                foreach (int usedFace in usedFaces)
+                {
+                    if (rand >= usedFace)
+                        rand++;
+                }
+                usedFaces.Add(rand);
+                usedFaces.Sort();
                 headMaterials[headMaterials.Length - 1] = Resources.Load<Material>("Faces/Face"+rand) as Material;
             }
             bodyMaterials[bodyMaterials.Length - 1] = Resources.Load<Material>("Outfits/"+GetComponent<NPC>().NPCIdentity.Occupation.ToString()) as Material;
