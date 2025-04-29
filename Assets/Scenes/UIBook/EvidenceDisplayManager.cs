@@ -27,7 +27,15 @@ public class EvidenceDisplayManager : MonoBehaviour
         Instance = this;
     }
 
+    public static event Action<Evidence.EvidenceType> ChangeTextEvent;
+    public static void OnChangeTextEvent(Evidence.EvidenceType value) => ChangeTextEvent?.Invoke(value);
 
+    void OnEnable() {
+        ChangeTextEvent += ShowEvidence;
+    }
+    void OnDisable() {
+        ChangeTextEvent -= ShowEvidence;
+    }
     
     public void DisplayEvidence(Evidence evidence)
     {
