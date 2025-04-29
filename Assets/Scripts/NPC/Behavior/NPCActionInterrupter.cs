@@ -35,6 +35,7 @@ public class NPCActionInterrupter : MonoBehaviour
     {
         if (PlayerController.instance.interactNPC != gameObject) return;
         behaviorGraphAgent.enabled = false;
+        animator.SetBool("isWalking", false);
         animator.SetTrigger("resetState");
         transform.LookAt(PlayerController.instance.transform);
         navMeshAgent.speed = 0;

@@ -18,7 +18,7 @@ public class NewChatBot : MonoBehaviour
     [SerializeField] bool usingRagData;
     [SerializeField] LLMCharacter llmCharacter;
     //[SerializeField] PiperTTS piperTTS;
-    //[SerializeField] PhoneticSoundPlayer phoneticSoundPlayer;
+    [SerializeField] PhoneticSoundPlayer phoneticSoundPlayer;
     [SerializeField] GameObject chatGraphics;
     [SerializeField] Button chatButton;
     [SerializeField] Transform chatContainer;
@@ -171,8 +171,8 @@ public class NewChatBot : MonoBehaviour
         PlayerInputEvent.OnExitDialog();
         //if(piperTTS)
             //piperTTS.audioSource.Stop();
-        //if(phoneticSoundPlayer)
-            //phoneticSoundPlayer.audioSource.Stop();
+        if(phoneticSoundPlayer)
+            phoneticSoundPlayer.audioSource.Stop();
         chatGraphics.SetActive(false);
         llmCharacter = null;
         CancelRequests();
@@ -236,8 +236,8 @@ public class NewChatBot : MonoBehaviour
         llmCharacter = PlayerController.instance.interactNPC.GetComponentInChildren<LLMCharacter>();
         //if (PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>())
             //piperTTS = PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>();
-        //if (PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>())
-            //phoneticSoundPlayer = PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>();
+        if (PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>())
+            phoneticSoundPlayer = PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>();
         ragData = PlayerController.instance.interactNPC.GetComponentInChildren<RAGData>();
         for (int i = 0; i < PlayerController.instance.interactNPC.GetComponent<ChatLog>().playerMessages.Count; i++)
         {
@@ -256,8 +256,7 @@ public class NewChatBot : MonoBehaviour
     void SetText(string text)
     {
         npcMessage = text;
-        print(npcMessage);
-        //phoneticSoundPlayer?.StartSpeak(npcMessage);
+        phoneticSoundPlayer?.StartSpeak(npcMessage);
         if(npcTextBubble.GetComponentInChildren<TMP_Text>() == null) return;
         npcTextBubble.GetComponentInChildren<TMP_Text>().text = npcMessage;
     }

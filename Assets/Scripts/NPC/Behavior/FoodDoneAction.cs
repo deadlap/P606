@@ -20,10 +20,6 @@ public partial class FoodDoneAction : Action
     protected override Status OnStart()
     {
         Animator.Value?.SetTrigger("resetState");
-        if (VFX.Value != null || VFX.Value.gameObject.activeSelf)
-        {
-            VFX.Value.Stop();
-        }
         FoodProgress.Value++;
         Debug.Log($"Food is not done yet ({FoodProgress.Value}/{FoodDifficulty.Value}).");
         if (FoodProgress.Value == FoodDifficulty.Value)

@@ -10,9 +10,11 @@ using UnityEngine.VFX;
 public partial class StopVfxAction : Action
 {
     [SerializeReference] public BlackboardVariable<VisualEffect> VFX;
+    [SerializeReference] public BlackboardVariable<bool> IsWorking;
 
     protected override Status OnStart()
     {
+        IsWorking.Value = false;
         if (VFX.Value != null || VFX.Value.gameObject.activeSelf)
         {
             VFX.Value.Stop();
