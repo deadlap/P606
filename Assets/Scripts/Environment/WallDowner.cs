@@ -11,6 +11,8 @@ namespace RoomFocusing
 
         private float currentGoDown = 0f;
 
+        [SerializeField, Tooltip("Y-value when wall is in its lowered position")] private float lowY = -1.5f;
+
         private float startY;
 
         [SerializeField] private Material shadowMaterial;
@@ -44,15 +46,15 @@ namespace RoomFocusing
             currentGoDown += Time.deltaTime * (playersInside > 0 ? 1 / goDownLength : 1 / -goDownLength);
             currentGoDown = Mathf.Clamp01(currentGoDown);
 
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(startY, -startY + 0.5f, currentGoDown), transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(startY, lowY, currentGoDown), transform.position.z);
         }
 
-        public void PlayerEntered()
+        public virtual void PlayerEntered()
         {
             playersInside++;
             //Debug.Log($"There are {playersInside} players inside {name}");
         }
-        public void PlayerExited()
+        public virtual void PlayerExited()
         {
             playersInside--;
             //Debug.Log($"There are {playersInside} players inside {name}");
