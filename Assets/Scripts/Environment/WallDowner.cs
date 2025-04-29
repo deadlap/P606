@@ -11,7 +11,7 @@ namespace RoomFocusing
 
         private float currentGoDown = 0f;
 
-        [SerializeField, Tooltip("Y-value when wall is in its lowered position")] private float lowY = -1.5f;
+        [Tooltip("Y-value when wall is in its lowered position")] private float lowY = -3.5f;
 
         private float startY;
 
@@ -25,19 +25,24 @@ namespace RoomFocusing
             // Create a copy of this that has a shadow
             GameObject shadowCopy = Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
             shadowCopy.name = "shadowWall";
-            Renderer shadowRenderer = shadowCopy.GetComponent<Renderer>();
-            shadowRenderer.materials = new Material[] { shadowMaterial };
-            shadowRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+            Renderer[] shadowRenderers = shadowCopy.GetComponentsInChildren<Renderer>();
+            foreach (Renderer shadowRenderer in shadowRenderers)
+            {
+                shadowRenderer.materials = new Material[] { shadowMaterial };
+                shadowRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+            }
             shadowCopy.GetComponent<WallDowner>().enabled = false;
 
             // Disable this objects shadow and colliders
-            GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-            foreach (Collider collider in GetComponents<Collider>())
+            Renderer[] myRenderers = GetComponentsInChildren<Renderer>();
+            foreach(Renderer myRenderer in myRenderers)
+                GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            foreach (Collider collider in GetComponentsInChildren<Collider>())
             {
                 collider.enabled = false;
             }
 
-            startY = transform.position.y;
+            startY = transform.localPosition.y;
         }
 
         // Update is called once per frame
@@ -46,7 +51,7 @@ namespace RoomFocusing
             currentGoDown += Time.deltaTime * (playersInside > 0 ? 1 / goDownLength : 1 / -goDownLength);
             currentGoDown = Mathf.Clamp01(currentGoDown);
 
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(startY, lowY, currentGoDown), transform.position.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(startY, lowY, currentGoDown), transform.localPosition.z);
         }
 
         public virtual void PlayerEntered()
