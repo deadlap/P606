@@ -4,6 +4,12 @@ public class RoomDowner : WallDowner
 {
     private WallDowner[] wallDowners;
 
+    private void Awake()
+    {
+        // Avoid this being duplicated in a peculiar way
+        isCopy = true;
+    }
+
     private void Start()
     {
         wallDowners = GetComponentsInChildren<WallDowner>();

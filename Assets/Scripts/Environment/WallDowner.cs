@@ -7,7 +7,7 @@ namespace RoomFocusing
         private int playersInside = 0;
         [HideInInspector] public float goDownLength = 0.4f;
 
-        private bool isCopy = false;
+        protected bool isCopy = false;
 
         private float currentGoDown = 0f;
 
