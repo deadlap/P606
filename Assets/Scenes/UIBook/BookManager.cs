@@ -20,6 +20,8 @@ public class BookManager : MonoBehaviour
     private bool istransitioning = false;
     public GameObject waxStampTarget;
 
+    [HideInInspector, Tooltip("Whether the book opens when pressing Q or not")] public bool openWithQ = true;
+
     public GameObject book;
 
     public GameObject page1;
@@ -48,23 +50,30 @@ public class BookManager : MonoBehaviour
         else if (scrollInput < 0f)
             ScrollDown();
 
-        if (Input.GetKeyDown(KeyCode.Q) && istransitioning == false)
+        if (Input.GetKeyDown(KeyCode.Q) && openWithQ)
         {
-            if (!book.activeSelf)
-            {
-                book.SetActive(true);
-                
-                
-                StartCoroutine(EnlargeBookCoroutine(book.transform, targetScalebook, shrinkDuration));
-            }
-            else
-            {
-                
-                StartCoroutine(ShrinkBookCoroutine(book.transform, targetScalebookShrink, shrinkDuration));
-            }
-            
-            istransitioning = true;
+            OpenOrCloseBook();
         }
+    }
+
+    public void OpenOrCloseBook()
+    {
+        if (istransitioning) return;
+
+        if (!book.activeSelf)
+        {
+            book.SetActive(true);
+
+
+            StartCoroutine(EnlargeBookCoroutine(book.transform, targetScalebook, shrinkDuration));
+        }
+        else
+        {
+
+            StartCoroutine(ShrinkBookCoroutine(book.transform, targetScalebookShrink, shrinkDuration));
+        }
+
+        istransitioning = true;
     }
 
     private IEnumerator EnlargeBookCoroutine(Transform bookTrans, Vector3 targetScalebook, float shrinkDuration)
