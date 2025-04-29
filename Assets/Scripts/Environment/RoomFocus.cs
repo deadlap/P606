@@ -18,7 +18,7 @@ namespace RoomFocusing
         private int playersInside = 0;
 
         [Header("Temp settings, to be hidden")]
-        [Range(0f, 2f)] private float lowerLength = 0.6f;
+        [Range(0f, 2f)] private float lowerLength = 0.4f;
 
         void Awake()
         {
