@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RoomFocusing
@@ -16,6 +17,8 @@ namespace RoomFocusing
 
         bool hasGottenLooks;
         private int playersCanSee = 0;
+
+        private int hasTriedUpdateLooks = 0;
 
         public void AddPlayers(int howMany = 1)
         {
@@ -70,22 +73,45 @@ namespace RoomFocusing
             bodyMaterials[bodyMaterials.Length - 1] = Resources.Load<Material>("Outfits/"+GetComponent<NPC>().NPCIdentity.Occupation.ToString()) as Material;
             originalHead = headMaterials;
             originalBody = bodyMaterials;
+
             hasGottenLooks = true;
         }
 
         private void UpdateAccessories()
         {
+            // Trying to get the hat a couple of times, as it is only given after some time has passed
+            if (hasTriedUpdateLooks < 3)
+            {
+                // Save basic accessories
+                List<GameObject> listOfAccessories = new List<GameObject>()
+                {
+                    accessories[0],
+                    accessories[1],
+                    accessories[2],
+                    accessories[3]
+                };
+
+                if (head.transform.childCount > 0)
+                    listOfAccessories.Add(head.transform.GetChild(0).gameObject);
+                if (body.transform.GetChild(0).childCount > 0)
+                    listOfAccessories.Add(body.transform.GetChild(0).GetChild(0).gameObject);
+
+                accessories = listOfAccessories.ToArray();
+
+                hasTriedUpdateLooks++;
+            }
+
             if (accessories == null) return;
             if (playersCanSee < 1)
             {
-                foreach (var accessory in accessories)
+                foreach (GameObject accessory in accessories)
                 {
                     accessory.SetActive(false);
                 }
             }
             else
             {
-                foreach (var accessory in accessories)
+                foreach (GameObject accessory in accessories)
                 {
                     accessory.SetActive(true);
                 }
