@@ -15,11 +15,8 @@ public class WorldEvidence : MonoBehaviour {
     void OnDisable() {
         PlayerInputEvent.PlayerInteract -= OnInteract; 
     }
-    void Update()
-    {
-        
-    }
     public void OnInteract(){
+        if (!GameStats.INSTANCE.IntroPlayed) return; // Check if the intro has been played
         if (PlayerController.instance.currentInteractable != gameObject) return; // Check if the player is interacting with this object
         if (PlayerController.instance.currentInteractable == null) return; // Check if the player is interacting with anything
         EvidenceDisplayManager.OnShowEvidenceEvent(evidenceType);

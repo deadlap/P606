@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010620513081941810}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -54,15 +54,16 @@ MonoBehaviour:
   ObjectiveTextElement: {fileID: 870782377631534137}
   Animator: {fileID: 9032173951720874656}
   ObjectiveText:
-  - Find the victims body in one of the cabins
-  - Find clues and talk with the NPCs to deduce the murderer's identity
-  - From the clues gathered, and the testimonies from the people on the ship, accuse
-    your primary suspect
-  - New Evidence Gathered, check your detectives log
+  - "I suspect the victim\u2019s body is located in one of the cabins."
+  - "I should find clues and speak with the passengers to deduce the murderer\u2019s
+    identity before the ship arrives. "
+  - I should accuse my primary suspect based on the clues and testimonies gathered
+    from the passengers on the ship.
+  - I should examine the evidence I just found, i should check my notebook.
   ObjectiveTitleText:
-  - Locate the victim
+  - Locate the Victim's Body
   - Uncover the Murderer's Identity
-  - Accuse the murderer
+  - Accuse the Primary Suspect
   - New Evidence Gathered
 --- !u!95 &9032173951720874656
 Animator:
@@ -120,8 +121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.085998535, y: 62.305}
-  m_SizeDelta: {x: 454.44, y: 71.141}
+  m_AnchoredPosition: {x: 0.9602051, y: 65.788315}
+  m_SizeDelta: {x: 439.365, y: 56.7563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7717531344135844420
 CanvasRenderer:
@@ -153,8 +154,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffb62e2cacac0f244a6514796c9f29a5, type: 2}
+  m_sharedMaterial: {fileID: -7163002938430897749, guid: ffb62e2cacac0f244a6514796c9f29a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -178,15 +179,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -256,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0864563, y: -42.739}
-  m_SizeDelta: {x: 454.44, y: 106.822}
+  m_AnchoredPosition: {x: 0.9591675, y: -42.739}
+  m_SizeDelta: {x: 439.37, y: 106.822}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6786314753368925920
 CanvasRenderer:
@@ -289,8 +290,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Objective Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffb62e2cacac0f244a6514796c9f29a5, type: 2}
+  m_sharedMaterial: {fileID: -7163002938430897749, guid: ffb62e2cacac0f244a6514796c9f29a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -314,14 +315,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

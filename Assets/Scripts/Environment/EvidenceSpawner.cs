@@ -6,18 +6,18 @@ using System;
 public class EvidenceSpawner : MonoBehaviour {
     [SerializeField] private GameObject evidencePrefab; // Prefab to spawn
     [SerializeField] private List<GameObject> spawnPoints; // Point where the evidence will be spawned
-    public static event Action SpawnEvidenceEvent; // Event to spawn evidence
-    public static void OnSpawnEvidenceEvent() => SpawnEvidenceEvent?.Invoke();
+    // public static event Action SpawnEvidenceEvent; // Event to spawn evidence
+    // public static void OnSpawnEvidenceEvent() => SpawnEvidenceEvent?.Invoke();
 
-    void OnEnable() {
-        SpawnEvidenceEvent += SpawnEvidence;
-    }
-    void OnDisable() {
-        SpawnEvidenceEvent -= SpawnEvidence;
-    }
-    // void Awake() {
-    //     SpawnEvidence();  
+    // void OnEnable() {
+    //     SpawnEvidenceEvent += SpawnEvidence;
     // }
+    // void OnDisable() {
+    //     SpawnEvidenceEvent -= SpawnEvidence;
+    // }
+    void Awake() {
+        SpawnEvidence();  
+    }
     void SpawnEvidence() {
         spawnPoints = new List<GameObject>(GameObject.FindGameObjectsWithTag("EvidenceSpawnPoint")); // Find all spawn points in the scene
         // Spawn evidence at random spawn points
