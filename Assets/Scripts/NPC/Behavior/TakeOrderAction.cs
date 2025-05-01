@@ -24,7 +24,6 @@ public partial class TakeOrderAction : Action
         currentPoint = null;
         Animator.Value?.SetBool("isWalking", true);
         Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
-        
         if(BringsFood.Value)
         {
             currentPoint = PatrolArea.Value.FindGuestToServe(NavMeshAgent.Value.gameObject, true);

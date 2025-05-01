@@ -26,15 +26,20 @@ public class PatrolArea : MonoBehaviour
         {
             Destroy(pointObj);
         }
-        var randomPatrolPoint = patrolPoints[Random.Range(0, patrolPoints.Count)];
-        radius = randomPatrolPoint.GetComponent<SphereCollider>().radius;
+        SphereCollider patrolPointSphere;
+        while (true)
+        {
+            if (patrolPoints[Random.Range(0, patrolPoints.Count)].TryGetComponent<SphereCollider>
+                (out patrolPointSphere)) break;
+        }
+        radius = patrolPointSphere.radius;
         var randomPoint = Random.insideUnitCircle;
         var pointPosition = new Vector3(randomPoint.x * radius, 1, randomPoint.y * radius);
-        pointPosition += randomPatrolPoint.transform.position;
+        pointPosition += patrolPointSphere.transform.position;
 
         pointObj = new("RandomPatrolPoint");
         pointObj.transform.position = pointPosition;
-        pointObj.transform.rotation = randomPatrolPoint.transform.rotation;
+        pointObj.transform.rotation = patrolPointSphere.transform.rotation;
         return pointObj.transform;
     }
 
@@ -52,12 +57,12 @@ public class PatrolArea : MonoBehaviour
             }
         }
         if (availablePoints.Count == 0) return RandomPatrolPoint();
-        var randomPosition = availablePoints[Random.Range(0, availablePoints.Count)];
-        randomPosition.GetComponent<PatrolPoint>().isReserved = true;
-        randomPosition.GetComponent<PatrolPoint>().isBeingServed = false;
-        randomPosition.GetComponent<PatrolPoint>().hasBeenServed = false;
-        randomPosition.GetComponent<PatrolPoint>().occupant = occupant;
-        return randomPosition;
+        var randomPosition = availablePoints[Random.Range(0, availablePoints.Count)].GetComponent<PatrolPoint>();
+        randomPosition.isReserved = true;
+        randomPosition.isBeingServed = false;
+        randomPosition.hasBeenServed = false;
+        randomPosition.occupant = occupant;
+        return randomPosition.transform;
     }
     public Transform FindGuestToServe(GameObject occupant, bool isBringingFood = false)
     {
@@ -93,7 +98,7 @@ public class PatrolArea : MonoBehaviour
             if (!patrolPoint.isReserved)
             {
                 patrolPoint.isReserved = true;
-                patrolPoint.GetComponent<PatrolPoint>().occupant = occupant;
+                patrolPoint.occupant = occupant;
                 return patrolPoints[i];
             }
         }

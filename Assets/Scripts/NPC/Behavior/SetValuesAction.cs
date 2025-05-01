@@ -18,6 +18,7 @@ public partial class SetValuesAction : Action
     [SerializeReference] public BlackboardVariable<PatrolArea> KitchenOrderArea;
     [SerializeReference] public BlackboardVariable<PatrolArea> KitchenAndDiningArea;
     [SerializeReference] public BlackboardVariable<PatrolArea> CleanUpArea;
+    [SerializeReference] public BlackboardVariable<PatrolArea> WanderArea;
 
     [SerializeReference] public BlackboardVariable<SpawnConsumables> SpawnConsumables;
     protected override Status OnStart()
@@ -32,6 +33,7 @@ public partial class SetValuesAction : Action
         KitchenOrderArea.Value = GameObject.Find("KitchenOrderArea").GetComponent<PatrolArea>();
         KitchenAndDiningArea.Value = GameObject.Find("KitchenAndDiningArea").GetComponent<PatrolArea>();
         CleanUpArea.Value = GameObject.Find("CleanUpArea").GetComponent<PatrolArea>();
+        WanderArea.Value = GameObject.Find("WanderArea").GetComponent<PatrolArea>();
 
         SpawnConsumables.Value = GameObject.Find("SpawnConsumables").GetComponent<SpawnConsumables>();
 

@@ -7,5 +7,6 @@ public enum MoodEnum
     Antisocial,
 	Hungry,
 	Thirsty,
-	Pool
+	Pool,
+    Wandering
 }

@@ -10,6 +10,7 @@ using UnityEngine.AI;
 public partial class PatrolOccupationAreaAction : Action
 {
     [SerializeReference] public BlackboardVariable<PatrolArea> PatrolArea;
+    [SerializeReference] public BlackboardVariable<bool> IsWorker;
     [SerializeReference] public BlackboardVariable<bool> RandomPoint;
     [SerializeReference] public BlackboardVariable<bool> WillGetInLine;
     [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
@@ -72,6 +73,11 @@ public partial class PatrolOccupationAreaAction : Action
         }
         else if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
         { 
+            if(CurrentPoint.Value.GetComponent<PatrolPoint>() != null && !IsWorker.Value)
+                if (CurrentPoint.Value.GetComponent<PatrolPoint>().isSeat && NavMeshAgent.Value.remainingDistance <= 1f)
+                {
+                    Animator.Value.Play("Sit");
+                }
             if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude <= 0)
             {
                 Animator.Value?.SetBool("isWalking", false);

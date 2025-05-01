@@ -497,7 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642748554846897720}
   m_Layer: 0
-  m_Name: Bar
+  m_Name: BarOutside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +522,6 @@ Transform:
   - {fileID: 1229062797034987099}
   - {fileID: 8448907182162838889}
   - {fileID: 3798641607962517733}
-  - {fileID: 1007086411950389749}
   m_Father: {fileID: 5681919892194777687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331693299381753629
@@ -1000,7 +999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032607378421002560}
   m_Layer: 0
-  m_Name: Kitchen
+  m_Name: KitchenInside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2265,7 +2264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3495059398764431506}
   m_Layer: 0
-  m_Name: Decorations
+  m_Name: Pool_Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2279,7 +2278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146059148818893166}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2290,7 +2289,7 @@ Transform:
   - {fileID: 1929088218662072989}
   - {fileID: 5576249793463393028}
   - {fileID: 226209135393269034}
-  m_Father: {fileID: 6803511594639578696}
+  m_Father: {fileID: 5249556198190952111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1188885115140027382
 GameObject:
@@ -4321,7 +4320,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3189989867904226799}
-  - {fileID: 329300976955194578}
   - {fileID: 8902869692074440183}
   m_Father: {fileID: 5681919892194777687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6356,7 +6354,7 @@ MonoBehaviour:
   wallsToDown: []
   lampsToBrighten:
   - {fileID: 0}
-  decorationsToShow: {fileID: 0}
+  decorationsToShow: {fileID: 4405966835497583457}
   waterFocus: {fileID: 4288005192331644903}
   nameOfRoom: Pool
 --- !u!95 &4983260218403318587
@@ -7797,6 +7795,7 @@ Transform:
   - {fileID: 929807281271707739}
   - {fileID: 8338769208467352656}
   - {fileID: 642748554846897720}
+  - {fileID: 5249556198190952111}
   - {fileID: 1810294029803426078}
   - {fileID: 1238980723465407618}
   - {fileID: 3663389304815818498}
@@ -11063,9 +11062,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 329300976955194578}
-  - component: {fileID: 1587513932679811217}
   m_Layer: 0
-  m_Name: Decorations
+  m_Name: Deck_Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11079,7 +11077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5221539802984008743}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11094,21 +11092,8 @@ Transform:
   - {fileID: 7008789197629717473}
   - {fileID: 2825958838418214609}
   - {fileID: 2499039545205249101}
-  m_Father: {fileID: 4559820557748447237}
+  m_Father: {fileID: 5249556198190952111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1587513932679811217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5221539802984008743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ef2e2d266bd2d4c81d41786e73bc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
 --- !u!1 &5248608910707144906
 GameObject:
   m_ObjectHideFlags: 0
@@ -12874,7 +12859,7 @@ MonoBehaviour:
   - {fileID: 5167678920339234379}
   lampsToBrighten:
   - {fileID: 0}
-  decorationsToShow: {fileID: 0}
+  decorationsToShow: {fileID: 4405966835497583457}
   waterFocus: {fileID: 4288005192331644903}
   nameOfRoom: Bar
 --- !u!1 &6033572848381010727
@@ -13098,7 +13083,6 @@ Transform:
   m_Children:
   - {fileID: 8174682255321684547}
   - {fileID: 4155939422989400247}
-  - {fileID: 3495059398764431506}
   - {fileID: 7281339880196337718}
   - {fileID: 2348679807934036240}
   - {fileID: 9095312548472739306}
@@ -15221,9 +15205,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007086411950389749}
-  - component: {fileID: 3207575757848383792}
   m_Layer: 0
-  m_Name: Decorations
+  m_Name: Bar_Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15237,7 +15220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7712617917149354955}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15254,21 +15237,8 @@ Transform:
   - {fileID: 4519796290573822105}
   - {fileID: 8729552548038507132}
   - {fileID: 2269033219413433097}
-  m_Father: {fileID: 642748554846897720}
+  m_Father: {fileID: 5249556198190952111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3207575757848383792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712617917149354955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ef2e2d266bd2d4c81d41786e73bc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
 --- !u!1 &7737619177313835637
 GameObject:
   m_ObjectHideFlags: 0
@@ -15780,6 +15750,54 @@ MonoBehaviour:
   overwriteLowerHeight: 0
   loweredHeight: -5.25
   shadowMaterial: {fileID: 0}
+--- !u!1 &8003783199425539026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5249556198190952111}
+  - component: {fileID: 4405966835497583457}
+  m_Layer: 0
+  m_Name: OutsideDecorations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5249556198190952111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003783199425539026}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1007086411950389749}
+  - {fileID: 3495059398764431506}
+  - {fileID: 329300976955194578}
+  m_Father: {fileID: 5681919892194777687}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4405966835497583457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003783199425539026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ef2e2d266bd2d4c81d41786e73bc54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!1 &8054153772030516549
 GameObject:
   m_ObjectHideFlags: 0
@@ -17752,7 +17770,7 @@ MonoBehaviour:
   - {fileID: 276142367810315067}
   lampsToBrighten:
   - {fileID: 0}
-  decorationsToShow: {fileID: 0}
+  decorationsToShow: {fileID: 4405966835497583457}
   waterFocus: {fileID: 4288005192331644903}
   nameOfRoom: Deck
 --- !u!1 &8978207356826188514
