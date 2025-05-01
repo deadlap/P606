@@ -15,7 +15,10 @@ public class RoomDowner : WallDowner
         System.Collections.Generic.List<WallDowner> downersToGet = new System.Collections.Generic.List<WallDowner>();
         for (int i = 0; i < transform.childCount; i++)
         {
-            downersToGet.Add(transform.GetChild(i).GetComponent<WallDowner>());
+            WallDowner wallDowner = transform.GetChild(i).GetComponent<WallDowner>();
+            downersToGet.Add(wallDowner);
+            if (!overwriteLowerHeight) continue;
+            wallDowner.SetLowerHeight(loweredHeight);
         }
         wallDowners = downersToGet.ToArray();
     }
