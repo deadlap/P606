@@ -11,9 +11,11 @@ namespace RoomFocusing
 
         private float currentGoDown = 0f;
 
-        [Tooltip("Y-value when wall is in its lowered position")] private float lowY = -5.25f;
-
         private float startY;
+
+        [SerializeField] protected bool overwriteLowerHeight = false;
+        [SerializeField, Tooltip("Y-value when wall is in its lowered position")] protected float loweredHeight = -5.25f;
+
 
         [SerializeField] private Material shadowMaterial;
 
@@ -45,13 +47,19 @@ namespace RoomFocusing
             startY = transform.localPosition.y;
         }
 
+        public void SetLowerHeight(float lowerHeight)
+        {
+            if (overwriteLowerHeight) return;
+            loweredHeight = lowerHeight;
+        }
+
         // Update is called once per frame
         void Update()
         {
             currentGoDown += Time.deltaTime * (playersInside > 0 ? 1 / goDownLength : 1 / -goDownLength);
             currentGoDown = Mathf.Clamp01(currentGoDown);
 
-            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(startY, lowY, currentGoDown), transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(startY, loweredHeight, currentGoDown), transform.localPosition.z);
         }
 
         public virtual void PlayerEntered()
