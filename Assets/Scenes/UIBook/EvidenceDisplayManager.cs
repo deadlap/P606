@@ -27,22 +27,21 @@ public class EvidenceDisplayManager : MonoBehaviour
         Instance = this;
     }
 
-    public static event Action<Evidence.EvidenceType> ChangeTextEvent;
-    public static void OnChangeTextEvent(Evidence.EvidenceType value) => ChangeTextEvent?.Invoke(value);
+    public static event Action<Evidence.EvidenceType> ShowEvidenceEvent;
+    public static void OnShowEvidenceEvent(Evidence.EvidenceType value) => ShowEvidenceEvent?.Invoke(value);
 
     void OnEnable() {
-        ChangeTextEvent += ShowEvidence;
+        ShowEvidenceEvent += ShowEvidence;
     }
     void OnDisable() {
-        ChangeTextEvent -= ShowEvidence;
+        ShowEvidenceEvent -= ShowEvidence;
     }
     
-    public void DisplayEvidence(Evidence evidence)
-    {
+    public void DisplayEvidence(Evidence evidence) {
         
-        evidenceNameText.text = $"<b>{evidence.evidenceName}</b>";
-        descriptionText.text = $"<b>Description:</b> {evidence.description}";
-        infoText.text = $"<b>Info:</b> {evidence.info}";
+        evidenceNameText.text = $"{evidence.evidenceName}";
+        descriptionText.text = $"<b> DESCRIPTION </b>: \n \n{evidence.description}";
+        infoText.text = $"<b> INFO </b>: \n \n{evidence.info}";
 
     }
 
