@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1124310657009771802}
   - component: {fileID: 8538255788480319886}
   - component: {fileID: 3808198999702649700}
+  - component: {fileID: 4398633184714481181}
   m_Layer: 0
   m_Name: Lockbox1
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4398633184714481181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560922338049482026}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9685383, y: 12, z: 12.247375}
+  m_Center: {x: -8.158873, y: 3, z: -30.011992}
