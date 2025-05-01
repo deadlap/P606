@@ -178,7 +178,8 @@ public class NewChatBot : MonoBehaviour
 
     IEnumerator UpdateChatView()
     {
-        if(PlayerController.instance.interactNPC == null) yield break;
+        if(PlayerController.instance.currentInteractable.transform.parent == null) yield break;
+        if(PlayerController.instance.currentInteractable.transform.parent.transform.tag != "NPC") yield break;
         if (chatContainer.childCount > 0)
         {
             for (int i = 0; i < chatContainer.childCount; i++)
@@ -191,16 +192,16 @@ public class NewChatBot : MonoBehaviour
         inputField.text = "";
         InputFieldSelected(null);
         yield return new WaitForSeconds(0.1f);
-        llmCharacter = PlayerController.instance.interactNPC.GetComponentInChildren<LLMCharacter>();
-        //if (PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>())
-            //piperTTS = PlayerController.instance.interactNPC.GetComponentInChildren<PiperTTS>();
-        if (PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>())
-            phoneticSoundPlayer = PlayerController.instance.interactNPC.GetComponentInChildren<PhoneticSoundPlayer>();
-        ragData = PlayerController.instance.interactNPC.GetComponentInChildren<RAGData>();
-        for (int i = 0; i < PlayerController.instance.interactNPC.GetComponent<ChatLog>().playerMessages.Count; i++)
+        llmCharacter = PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<LLMCharacter>();
+        //if (PlayerController.instance.currentInteractable.GetComponentInChildren<PiperTTS>())
+            //piperTTS = PlayerController.instance.currentInteractable.GetComponentInChildren<PiperTTS>();
+        if (PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<PhoneticSoundPlayer>())
+            phoneticSoundPlayer = PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<PhoneticSoundPlayer>();
+        ragData = PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<RAGData>();
+        for (int i = 0; i < PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().playerMessages.Count; i++)
         {
-            playerTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.interactNPC.GetComponent<ChatLog>().playerMessages[i], true, chatContainer);
-            npcTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.interactNPC.GetComponent<ChatLog>().npcMessages[i], false, chatContainer);
+            playerTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().playerMessages[i], true, chatContainer);
+            npcTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().npcMessages[i], false, chatContainer);
         }
         Start();
     }
@@ -234,7 +235,7 @@ public class NewChatBot : MonoBehaviour
 
     void AddTextToLog()
     {
-        PlayerController.instance.interactNPC.GetComponent<ChatLog>().AddTextToLog(playerTextBubble.GetComponentInChildren<TMP_Text>().text, npcMessage);
+        PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().AddTextToLog(playerTextBubble.GetComponentInChildren<TMP_Text>().text, npcMessage);
         chatContainer.GetComponent<ContentSizeFitter>().enabled = false;
         chatContainer.GetComponent<ContentSizeFitter>().enabled = true;
     }

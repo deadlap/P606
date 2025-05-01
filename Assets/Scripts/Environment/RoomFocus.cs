@@ -20,7 +20,7 @@ namespace RoomFocusing
         [Header("Temp settings, to be hidden")]
         [Range(0f, 2f)] private float lowerLength = 0.4f;
 
-        void Awake()
+        void Start()
         {
             GetComponent<Rigidbody>().useGravity = false;
             if (wallsToDown.Length == 0)

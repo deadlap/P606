@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using Unity.VisualScripting;
@@ -9,6 +10,7 @@ public class Objectives : MonoBehaviour {
         locateVictim,
         UncoverMurderer,
         AccuseMurderer,
+        NewEvidence,
     }
 
     [SerializeField] TextMeshProUGUI TitleTextElement;
@@ -17,6 +19,7 @@ public class Objectives : MonoBehaviour {
     [SerializeField] List<string> ObjectiveText;
     [SerializeField] List<string> ObjectiveTitleText;
     ObjectiveEnum currentObjective;
+    ObjectiveEnum previousObjective;
 
     public static event Action<ObjectiveEnum> ChangeTextEvent;
     public static void OnChangeTextEvent(ObjectiveEnum value) => ChangeTextEvent?.Invoke(value);
@@ -34,6 +37,9 @@ public class Objectives : MonoBehaviour {
     }
 
     public void UpdateText(ObjectiveEnum objective) {
+        if (objective == ObjectiveEnum.NewEvidence){
+            StartCoroutine(DelayedReset(currentObjective, 4f));
+        }
         currentObjective = objective;
         Animator.Play("ChangeObjective");
         Invoke("ChangeText", 1f);
@@ -41,6 +47,11 @@ public class Objectives : MonoBehaviour {
     void ChangeText(){
         ObjectiveTextElement.text = ObjectiveText[(int)currentObjective];
         TitleTextElement.text = ObjectiveTitleText[(int)currentObjective];
+    }
+    private IEnumerator DelayedReset(ObjectiveEnum objective, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        UpdateText(objective);
     }
 
 }

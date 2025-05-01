@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7487007194005397452}
   - component: {fileID: 2948643113490275639}
+  - component: {fileID: 7023839853320323895}
   m_Layer: 0
   m_Name: Evidence
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,3 +51,24 @@ MonoBehaviour:
   - {fileID: 4071437785410690521, guid: 0ede57ee386e31d4689db7683822d616, type: 3}
   - {fileID: 5256635388586284860, guid: bbde651e6458db74780e78a8a9e30e98, type: 3}
   - {fileID: 1366198745898505751, guid: e2e3a4972517f1a45b0e594ab95a26d3, type: 3}
+--- !u!65 &7023839853320323895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876785844734899517}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 127
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.889514, y: 1, z: 4.552912}
+  m_Center: {x: 0.018781424, y: 0, z: 0.23354983}

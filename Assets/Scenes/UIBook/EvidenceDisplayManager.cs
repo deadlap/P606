@@ -54,15 +54,19 @@ public class EvidenceDisplayManager : MonoBehaviour
         {
             case Evidence.EvidenceType.Knife:
                 knife.SetActive(true);
+                knife.transform.SetAsLastSibling();
                 break;
             case Evidence.EvidenceType.Pocket_Watch:
                 pocketWatch.SetActive(true);
+                pocketWatch.transform.SetAsLastSibling();
                 break;
             case Evidence.EvidenceType.Diary:
                 diary.SetActive(true);
+                diary.transform.SetAsLastSibling();
                 break;
             case Evidence.EvidenceType.Note:
                 note.SetActive(true);
+                note.transform.SetAsLastSibling();
                 break;
         }
     }
