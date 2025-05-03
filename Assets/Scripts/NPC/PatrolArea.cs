@@ -72,6 +72,7 @@ public class PatrolArea : MonoBehaviour
         {
             var patrolPoint = patrolPoints[i].GetComponent<PatrolPoint>();
             if (patrolPoint.isReserved &&
+                patrolPoint.occupant != null &&
                 patrolPoint.isBeingServed == isBringingFood &&
                 !patrolPoint.hasBeenServed &&
                 guestPoints.Contains(patrolPoints[i]) == false)

@@ -59,6 +59,7 @@ public partial class PatrolOccupationAreaAction : Action
         }
         currentPoint = null;
         pointGiven = false;
+        isSitting = false;
         if (PatrolArea.Value != null) return;
         PatrolArea.Value = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
     }
@@ -66,28 +67,31 @@ public partial class PatrolOccupationAreaAction : Action
     protected override Status OnUpdate()
     { 
         if(!pointGiven) return Status.Running;
-        if (NavMeshAgent.Value.pathPending)
+        Animator.Value.SetBool("isWalking", true);
+        Animator.Value.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
+
+        if (!NavMeshAgent.Value.pathPending)
         {
-            Animator.Value?.SetBool("isWalking", true);
-            Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
-        }
-        else if (NavMeshAgent.Value.remainingDistance <= 1.5f &&    
-            CurrentPoint.Value.GetComponent<PatrolPoint>() != null && 
-            CurrentPoint.Value.GetComponent<PatrolPoint>().isSeat && 
-            !IsWorker.Value && 
-            !isSitting)
-        {
-            Animator.Value.Play("Sit");
-            isSitting = true;
-        }
-        else if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
-        { 
-            if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude <= 0)
+            if (NavMeshAgent.Value.remainingDistance <= 1.5f &&    
+                CurrentPoint.Value.GetComponent<PatrolPoint>() != null && 
+                CurrentPoint.Value.GetComponent<PatrolPoint>().isSeat && 
+                !IsWorker.Value && 
+                !isSitting)
             {
-                Animator.Value?.SetBool("isWalking", false);
-                pointGiven = false;
-                return Status.Success;
-            } 
+                Debug.Log($"{Agent.Value.name} is sitting.");
+                Animator.Value.Play("Sit");
+                isSitting = true;
+            }
+            if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
+            { 
+                if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude == 0)
+                {
+                    Debug.Log($"{Agent.Value.name} has stopped.");
+                    Animator.Value.SetBool("isWalking", false);
+                    pointGiven = false;
+                    return Status.Success;
+                } 
+            }
         }
         return Status.Running;
     }

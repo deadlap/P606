@@ -3,11 +3,13 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using UnityEngine.AI;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "FaceSameDirection", story: "[Agent] faces same direction as [Target]", category: "Action", id: "474ad4c562aded7bdde6031164c23ad4")]
 public partial class FaceSameDirectionAction : Action
 {
+    [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
     [SerializeReference] public BlackboardVariable<Transform> Agent;
     [SerializeReference] public BlackboardVariable<Transform> Target;
     [SerializeReference] public BlackboardVariable<bool> FacePosition;
@@ -27,6 +29,7 @@ public partial class FaceSameDirectionAction : Action
         {
             return Status.Failure;
         }
+        NavMeshAgent.Value.angularSpeed = 0;
         if (FacePosition.Value)
         {
             direction = target.transform.position - Agent.Value.transform.position;
@@ -46,12 +49,13 @@ public partial class FaceSameDirectionAction : Action
         {
             if(FacePosition.Value)
             {
-                Agent.Value.transform.rotation = Quaternion.LookRotation(direction);
+                Agent.Value.transform.LookAt(direction);
             }
             else
             {
                 Agent.Value.transform.forward = direction;
             }
+            NavMeshAgent.Value.angularSpeed = 700;
             return Status.Success;
         }
         return Status.Running;
