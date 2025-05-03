@@ -14,6 +14,8 @@ public partial class FaceSameDirectionAction : Action
     [SerializeReference] public BlackboardVariable<float> RotationSpeed;
     [SerializeReference] public BlackboardVariable<float> FacingAccuracy;
     float dotProduct;
+    Vector3 direction;
+
     protected override Status OnUpdate()
     {
         return FacePoint(Target.Value.gameObject);
@@ -21,34 +23,37 @@ public partial class FaceSameDirectionAction : Action
 
     Status FacePoint(GameObject target)
     {
-        if (target == null) return Status.Failure;
-
-        Vector3 desiredDirection;
-
+        if (target == null)
+        {
+            return Status.Failure;
+        }
         if (FacePosition.Value)
         {
-            desiredDirection = target.transform.position - Agent.Value.transform.position;
-            desiredDirection.Normalize();
+            direction = target.transform.position - Agent.Value.transform.position;
+            direction.y = 0; // Ignore vertical direction
+            var targetRotation = Quaternion.LookRotation(direction);
+            Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, targetRotation, Time.deltaTime * RotationSpeed.Value);
         }
-        else
+        else if (!FacePosition.Value)
         {
-            desiredDirection = target.transform.forward;
-            desiredDirection.Normalize();
+            direction = target.transform.forward;
+            Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, target.transform.rotation, Time.deltaTime * RotationSpeed.Value);
         }
-
-        // Rotate the direction vector by -45 degrees on Y to compensate for the world rotation
-        //Quaternion worldOffset = Quaternion.Euler(0, -45, 0);
-        //Vector3 adjustedDirection = worldOffset * desiredDirection;
-        Quaternion targetRotation = Quaternion.LookRotation(desiredDirection);
-        Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, targetRotation, Time.deltaTime * RotationSpeed.Value);
 
         // Calculate the dot product to check if the agent is facing the target direction
-        dotProduct = Vector3.Dot(Agent.Value.transform.forward.normalized, desiredDirection);
+        dotProduct = Vector3.Dot(Agent.Value.transform.forward.normalized, direction.normalized);
         if (dotProduct > FacingAccuracy.Value)
         {
+            if(FacePosition.Value)
+            {
+                Agent.Value.transform.rotation = Quaternion.LookRotation(direction);
+            }
+            else
+            {
+                Agent.Value.transform.forward = direction;
+            }
             return Status.Success;
         }
-
         return Status.Running;
     }
 }

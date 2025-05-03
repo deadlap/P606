@@ -79,7 +79,7 @@ public class PatrolArea : MonoBehaviour
                 guestPoints.Add(patrolPoints[i]);
             }
         }
-        if(guestPoints.Count == 0) return FindRandomUnreservedPoint(occupant);
+        if(guestPoints.Count == 0) return null;
         var transform = guestPoints[Random.Range(0, guestPoints.Count)];
         transform.GetComponent<PatrolPoint>().occupant = occupant;
         return transform;

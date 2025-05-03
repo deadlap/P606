@@ -14,7 +14,8 @@ public class GameTimer : MonoBehaviour {
     public static void OnToggleTimer(bool value) => ToggleTimer?.Invoke(value);
     void Start() {
         runTimer = false;
-        timer = GameStats.INSTANCE.TimeLimit*60f;
+        //timer = GameStats.INSTANCE.TimeLimit*60f;
+        timer = 0;
         hasTriggeredObjectiveEvent = false;
     }
 
@@ -31,7 +32,8 @@ public class GameTimer : MonoBehaviour {
     void Update()
     {
         if (runTimer){
-            timer -= Time.deltaTime;
+            //timer -= Time.deltaTime;
+            timer += Time.deltaTime;
             UpdateDisplay();
             if (timer <= GameStats.INSTANCE.EventTriggerTime*60f && !hasTriggeredObjectiveEvent) {
                 hasTriggeredObjectiveEvent = true;

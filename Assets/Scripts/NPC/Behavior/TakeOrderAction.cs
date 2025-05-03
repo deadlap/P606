@@ -4,6 +4,7 @@ using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using UnityEngine.AI;
+using Unity.PlasticSCM.Editor.WebApi;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "TakeOrder", story: "[Agent] takes order from guest in [PatrolArea]", category: "Action", id: "72a83364afe46bb68080ea54e83a6119")]
@@ -27,13 +28,18 @@ public partial class TakeOrderAction : Action
         if(BringsFood.Value)
         {
             currentPoint = PatrolArea.Value.FindGuestToServe(NavMeshAgent.Value.gameObject, true);
+            if (currentPoint == null)
+            {
+                Debug.LogWarning("No guest to serve.");
+                return Status.Failure;
+            }
             NavMeshAgent.Value.SetDestination(currentPoint.position);
         }
         
         if (!BringsFood.Value && !ServesQueue.Value)
         {
             currentPoint = PatrolArea.Value.FindGuestToServe(NavMeshAgent.Value.gameObject);
-            if(!currentPoint.GetComponent<PatrolPoint>())
+            if(currentPoint == null)
             {
                 Debug.LogWarning("No guest to serve.");
                 return Status.Failure;

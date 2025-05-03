@@ -3,8 +3,8 @@ using UnityEngine;
 public class LLMWarmup : MonoBehaviour
 {
     [SerializeField] [Tooltip("Warms up all active LLM Characters, eliminating the initial wait time when starting a conversation." +
-        "WARNING: This may result in pseudo-crashes if runtime is terminated before all LLM Characters are warmed up. " +
-        "This may take a long time, up to 10 minutes atleast.")] 
+        "\n\nWARNING: This may result in pseudo-crashes if runtime is terminated before all LLM Characters are warmed up. " +
+        "\nThis may take a long time, up to 10 minutes atleast.")] 
         bool warmUpOnStart;
 
     private void Awake()
