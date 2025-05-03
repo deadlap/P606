@@ -21,27 +21,34 @@ public partial class FaceSameDirectionAction : Action
 
     Status FacePoint(GameObject target)
     {
-        if (target == null)
-        {
-            return Status.Failure;
-        }
+        if (target == null) return Status.Failure;
+
+        Vector3 desiredDirection;
+
         if (FacePosition.Value)
         {
-            var direction = target.transform.position - Agent.Value.transform.position;
-            direction.y = 0; // Ignore vertical direction
-            var targetRotation = Quaternion.LookRotation(direction);
-            Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, targetRotation, Time.deltaTime * RotationSpeed.Value);
-            dotProduct = Vector3.Dot(Agent.Value.transform.forward, direction.normalized);
+            desiredDirection = target.transform.position - Agent.Value.transform.position;
+            desiredDirection.Normalize();
         }
         else
         {
-            Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, target.transform.rotation, Time.deltaTime * RotationSpeed.Value);
-            dotProduct = Vector3.Dot(Agent.Value.transform.forward.normalized, target.transform.forward.normalized);
+            desiredDirection = target.transform.forward;
+            desiredDirection.Normalize();
         }
+
+        // Rotate the direction vector by -45 degrees on Y to compensate for the world rotation
+        //Quaternion worldOffset = Quaternion.Euler(0, -45, 0);
+        //Vector3 adjustedDirection = worldOffset * desiredDirection;
+        Quaternion targetRotation = Quaternion.LookRotation(desiredDirection);
+        Agent.Value.transform.rotation = Quaternion.Slerp(Agent.Value.transform.rotation, targetRotation, Time.deltaTime * RotationSpeed.Value);
+
+        // Calculate the dot product to check if the agent is facing the target direction
+        dotProduct = Vector3.Dot(Agent.Value.transform.forward.normalized, desiredDirection);
         if (dotProduct > FacingAccuracy.Value)
         {
             return Status.Success;
         }
+
         return Status.Running;
     }
 }

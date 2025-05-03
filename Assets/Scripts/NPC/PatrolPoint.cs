@@ -15,6 +15,7 @@ public class PatrolPoint : MonoBehaviour
         if(GetComponent<Rigidbody>() == null)
             gameObject.AddComponent<Rigidbody>();
         GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Collider>().isTrigger = true;
     }
 
     void OnDrawGizmos()

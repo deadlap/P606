@@ -66,7 +66,7 @@ public partial class TakeOrderAction : Action
             Animator.Value?.SetBool("isWalking", true);
             Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
         }
-        if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
+        else if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
         {
             if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude <= 0)
             {

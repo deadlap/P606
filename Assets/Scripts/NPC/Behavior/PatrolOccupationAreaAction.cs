@@ -22,7 +22,7 @@ public partial class PatrolOccupationAreaAction : Action
 
     Transform currentPoint;
     bool pointGiven;
-
+    bool isSitting;
     protected override Status OnStart()
     {
         if (Agent.Value == null)
@@ -71,13 +71,17 @@ public partial class PatrolOccupationAreaAction : Action
             Animator.Value?.SetBool("isWalking", true);
             Animator.Value?.SetFloat("walkSpeed", NavMeshAgent.Value.speed);
         }
+        else if (NavMeshAgent.Value.remainingDistance <= 1.5f &&    
+            CurrentPoint.Value.GetComponent<PatrolPoint>() != null && 
+            CurrentPoint.Value.GetComponent<PatrolPoint>().isSeat && 
+            !IsWorker.Value && 
+            !isSitting)
+        {
+            Animator.Value.Play("Sit");
+            isSitting = true;
+        }
         else if (NavMeshAgent.Value.remainingDistance <= NavMeshAgent.Value.stoppingDistance)
         { 
-            if(CurrentPoint.Value.GetComponent<PatrolPoint>() != null && !IsWorker.Value)
-                if (CurrentPoint.Value.GetComponent<PatrolPoint>().isSeat && NavMeshAgent.Value.remainingDistance <= 1f)
-                {
-                    Animator.Value.Play("Sit");
-                }
             if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude <= 0)
             {
                 Animator.Value?.SetBool("isWalking", false);
