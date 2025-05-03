@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameTimer : MonoBehaviour {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timer;
+    [SerializeField] float timerDisc;
     [SerializeField] bool runTimer;
     [SerializeField] bool hasTriggeredObjectiveEvent;
     [SerializeField] UnityEngine.UI.Image image;
@@ -14,8 +15,8 @@ public class GameTimer : MonoBehaviour {
     public static void OnToggleTimer(bool value) => ToggleTimer?.Invoke(value);
     void Start() {
         runTimer = false;
-        //timer = GameStats.INSTANCE.TimeLimit*60f;
-        timer = 0;
+        timer = GameStats.INSTANCE.TimeLimit*60f;
+        timerDisc = 0;
         hasTriggeredObjectiveEvent = false;
     }
 
@@ -32,8 +33,8 @@ public class GameTimer : MonoBehaviour {
     void Update()
     {
         if (runTimer){
-            //timer -= Time.deltaTime;
-            timer += Time.deltaTime;
+            timer -= Time.deltaTime;
+            timerDisc += Time.deltaTime;
             UpdateDisplay();
             if (timer <= GameStats.INSTANCE.EventTriggerTime*60f && !hasTriggeredObjectiveEvent) {
                 hasTriggeredObjectiveEvent = true;
@@ -47,7 +48,7 @@ public class GameTimer : MonoBehaviour {
     void UpdateDisplay(){
         int minutes = Mathf.FloorToInt(timer / 60f);
         int seconds = Mathf.FloorToInt(timer % 60f);
-        image.fillAmount = Mathf.Clamp01(timer/(GameStats.INSTANCE.TimeLimit*60f));
+        image.fillAmount = Mathf.Clamp01(timerDisc/(GameStats.INSTANCE.TimeLimit*60f));
         if (timerText != null)
             timerText.text = string.Format("Time left: {0:00}:{1:00}", minutes, seconds);
     }
