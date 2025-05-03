@@ -50,6 +50,8 @@ public class PatrolPoint : MonoBehaviour
                 NPCCount = 0;
                 isReserved = NPCCheck();
                 isBeingServed = NPCCheck();
+                hasBeenServed = NPCCheck();
+                occupant = null;
             }
         }
     }

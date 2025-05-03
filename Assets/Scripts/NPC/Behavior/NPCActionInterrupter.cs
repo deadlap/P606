@@ -9,7 +9,8 @@ public class NPCActionInterrupter : MonoBehaviour
     BehaviorGraphAgent behaviorGraphAgent;
     float originalSpeed;
     float originalAcceleration;
-    
+    float originalYRotation;
+
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -35,9 +36,9 @@ public class NPCActionInterrupter : MonoBehaviour
     {
         if (PlayerController.instance.currentInteractable.transform.parent == null) return;
         if (PlayerController.instance.currentInteractable.transform.parent.gameObject != gameObject) return;
+        originalYRotation = transform.rotation.eulerAngles.y;
         behaviorGraphAgent.enabled = false;
         animator.SetBool("isWalking", false);
-        animator.SetTrigger("resetState");
         transform.LookAt(PlayerController.instance.transform);
         navMeshAgent.speed = 0;
         navMeshAgent.acceleration = float.MaxValue; // Makes the NPC stop immediately.
@@ -50,5 +51,6 @@ public class NPCActionInterrupter : MonoBehaviour
         behaviorGraphAgent.enabled = true;
         navMeshAgent.speed = originalSpeed;
         navMeshAgent.acceleration = originalAcceleration;
+        transform.rotation = Quaternion.Euler(0, originalYRotation, 0);
     }
 }

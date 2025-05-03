@@ -1063,6 +1063,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1128294802380359574}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1216037025508136058}
   m_SourcePrefab: {fileID: 100100000, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
 --- !u!1 &361433453475100636 stripped
 GameObject:
@@ -1104,6 +1107,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustCloud: {fileID: 8608260762996329319}
+--- !u!114 &1216037025508136058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361433453475100636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708a53d1c13df2343a1e099a1e3aaa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: {fileID: 8300000, guid: 099e27464e4f52342ae02905c7197bda, type: 3}
+  minPitch: 0.7
+  maxPitch: 0.75
+  startVolume: 0.3
+  playOnAwake: 0
 --- !u!4 &1031255470752607590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 100dcde1c7ba1074eb469937c6845101, type: 3}
