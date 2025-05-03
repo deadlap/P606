@@ -339,7 +339,7 @@ MonoBehaviour:
   - {fileID: 4097847251555432699}
   - {fileID: 7592376110870454199}
   decorationsToShow: {fileID: 8641024852172005967}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &147982083639294264
 GameObject:
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   - {fileID: 1055809109591884394}
   - {fileID: 3273687177796785479}
   decorationsToShow: {fileID: 2412086061831633563}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Kitchen
 --- !u!1 &471773347888700450
 GameObject:
@@ -4129,7 +4129,7 @@ MonoBehaviour:
   - {fileID: 7748444444866057827}
   - {fileID: 6997655562634106892}
   decorationsToShow: {fileID: 7828884416070125237}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &1620771615981118212
 GameObject:
@@ -4287,7 +4287,7 @@ MonoBehaviour:
   - {fileID: 1895108118170177147}
   - {fileID: 2792583880312807524}
   decorationsToShow: {fileID: 8950898458158001194}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &1634694013708231473
 GameObject:
@@ -5375,7 +5375,7 @@ MonoBehaviour:
   - {fileID: 4682771622126497755}
   - {fileID: 6060438833289061055}
   decorationsToShow: {fileID: 2189692197819418669}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &1937386391685071046
 GameObject:
@@ -7021,7 +7021,6 @@ GameObject:
   - component: {fileID: 3724802441858162017}
   - component: {fileID: 1452121930719537761}
   - component: {fileID: 8168644126497102930}
-  - component: {fileID: 7150671732700782762}
   - component: {fileID: 149067615086925416}
   - component: {fileID: 4983260218403318587}
   - component: {fileID: 3142676497761133202}
@@ -7143,21 +7142,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11, y: 0.2, z: 19.902296}
   m_Center: {x: 0.099999994, y: 0.19999991, z: -0.08795128}
---- !u!114 &7150671732700782762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2596409585463739270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029c6f42fd1d45748bf67bd1184a09c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  blueWater: {fileID: 2100000, guid: cbb407b8918f2ba41b3ce77115ce7dbb, type: 2}
-  greyWater: {fileID: 2100000, guid: 944c0424298ec0541b481c6457564caf, type: 2}
 --- !u!114 &149067615086925416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7570,7 +7554,7 @@ MonoBehaviour:
   lampsToBrighten:
   - {fileID: 2370462551198137215}
   decorationsToShow: {fileID: 8857869948108388833}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Bar
 --- !u!1 &3049276235109125141
 GameObject:
@@ -7777,7 +7761,7 @@ MonoBehaviour:
   - {fileID: 3224145716777269774}
   - {fileID: 7787319951441990263}
   decorationsToShow: {fileID: 6680734296039089246}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &3053371761133503286
 GameObject:
@@ -10745,7 +10729,7 @@ MonoBehaviour:
   - {fileID: 8183640630928677725}
   - {fileID: 4990582548980031555}
   decorationsToShow: {fileID: 8173562149424057229}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &4482831503239547309
 GameObject:
@@ -10959,7 +10943,7 @@ MonoBehaviour:
   - {fileID: 3060769574017112026}
   - {fileID: 1778678631342666165}
   decorationsToShow: {fileID: 3356056383418562323}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Hallway
 --- !u!1 &4548804064375955387
 GameObject:
@@ -11729,7 +11713,7 @@ MonoBehaviour:
   - {fileID: 1691638387031322390}
   - {fileID: 9040942052035619759}
   decorationsToShow: {fileID: 5028978242558735685}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &5033350832971982900
 GameObject:
@@ -17113,7 +17097,7 @@ MonoBehaviour:
   lampsToBrighten:
   - {fileID: 7611142277549133611}
   decorationsToShow: {fileID: 5043686350324845903}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Janitor's Closet
 --- !u!1 &7792461475833058658
 GameObject:
@@ -17328,7 +17312,7 @@ MonoBehaviour:
   - {fileID: 7133389820561140637}
   - {fileID: 6347429866859713759}
   decorationsToShow: {fileID: 7217993997587345387}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &7898318005182863872
 GameObject:
@@ -18699,7 +18683,7 @@ MonoBehaviour:
   - {fileID: 7410621629908767841}
   - {fileID: 3034634717348339386}
   decorationsToShow: {fileID: 8829421883194690057}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Ballroom
 --- !u!1 &8635692777461438159
 GameObject:
@@ -20319,7 +20303,7 @@ MonoBehaviour:
   - {fileID: 5945450092978003487}
   - {fileID: 2777809263400334255}
   decorationsToShow: {fileID: 889019636195485677}
-  waterFocus: {fileID: 7150671732700782762}
+  waterFocus: {fileID: 0}
   nameOfRoom: Cabin
 --- !u!1 &9139880850958012898
 GameObject:
@@ -20427,8 +20411,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 40, z: 1}
+  m_Center: {x: 0, y: 10, z: 0}
 --- !u!1 &9161395028918021279
 GameObject:
   m_ObjectHideFlags: 0
