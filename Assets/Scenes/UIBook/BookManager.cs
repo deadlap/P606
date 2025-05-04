@@ -18,7 +18,8 @@ public class BookManager : MonoBehaviour
 
     public bool test;
     private bool istransitioning = false;
-    public GameObject waxStampTarget;
+
+    public GameObject areYouSurePopup;
 
     [HideInInspector, Tooltip("Whether the book opens when pressing Q or not")] public bool openWithQ = true;
 
@@ -179,36 +180,7 @@ public class BookManager : MonoBehaviour
         }
     }
 
-    // WaxStamp Things________________________________________________________________________________________________
-    public void Accuse()
-     {
-        
-        if (waxStampTarget != null && PersonIdentification.SomeoneIsSelected)
-        {
-            StartCoroutine(ShrinkStampCoroutine(waxStampTarget.transform, targetScale, shrinkDuration));
-            waxStampTarget.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning("Wax stamp target not assigned in BookManager.");
-        }
-    }
-
-      private IEnumerator ShrinkStampCoroutine(Transform target, Vector3 endScale, float duration)
-    {
-        Vector3 startScale = target.localScale;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            target.localScale = Vector3.Lerp(startScale, endScale, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        target.localScale = endScale; // Make sure it's exact
-        
-    }
+      
 }
 
 
