@@ -11,8 +11,6 @@ public class HoverQuestionMarks : MonoBehaviour
     {
         // We hover tooltips should be activateable for any amount of hover targets, whether one or 100
         [SerializeField] public GameObject[] hoverTargets;
-        public GameObject hoverTarget1;
-        public GameObject hoverTarget2;
         public GameObject tooltip;
     }
 
