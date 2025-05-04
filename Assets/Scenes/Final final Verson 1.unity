@@ -988,6 +988,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectiveText
       objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: ObjectiveText.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveText.Array.data[0]'
+      value: I should familiarize myself with my notebook before wandering out of
+        my cabin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveText.Array.data[1]'
+      value: "I suspect the victim\u2019s body is located in one of the cabins."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveText.Array.data[2]'
+      value: "I should find clues and speak with the passengers to deduce the murderer\u2019s
+        identity before the ship arrives. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveText.Array.data[3]'
+      value: I should accuse my primary suspect based on the clues and testimonies
+        gathered from the passengers on the ship.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveText.Array.data[4]'
+      value: I should examine the evidence I just found, i should check my notebook.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: ObjectiveTitleText.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveTitleText.Array.data[0]'
+      value: The Detective's Notebook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveTitleText.Array.data[1]'
+      value: Locate the Victim's Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveTitleText.Array.data[2]'
+      value: Uncover the Murderer's Identity
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveTitleText.Array.data[3]'
+      value: Accuse the Primary Suspect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204161010505572423, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
+      propertyPath: 'ObjectiveTitleText.Array.data[4]'
+      value: New Evidence Gathered
+      objectReference: {fileID: 0}
     - target: {fileID: 8710440593458036943, guid: 8a486d4a8b2229b4a9d6045aaca5e3ff, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -25
@@ -11265,16 +11316,16 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 41300930}
+  - {fileID: 1508660860}
   - {fileID: 349136712}
   - {fileID: 637483898}
   - {fileID: 2096953055}
   - {fileID: 1142504226}
   - {fileID: 1865794951}
-  - {fileID: 41300930}
   - {fileID: 669435024}
   - {fileID: 30974277}
   - {fileID: 2136011758}
   - {fileID: 1745145126}
   - {fileID: 1155677069}
-  - {fileID: 1508660860}
   - {fileID: 5529195394887820018}
