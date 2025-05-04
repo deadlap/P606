@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using static Evidence;
 
 namespace Cutscene
 {
@@ -32,6 +33,9 @@ namespace Cutscene
 
         private PlayableDirector theDirector;
 
+        [SerializeField, Tooltip("Called when cutscene starts playing")] private UnityEvent cutsceneStartEvents;
+        [SerializeField, Tooltip("Called when cutscene is done playing")] private UnityEvent cutsceneEndEvents;
+
         private void Awake()
         {
             if (instance != null)
@@ -42,6 +46,26 @@ namespace Cutscene
 
             theDirector = GetComponent<PlayableDirector>();
         }
+
+        #region Starts through interaction
+        void OnEnable()
+        {
+            PlayerInputEvent.PlayerInteract += OnInteract; // Subscribe to the interact event
+        }
+        void OnDisable()
+        {
+            PlayerInputEvent.PlayerInteract -= OnInteract;
+        }
+        public void OnInteract()
+        {
+            Debug.Log("Interaction happened");
+            if (GameStats.INSTANCE.IntroPlayed) return; // Check if the intro has been played
+            if (PlayerController.instance.currentInteractable == null) return; // Check if the player is interacting with anything
+            Debug.Log($"Interacted with {PlayerController.instance.currentInteractable.name}");
+            if (PlayerController.instance.currentInteractable.transform.parent != GameStats.INSTANCE.Victim.transform) return; // Check if the player is interacting with the victim
+            BeginCutscene(true);
+        }
+        #endregion
 
         /// <summary>
         /// Extracts info about NPC needed for cutscene from its identity
@@ -182,16 +206,25 @@ namespace Cutscene
                 }
             }
 
-            Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}.");
+            Debug.Log($"Playing cutscene, specifically variation {cutsceneVariation}.");
             theDirector.Play();
+            cutsceneStartEvents?.Invoke();
         }
 
         public void CutsceneFinished()
         {
+            Debug.Log("Cutscene done and finished");
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-            
-            Debug.Log("Cutscene done and finished");
+
+            // Ting Lucas vil have sker
+            GameStats.OnSetIntroPlayed();
+            GameTimer.OnToggleTimer(true);
+            Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.UncoverMurderer);
+
+
+            cutsceneEndEvents?.Invoke();
         }
     }
 }

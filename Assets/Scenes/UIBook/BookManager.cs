@@ -74,6 +74,11 @@ public class BookManager : MonoBehaviour
         }
     }
 
+    public void FreezeOrUnfreezeBook(bool freeze)
+    {
+        openWithQ = !freeze;
+    }
+
     public void OpenOrCloseBook()
     {
         if (istransitioning) return;
