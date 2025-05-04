@@ -23,7 +23,7 @@ namespace Cutscene
 #if UNITY_EDITOR
             if (isTesting)
             {
-                Debug.Log("Telling manager");
+                Debug.Log($"Telling manager");
                 IntroCutsceneManager.instance.InformOfNPC(whoAmI);
             }
 #endif
@@ -47,7 +47,7 @@ namespace Cutscene
 
             myOccupation = npcInfo.occupation;
             myName = npcInfo.myName;
-            name = $"NPC {myName}";
+            //name = $"NPC {myName}";
 
             nameField.text = string.Format(nameField.text, myName, myOccupation.ToString().Replace('_', ' '));
 
@@ -59,6 +59,11 @@ namespace Cutscene
             List<Material> bodyMats = new List<Material>(renderer.materials);
             bodyMats[1] = material;
             renderer.SetMaterials(bodyMats);
+        }
+
+        public void ChangeOutfit(Material newOutfit)
+        {
+            UpdateMaterial(bodyRenderer, newOutfit);
         }
     }
 }

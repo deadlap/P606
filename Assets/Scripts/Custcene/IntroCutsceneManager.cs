@@ -30,6 +30,8 @@ namespace Cutscene
 
         private bool hasBegunCutscene = false;
 
+        private PlayableDirector theDirector;
+
         private void Awake()
         {
             if (instance != null)
@@ -37,6 +39,8 @@ namespace Cutscene
                 Debug.LogWarning("There already exists an instance of the IntroCutsceneManager?");
             }
             instance = this;
+
+            theDirector = GetComponent<PlayableDirector>();
         }
 
         /// <summary>
@@ -74,81 +78,92 @@ namespace Cutscene
 
             people.Add(thisNPCInfo);
 
-            if (people.Count == personel.Length)
+            if (people.Count == personel.Length - 1)
             {
                 Debug.Log("Manager tells all cutscene persons");
 
-                int regularLads = 0;
+                AssignActors();
+            }
+        }
 
-                bool[] missingRole = new bool[4] { true, true, true, true };
+        private void AssignActors()
+        {
+            int regularLads = 0;
 
-                for (int i = 0; i < personel.Length; i++)
+            //bool[] missingRole = new bool[4] { true, true, true, true };
+
+            for (int i = 0; i < people.Count; i++)
+            {
+                // Assign dead person to end
+                if (people[i].isDead)
                 {
-                    // Assign dead person to end
-                    if (people[i].isDead)
-                    {
-                        personel[7].AssignLooks(people[i]);
+                    personel[7].AssignLooks(people[i]);
 
-                        // Set which variation of cutscene should play
-                        switch (people[i].occupation)
-                        {
-                            case Identity.Occupations.Chef:
-                                cutsceneVariation = CutsceneVariations.chefDead;
-                                break;
-                            case Identity.Occupations.Janitor:
-                                cutsceneVariation = CutsceneVariations.janitorDead;
-                                break;
-                            case Identity.Occupations.Waiter:
-                                cutsceneVariation = CutsceneVariations.waiterDead;
-                                break;
-                            case Identity.Occupations.Bartender:
-                                cutsceneVariation = CutsceneVariations.bartenderDead;
-                                break;
-                            default:
-                                // As a default cutsceneVariation is already set to crewAlive, so no changes needed
-                                break;
-                        }
-
-                        continue;
-                    }
-
-                    // Assign specific roles
+                    // Set which variation of cutscene should play
                     switch (people[i].occupation)
                     {
                         case Identity.Occupations.Chef:
-                            missingRole[0] = false;
-                            personel[0].AssignLooks(people[i]);
-                            continue;
-                        case Identity.Occupations.Bartender:
-                            missingRole[1] = false;
-                            personel[1].AssignLooks(people[i]);
-                            continue;
-                        case Identity.Occupations.Waiter:
-                            missingRole[2] = false;
-                            personel[2].AssignLooks(people[i]);
-                            continue;
+                            cutsceneVariation = CutsceneVariations.chefDead;
+                            break;
                         case Identity.Occupations.Janitor:
-                            missingRole[3] = false;
-                            personel[3].AssignLooks(people[i]);
-                            continue;
+                            cutsceneVariation = CutsceneVariations.janitorDead;
+                            break;
+                        case Identity.Occupations.Waiter:
+                            cutsceneVariation = CutsceneVariations.waiterDead;
+                            break;
+                        case Identity.Occupations.Bartender:
+                            cutsceneVariation = CutsceneVariations.bartenderDead;
+                            break;
                         default:
+                            // As a default cutsceneVariation is already set to crewAlive, so no changes needed
                             break;
                     }
 
-                    // Assign regular lad to special personal number if three regular spots taken
-                    if (regularLads >= 3)
-                    {
-                        for (int j = 0; j < missingRole.Length; j++)
-                        {
-                            if (missingRole[j]) personel[j].AssignLooks(people[i]);
-                        }
-                    }
-
-                    // Assign regular lads
-                    personel[6 - regularLads].AssignLooks(people[i]);
-                    regularLads++;
+                    continue;
                 }
+
+                // Assign specific roles
+                switch (people[i].occupation)
+                {
+                    case Identity.Occupations.Chef:
+                        //missingRole[0] = false;
+                        personel[0].AssignLooks(people[i]);
+                        continue;
+                    case Identity.Occupations.Bartender:
+                        //missingRole[1] = false;
+                        personel[1].AssignLooks(people[i]);
+                        continue;
+                    case Identity.Occupations.Waiter:
+                        //missingRole[2] = false;
+                        personel[2].AssignLooks(people[i]);
+                        continue;
+                    case Identity.Occupations.Janitor:
+                        //missingRole[3] = false;
+                        personel[3].AssignLooks(people[i]);
+                        continue;
+                    default:
+                        break;
+                }
+
+                // Assign regular lad to special personal number if three regular spots taken
+                if (regularLads >= 3)
+                {
+                    // Assign extra NPC
+                    personel[8].AssignLooks(people[i]);
+                    //for (int j = 0; j < missingRole.Length; j++)
+                    //{
+                    //    if (missingRole[j]) personel[j].AssignLooks(people[i]);
+                    //}
+                    continue;
+                }
+
+                // Assign regular lads
+                personel[6 - regularLads].AssignLooks(people[i]);
+                regularLads++;
             }
+
+            Debug.Log($"Assigned in accordance with variation {cutsceneVariation}.");
+            theDirector.playableAsset = cutsceneTimelines[(int)cutsceneVariation];
         }
 
         public void BeginCutscene(bool mustGetNPCs = false)
@@ -167,9 +182,8 @@ namespace Cutscene
                 }
             }
 
-            Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}. Currently just playing variation {CutsceneVariations.crewAlive}");
-            GetComponent<PlayableDirector>().playableAsset = cutsceneTimelines[0];
-            GetComponent<PlayableDirector>().Play();
+            Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}.");
+            theDirector.Play();
         }
 
         public void CutsceneFinished()
