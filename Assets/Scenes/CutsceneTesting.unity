@@ -181,7 +181,7 @@ Camera:
   near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -752,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1226588974250299769, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: whoAmI.isDead
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1226588974250299769, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: whoAmI.myName
@@ -769,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 1226588974250299769, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: whoAmI.headMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 76e534c08fbf04a478e52edcf49fb579, type: 2}
+      objectReference: {fileID: 2100000, guid: 8d497bcf9cbd91f448524db4e7abc5bb, type: 2}
     - target: {fileID: 5698067429548564650, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -848,6 +848,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7735426872780953996, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 913483740}
+    - targetCorrespondingSourceObject: {fileID: 1549130860124853825, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
 --- !u!4 &58647513 stripped
 Transform:
@@ -1866,6 +1869,10 @@ PrefabInstance:
     - {fileID: 3036053832011553957, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
     - {fileID: 8369396192143021131, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
     - {fileID: 5538911747974157241, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+    - {fileID: 6558532561605590887, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+    - {fileID: 6239968620141562256, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+    - {fileID: 6600983645619288687, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+    - {fileID: 6198962296552082584, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2596409585463739270, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
     - {fileID: 8965931234054446377, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
@@ -5253,6 +5260,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7735426872780953996, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 676477083}
+    - targetCorrespondingSourceObject: {fileID: 1549130860124853825, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
 --- !u!4 &434634798 stripped
 Transform:
@@ -8381,7 +8391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &822216953
 Transform:
   m_ObjectHideFlags: 0
@@ -8587,6 +8597,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7735426872780953996, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 989117144}
+    - targetCorrespondingSourceObject: {fileID: 1549130860124853825, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
 --- !u!4 &875597731 stripped
 Transform:
@@ -9968,6 +9981,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7735426872780953996, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1070963672}
+    - targetCorrespondingSourceObject: {fileID: 1549130860124853825, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
 --- !u!4 &1070963670 stripped
 Transform:
@@ -17574,6 +17590,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7735426872780953996, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790282801}
+    - targetCorrespondingSourceObject: {fileID: 1549130860124853825, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
 --- !u!4 &1364560332 stripped
 Transform:
@@ -19873,7 +19892,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1618676903}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 2b785ac9324fca74baac5200990a0918, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 05cc27bb35c43434ab1155614c3925f7, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 2
@@ -21275,14 +21294,6 @@ PlayableDirector:
     value: {fileID: 1258162644}
   - key: {fileID: -112662513048454350, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
     value: {fileID: 1258162645}
-  - key: {fileID: 6749396866908701087, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
-    value: {fileID: 1708895294}
-  - key: {fileID: 4591133436558650135, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
-    value: {fileID: 915426775}
-  - key: {fileID: -7639114244082922394, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
-    value: {fileID: 695146658}
-  - key: {fileID: 5766932551218425624, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
-    value: {fileID: 1790282800}
   - key: {fileID: 9176813219740600615, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
     value: {fileID: 1790282801}
   - key: {fileID: -4182183680441072924, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
@@ -21559,6 +21570,12 @@ PlayableDirector:
     value: {fileID: 1981040228}
   - key: {fileID: 3063547780403823076, guid: 2b785ac9324fca74baac5200990a0918, type: 2}
     value: {fileID: 150925206}
+  - key: {fileID: 3753307466978371292, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
+    value: {fileID: 1708895294}
+  - key: {fileID: -3173741096377223260, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
+    value: {fileID: 915426775}
+  - key: {fileID: 2935623952602406607, guid: 01c67486af30c784e9ce4036224f28ef, type: 2}
+    value: {fileID: 695146658}
   m_ExposedReferences:
     m_References:
     - 0cb4714de1a392647bfe701a74fbf654: {fileID: 630288155}
@@ -27442,7 +27459,7 @@ PrefabInstance:
       objectReference: {fileID: 8713297857988968507, guid: eed6df91095140245954776ac10d1564, type: 3}
     - target: {fileID: 1226588974250299769, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: whoAmI.isDead
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226588974250299769, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: whoAmI.myName
@@ -27459,7 +27476,7 @@ PrefabInstance:
     - target: {fileID: 1226588974250299769, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: whoAmI.headMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 8d497bcf9cbd91f448524db4e7abc5bb, type: 2}
+      objectReference: {fileID: 2100000, guid: 76e534c08fbf04a478e52edcf49fb579, type: 2}
     - target: {fileID: 5698067429548564650, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.075
@@ -29365,6 +29382,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7735426872780953996, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1981040228}
+    - targetCorrespondingSourceObject: {fileID: 1549130860124853825, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1caa1794babce7b4c957c4203285d23f, type: 3}
 --- !u!4 &1981040226 stripped
 Transform:
