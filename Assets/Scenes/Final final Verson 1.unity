@@ -6854,6 +6854,17 @@ CapsuleCollider:
   m_Height: 4.59
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1580678231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5768340444069416399, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+  m_PrefabInstance: {fileID: 1636896956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882990fe656ee324f8547d771fce1036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1593090620
 GameObject:
   m_ObjectHideFlags: 0
@@ -6926,6 +6937,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1620671860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1575329357535011518, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+  m_PrefabInstance: {fileID: 1636896956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1620906073
 GameObject:
   m_ObjectHideFlags: 0
@@ -7630,6 +7646,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2979891420997182013, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3021719932606686858, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7845,6 +7865,10 @@ PrefabInstance:
     - target: {fileID: 3817321704201887261, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872591464936207248, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 4161025007898510035, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_Sprite
@@ -8270,6 +8294,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6174772792566725338, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: bookManager
+      value: 
+      objectReference: {fileID: 1580678231}
+    - target: {fileID: 6174772792566725338, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: blackScreenImage
+      value: 
+      objectReference: {fileID: 1620671860}
     - target: {fileID: 6224636420483083738, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

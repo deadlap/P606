@@ -14,14 +14,23 @@ public class Ending : MonoBehaviour
     public GameObject WaxStamp; // Reference to the wax stamp GameObject
      public float fadeDuration = 2f; // Time it takes to fade in
 
+
+    public BookManager bookManager; // Reference to the BookManager script
     public TextMeshProUGUI endingText; // Reference to the TextMeshProUGUI component for the ending text
 
     public Graphic blackScreenGraphic;
   
+    public GameObject blackScreenImage; // Reference to the black screen image GameObject
+
   
     public void ShowPopup()
     {
-        Popup.SetActive(true);
+        if (PersonIdentification.SomeoneIsSelected == true)
+        {
+            Popup.SetActive(true);
+        }
+        
+       
     }
 
 
@@ -33,6 +42,10 @@ public class Ending : MonoBehaviour
     public void TriggerEnding()
     {
         Popup.SetActive(false);
+
+        //check the identity of the player, if they are the murderer or civilian
+
+
         WaxStamp.SetActive(true); // Show the wax stamp
         blackScreen.SetActive(true); // Show the black screen
         StartCoroutine(StartEnding());
@@ -57,20 +70,18 @@ public class Ending : MonoBehaviour
         blackScreenGraphic.color = new Color(color.r, color.g, color.b, 1f);
     }
         yield return new WaitForSeconds(1f); // 
-        newspaper.SetActive(true); 
 
-        string endingType = gameObject.name; // Example: Use gameObject.name as the governing expression
-        switch (endingType)
+        newspaper.SetActive(true); 
+        if (bookManager.selectedMurderer == true)
         {
-            case "DidntCatch":
-                endingText.text = "You didn't catch the killer. The case remains unsolved.";
-                break;
-            case "CatchNoEvidence":
-                endingText.text = "You caught the killer, but there was no evidence to convict them.";
-                break;
-            case "CatchWithEvidence":
-                endingText.text = "You caught the killer and gathered enough evidence to convict them.";
-                break;
+            endingText.text = "You caught the killer";
+            Debug.Log("You caught the killer"); // Debug message for catching the killer
+        }
+        else if (bookManager.selectedMurderer == false)
+        {
+           endingText.text = "You didn't catch the killer. The case remains unsolved.";  
+            
+                Debug.Log("You didn't catch the killer. The case remains unsolved."); // Debug message for not catching the killer   
         }
 
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BookManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class BookManager : MonoBehaviour
     private Vector3 targetScalebook = Vector3.one; // Set your desired target scale here
     private Vector3 targetScalebookShrink = Vector3.zero;
     private float shrinkDuration = 0.5f;
+
+    public bool selectedMurderer {get; private set;} = false;
 
     public bool test;
     private bool istransitioning = false;
@@ -30,6 +33,12 @@ public class BookManager : MonoBehaviour
 
     public GameObject page3;
 
+    [SerializeField] private string personNameMurderer;
+
+    NPC npc;
+
+    public static List<NPC> NPCSCheckForMurderer;
+
     private void Start()
     {
         book.transform.localScale = targetScalebookShrink;
@@ -39,6 +48,14 @@ public class BookManager : MonoBehaviour
 
         if (scrollDownButton != null)
             scrollDownButton.onClick.AddListener(ScrollDown);
+
+
+        if (NPCSCheckForMurderer == null){
+            NPCSCheckForMurderer = new List<NPC>(NPCGenerator.INSTANCE.NPCs);
+        }
+        npc = NPCSCheckForMurderer[0];
+        NPCSCheckForMurderer.RemoveAt(0);
+        personNameMurderer = npc.NPCIdentity.name;
     }
 
     private void Update()
@@ -180,6 +197,21 @@ public class BookManager : MonoBehaviour
         }
     }
 
+
+
+    public void CheckIfMurdererIsSelected()
+    {
+        foreach (var npc in NPCSCheckForMurderer)
+        {
+            if (npc.NPCIdentity.Name.ToString() != personNameMurderer)
+            {
+                continue;
+            }
+
+            selectedMurderer = npc.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer;
+
+        }
+    }
       
 }
 
