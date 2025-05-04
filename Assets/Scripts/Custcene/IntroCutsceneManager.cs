@@ -157,6 +157,7 @@ namespace Cutscene
             hasBegunCutscene = true;
 
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
             if (mustGetNPCs)
             {
@@ -169,6 +170,14 @@ namespace Cutscene
             Debug.Log($"TODO: begin playing cutscene, specifically variation {cutsceneVariation}. Currently just playing variation {CutsceneVariations.crewAlive}");
             GetComponent<PlayableDirector>().playableAsset = cutsceneTimelines[0];
             GetComponent<PlayableDirector>().Play();
+        }
+
+        public void CutsceneFinished()
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            
+            Debug.Log("Cutscene done and finished");
         }
     }
 }
