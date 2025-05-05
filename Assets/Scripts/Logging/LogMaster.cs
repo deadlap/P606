@@ -48,6 +48,10 @@ public class LogMaster : MonoBehaviour
 
     private void SaveLogAsTxt()
     {
+        foreach (ChatLog chat in ChatLog.chatLogs)
+        {
+            chat.DoLogging();
+        }
         writer.Close();
     }
 }

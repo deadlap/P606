@@ -11,4 +11,23 @@ public class ChatLog : MonoBehaviour
         playerMessages.Add(playerMessage);
         npcMessages.Add(npcMessage);
     }
+
+    #region For end logging
+    public static List<ChatLog> chatLogs { get; private set; } = new();
+
+    private void OnEnable()
+    {
+        chatLogs.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        chatLogs.Remove(this);
+    }
+
+    public void DoLogging()
+    {
+        LogMaster.Instance.AddLine($"{name} prompts sent:{playerMessages.Count}");
+    }
+    #endregion
 }
