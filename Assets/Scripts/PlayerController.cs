@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour
 
     void OnInteract(InputAction.CallbackContext context)
     {
+        if(!(GameStats.INSTANCE.IntroPlayed || IsDeadNPC())) return; // Check if the intro has been played
+        if(GameStats.INSTANCE.IntroPlayed && IsDeadNPC()) return;
         if (closestInteractable == null) return;
         if (!canPlayerAct) return;
         StartCoroutine(Interact(context));
@@ -145,6 +148,8 @@ public class PlayerController : MonoBehaviour
         }
         if (interactables.Count <= 0)
             DestroyInteractButton();
+        if(IsDeadNPC() && GameStats.INSTANCE.IntroPlayed)
+            DestroyInteractButton();
     }
 
     void IdentifyClosestInteractable()
@@ -177,6 +182,8 @@ public class PlayerController : MonoBehaviour
     void CreateInteractButton()
     {
         if (!canPlayerAct) return;
+        if(!(GameStats.INSTANCE.IntroPlayed || IsDeadNPC())) return;
+        if(GameStats.INSTANCE.IntroPlayed && IsDeadNPC()) return;
         if (closestInteractable == null) return;
         if(currentInteractButton != null) return;
         currentInteractButton = Instantiate(interactButtonPrefab, closestInteractable.transform.position, Quaternion.identity);
@@ -213,5 +220,10 @@ public class PlayerController : MonoBehaviour
         {
             interactables.Remove(other.gameObject);
         }
+    }
+    bool IsDeadNPC() {
+        if (closestInteractable == null) return false;
+        if (closestInteractable.transform.parent == null) return false;
+        return closestInteractable.transform.parent == GameStats.INSTANCE.Victim.transform;
     }
 }

@@ -70,7 +70,7 @@ namespace RoomFocusing
                 headMaterials[headMaterials.Length - 1] = Resources.Load<Material>("Faces/Victim") as Material;
             } else {
                 
-                int rand = Random.Range(1,8 - usedFaces.Count);
+                int rand = Random.Range(1,13 - usedFaces.Count);
                 foreach (int usedFace in usedFaces)
                 {
                     if (rand >= usedFace)
