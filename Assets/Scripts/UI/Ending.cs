@@ -73,8 +73,13 @@ public class Ending : MonoBehaviour
 
         newspaper.SetActive(true); 
         if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer) {
-            endingText.text = "You caught the killer";
-            Debug.Log("You caught the killer"); // Debug message for catching the killer
+            if (GameStats.INSTANCE.EvidenceGathered == GameStats.INSTANCE.EvidenceToGather) {
+                endingText.text = "You caught the killer, and with enough evidence, they were convicted of the murder";
+                Debug.Log("You caught the killer"); // Debug message for catching the killer
+            } else {
+                endingText.text = "You caught the killer, but you did not gather enough evidence for him to be convicted";
+                Debug.Log("You caught the killer, but..."); // Debug message for catching the killer
+            }
         } else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
             endingText.text = "You didn't catch the killer. The case remains unsolved.";  
             Debug.Log("You didn't catch the killer. The case remains unsolved."); // Debug message for not catching the killer   

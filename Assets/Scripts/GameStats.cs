@@ -20,18 +20,29 @@ public class GameStats : MonoBehaviour {
     public bool CheckedNoteBook;
     public static event Action SetIntroPlayed;
     public static void OnSetIntroPlayed() => SetIntroPlayed?.Invoke();
+    public int EvidenceToGather;
+
+    // Data to be gathered for the log system
+    public int EvidenceGathered;
     void OnEnable() {
         SetIntroPlayed += GameStarted;
+        EvidenceDisplayManager.ShowEvidenceEvent += EvidenceFound;
     }
     void OnDisable() {
         SetIntroPlayed -= GameStarted;
+        EvidenceDisplayManager.ShowEvidenceEvent -= EvidenceFound;
     }
 
     void GameStarted(){
         IntroPlayed = true;
     }
+    void EvidenceFound(Evidence.EvidenceType _){
+        EvidenceGathered++;
+    }
 
     void Awake() {
+        EvidenceGathered = 0;
+        EvidenceToGather = 4;
         INSTANCE = this;
         IntroPlayed = false;
         CivillianNPCs = new List<NPC>();

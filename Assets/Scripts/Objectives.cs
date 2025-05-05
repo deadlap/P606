@@ -20,7 +20,6 @@ public class Objectives : MonoBehaviour {
     [SerializeField] List<string> ObjectiveText;
     [SerializeField] List<string> ObjectiveTitleText;
     ObjectiveEnum currentObjective;
-    ObjectiveEnum previousObjective;
 
     public static event Action<ObjectiveEnum> ChangeTextEvent;
     public static void OnChangeTextEvent(ObjectiveEnum value) => ChangeTextEvent?.Invoke(value);

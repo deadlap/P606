@@ -33,7 +33,7 @@ public class BookManager : MonoBehaviour
 
     public GameObject page3;
     public NPC SelectedNPC;
-
+    
     private void Start()
     {
         book.transform.localScale = targetScalebookShrink;
