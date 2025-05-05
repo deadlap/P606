@@ -42,10 +42,10 @@ public class Ending : MonoBehaviour
        
     }
     void OnEnable() {
-        EndGameEvent += TriggerEnding;
+        EndGameEvent += BeginEnding;
     }
     void OnDisable() {
-        EndGameEvent -= TriggerEnding;
+        EndGameEvent -= BeginEnding;
     }
 
 
@@ -67,19 +67,16 @@ public class Ending : MonoBehaviour
         Popup.SetActive(false);
     }
 
-    public void TriggerEnding()
-    {
+    public void TriggerEnding() {
+        OnEndGameEvent();
+    }
+    public void BeginEnding(){
         Popup.SetActive(false);
 
         WaxStamp.SetActive(true); // Show the wax stamp
         blackScreen.SetActive(true); // Show the black screen
         StartCoroutine(StartEnding());
-    }
 
-
-    public void TriggerEndingTimeOut()
-    {
-        StartCoroutine(StartEnding());
     }
 
     public IEnumerator StartEnding()
