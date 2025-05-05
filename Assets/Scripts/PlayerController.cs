@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning("PlayerController: No Animator component found on the player object.");
         else
             animator = GetComponentInChildren<Animator>();
+
+#if UNITY_EDITOR
+        // Double movespeed in the editor
+        movementSpeed *= 2f;
+#endif
     }
 
     void OnEnable()
