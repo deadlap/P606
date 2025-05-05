@@ -30,12 +30,14 @@ public class LogMaster : MonoBehaviour
         Instance = this;
 
         //Create file
-        filePath = Path.Combine(Application.dataPath, fileName + ".txt");
+        int logNum = 0;
+
+        filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
 
         // If file already exists, create another one
-        int logNum = 1;
         while (File.Exists(filePath))
         {
+            logNum++;
             filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
         }
 
