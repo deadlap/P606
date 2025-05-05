@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advancedOptions: 0
+  advancedOptions: 1
   remote: 0
   port: 13333
   numThreads: -1
@@ -432,7 +432,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   contextSize: 8192
   batchSize: 512
-  model: Hermes-3-Llama-3.2-3B.Q8_0.gguf
+  model: Hermes-3-Llama-3.2-3B.Q4_K_M.gguf
   chatTemplate: chatml
   lora: 
   loraWeights: 
@@ -8390,13 +8390,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637483894}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3352856, y: -0.5517252, z: 0.25727367, w: 0.7190224}
+  m_LocalRotation: {x: 0.36540744, y: -0.6183212, z: 0.39391404, w: 0.5735748}
   m_LocalPosition: {x: -1.415628, y: 1.602, z: -1.4156278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: -94.3, z: 0}
 --- !u!1 &639862849
 GameObject:
   m_ObjectHideFlags: 0
@@ -9947,11 +9947,11 @@ AudioSource:
   m_GameObject: {fileID: 842932029}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9184445765617416129, guid: 86d134fc33404a24292eda36119b799e, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13681,11 +13681,11 @@ AudioSource:
   m_GameObject: {fileID: 1169306732}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9184445765617416129, guid: 86d134fc33404a24292eda36119b799e, type: 2}
   m_audioClip: {fileID: 8300000, guid: d8e75363605d8bc4ca986a6aefdc2bec, type: 3}
   m_Resource: {fileID: 8300000, guid: d8e75363605d8bc4ca986a6aefdc2bec, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
