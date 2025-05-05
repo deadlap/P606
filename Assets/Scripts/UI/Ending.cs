@@ -22,6 +22,11 @@ public class Ending : MonoBehaviour
   
     public GameObject blackScreenImage; // Reference to the black screen image GameObject
 
+    [Header ("Audio References")]
+    [SerializeField] AudioSource audioSourceGoodEnding; // Reference to the AudioSource component
+    [SerializeField] AudioSource audioSourceMediumEnding; // Reference to the AudioSource component for the neutral ending
+    [SerializeField] AudioSource audioSourceBadEnding; // Reference to the AudioSource component for the bad ending
+
   
     public void ShowPopup()
     {
@@ -75,14 +80,16 @@ public class Ending : MonoBehaviour
         if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer) {
             if (GameStats.INSTANCE.EvidenceGathered == GameStats.INSTANCE.EvidenceToGather) {
                 endingText.text = "You caught the killer, and with enough evidence, they were convicted of the murder";
-                Debug.Log("You caught the killer"); // Debug message for catching the killer
+                audioSourceGoodEnding.Play();
             } else {
                 endingText.text = "You caught the killer, but you did not gather enough evidence for him to be convicted";
-                Debug.Log("You caught the killer, but..."); // Debug message for catching the killer
+                audioSourceMediumEnding.Play();
+                
             }
         } else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
-            endingText.text = "You didn't catch the killer. The case remains unsolved.";  
-            Debug.Log("You didn't catch the killer. The case remains unsolved."); // Debug message for not catching the killer   
+            endingText.text = "You didn't catch the killer. The case remains unsolved."; 
+            audioSourceBadEnding.Play(); 
+            
         }
 
     }
