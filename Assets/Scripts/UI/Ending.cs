@@ -6,6 +6,8 @@ using System;
 
 public class Ending : MonoBehaviour
 {
+    public static Ending instance { get; private set; }
+    
     public GameObject blackScreen; // Reference to the black screen GameObject
     public GameObject Popup; // Reference to the popup GameObject aka, where the text saying, are you sure you wanna go further.
 
@@ -20,6 +22,8 @@ public class Ending : MonoBehaviour
     public TextMeshProUGUI endingText; // Reference to the TextMeshProUGUI component for the ending text
 
     public Graphic blackScreenGraphic;
+
+    private bool timeUp = false;
   
     public GameObject blackScreenImage; // Reference to the black screen image GameObject
 
@@ -48,6 +52,19 @@ public class Ending : MonoBehaviour
     }
 
 
+    private void Awake()
+    {
+    // Ensure this is a singleton (only one of these should exist)
+    if (instance != null)
+    {
+        Debug.Log($"There are multiple Ending Scripts, deleting {name}");
+        Destroy(this);
+        return;
+    }
+
+    instance = this;
+    }
+
     public void HidePopup()
     {
         Popup.SetActive(false);
@@ -62,6 +79,13 @@ public class Ending : MonoBehaviour
 
         WaxStamp.SetActive(true); // Show the wax stamp
         blackScreen.SetActive(true); // Show the black screen
+        StartCoroutine(StartEnding());
+    }
+
+
+    public void TriggerEndingTimeOut()
+    {
+        timeUp = true;
         StartCoroutine(StartEnding());
     }
 
@@ -95,7 +119,8 @@ public class Ending : MonoBehaviour
                 audioSourceMediumEnding.Play();
                 
             }
-        } else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
+        } else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer || timeUp)  
+          {
             endingText.text = "You didn't catch the killer. The case remains unsolved."; 
             audioSourceBadEnding.Play(); 
             

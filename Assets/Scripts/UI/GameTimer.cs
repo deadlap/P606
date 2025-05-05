@@ -55,5 +55,6 @@ public class GameTimer : MonoBehaviour {
 
     public void TimesUp(){
         runTimer = false;
+        Ending.instance.TriggerEndingTimeOut();
     }
 }
