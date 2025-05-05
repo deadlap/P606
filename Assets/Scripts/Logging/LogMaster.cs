@@ -48,6 +48,12 @@ public class LogMaster : MonoBehaviour
 
     private void SaveLogAsTxt()
     {
+        AddLine("");
+        AddLine("Messages sent to NPCs");
+        foreach (ChatLog chat in ChatLog.chatLogs)
+        {
+            AddLine($"{chat.name} messages sent: {chat.playerMessages.Count}");
+        }
         writer.Close();
     }
 }
