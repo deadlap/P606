@@ -8771,7 +8771,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11478,7 +11478,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d8e75363605d8bc4ca986a6aefdc2bec, type: 3}
   m_Resource: {fileID: 8300000, guid: d8e75363605d8bc4ca986a6aefdc2bec, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15018,6 +15018,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1558933734373533133, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558933734373533133, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558933734373533133, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914151951026766204, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15102,10 +15114,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1904295821}
-    - target: {fileID: 6847346636299237577, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowPopup
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
