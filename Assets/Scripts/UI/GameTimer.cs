@@ -11,6 +11,7 @@ public class GameTimer : MonoBehaviour {
     [SerializeField] bool runTimer;
     [SerializeField] bool hasTriggeredObjectiveEvent;
     [SerializeField] UnityEngine.UI.Image image;
+    public static GameTimer INSTANCE { get; private set; }
     public static event Action<bool> ToggleTimer;
     public static void OnToggleTimer(bool value) => ToggleTimer?.Invoke(value);
     void Start() {
@@ -18,17 +19,23 @@ public class GameTimer : MonoBehaviour {
         timer = GameStats.INSTANCE.TimeLimit*60f;
         timerDisc = 0;
         hasTriggeredObjectiveEvent = false;
+        INSTANCE = this;
     }
 
     void OnEnable() {
         ToggleTimer += ToggleRunTimer;
+        Ending.EndGameEvent += StopTimer;
     }
     void OnDisable() {
         ToggleTimer -= ToggleRunTimer;
+        Ending.EndGameEvent -= StopTimer;
     }
 
     void ToggleRunTimer(bool toggle){
         runTimer = toggle;
+    }
+    void StopTimer(){
+        runTimer = false;
     }
     void Update()
     {
@@ -54,7 +61,13 @@ public class GameTimer : MonoBehaviour {
     }
 
     public void TimesUp(){
-        runTimer = false;
-        Ending.instance.TriggerEndingTimeOut();
+        Ending.OnEndGameEvent();
+
+    }
+    public bool IsTimeUp() {
+        return timer <= 0;
+    }
+    public float GetTimeLeft() {
+        return timer;
     }
 }

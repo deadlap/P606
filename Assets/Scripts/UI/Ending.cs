@@ -22,9 +22,6 @@ public class Ending : MonoBehaviour
     public TextMeshProUGUI endingText; // Reference to the TextMeshProUGUI component for the ending text
 
     public Graphic blackScreenGraphic;
-
-    private bool timeUp = false;
-  
     public GameObject blackScreenImage; // Reference to the black screen image GameObject
 
     [Header ("Audio References")]
@@ -74,9 +71,6 @@ public class Ending : MonoBehaviour
     {
         Popup.SetActive(false);
 
-        //check the identity of the player, if they are the murderer or civilian
-
-
         WaxStamp.SetActive(true); // Show the wax stamp
         blackScreen.SetActive(true); // Show the black screen
         StartCoroutine(StartEnding());
@@ -85,7 +79,6 @@ public class Ending : MonoBehaviour
 
     public void TriggerEndingTimeOut()
     {
-        timeUp = true;
         StartCoroutine(StartEnding());
     }
 
@@ -110,20 +103,17 @@ public class Ending : MonoBehaviour
         yield return new WaitForSeconds(1f); // 
 
         newspaper.SetActive(true); 
-        if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer) {
+        if(GameTimer.INSTANCE.IsTimeUp() || bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
+            endingText.text = "You didn't catch the killer. The case remains unsolved."; 
+            audioSourceBadEnding.Play(); 
+        } else {
             if (GameStats.INSTANCE.EvidenceGathered == GameStats.INSTANCE.EvidenceToGather) {
                 endingText.text = "You caught the killer, and with enough evidence, they were convicted of the murder";
                 audioSourceGoodEnding.Play();
             } else {
                 endingText.text = "You caught the killer, but you did not gather enough evidence for them to be convicted";
                 audioSourceMediumEnding.Play();
-                
             }
-        } else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer || timeUp)  
-          {
-            endingText.text = "You didn't catch the killer. The case remains unsolved."; 
-            audioSourceBadEnding.Play(); 
-            
         }
 
     }
