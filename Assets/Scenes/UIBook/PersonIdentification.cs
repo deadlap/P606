@@ -33,6 +33,8 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
 
     private RenderTexture myPhoto;
 
+    private ChatLog npcChatLog;
+
     void Start() {
 
         if (NPCS == null){
@@ -45,6 +47,7 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
         myPhoto = photoCam.outPutTexture;
         photoCam.TakePicture();
         image.texture = myPhoto;
+        npcChatLog = npc.GetComponent<ChatLog>();
         occupation = npc.NPCIdentity.Occupation.ToString().Replace("_", " ");
     }
 
@@ -82,6 +85,8 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
             rightSideImage.texture = myPhoto;
 
         bookManager.SetSelectedNPC(npc);
+
+        BookWriteChat.instance.ReplaceText(npcChatLog, personName);
     }
 
 
