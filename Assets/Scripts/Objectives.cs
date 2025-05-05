@@ -6,7 +6,8 @@ using System;
 using Unity.VisualScripting;
 public class Objectives : MonoBehaviour {
 
-    public enum ObjectiveEnum{
+    public enum ObjectiveEnum {
+        CheckNoteBook,
         locateVictim,
         UncoverMurderer,
         AccuseMurderer,
@@ -40,6 +41,7 @@ public class Objectives : MonoBehaviour {
         if (objective == ObjectiveEnum.NewEvidence){
             StartCoroutine(DelayedReset(currentObjective, 4f));
         }
+        Debug.Log("Objective changed to: " + objective.ToString());
         currentObjective = objective;
         Animator.Play("ChangeObjective");
         Invoke("ChangeText", 1f);

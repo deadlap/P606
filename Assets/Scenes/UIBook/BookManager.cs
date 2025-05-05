@@ -32,12 +32,7 @@ public class BookManager : MonoBehaviour
     public GameObject page2;
 
     public GameObject page3;
-
-    [SerializeField] private string personNameMurderer;
-
-    NPC npc;
-
-    public static List<NPC> NPCSCheckForMurderer;
+    public NPC SelectedNPC;
 
     private void Start()
     {
@@ -48,14 +43,6 @@ public class BookManager : MonoBehaviour
 
         if (scrollDownButton != null)
             scrollDownButton.onClick.AddListener(ScrollDown);
-
-
-        if (NPCSCheckForMurderer == null){
-            NPCSCheckForMurderer = new List<NPC>(NPCGenerator.INSTANCE.NPCs);
-        }
-        npc = NPCSCheckForMurderer[0];
-        NPCSCheckForMurderer.RemoveAt(0);
-        personNameMurderer = npc.NPCIdentity.name;
     }
 
     private void Update()
@@ -68,8 +55,7 @@ public class BookManager : MonoBehaviour
         else if (scrollInput < 0f)
             ScrollDown();
 
-        if (Input.GetKeyDown(KeyCode.Q) && openWithQ)
-        {
+        if (Input.GetKeyDown(KeyCode.Q) && openWithQ) {
             OpenOrCloseBook();
         }
     }
@@ -94,6 +80,10 @@ public class BookManager : MonoBehaviour
         {
 
             StartCoroutine(ShrinkBookCoroutine(book.transform, targetScalebookShrink, shrinkDuration));
+            if (GameStats.INSTANCE.CheckedNoteBook == false) {
+                GameStats.INSTANCE.CheckedNoteBook = true;
+                Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.locateVictim);
+            }
         }
 
         istransitioning = true;
@@ -201,23 +191,11 @@ public class BookManager : MonoBehaviour
             Debug.LogWarning("GuideThing instance not found in the scene.");
         }
     }
+    public void SetSelectedNPC(NPC npc) {
+        if (npc == null) return; // Check if the NPC is null
 
-
-
-    public void CheckIfMurdererIsSelected()
-    {
-        foreach (var npc in NPCSCheckForMurderer)
-        {
-            if (npc.NPCIdentity.Name.ToString() != personNameMurderer)
-            {
-                continue;
-            }
-
-            selectedMurderer = npc.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer;
-
-        }
+        SelectedNPC = npc;
     }
-      
 }
 
 

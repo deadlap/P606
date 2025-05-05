@@ -72,16 +72,12 @@ public class Ending : MonoBehaviour
         yield return new WaitForSeconds(1f); // 
 
         newspaper.SetActive(true); 
-        if (bookManager.selectedMurderer == true)
-        {
+        if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer) {
             endingText.text = "You caught the killer";
             Debug.Log("You caught the killer"); // Debug message for catching the killer
-        }
-        else if (bookManager.selectedMurderer == false)
-        {
-           endingText.text = "You didn't catch the killer. The case remains unsolved.";  
-            
-                Debug.Log("You didn't catch the killer. The case remains unsolved."); // Debug message for not catching the killer   
+        } else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
+            endingText.text = "You didn't catch the killer. The case remains unsolved.";  
+            Debug.Log("You didn't catch the killer. The case remains unsolved."); // Debug message for not catching the killer   
         }
 
     }

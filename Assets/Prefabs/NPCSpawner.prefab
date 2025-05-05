@@ -469,8 +469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b701c07f2e283d146b1a6510a4d12ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLimit: 0
-  EventTriggerTime: 0
+  TimeLimit: 15
+  EventTriggerTime: 2
   TimeOfDeath: 0
   Victim: {fileID: 0}
   Murderer: {fileID: 0}
@@ -479,6 +479,8 @@ MonoBehaviour:
   ScheduleLength: 4
   ScheduleOffset: 8
   WorkingHours: 0100000002000000
+  IntroPlayed: 0
+  CheckedNoteBook: 0
 --- !u!114 &3214144184578217289
 MonoBehaviour:
   m_ObjectHideFlags: 0

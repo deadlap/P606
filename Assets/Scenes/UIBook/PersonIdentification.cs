@@ -19,7 +19,7 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
 
     [Header("Double Click Settings")]
 
-    BookManager bookManager;
+    [SerializeField] BookManager bookManager;
 
     
     //[SerializeField] private float doubleClickThreshold = 0.3f; // in seconds
@@ -81,23 +81,7 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
         if (rightSideImage != null)
             rightSideImage.texture = myPhoto;
 
-
-        /*
-        foreach (var npc in NPCS)
-        {
-            if (npc.NPCIdentity.Name.ToString() != personName)
-            {
-                continue;
-            }
-
-            selectedMurderer = npc.NPCIdentity.PrimaryRole == Identity.PrimaryRoles.Murderer;
-
-        }
-        */
-        bookManager.CheckIfMurdererIsSelected();
-
-
-         
+        bookManager.SetSelectedNPC(npc);
     }
 
 

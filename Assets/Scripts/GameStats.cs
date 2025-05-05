@@ -17,6 +17,7 @@ public class GameStats : MonoBehaviour {
     public int ScheduleOffset; //Given the lists are from 0..schedulelength, in text and such needs to be offset by a value to give the actual times it represents
     public List<int> WorkingHours;
     public bool IntroPlayed;
+    public bool CheckedNoteBook;
     public static event Action SetIntroPlayed;
     public static void OnSetIntroPlayed() => SetIntroPlayed?.Invoke();
     void OnEnable() {
