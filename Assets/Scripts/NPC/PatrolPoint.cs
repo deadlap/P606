@@ -47,6 +47,7 @@ public class PatrolPoint : MonoBehaviour
             NPCCount--;
             if (NPCCount <= 0)
             {
+                Debug.Log($"{occupant} left");
                 NPCCount = 0;
                 isReserved = NPCCheck();
                 isBeingServed = NPCCheck();

@@ -81,7 +81,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 816392324177549856}
   - component: {fileID: 3214144184578217289}
   - component: {fileID: 5653835932468008011}
+  - component: {fileID: 1248030910680349767}
   m_Layer: 0
   m_Name: NPCSpawner
   m_TagString: NPCGenerator
@@ -481,6 +482,8 @@ MonoBehaviour:
   WorkingHours: 0100000002000000
   IntroPlayed: 0
   CheckedNoteBook: 0
+  EvidenceToGather: 0
+  EvidenceGathered: 0
 --- !u!114 &3214144184578217289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +502,7 @@ MonoBehaviour:
   unusedNames: 
   unusedOccupations: 
   unusedRelations: 
-  NPCBasePrefab: {fileID: 8850610531374874041, guid: 179b7b15684a14347856030994b1df4f, type: 3}
+  NPCBasePrefab: {fileID: 8850610531374874041, guid: 362e6f1f14ddef14882e880f87548700, type: 3}
   MultiUseRelationTypes: 488
 --- !u!114 &5653835932468008011
 MonoBehaviour:
@@ -515,6 +518,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnusedSpawnPoints: []
   FallBackSpawnPoint: {fileID: 0}
+--- !u!114 &1248030910680349767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425560187154714622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d04cf82ebab4b4c8b63d32224859a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warmUpOnStart: 0
 --- !u!1 &2581136926441785476
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +612,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -698,7 +714,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -800,7 +816,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -1412,7 +1428,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -1514,7 +1530,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -1718,7 +1734,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2024,7 +2040,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2330,7 +2346,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2432,7 +2448,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2534,7 +2550,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2636,7 +2652,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2840,7 +2856,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -2942,7 +2958,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
@@ -3146,7 +3162,7 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   stream: 1
-  playerName: John
+  playerName: Detective
   AIName: assistant
   prompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.

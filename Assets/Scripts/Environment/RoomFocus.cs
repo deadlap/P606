@@ -12,7 +12,9 @@ namespace RoomFocusing
         [SerializeField, Tooltip("Assign the decorations to be shown in this room") ] private DecorationHider decorationsToShow;
         [SerializeField, Tooltip("Assign Water")] private WaterFocus waterFocus;
         [SerializeField] private string nameOfRoom;
-        
+        [SerializeField] bool isCabin = false;
+        [SerializeField] GameObject cabin;
+
         private List<ShadowPerson> npcsInside = new List<ShadowPerson>();
 
         private int playersInside = 0;
@@ -65,7 +67,15 @@ namespace RoomFocusing
             //Debug.Log($"{other.name} entered {name}");
             if (!other.CompareTag("Player")) return;
 
-            RoomName.Instance.AddRoomName(nameOfRoom);
+            if(isCabin)
+            {
+                RoomName.Instance.AddRoomName(cabin.name);
+
+            }
+            else
+            {
+                RoomName.Instance.AddRoomName(nameOfRoom);
+            }
             playersInside++;
 
             decorationsToShow?.PlayerEntered();

@@ -19,6 +19,7 @@ public partial class PatrolOccupationAreaAction : Action
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
     [SerializeReference] public BlackboardVariable<string> Occupation;
+    [SerializeReference] public BlackboardVariable<float> StoppingDistance;
 
     Transform currentPoint;
     bool pointGiven;
@@ -60,6 +61,7 @@ public partial class PatrolOccupationAreaAction : Action
         currentPoint = null;
         pointGiven = false;
         isSitting = false;
+        NavMeshAgent.Value.stoppingDistance = 0;
         if (PatrolArea.Value != null) return;
         PatrolArea.Value = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
     }
@@ -78,7 +80,6 @@ public partial class PatrolOccupationAreaAction : Action
                 !IsWorker.Value && 
                 !isSitting)
             {
-                Debug.Log($"{Agent.Value.name} is sitting.");
                 Animator.Value.Play("Sit");
                 isSitting = true;
             }
@@ -86,7 +87,6 @@ public partial class PatrolOccupationAreaAction : Action
             { 
                 if (!NavMeshAgent.Value.hasPath || NavMeshAgent.Value.velocity.sqrMagnitude == 0)
                 {
-                    Debug.Log($"{Agent.Value.name} has stopped.");
                     Animator.Value.SetBool("isWalking", false);
                     pointGiven = false;
                     return Status.Success;

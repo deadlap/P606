@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7333780123024086298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4464502589394822215}
+  - component: {fileID: 2933108452980718992}
+  m_Layer: 0
+  m_Name: SpawnConsumables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4464502589394822215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333780123024086298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2933108452980718992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333780123024086298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b62d0fa186f10e4abca87ab844a4318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodPrefabs:
+  - {fileID: 1026691299261116838, guid: 84d61027885c34b489640c2d9a7887e8, type: 3}
+  - {fileID: 7344983780345791231, guid: 8e3b5162e95a95c409cab5006175dcc2, type: 3}
+  - {fileID: 8465598843164662194, guid: 69549113e6e3f4d43bb21c999e27f612, type: 3}
+  drinkPrefabs:
+  - {fileID: 945243153157175728, guid: 888edbd514cfa574e8b38246866f6452, type: 3}
+  shaker:
+  - {fileID: 5262910982909050393, guid: bc579176124c3b24b942132ebdf52808, type: 3}
+  broom:
+  - {fileID: 2729242651848617100, guid: 826a922d9de307f4abd7258e6abae623, type: 3}

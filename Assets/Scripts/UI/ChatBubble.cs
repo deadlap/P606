@@ -38,22 +38,24 @@ public class ChatBubble : MonoBehaviour
 
         HorizontalLayoutGroup hlgChatBubble = chatBubble.AddComponent<HorizontalLayoutGroup>();
         hlgChatBubble.childAlignment = isPlayerMessage ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
-        hlgChatBubble.GetComponent<HorizontalLayoutGroup>().childControlHeight = false;
-        hlgChatBubble.GetComponent<HorizontalLayoutGroup>().childControlWidth = false;
-        hlgChatBubble.GetComponent<HorizontalLayoutGroup>().childForceExpandHeight = false;
-        hlgChatBubble.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = false;
+        hlgChatBubble.childControlHeight = false;
+        hlgChatBubble.childControlWidth = false;
+        hlgChatBubble.childForceExpandHeight = false;
+        hlgChatBubble.childForceExpandWidth = false;
         chatBubble.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
         Image bubbleImage = Instantiate(new GameObject($"{type} Bubble"), chatBubble.transform).AddComponent<Image>();
         bubbleImage.GetComponent<Image>().color = isPlayerMessage ? playerColor : aiColor;
+        bubbleImage.transform.localScale = isPlayerMessage ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1); // flips the image so the speach bubble points the right way
         bubbleImage.GetComponent<RectTransform>().sizeDelta = new Vector2(bubbleWidth, bubbleHeight);
-        bubbleImage.GetComponent<Image>().sprite = sprite;
-        bubbleImage.GetComponent<Image>().type = Image.Type.Sliced;
-        bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(10, 10, 10, 10);
+        bubbleImage.sprite = sprite;
+        bubbleImage.type = Image.Type.Sliced;
+        bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(25, 25, 25, 60);
         bubbleImage.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
         TMP_Text bubbleText = Instantiate(new GameObject($"{type} Text"), bubbleImage.transform).AddComponent<TextMeshProUGUI>();
         bubbleText.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 0);
+        bubbleText.transform.localScale = isPlayerMessage ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1); // flips the text so it is the right way around
         bubbleText.text = text;
         bubbleText.color = fontColor;
         bubbleText.font = font;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class NPCSpawnPointFinder : MonoBehaviour {
     [SerializeField] List<NPCSpawnPoint> UnusedSpawnPoints;
     [SerializeField] NPCSpawnPoint FallBackSpawnPoint;
 
-    void Awake() {
+    void Awake(){
         Instance = this;
         var temp_list = GameObject.FindGameObjectsWithTag("NPCSpawnPoint");
         foreach (GameObject obj in temp_list) {
@@ -22,6 +23,7 @@ public class NPCSpawnPointFinder : MonoBehaviour {
         temp_spawn = SearchListForSpawnTag(occupation);
         if (temp_spawn == null) {
             temp_spawn = SearchListForSpawnTag(Identity.Occupations.None);
+            temp_spawn.OccupationTag = occupation;
         }
         if (temp_spawn == null && FallBackSpawnPoint != null) {
             return FallBackSpawnPoint;
