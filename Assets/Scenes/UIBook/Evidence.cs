@@ -28,9 +28,6 @@ public class Evidence : MonoBehaviour
             case EvidenceType.Knife:
                 GenerateSuspectsInfo();
                 break;
-            case EvidenceType.Diary:
-                GenerateDiaryInfo();
-                break;
             default:
                 GenerateTimeBasedInfo();
                 break;
@@ -39,29 +36,42 @@ public class Evidence : MonoBehaviour
 
     void GenerateSuspectsInfo(){
         List<NPC> suspects = new List<NPC>();
+        var murderer = GameStats.INSTANCE.Murderer;
         suspects.Add(GameStats.INSTANCE.Murderer);
-        int firstIndex = UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count);
-        int secondIndex;
-
+        
+        var keys = new List<NPC>(GameStats.INSTANCE.Victim.NPCIdentity.Relations.Keys);
+        NPC randomRelation;
         do {
-            secondIndex = UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count);
-        } while (secondIndex == firstIndex);
-
-        suspects.Add(GameStats.INSTANCE.CivillianNPCs[firstIndex]);
-        suspects.Add(GameStats.INSTANCE.CivillianNPCs[secondIndex]);
+            randomRelation = keys[UnityEngine.Random.Range(0, keys.Count)];
+        } while (murderer == randomRelation);
+        suspects.Add(randomRelation);
+        
+        NPC randomNPC = GameStats.INSTANCE.CivillianNPCs[UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count)];
+        do {
+            randomNPC = GameStats.INSTANCE.CivillianNPCs[UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count)];
+        } while (suspects.Contains(randomNPC));
+        suspects.Add(randomNPC);
+        // int ndex = UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count);
+        // int secondIndex;
+        // do {
+        //     secondIndex = UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count);
+        // } while (secondIndex == firstIndex);
+        // suspects.Add(GameStats.INSTANCE.CivillianNPCs[firstIndex]);
+        // suspects.Add(GameStats.INSTANCE.CivillianNPCs[secondIndex]);
+        // suspects.Add(GameStats.INSTANCE.CivillianNPCs[secondIndex]);
         suspects = ShuffleList(suspects);
         foreach (NPC npc in suspects) {
             info += "- " + npc.NPCIdentity.Name + "\n";
         }
     }
     void GenerateTimeBasedInfo(){
-        if (NonDeathTimes.Count <= 2){
-            info += " " + NonDeathTimes[0] + " and " + (NonDeathTimes[0]+1)
-                + " and not between " + NonDeathTimes[1] + " and " + (NonDeathTimes[1]+1);
-        } else {
-            info += " " + NonDeathTimes[0] + " and " + (NonDeathTimes[0]+1);
-            NonDeathTimes.RemoveAt(0);
-        }
+        info += " " + NonDeathTimes[0] + " and " + (NonDeathTimes[0]+1);
+        NonDeathTimes.RemoveAt(0);
+        // if (NonDeathTimes.Count <= 2){
+        //     info += " " + NonDeathTimes[0] + " and " + (NonDeathTimes[0]+1)
+        //         + " and not between " + NonDeathTimes[1] + " and " + (NonDeathTimes[1]+1);
+        // } else {
+        // }
     }
     void GenerateDiaryInfo(){
         foreach (var pair in GameStats.INSTANCE.Victim.NPCIdentity.Relations) {
