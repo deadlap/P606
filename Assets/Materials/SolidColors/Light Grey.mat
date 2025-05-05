@@ -31,7 +31,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -39,6 +40,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Height_Map:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -60,9 +65,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 0
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 0
     - _Falloff_Threshold: 0
     - _Full_Lit_Min: 1
     - _Full_Shadow_Max: 0.701
+    - _Height_Strength: 0.005
     - _Lit_Threshold: 1
     - _Normal_Strength: 0
     - _Pattern_Density: 30
@@ -78,8 +90,13 @@ Material:
     - _Specular_Light_Min: 0
     - _Specular_Size_Max: 1
     - _Specular_Size_Min: 0
+    - _SrcBlend: 1
+    - _Surface: 0
     - _Use_Screen_Space: 1
     - _Use_Specular: 0
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
