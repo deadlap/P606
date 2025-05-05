@@ -41,6 +41,8 @@ public class LogMaster : MonoBehaviour
             filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
         }
 
+        Debug.Log($"Logging at {filePath}");
+
         writer = File.CreateText(filePath);
     }
 
