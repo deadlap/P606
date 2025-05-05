@@ -19,6 +19,20 @@ public class PlaySoundEffect : MonoBehaviour
         audioSource.spatialBlend = 1;
     }
 
+    public void PlaySoundAnimationEvent(AudioClip audioClip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
+            audioSource.volume = startVolume;
+            audioSource.PlayOneShot(audioClip);
+        }
+        else
+        {
+            Debug.LogWarning($"AudioSource or AudioClip is not assigned to {name}.");
+        }
+    }
+
     public void PlaySound()
     {
         if (audioSource != null && soundEffect != null)
