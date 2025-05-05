@@ -36,6 +36,10 @@ namespace Cutscene
         [SerializeField, Tooltip("Called when cutscene starts playing")] private UnityEvent cutsceneStartEvents;
         [SerializeField, Tooltip("Called when cutscene is done playing")] private UnityEvent cutsceneEndEvents;
 
+#if UNITY_EDITOR
+        [SerializeField] private bool skipCutscene = false;
+#endif
+
         private void Awake()
         {
             if (instance != null)
@@ -205,6 +209,15 @@ namespace Cutscene
                     npcWithInfo.TransferInfo();
                 }
             }
+
+#if UNITY_EDITOR
+            if (skipCutscene)
+            {
+                cutsceneStartEvents?.Invoke();
+                CutsceneFinished();
+                return;
+            }
+#endif
 
             Debug.Log($"Playing cutscene, specifically variation {cutsceneVariation}.");
             theDirector.Play();
