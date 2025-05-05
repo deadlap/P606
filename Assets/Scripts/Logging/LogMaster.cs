@@ -1,16 +1,18 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class LogMaster : MonoBehaviour
 {
     public static LogMaster Instance { get; private set; }
 
     [SerializeField] private string fileName = "ResearchLog";
-    private string textToLog = string.Empty;
 
     private string filePath;
 
     private StreamWriter writer;
+
+    private List<Evidence.EvidenceType> evidencesPickedUp = new List<Evidence.EvidenceType>();
 
     private void Awake()
     {
@@ -36,6 +38,11 @@ public class LogMaster : MonoBehaviour
         writer = File.CreateText(filePath);
     }
 
+    public void RememberEvidenceForLog(Evidence.EvidenceType evidenceType)
+    {
+        evidencesPickedUp.Add(evidenceType);
+    }
+
     public void AddLine(string line)
     {
         writer.WriteLine(line);
@@ -48,8 +55,39 @@ public class LogMaster : MonoBehaviour
 
     private void SaveLogAsTxt()
     {
+        AddLine("--General--");
+        AddLine($"Game with victim \"{GameStats.INSTANCE.Victim.NPCIdentity.Name}\" and murderer \"{GameStats.INSTANCE.Murderer.NPCIdentity.Name}\"");
+        AddLine($"Player got ending: {((Ending.instance.bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer || GameTimer.INSTANCE.IsTimeUp()) ? "Wrong killer" : "Correct killer")}");
+        AddLine($"Player accused NPC: {(GameTimer.INSTANCE.IsTimeUp() ? "No-one/Timed out ending" : Ending.instance.bookManager.SelectedNPC.NPCIdentity.Name)}");
+        AddLine($"Time left: {GameTimer.INSTANCE.GetTimeLeft()}");
+
         AddLine("");
-        AddLine("Messages sent to NPCs");
+        AddLine("--Cast--");
+        // List out all NPC names and roles
+
+        AddLine("");
+        AddLine("--Evidence--");
+        AddLine($"Player got {GameStats.INSTANCE.EvidenceToGather} pieces of evidence");
+        string evidenceText = "No evidence gathered";
+        if (GameStats.INSTANCE.EvidenceToGather > 0)
+        {
+            evidenceText = "Evidences gathered: ";
+            // List out which pieces of evidence player had gotten
+            for (int i = 0; i < evidencesPickedUp.Count; i++)
+            {
+                evidenceText += evidencesPickedUp[i].ToString();
+                if (i < evidencesPickedUp.Count - 1)
+                    evidenceText += ", ";
+            }
+        }
+        AddLine(evidenceText);
+
+        AddLine("");
+        AddLine("--Interactions with NPCs--");
+        // List out num of interactions with each NPC
+
+        AddLine("");
+        AddLine("--Messages sent to NPCs--");
         foreach (ChatLog chat in ChatLog.chatLogs)
         {
             AddLine($"{chat.name} messages sent: {chat.playerMessages.Count}");

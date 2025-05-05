@@ -23,6 +23,7 @@ public class WorldEvidence : MonoBehaviour {
         if (PlayerController.instance.currentInteractable == null) return; // Check if the player is interacting with anything
         EvidenceDisplayManager.OnShowEvidenceEvent(evidenceType);
         Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.NewEvidence); // Update the objective text
+        LogMaster.Instance.RememberEvidenceForLog(evidenceType); // Make LogMaster know of this evidence
         Destroy(this.gameObject, 0.5f);
     }
 }
