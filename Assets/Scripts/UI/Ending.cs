@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class Ending : MonoBehaviour
 {
@@ -27,7 +28,9 @@ public class Ending : MonoBehaviour
     [SerializeField] AudioSource audioSourceMediumEnding; // Reference to the AudioSource component for the neutral ending
     [SerializeField] AudioSource audioSourceBadEnding; // Reference to the AudioSource component for the bad ending
 
-  
+    public static event Action EndGameEvent;
+    public static void OnEndGameEvent() => EndGameEvent?.Invoke();
+
     public void ShowPopup()
     {
         if (PersonIdentification.SomeoneIsSelected == true)
@@ -36,6 +39,12 @@ public class Ending : MonoBehaviour
         }
         
        
+    }
+    void OnEnable() {
+        EndGameEvent += TriggerEnding;
+    }
+    void OnDisable() {
+        EndGameEvent -= TriggerEnding;
     }
 
 
@@ -82,7 +91,7 @@ public class Ending : MonoBehaviour
                 endingText.text = "You caught the killer, and with enough evidence, they were convicted of the murder";
                 audioSourceGoodEnding.Play();
             } else {
-                endingText.text = "You caught the killer, but you did not gather enough evidence for him to be convicted";
+                endingText.text = "You caught the killer, but you did not gather enough evidence for them to be convicted";
                 audioSourceMediumEnding.Play();
                 
             }
