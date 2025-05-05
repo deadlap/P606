@@ -9,7 +9,7 @@ public class SpawnConsumables : MonoBehaviour
 
     Vector3 foodSpawnPosition = new(0, 0, 0);
     Vector3 drinkSpawnPosition = new(0, 0, 0);
-    public GameObject SpawnFood(GameObject agent, bool asHat)
+    public GameObject SpawnFood(GameObject agent, bool asHat = false)
     {
         var randomFood = Random.Range(1, foodPrefabs.Length);
         if(asHat)

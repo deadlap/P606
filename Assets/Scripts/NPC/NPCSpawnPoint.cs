@@ -7,11 +7,15 @@ public class NPCSpawnPoint : MonoBehaviour {
     public Vector3 SpawnPosition(){
         return transform.position;
     }
-    private void Update()
+    
+    void Update()
     {
         if(OccupationTag.ToString() == "None")
             name = "Detective's Cabin";
         else
+        {
+            OccupationTag.ToString().Replace("_", " ");
             name = $"{OccupationTag.ToString()}'s Cabin";
+        }
     }
 }

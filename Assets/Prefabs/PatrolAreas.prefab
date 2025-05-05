@@ -119,12 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &260439726097278659
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,12 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &285320410635566640
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,12 +246,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &4572180873324904681
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -316,12 +322,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5111091969444292963
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -390,12 +398,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5382631504290972761
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -485,12 +495,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &931401557795467653
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,12 +548,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1172700169766462360
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -610,12 +624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7727498856070171928
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -705,12 +721,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &1175440689521861318
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,12 +853,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &659684936325126970
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -930,12 +950,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &1288004139295676366
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,12 +1003,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &9186028471552365962
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1055,12 +1079,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7873614892335935853
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1200,12 +1226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &1387708887564446799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,12 +1332,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6989511332670826110
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1378,12 +1408,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5050781501879211510
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1452,12 +1484,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1810714278486756243
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1526,12 +1560,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7219293238750637587
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1600,12 +1636,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2206474326862801656
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1744,12 +1782,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &4621136325514128047
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1818,12 +1858,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2674464723562525260
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1913,12 +1955,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &1884208569089950507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,12 +2008,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &3179346457648339311
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2038,12 +2084,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1739488912777897176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2162,12 +2210,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &4564866182992189569
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2236,12 +2286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6266993965534528778
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2331,12 +2383,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2214505142980937593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,12 +2436,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2166516025853273567
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2456,12 +2512,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6037159737489676684
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2628,12 +2686,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2290537306729913466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,7 +2707,7 @@ GameObject:
   - component: {fileID: 8929033367589226608}
   - component: {fileID: 980300510831042218}
   m_Layer: 0
-  m_Name: Cabin 1
+  m_Name: Detective's Cabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2831,12 +2891,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2486007612170893379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,12 +2944,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &9024102405147977509
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2977,12 +3041,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2595325429973924588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,12 +3115,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2674136128197702632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3121,12 +3189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2760043055151827034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,12 +3242,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1454981960128957328
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3344,12 +3416,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &2915225806954028999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,12 +3469,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7139635536344982836
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3469,12 +3545,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5728923583118647073
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3543,12 +3621,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2300431185963362431
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3617,12 +3697,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &270710994567555930
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3819,12 +3901,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3311706739249500023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3891,12 +3975,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3321308190851280594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,12 +4049,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3512711783363037163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,12 +4200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3551314161543822792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,12 +4274,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3577100829672616455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,12 +4327,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1879082710916566689
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4309,12 +4403,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1824898417584403176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4383,12 +4479,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5931587593521922064
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4457,12 +4555,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6088948085869773764
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4531,12 +4631,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5097782940636457062
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4626,12 +4728,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3813067100104978638
 GameObject:
   m_ObjectHideFlags: 0
@@ -4677,12 +4781,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7066859609467767429
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4772,12 +4878,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &3834549312981469003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4823,12 +4931,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &4574777015027460471
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4897,12 +5007,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5393865269944272475
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4971,12 +5083,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1924797478372679147
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5066,12 +5180,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4146776770317340873
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,12 +5233,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &8609087235996536669
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5191,12 +5309,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2096363916839370199
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5339,12 +5459,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4368490959639299758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,12 +5610,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4455911571091648080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5616,12 +5740,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7501157079165368784
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5690,12 +5816,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &8817247625319317947
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5764,12 +5892,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5051666721699667274
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5838,12 +5968,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &4817698595690757056
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5933,12 +6065,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4819691437643390632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6005,12 +6139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4868097621400818989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6056,12 +6192,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &22198089679428784
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6151,12 +6289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4901688167036031644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,12 +6363,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &4967592750442232211
 GameObject:
   m_ObjectHideFlags: 0
@@ -6274,12 +6416,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1517715760274435559
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6348,12 +6492,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6062704711435636264
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6443,12 +6589,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5073954801691341505
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,12 +6642,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6086517940191244606
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6589,12 +6739,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5120469492972738928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,12 +6919,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5250389697448195378
 GameObject:
   m_ObjectHideFlags: 0
@@ -6892,12 +7046,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5336869981201366732
 GameObject:
   m_ObjectHideFlags: 0
@@ -6943,12 +7099,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2193271717258988927
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7017,12 +7175,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6854728607638213683
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7112,12 +7272,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5654648434682621565
 GameObject:
   m_ObjectHideFlags: 0
@@ -7184,12 +7346,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5668689089831630604
 GameObject:
   m_ObjectHideFlags: 0
@@ -7235,12 +7399,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1736490414014223301
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7309,12 +7475,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6598249420882967050
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7383,12 +7551,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &8525261409792727230
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7457,12 +7627,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &56591507031159115
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7552,12 +7724,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5880925127530469126
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,12 +7875,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &5930201958453760859
 GameObject:
   m_ObjectHideFlags: 0
@@ -7876,12 +8052,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6179768648990162065
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,12 +8126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6179791001677812573
 GameObject:
   m_ObjectHideFlags: 0
@@ -7999,12 +8179,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6494795057467861444
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8094,12 +8276,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6526646764587659498
 GameObject:
   m_ObjectHideFlags: 0
@@ -8145,12 +8329,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5097148143541905490
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8219,12 +8405,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &210775520127314385
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8314,12 +8502,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6608247550628856217
 GameObject:
   m_ObjectHideFlags: 0
@@ -8386,12 +8576,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6611187790450018265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8458,12 +8650,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6683626616715830639
 GameObject:
   m_ObjectHideFlags: 0
@@ -8530,12 +8724,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6739546532822707578
 GameObject:
   m_ObjectHideFlags: 0
@@ -8581,12 +8777,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &7163657111105838960
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8676,12 +8874,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6853435608022156462
 GameObject:
   m_ObjectHideFlags: 0
@@ -8748,12 +8948,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &6888060369535780745
 GameObject:
   m_ObjectHideFlags: 0
@@ -8873,12 +9075,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &7046473295281061277
 GameObject:
   m_ObjectHideFlags: 0
@@ -9078,12 +9282,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1593300185172340014
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9152,12 +9358,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5338987618977307728
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9226,12 +9434,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &8872178053572752443
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9321,12 +9531,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &7598225540201993872
 GameObject:
   m_ObjectHideFlags: 0
@@ -9372,12 +9584,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2915177319786575604
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9467,12 +9681,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &7677784502951623090
 GameObject:
   m_ObjectHideFlags: 0
@@ -9539,12 +9755,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &7891037352719817643
 GameObject:
   m_ObjectHideFlags: 0
@@ -9611,12 +9829,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &7895609393997713966
 GameObject:
   m_ObjectHideFlags: 0
@@ -9662,12 +9882,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &8287265282778272797
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9757,12 +9979,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &7958364610106241443
 GameObject:
   m_ObjectHideFlags: 0
@@ -9829,12 +10053,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8123320738998514082
 GameObject:
   m_ObjectHideFlags: 0
@@ -9880,12 +10106,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &3516706387646909017
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10039,12 +10267,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6944441339722293550
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10134,12 +10364,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8286455996534124006
 GameObject:
   m_ObjectHideFlags: 0
@@ -10185,12 +10417,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &1710002981667240638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10259,12 +10493,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &3056764123798521108
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10354,12 +10590,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8533432389067171228
 GameObject:
   m_ObjectHideFlags: 0
@@ -10440,7 +10678,7 @@ Transform:
   m_GameObject: {fileID: 8542368630043810053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.61, y: 0, z: -19.52}
+  m_LocalPosition: {x: 6.471, y: 0, z: -19.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10479,12 +10717,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8553589351491949799
 GameObject:
   m_ObjectHideFlags: 0
@@ -10551,12 +10791,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8555481982086342091
 GameObject:
   m_ObjectHideFlags: 0
@@ -10623,12 +10865,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8578449507453521591
 GameObject:
   m_ObjectHideFlags: 0
@@ -10695,12 +10939,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8724812158033723713
 GameObject:
   m_ObjectHideFlags: 0
@@ -10746,12 +10992,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &6361314900304471537
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10841,12 +11089,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8817136528047930919
 GameObject:
   m_ObjectHideFlags: 0
@@ -10913,12 +11163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8837442696986494554
 GameObject:
   m_ObjectHideFlags: 0
@@ -10964,12 +11216,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &2299232513524340296
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11059,12 +11313,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &8991660334450428762
 GameObject:
   m_ObjectHideFlags: 0
@@ -11186,12 +11442,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &9024682653114171067
 GameObject:
   m_ObjectHideFlags: 0
@@ -11258,12 +11516,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 0
   isSeat: 0
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!1 &9042089664331317857
 GameObject:
   m_ObjectHideFlags: 0
@@ -11309,12 +11569,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5175302912631288162
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11452,12 +11714,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5110805508126335028
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11526,12 +11790,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136078b83e4597b4eb7b7a6d2ea5aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleSeat: 1
   isSeat: 1
   isReserved: 0
   isBeingServed: 0
   hasBeenServed: 0
   patrolPointIndex: 0
   occupant: {fileID: 0}
+  plate: {fileID: 0}
 --- !u!136 &5940895767167895209
 CapsuleCollider:
   m_ObjectHideFlags: 0

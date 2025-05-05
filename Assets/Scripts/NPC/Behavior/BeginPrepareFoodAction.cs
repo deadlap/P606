@@ -10,7 +10,6 @@ using System.Collections;
 public partial class BeginPrepareFoodAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
-    [SerializeReference] public BlackboardVariable<int> FoodGuestsWaiting;
     [SerializeReference] public BlackboardVariable<int> FoodDifficulty;
     [SerializeReference] public BlackboardVariable<bool> IsWorking;
 

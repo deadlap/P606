@@ -82,7 +82,6 @@ public class PatrolArea : MonoBehaviour
         }
         if(guestPoints.Count == 0) return null;
         var transform = guestPoints[Random.Range(0, guestPoints.Count)];
-        transform.GetComponent<PatrolPoint>().occupant = occupant;
         return transform;
     }
 

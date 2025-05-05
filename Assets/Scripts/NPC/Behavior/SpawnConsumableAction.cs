@@ -10,6 +10,7 @@ public partial class SpawnConsumableAction : Action
 {
     [SerializeReference] public BlackboardVariable<SpawnConsumables> SpawnConsumables;
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
+    [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
     [SerializeReference] public BlackboardVariable<GameObject> FoodInstance = null;
     [SerializeReference] public BlackboardVariable<GameObject> DrinkInstance = null;
     [SerializeReference] public BlackboardVariable<string> Consumeable;
@@ -19,6 +20,8 @@ public partial class SpawnConsumableAction : Action
     {
         if (Consumeable.Value == "Food")
         {
+            if(!AsHat.Value)
+                SetPlatePosition();
             FoodInstance.Value = SpawnConsumables.Value.SpawnFood(Agent.Value, AsHat.Value);
         }
         if (Consumeable.Value == "Drink")
@@ -31,6 +34,11 @@ public partial class SpawnConsumableAction : Action
     protected override Status OnUpdate()
     {
         return Status.Success;
+    }
+
+    void SetPlatePosition()
+    {
+        Agent.Value.transform.position = CurrentPoint.Value.GetComponent<PatrolPoint>().plate.transform.position;
     }
 }
 
