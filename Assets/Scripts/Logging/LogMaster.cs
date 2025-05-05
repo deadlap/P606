@@ -16,6 +16,8 @@ public class LogMaster : MonoBehaviour
 
     private Dictionary<NPC, int> interactionsPerNpc;
 
+    private bool alreadyFinishedLog = false;
+
     private void Start()
     {
         // Singleton this
@@ -70,11 +72,14 @@ public class LogMaster : MonoBehaviour
         SaveLogAsTxt();
     }
 
-    private void SaveLogAsTxt()
+    public void SaveLogAsTxt()
     {
+        if (alreadyFinishedLog) return;
+        alreadyFinishedLog = true;
+
         AddLine("--General--");
         AddLine($"Game with victim \"{GameStats.INSTANCE.Victim.NPCIdentity.Name}\" and murderer \"{GameStats.INSTANCE.Murderer.NPCIdentity.Name}\"");
-        AddLine($"Player got ending: {((Ending.instance.bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer || GameTimer.INSTANCE.IsTimeUp()) ? "Wrong killer" : "Correct killer")}");
+        AddLine($"Player got ending: {(GameTimer.INSTANCE.IsTimeUp() ? "Wrong killer" : (Ending.instance.bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer ? "Wrong killer" : "Correct killer"))}");
         AddLine($"Player accused NPC: {(GameTimer.INSTANCE.IsTimeUp() ? "No-one/Timed out ending" : Ending.instance.bookManager.SelectedNPC.NPCIdentity.Name)}");
         AddLine($"Time left: {GameTimer.INSTANCE.GetTimeLeft()}");
 
