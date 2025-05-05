@@ -24,10 +24,5 @@ public class ChatLog : MonoBehaviour
     {
         chatLogs.Remove(this);
     }
-
-    public void DoLogging()
-    {
-        LogMaster.Instance.AddLine($"{name} prompts sent:{playerMessages.Count}");
-    }
     #endregion
 }
