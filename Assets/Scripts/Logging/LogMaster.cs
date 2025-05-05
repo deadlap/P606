@@ -14,7 +14,9 @@ public class LogMaster : MonoBehaviour
 
     private List<Evidence.EvidenceType> evidencesPickedUp = new List<Evidence.EvidenceType>();
 
-    private void Awake()
+    private Dictionary<NPC, int> interactionsPerNpc;
+
+    private void Start()
     {
         // Singleton this
         if (Instance != null)
@@ -43,6 +45,21 @@ public class LogMaster : MonoBehaviour
         evidencesPickedUp.Add(evidenceType);
     }
 
+    public void RememberConversationStart()
+    {
+        // Create dictionary if first time
+        if (interactionsPerNpc == null)
+        {
+            interactionsPerNpc = new Dictionary<NPC, int>();
+            foreach (NPC lad in NPCGenerator.INSTANCE.NPCs)
+            {
+                interactionsPerNpc.Add(lad, 0);
+            }
+        }
+
+        interactionsPerNpc[PlayerController.instance.currentInteractable.transform.parent.GetComponent<NPC>()]++;
+    }
+
     public void AddLine(string line)
     {
         writer.WriteLine(line);
@@ -63,7 +80,10 @@ public class LogMaster : MonoBehaviour
 
         AddLine("");
         AddLine("--Cast--");
-        // List out all NPC names and roles
+        foreach (NPC lad in NPCGenerator.INSTANCE.NPCs)
+        {
+            AddLine($"{lad.NPCIdentity.Name} - {lad.NPCIdentity.Occupation}");
+        }
 
         AddLine("");
         AddLine("--Evidence--");
@@ -84,7 +104,10 @@ public class LogMaster : MonoBehaviour
 
         AddLine("");
         AddLine("--Interactions with NPCs--");
-        // List out num of interactions with each NPC
+        foreach(NPC lad in NPCGenerator.INSTANCE.NPCs)
+        {
+            AddLine($"{lad.NPCIdentity.Name}: {interactionsPerNpc[lad]}");
+        }
 
         AddLine("");
         AddLine("--Messages sent to NPCs--");

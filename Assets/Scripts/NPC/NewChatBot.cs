@@ -203,6 +203,7 @@ public class NewChatBot : MonoBehaviour
             playerTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().playerMessages[i], true, chatContainer);
             npcTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().npcMessages[i], false, chatContainer);
         }
+        LogMaster.Instance.RememberConversationStart();
         Start();
     }
 
