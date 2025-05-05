@@ -228,6 +228,8 @@ namespace Cutscene
         {
             Debug.Log("Cutscene done and finished");
 
+            cutsceneEndEvents?.Invoke();
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
@@ -235,9 +237,6 @@ namespace Cutscene
             GameStats.OnSetIntroPlayed();
             GameTimer.OnToggleTimer(true);
             Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.UncoverMurderer);
-
-
-            cutsceneEndEvents?.Invoke();
         }
     }
 }
