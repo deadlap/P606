@@ -112,7 +112,6 @@ public class NewChatBot : MonoBehaviour
         {
             _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
         }
-
         inputField.text = "";
     }
     /*
@@ -207,6 +206,7 @@ public class NewChatBot : MonoBehaviour
             playerTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().playerMessages[i], true, chatContainer);
             npcTextBubble = ChatBubble.Instance.CreateChatBubble(PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().npcMessages[i], false, chatContainer);
         }
+        RefreshContentSizeFitter();
         LogMaster.Instance.RememberConversationStart();
         Start();
     }
@@ -233,6 +233,7 @@ public class NewChatBot : MonoBehaviour
             AddTextToLog();
         }
         AllowInput();
+        RefreshContentSizeFitter();
         //if (piperTTS == null || npcMessage == "" || npcMessage == null) return;
         //piperTTS.OnInputSubmit(npcMessage);
         canExitChat = true;
@@ -281,6 +282,17 @@ public class NewChatBot : MonoBehaviour
             if (inputField.text.Trim() == "")
                 inputField.text = "";
         }
+    }
+
+    void RefreshContentSizeFitter()
+    {
+        chatContainer.GetComponent<ContentSizeFitter>().enabled = false;
+        Invoke(nameof(EnableContentSizeFitter), 0.1f);
+    }
+
+    private void EnableContentSizeFitter()
+    {
+        chatContainer.GetComponent<ContentSizeFitter>().enabled = true;
     }
 
     void UpdateScrollView()

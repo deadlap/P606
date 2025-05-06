@@ -86,7 +86,8 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
 
         bookManager.SetSelectedNPC(npc);
 
-        BookWriteChat.instance.ReplaceText(npcChatLog, personName);
+        //BookWriteChat.instance.ReplaceText(npcChatLog, personName);
+        BookWriteChat.instance.SpawnText(npcChatLog, personName);
     }
 
 
