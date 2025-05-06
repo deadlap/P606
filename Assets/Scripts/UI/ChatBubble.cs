@@ -13,7 +13,7 @@ public class ChatBubble : MonoBehaviour
     public Color fontColor = Color.white;
     public TMP_FontAsset font;
     public int fontSize = 20;
-    public int bubbleWidth = 430;
+    public int bubbleWidth = 350;
     public int bubbleHeight = 35;
     public Sprite sprite;
     GameObject chatBubblePrefab;
@@ -39,7 +39,6 @@ public class ChatBubble : MonoBehaviour
         chatBubble.GetComponent<RectTransform>().sizeDelta = new Vector2(400, bubbleHeight);
 
         HorizontalLayoutGroup hlgChatBubble = chatBubble.AddComponent<HorizontalLayoutGroup>();
-        hlgChatBubble.padding = isPlayerMessage ? new RectOffset(30, 0, 0, 0) : new RectOffset(-70, 0, 0, 0);
         hlgChatBubble.childAlignment = isPlayerMessage ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
         hlgChatBubble.childControlHeight = false;
         hlgChatBubble.childControlWidth = false;
@@ -54,7 +53,7 @@ public class ChatBubble : MonoBehaviour
         bubbleImage.GetComponent<RectTransform>().sizeDelta = new Vector2(bubbleWidth, bubbleHeight);
         bubbleImage.sprite = sprite;
         bubbleImage.type = Image.Type.Sliced;
-        bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(30, 30, 40, 100);
+        bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(30, 30, 25, 60);
         bubbleImage.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
         TMP_Text bubbleText = new GameObject($"{type} Text").AddComponent<TextMeshProUGUI>();

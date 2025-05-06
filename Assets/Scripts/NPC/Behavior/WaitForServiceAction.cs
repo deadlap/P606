@@ -13,9 +13,11 @@ public partial class WaitForServiceAction : Action
     [SerializeReference] public BlackboardVariable<Animator> Animator;
     [SerializeReference] public BlackboardVariable<Transform> CurrentPoint;
     [SerializeReference] public BlackboardVariable<PatrolArea> PatrolArea;
+    [SerializeReference] public BlackboardVariable<int> DrinkGuestCount;
     PatrolPoint patrolPoint;
     Transform currentPoint;
     bool pointGiven;
+    bool hasMadeOrder;
 
     protected override Status OnStart()
     {
@@ -25,6 +27,7 @@ public partial class WaitForServiceAction : Action
             return Status.Failure;
         }
         pointGiven = false;
+        hasMadeOrder = false;
         patrolPoint = CurrentPoint.Value.GetComponent<PatrolPoint>();
         return Status.Running;
     }
@@ -34,9 +37,14 @@ public partial class WaitForServiceAction : Action
         {
             if(PatrolArea.Value != null)
             {
+                if(patrolPoint.patrolPointIndex == 0 && !hasMadeOrder) 
+                { 
+                    DrinkGuestCount.Value++;
+                    hasMadeOrder = true;
+                }
                 if(patrolPoint.patrolPointIndex - 1 >= 0)
                 {
-                    if (!PatrolArea.Value.queuePoints[patrolPoint.patrolPointIndex - 1].GetComponent<PatrolPoint>().isReserved)
+                    if (!PatrolArea.Value.queuePoints[patrolPoint.patrolPointIndex - 1].GetComponent<PatrolPoint>().isReserved && !pointGiven)
                     {
                         currentPoint = PatrolArea.Value.FindPlaceInQueue(NavMeshAgent.Value.gameObject);
                         CurrentPoint.Value = currentPoint;
