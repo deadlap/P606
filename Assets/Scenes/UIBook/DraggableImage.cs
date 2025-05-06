@@ -4,8 +4,8 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Net.WebSockets;
 
+[RequireComponent(typeof(UIAudioSource))]
 public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerClickHandler
-
 {
     [SerializeField] private bool endlessSpawner = false;
     [SerializeField] private bool selfDestroying = false;
@@ -23,6 +23,8 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
     public float snapRadius = 50f;
     public float detachThreshold = 30f;
 
+    private UIAudioSource coolAudio;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -33,6 +35,8 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         if (currentSquare != null) currentSquare.AssignOccupant(this);
+
+        coolAudio = GetComponent<UIAudioSource>();
     }
 
 
@@ -114,6 +118,9 @@ public class DraggableImage : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
         if (closestSquare != null)
         {
+            // Since this is putting itself somewhere, play SFX
+            coolAudio.PlayRandomSound();
+
             if (selfDestroying)
             {
                 if (closestSquare.IsOccupied())

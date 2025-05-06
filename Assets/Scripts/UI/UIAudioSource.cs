@@ -4,6 +4,7 @@ using UnityEngine;
 public class UIAudioSource : MonoBehaviour
 {
     private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClips;
     [SerializeField, Range(0f, 1f)] private float pitchVariation = 0.1f;
     [SerializeField, Range(0f, 1f)] private float volumeVariation = 0.1f;
     [SerializeField] private bool playOnAwake = false;
@@ -21,10 +22,25 @@ public class UIAudioSource : MonoBehaviour
         audioSource.Stop();
     }
 
+    public void SetSettings(float pitch, float pitchVar, float vol, float volVar, bool onAwake, AudioClip[] clips)
+    {
+        startPitch = pitch;
+        pitchVariation = pitchVar;
+        startVolume = vol;
+        volumeVariation = volVar;
+        playOnAwake = onAwake;
+        audioClips = clips;
+    }
+
     private void OnEnable()
     {
         if (playOnAwake)
             PlaySound();
+    }
+
+    public void PlayRandomSound()
+    {
+        PlaySound(audioClips[Random.Range(0, audioClips.Length)]);
     }
 
     public void PlaySound(AudioClip clip = null)

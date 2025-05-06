@@ -29,6 +29,9 @@ public class LogMaster : MonoBehaviour
         }
         Instance = this;
 
+#if UNITY_EDITOR
+        alreadyFinishedLog = true;
+#else
         //Create file
         int logNum = 0;
 
@@ -44,6 +47,7 @@ public class LogMaster : MonoBehaviour
         Debug.Log($"Logging at {filePath}");
 
         writer = File.CreateText(filePath);
+#endif
     }
 
     public void RememberEvidenceForLog(Evidence.EvidenceType evidenceType)
