@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public GameObject currentInteractable = null;
     GameObject closestInteractable = null;
     [SerializeField] float interactFillTime = 0.5f;
-    Vector3 interactButtonOffset = new Vector3(0, 0.8f, 0);
+    Vector3 interactButtonOffset = new Vector3(0, 0, 0);
     Animator animator;
     [HideInInspector] public AudioSource audioSource;
     Vector2 moveDirection;
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
         if (closestInteractable == null) return;
         if(currentInteractButton != null) return;
         currentInteractButton = Instantiate(interactButtonPrefab, closestInteractable.transform.position, Quaternion.identity);
-        interactButtonFillImage = currentInteractButton.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+        interactButtonFillImage = currentInteractButton.transform.GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<Image>();
     }
 
     void SetInteractButtonPosition()
@@ -209,6 +209,7 @@ public class PlayerController : MonoBehaviour
         {
             if(closestInteractable.transform.parent.tag == "NPC")
             {
+                // Måske tilføj endnu en getchild her også? (ligesom linje 202)
                 currentInteractButton.transform.SetParent(closestInteractable.transform.parent.GetChild(0).GetChild(0));
             }
             else

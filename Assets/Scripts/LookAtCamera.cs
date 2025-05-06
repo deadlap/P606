@@ -13,7 +13,6 @@ public class LookAtCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 targetPosition = new Vector3(transform.position.x, cameraTf.position.y, transform.position.z);
-        transform.rotation = Quaternion.Euler(transform.rotation.x, Vector3.RotateTowards(transform.position, targetPosition, 20, 999).y, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, -cameraTf.rotation.eulerAngles.y, transform.rotation.z);
     }
 }
