@@ -50,7 +50,7 @@ public class ChatBubble : MonoBehaviour
         bubbleImage.GetComponent<RectTransform>().sizeDelta = new Vector2(bubbleWidth, bubbleHeight);
         bubbleImage.sprite = sprite;
         bubbleImage.type = Image.Type.Sliced;
-        bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(25, 25, 25, 60);
+        bubbleImage.AddComponent<HorizontalLayoutGroup>().padding = new RectOffset(25, 25, 25, 80);
         bubbleImage.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
         TMP_Text bubbleText = Instantiate(new GameObject($"{type} Text"), bubbleImage.transform).AddComponent<TextMeshProUGUI>();

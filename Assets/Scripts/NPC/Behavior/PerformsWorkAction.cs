@@ -22,7 +22,17 @@ public partial class PerformsWorkAction : Action
         {
             case "Chef":
                 VFX.Value.gameObject.transform.localPosition = new(0, 2.338f, 1.59f);
-                Animator.Value.Play("PreparingFood");
+                switch(UnityEngine.Random.Range(0, 2))
+                {
+                    case 0:
+                        Animator.Value.Play("PreparingFood");
+                        break;
+                    case 1:
+                        Animator.Value.Play("PreparingFood2");
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case "Waiter":
                 VFX.Value.gameObject.transform.localPosition = new(0, 2.338f, 1.59f);

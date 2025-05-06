@@ -14,7 +14,7 @@ public partial class ChooseMoodAction : Action
 
     protected override Status OnStart()
     {
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 5))
         {
             case 0:
                 MoodEnum.ObjectValue = 0;
@@ -27,6 +27,9 @@ public partial class ChooseMoodAction : Action
                 break;
             case 3:
                 MoodEnum.ObjectValue = 3;
+                break;
+            case 4:
+                MoodEnum.ObjectValue = 4;
                 break;
             default:
                 break;
