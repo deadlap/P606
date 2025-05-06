@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public GameObject currentInteractable = null;
     GameObject closestInteractable = null;
     [SerializeField] float interactFillTime = 0.5f;
-    [SerializeField] Vector3 interactButtonOffset = new Vector3(0, 2, 0);
+    Vector3 interactButtonOffset = new Vector3(0, 0.8f, 0);
     Animator animator;
     [HideInInspector] public AudioSource audioSource;
     Vector2 moveDirection;
@@ -207,8 +207,15 @@ public class PlayerController : MonoBehaviour
         if (closestInteractable == null) return;
         if (currentInteractButton != null)
         {
-            currentInteractButton.transform.SetParent(closestInteractable.transform);
-            currentInteractButton.transform.localPosition = interactButtonOffset;
+            if(closestInteractable.transform.parent.tag == "NPC")
+            {
+                currentInteractButton.transform.SetParent(closestInteractable.transform.parent.GetChild(0).GetChild(0));
+            }
+            else
+            {
+                currentInteractButton.transform.SetParent(closestInteractable.transform);
+            }
+        currentInteractButton.transform.localPosition = interactButtonOffset;
         }
     }
 
