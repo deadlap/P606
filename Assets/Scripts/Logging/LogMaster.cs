@@ -31,24 +31,20 @@ public class LogMaster : MonoBehaviour
 
 #if UNITY_EDITOR
         alreadyFinishedLog = true;
-#else
-        //Create file
-        int logNum = 0;
-
-        filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
-
-        // If file already exists, create another one
-        while (File.Exists(filePath))
-        {
-            logNum++;
-            filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
-        }
-
-        Debug.Log($"Logging at {filePath}");
-
-        writer = File.CreateText(filePath);
 #endif
     }
+
+    #region Subscribe to GameEnd
+    private void OnEnable()
+    {
+        Ending.EndGameEvent += SaveLogAsTxt;
+    }
+
+    private void OnDisable()
+    {
+        Ending.EndGameEvent -= SaveLogAsTxt;
+    }
+    #endregion
 
     public void RememberEvidenceForLog(Evidence.EvidenceType evidenceType)
     {
@@ -75,15 +71,27 @@ public class LogMaster : MonoBehaviour
         writer.WriteLine(line);
     }
 
-    private void OnDisable()
-    {
-        SaveLogAsTxt();
-    }
-
     public void SaveLogAsTxt()
     {
         if (alreadyFinishedLog) return;
         alreadyFinishedLog = true;
+
+        //Create file
+        int logNum = 0;
+
+        filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
+
+        // If file already exists, create another one
+        while (File.Exists(filePath))
+        {
+            logNum++;
+            filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
+        }
+
+        Debug.Log($"Logging at {filePath}");
+
+        writer = File.CreateText(filePath);
+
 
         AddLine("--General--");
         AddLine($"Game with victim \"{GameStats.INSTANCE.Victim.NPCIdentity.Name}\" and murderer \"{GameStats.INSTANCE.Murderer.NPCIdentity.Name}\"");
