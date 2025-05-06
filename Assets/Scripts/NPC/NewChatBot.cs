@@ -166,6 +166,7 @@ public class NewChatBot : MonoBehaviour
             phoneticSoundPlayer.audioSource.Stop();
         chatGraphics.SetActive(false);
         llmCharacter = null;
+        BookManager.instance.FreezeOrUnfreezeBook(false);
         CancelRequests();
     }
 
@@ -180,6 +181,9 @@ public class NewChatBot : MonoBehaviour
     {
         if(PlayerController.instance.currentInteractable.transform.parent == null) yield break;
         if(PlayerController.instance.currentInteractable.transform.parent.transform.tag != "NPC") yield break;
+
+        BookManager.instance.FreezeOrUnfreezeBook(true);
+
         if (chatContainer.childCount > 0)
         {
             for (int i = 0; i < chatContainer.childCount; i++)

@@ -37,6 +37,7 @@ public class Ending : MonoBehaviour
         if (PersonIdentification.SomeoneIsSelected == true)
         {
             Popup.SetActive(true);
+            bookManager.FreezeOrUnfreezeBook(true);
         }
         
        
@@ -65,6 +66,7 @@ public class Ending : MonoBehaviour
     public void HidePopup()
     {
         Popup.SetActive(false);
+        bookManager.FreezeOrUnfreezeBook(false);
     }
 
     public void TriggerEnding() {

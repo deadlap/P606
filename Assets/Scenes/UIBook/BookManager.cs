@@ -33,7 +33,20 @@ public class BookManager : MonoBehaviour
 
     public GameObject page3;
     public NPC SelectedNPC;
-    
+
+    public static BookManager instance { get; private set; }
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log($"There is more than one book manager, destroying {name}");
+            Destroy(this);
+            return;
+        }
+        instance = this;
+    }
+
     private void Start()
     {
         book.transform.localScale = targetScalebookShrink;
