@@ -113,14 +113,14 @@ public class Ending : MonoBehaviour
 
         newspaper.SetActive(true); 
         if(GameTimer.INSTANCE.IsTimeUp() || bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
-            endingText.text = "You didn't catch the killer. The case remains unsolved."; 
+            endingText.text = "Passenger Wrongfully Accused of Murder by Rookie Detective: Murderer Still on the Loose!"; 
             audioSourceBadEnding.Play(); 
         } else {
             if (GameStats.INSTANCE.EvidenceGathered == GameStats.INSTANCE.EvidenceToGather) {
-                endingText.text = "You caught the killer, and with enough evidence, they were convicted of the murder";
+                endingText.text = "Brilliant Detective Strikes Again: Murder Case Solved with Mountains of Evidence!";
                 audioSourceGoodEnding.Play();
             } else {
-                endingText.text = "You caught the killer, but you did not gather enough evidence for them to be convicted";
+                endingText.text = "Prime Suspect Escapes Justice: Lack of Evidence Sinks Case in Court!";
                 audioSourceMediumEnding.Play();
             }
         }
