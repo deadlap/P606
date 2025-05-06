@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -18,6 +19,10 @@ namespace Cutscene
 
     public class IntroCutsceneManager : MonoBehaviour
     {
+#if UNITY_EDITOR
+        [SerializeField] private bool skipCutscene = false;
+#endif
+
         [HideInInspector] public static IntroCutsceneManager instance;
         [SerializeField, Tooltip("Assign the cutscene variations here. In order of Crew, noChef, noWaiter, noJanitor, noBartender")] private TimelineAsset[] cutsceneTimelines; 
         [SerializeField, Tooltip("Who are the actors in the cutscene")] private CutscenePerson[] personel;
@@ -36,9 +41,7 @@ namespace Cutscene
         [SerializeField, Tooltip("Called when cutscene starts playing")] private UnityEvent cutsceneStartEvents;
         [SerializeField, Tooltip("Called when cutscene is done playing")] private UnityEvent cutsceneEndEvents;
 
-#if UNITY_EDITOR
-        [SerializeField] private bool skipCutscene = false;
-#endif
+        [SerializeField] private AudioMixer gameplayAudio;
 
         private void Awake()
         {
@@ -199,6 +202,9 @@ namespace Cutscene
             if (hasBegunCutscene) return;
             hasBegunCutscene = true;
 
+            // Mute non-cutscene stuff
+            gameplayAudio.SetFloat("gameplayVol", Mathf.Log10(0.0001f) * 20f);
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -232,6 +238,9 @@ namespace Cutscene
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
+
+            // Make non-cutscene stuff play audio again
+            gameplayAudio.SetFloat("gameplayVol", Mathf.Log10(1f) * 20f);
 
             // Ting Lucas vil have sker
             GameStats.OnSetIntroPlayed();

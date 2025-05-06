@@ -95,7 +95,13 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 58e115256f698f34293719564b2b6994
+    name: cutsceneVol
+  - guid: 869ac0c4ae527b44882828b58e481e56
+    name: gameplayVol
+  - guid: 35fbf06175fecbe478b8b72c39937530
+    name: masterVol
   m_AudioMixerGroupViews:
   - guids:
     - e5579fcdc8b45a44697ad46d57fedd48
