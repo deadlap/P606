@@ -6,6 +6,7 @@ using RoomFocusing;
 using System.Collections.Generic;
 using System;
 using Unity.Behavior;
+using UnityEngine.VFX;
 
 
 public class NPC : MonoBehaviour {
@@ -45,6 +46,8 @@ public class NPC : MonoBehaviour {
             isDead = true;
             Invoke("RemoveTag",0.5f);
             GetComponentInChildren<Animator>().Play("Dead");
+            transform.Find("ActionVFX").GetComponent<VisualEffect>().Stop();
+            GetComponent<CapsuleCollider>().enabled = false;
         }
         var accessory_hat = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()+"Hat") as GameObject;
         if (accessory_hat != null)
