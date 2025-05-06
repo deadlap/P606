@@ -74,6 +74,7 @@ public partial class PatrolOccupationAreaAction : Action
 
         if (!NavMeshAgent.Value.pathPending)
         {
+            if (CurrentPoint.Value == null) return Status.Failure;
             if (NavMeshAgent.Value.remainingDistance <= 1.5f &&    
                 CurrentPoint.Value.GetComponent<PatrolPoint>() != null && 
                 CurrentPoint.Value.GetComponent<PatrolPoint>().isSeat && 

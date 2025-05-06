@@ -432,12 +432,12 @@ MonoBehaviour:
   port: 13333
   numThreads: -1
   numGPULayers: 30
-  debug: 1
+  debug: 0
   parallelPrompts: -1
   dontDestroyOnLoad: 1
   contextSize: 16384
   batchSize: 512
-  model: Hermes-3-Llama-3.2-3B.Q4_K_M.gguf
+  model: Hermes-3-Llama-3.2-3B.Q8_0.gguf
   chatTemplate: chatml
   lora: 
   loraWeights: 
@@ -1686,6 +1686,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 639597135}
     m_Modifications:
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1299466130414847250, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_text
       value: A useful question to determine the passengers' identities.
@@ -5834,6 +5846,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2005509270348044467, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
+      propertyPath: usingRagData
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2058255985907820914, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -5857,6 +5873,14 @@ PrefabInstance:
     - target: {fileID: 2818600903594984806, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818600903594984806, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818600903594984806, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.4999995
       objectReference: {fileID: 0}
     - target: {fileID: 2998525120734145746, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_IsActive
@@ -6052,7 +6076,7 @@ PrefabInstance:
       objectReference: {fileID: -7163002938430897749, guid: abf54d2908672294d896f596f4c18aea, type: 2}
     - target: {fileID: 7347592255353338872, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_TextWrappingMode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7347592255353338872, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -11163,6 +11187,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 639597135}
     m_Modifications:
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1299466130414847250, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_text
       value: A useful question to determine the passenger's relation to the other
@@ -11486,6 +11522,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917285875151940605, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 60.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917285875151940605, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.22
+      objectReference: {fileID: 0}
     - target: {fileID: 6440162135946315769, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -11545,6 +11589,18 @@ PrefabInstance:
     - target: {fileID: 7253084467433359845, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
       propertyPath: m_CastShadows
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538063326582943264, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538063326582943264, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+      propertyPath: MaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538063326582943264, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+      propertyPath: MinDistance
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7538063326582943264, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -11918,10 +11974,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 639597135}
     m_Modifications:
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013084668365750195, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1299466130414847250, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_text
-      value: A question to determine the passengers' whereabouts on the ship. Useful
-        for cross-referencing in the notebook.
+      value: 'A useful question to determine the passengers'' whereabouts on the
+        ship. '
       objectReference: {fileID: 0}
     - target: {fileID: 1607600305587955980, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_Pivot.x
@@ -22595,7 +22663,7 @@ MonoBehaviour:
   fontColor: {r: 1, g: 1, b: 1, a: 1}
   font: {fileID: 11400000, guid: abf54d2908672294d896f596f4c18aea, type: 2}
   fontSize: 20
-  bubbleWidth: 350
+  bubbleWidth: 430
   bubbleHeight: 35
   sprite: {fileID: 21300000, guid: c74671eed6a4dcd4499c671358b2cd5f, type: 3}
 --- !u!4 &1745145126
@@ -23927,7 +23995,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2156821642178072084, guid: 6e03012e2775b1449bd106fc7e91ef06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -25796,6 +25865,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025450581}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2027893210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027893213}
+  - component: {fileID: 2027893212}
+  - component: {fileID: 2027893211}
+  m_Layer: 0
+  m_Name: AudioListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2027893211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027893210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eac7520977cde14994d1f6508d1e68f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!81 &2027893212
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027893210}
+  m_Enabled: 1
+--- !u!4 &2027893213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027893210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 34.006763, y: 4.862926, z: 12.485004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &2032122666
 GameObject:
   m_ObjectHideFlags: 0
@@ -33832,7 +33954,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 214208645176647304, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 699043276877223103, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
       propertyPath: WaxStamp
@@ -34127,6 +34249,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5378652258854299530, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7793516717418251599, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
       propertyPath: m_Name
       value: Timer
@@ -34376,3 +34502,4 @@ SceneRoots:
   - {fileID: 5529195394887820018}
   - {fileID: 275687417}
   - {fileID: 1311620907}
+  - {fileID: 2027893213}
