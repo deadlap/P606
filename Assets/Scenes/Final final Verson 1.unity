@@ -435,7 +435,7 @@ MonoBehaviour:
   debug: 1
   parallelPrompts: -1
   dontDestroyOnLoad: 1
-  contextSize: 8192
+  contextSize: 16384
   batchSize: 512
   model: Hermes-3-Llama-3.2-3B.Q4_K_M.gguf
   chatTemplate: chatml
@@ -1686,6 +1686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 639597135}
     m_Modifications:
+    - target: {fileID: 1299466130414847250, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_text
+      value: A useful question to determine the passengers' identities.
+      objectReference: {fileID: 0}
     - target: {fileID: 1607600305587955980, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5877,6 +5881,10 @@ PrefabInstance:
     - target: {fileID: 3500418420973570124, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828653334302146987, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
+      propertyPath: m_text
+      value: Who do you know?
       objectReference: {fileID: 0}
     - target: {fileID: 4148548206111220879, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_SizeDelta.y
@@ -11155,6 +11163,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 639597135}
     m_Modifications:
+    - target: {fileID: 1299466130414847250, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_text
+      value: A useful question to determine the passenger's relation to the other
+        passengers on the ship.
+      objectReference: {fileID: 0}
     - target: {fileID: 1607600305587955980, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11905,6 +11918,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 639597135}
     m_Modifications:
+    - target: {fileID: 1299466130414847250, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
+      propertyPath: m_text
+      value: A question to determine the passengers' whereabouts on the ship. Useful
+        for cross-referencing in the notebook.
+      objectReference: {fileID: 0}
     - target: {fileID: 1607600305587955980, guid: 77b1ed3731dedd745b53ebf581646ce1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16024,6 +16042,10 @@ PrefabInstance:
     - target: {fileID: 2889974680495546472, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -225
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038206301399824682, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3277596374712267793, guid: a3e54895fdb47a542b291001c07fa7ab, type: 3}
       propertyPath: m_AnchorMax.y
@@ -33810,7 +33832,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 214208645176647304, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 699043276877223103, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
       propertyPath: WaxStamp
@@ -33963,6 +33985,10 @@ PrefabInstance:
     - target: {fileID: 3834144483312599858, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210470787762833682, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
+      propertyPath: m_text
+      value: The murderer on the S.S Karnak was
       objectReference: {fileID: 0}
     - target: {fileID: 4232688872312208676, guid: 35a0954cf4fe7174d9897252fd96c990, type: 3}
       propertyPath: m_SizeDelta.x
