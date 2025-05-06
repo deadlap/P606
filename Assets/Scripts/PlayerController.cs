@@ -85,6 +85,11 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Interact(context));
     }
 
+    public void FreezePlayer(bool freeze)
+    {
+        canPlayerAct = !freeze;
+    }
+
     void Move()
     {
         if (!canPlayerAct) return;

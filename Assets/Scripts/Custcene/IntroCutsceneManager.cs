@@ -205,6 +205,9 @@ namespace Cutscene
             // Mute non-cutscene stuff
             gameplayAudio.SetFloat("gameplayVol", Mathf.Log10(0.0001f) * 20f);
 
+            // Stop player from moving
+            PlayerController.instance.FreezePlayer(true);
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -241,6 +244,9 @@ namespace Cutscene
 
             // Make non-cutscene stuff play audio again
             gameplayAudio.SetFloat("gameplayVol", Mathf.Log10(1f) * 20f);
+
+            // Make player move again
+            PlayerController.instance.FreezePlayer(false);
 
             // Ting Lucas vil have sker
             GameStats.OnSetIntroPlayed();
