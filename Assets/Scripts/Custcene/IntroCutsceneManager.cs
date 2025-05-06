@@ -30,6 +30,8 @@ namespace Cutscene
         [SerializeField, Tooltip("What are the hat prefabs, in order of Identity.Occupations")] private GameObject[] hats;
         [SerializeField, Tooltip("What do they carry, in order of Identity.Occupations")] private GameObject[] carriables;
 
+        [SerializeField] private Material evidenceOutline;
+
         private CutsceneVariations cutsceneVariation = CutsceneVariations.crewAlive;
 
         private List<CutsceneNPCInfo> people = new List<CutsceneNPCInfo>();
@@ -52,6 +54,9 @@ namespace Cutscene
             instance = this;
 
             theDirector = GetComponent<PlayableDirector>();
+
+            // Disable evidence outline
+            evidenceOutline.SetFloat("_Enable_Outline", 0f);
         }
 
         #region Starts through interaction
@@ -247,6 +252,9 @@ namespace Cutscene
 
             // Make player move again
             PlayerController.instance.FreezePlayer(false);
+
+            // Enable evidence outline
+            evidenceOutline.SetFloat("_Enable_Outline", 1f);
 
             // Ting Lucas vil have sker
             GameStats.OnSetIntroPlayed();
