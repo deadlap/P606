@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class BookManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class BookManager : MonoBehaviour
 
     public GameObject page3;
     public NPC SelectedNPC;
+
+    public static event Action<bool> bookOpenClose;
 
     public static BookManager instance { get; private set; }
 
@@ -81,6 +84,9 @@ public class BookManager : MonoBehaviour
     public void OpenOrCloseBook()
     {
         if (istransitioning) return;
+
+        if (bookOpenClose != null)
+            bookOpenClose(!book.activeSelf);
 
         if (!book.activeSelf)
         {

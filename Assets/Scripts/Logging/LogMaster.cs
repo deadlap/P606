@@ -18,6 +18,11 @@ public class LogMaster : MonoBehaviour
 
     private bool alreadyFinishedLog = false;
 
+    private float bookUseDuration;
+    private float lastBookOpen = 0f;
+    private bool bookIsOpen = false;
+    private int bookOpenTimes = 0;
+
     private void Start()
     {
         // Singleton this
@@ -34,15 +39,17 @@ public class LogMaster : MonoBehaviour
 #endif
     }
 
-    #region Subscribe to GameEnd
+    #region Subscribe to GameEnd and BookOpen
     private void OnEnable()
     {
         Ending.EndGameEvent += SaveLogAsTxt;
+        BookManager.bookOpenClose += BookChangedState;
     }
 
     private void OnDisable()
     {
         Ending.EndGameEvent -= SaveLogAsTxt;
+        BookManager.bookOpenClose -= BookChangedState;
     }
     #endregion
 
@@ -64,6 +71,19 @@ public class LogMaster : MonoBehaviour
         }
 
         interactionsPerNpc[PlayerController.instance.currentInteractable.transform.parent.GetComponent<NPC>()]++;
+    }
+
+    private void BookChangedState(bool openNow)
+    {
+        Debug.Log($"Got told that book is {(openNow ? "open" : "closed")}");
+        if (openNow)
+        {
+            lastBookOpen = Time.time;
+            bookOpenTimes++;
+        }
+        else
+            bookUseDuration += Time.time - lastBookOpen;
+        bookIsOpen = openNow;
     }
 
     public void AddLine(string line)
@@ -136,6 +156,14 @@ public class LogMaster : MonoBehaviour
         {
             AddLine($"{chat.name} messages sent: {chat.playerMessages.Count}");
         }
+
+        AddLine("");
+        AddLine("--Book Usage--");
+        AddLine($"Book was opened a total of {bookOpenTimes} times");
+        if (bookIsOpen)
+            BookChangedState(false);
+        AddLine($"Book was open for {bookUseDuration} seconds");
+
         writer.Close();
     }
 }
