@@ -21,6 +21,7 @@ public class Ending : MonoBehaviour
 
     public BookManager bookManager; // Reference to the BookManager script
     public TextMeshProUGUI endingText; // Reference to the TextMeshProUGUI component for the ending text
+    [SerializeField] private TextMeshProUGUI whoMurdererText;
 
     public Graphic blackScreenGraphic;
     public GameObject blackScreenImage; // Reference to the black screen image GameObject
@@ -124,6 +125,8 @@ public class Ending : MonoBehaviour
                 audioSourceMediumEnding.Play();
             }
         }
+
+        whoMurdererText.text = string.Format(whoMurdererText.text, GameStats.INSTANCE.Murderer.NPCIdentity.Name);
 
     }
 }
