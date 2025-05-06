@@ -50,6 +50,13 @@ public class UIAudioSource : MonoBehaviour
         audioSource.Play();
     }
 
+    public void PlaySound(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        RandomisePitchVol();
+        audioSource.Play();
+    }
+
     private void RandomisePitchVol()
     {
         audioSource.pitch = startPitch + Random.Range(0f, pitchVariation) - 0.5f * pitchVariation;
