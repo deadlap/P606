@@ -24,6 +24,7 @@ public class WorldEvidence : MonoBehaviour {
         EvidenceDisplayManager.OnShowEvidenceEvent(evidenceType);
         Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.NewEvidence); // Update the objective text
         LogMaster.Instance.RememberEvidenceForLog(evidenceType); // Make LogMaster know of this evidence
+        PlayerController.instance.audioSource.Play();
         Destroy(this.gameObject, 0.5f);
     }
 }

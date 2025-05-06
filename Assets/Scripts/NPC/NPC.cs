@@ -47,7 +47,7 @@ public class NPC : MonoBehaviour {
             Invoke("RemoveTag",0.5f);
             GetComponentInChildren<Animator>().Play("Dead");
             transform.Find("ActionVFX").GetComponent<VisualEffect>().Stop();
-            GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<CapsuleCollider>().isTrigger = true;
         }
         var accessory_hat = Resources.Load<GameObject>("Accessories/"+NPCIdentity.Occupation.ToString()+"Hat") as GameObject;
         if (accessory_hat != null)

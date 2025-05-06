@@ -18,6 +18,7 @@ public partial class PerformsWorkAction : Action
     protected override Status OnStart()
     {
         IsWorking.Value = true;
+        VFX.Value.enabled = true;
         switch (Occupation.Value)
         {
             case "Chef":

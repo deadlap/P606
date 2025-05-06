@@ -95,7 +95,7 @@ public class LogMaster : MonoBehaviour
 
         AddLine("--General--");
         AddLine($"Game with victim \"{GameStats.INSTANCE.Victim.NPCIdentity.Name}\" and murderer \"{GameStats.INSTANCE.Murderer.NPCIdentity.Name}\"");
-        AddLine($"Player got ending: {(GameTimer.INSTANCE.IsTimeUp() ? "Wrong killer" : (Ending.instance.bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer ? "Wrong killer" : "Correct killer"))}");
+        AddLine($"Player got ending: {(GameTimer.INSTANCE.IsTimeUp() ? "Time's up" : (Ending.instance.bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer ? "Wrong killer" : "Correct killer"))}");
         AddLine($"Player accused NPC: {(GameTimer.INSTANCE.IsTimeUp() ? "No-one/Timed out ending" : Ending.instance.bookManager.SelectedNPC.NPCIdentity.Name)}");
         AddLine($"Time left: {GameTimer.INSTANCE.GetTimeLeft()}");
 
@@ -108,7 +108,7 @@ public class LogMaster : MonoBehaviour
 
         AddLine("");
         AddLine("--Evidence--");
-        AddLine($"Player got {GameStats.INSTANCE.EvidenceToGather} pieces of evidence");
+        AddLine($"Player got {GameStats.INSTANCE.EvidenceGathered} pieces of evidence");
         string evidenceText = "No evidence gathered";
         if (GameStats.INSTANCE.EvidenceToGather > 0)
         {

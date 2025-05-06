@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float interactFillTime = 0.5f;
     [SerializeField] Vector3 interactButtonOffset = new Vector3(0, 2, 0);
     Animator animator;
-    
+    [HideInInspector] public AudioSource audioSource;
     Vector2 moveDirection;
     void Awake()
     {
@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning("PlayerController: No Animator component found on the player object.");
         else
             animator = GetComponentInChildren<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
 
 #if UNITY_EDITOR
         // Double movespeed in the editor
