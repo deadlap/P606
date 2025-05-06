@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Audio;
 
 public class Ending : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Ending : MonoBehaviour
     [SerializeField] AudioSource audioSourceGoodEnding; // Reference to the AudioSource component
     [SerializeField] AudioSource audioSourceMediumEnding; // Reference to the AudioSource component for the neutral ending
     [SerializeField] AudioSource audioSourceBadEnding; // Reference to the AudioSource component for the bad ending
+    [SerializeField] private AudioMixer gameplayAudio;
 
     public static event Action EndGameEvent;
     public static void OnEndGameEvent() => EndGameEvent?.Invoke();
@@ -77,6 +79,14 @@ public class Ending : MonoBehaviour
 
         WaxStamp.SetActive(true); // Show the wax stamp
         blackScreen.SetActive(true); // Show the black screen
+
+        // Mute non-cutscene/ending stuff
+        gameplayAudio.SetFloat("gameplayVol", Mathf.Log10(0.0001f) * 20f);
+
+        // Stop player from moving
+        PlayerController.instance.FreezePlayer(true);
+
+
         StartCoroutine(StartEnding());
 
     }
