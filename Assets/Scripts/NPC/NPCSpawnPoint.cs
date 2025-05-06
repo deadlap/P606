@@ -14,7 +14,7 @@ public class NPCSpawnPoint : MonoBehaviour {
             name = "Detective's Cabin";
         else
         {
-            OccupationTag.ToString().Replace("_", " ");
+            name.ToString().Replace("_", " ");
             name = $"{OccupationTag.ToString()}'s Cabin";
         }
     }
