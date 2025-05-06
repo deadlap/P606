@@ -77,7 +77,7 @@ public class Ending : MonoBehaviour
     public void BeginEnding(){
         Popup.SetActive(false);
 
-        WaxStamp.SetActive(true); // Show the wax stamp
+        // WaxStamp.SetActive(true); // Show the wax stamp
         blackScreen.SetActive(true); // Show the black screen
 
         // Mute non-cutscene/ending stuff
