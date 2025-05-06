@@ -126,7 +126,7 @@ public class Ending : MonoBehaviour
             }
         }
 
-        whoMurdererText.text = string.Format(whoMurdererText.text, GameStats.INSTANCE.Murderer.NPCIdentity.Name);
+        whoMurdererText.text = string.Format(whoMurdererText.text, $"{GameStats.INSTANCE.Murderer.NPCIdentity.Name} the {GameStats.INSTANCE.Murderer.NPCIdentity.Occupation}");
 
     }
 }

@@ -25,6 +25,7 @@ public class SceneLoadScript : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.LogError("GAME QUIT");
         Application.Quit();
     }
 }
