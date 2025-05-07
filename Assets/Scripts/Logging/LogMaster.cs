@@ -99,14 +99,27 @@ public class LogMaster : MonoBehaviour
         //Create file
         int logNum = 0;
 
-        filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
+        string myDataPath = Application.dataPath;
+        for (int i = myDataPath.Length - 1; i >= 0; i--)
+        {
+            if (myDataPath[i] == '/' || myDataPath[i] == '\\')
+            {
+                myDataPath = myDataPath.Remove(i);
+                return;
+            }
+        }
+
+        filePath = Path.Combine(myDataPath, fileName + "_" + logNum + ".txt");
 
         // If file already exists, create another one
         while (File.Exists(filePath))
         {
             logNum++;
-            filePath = Path.Combine(Application.dataPath, fileName + "_" + logNum + ".txt");
+            filePath = Path.Combine(myDataPath, fileName + "_" + logNum + ".txt");
+
         }
+
+        Debug.Log($"Got {Application.dataPath}, using {myDataPath}");
 
         Debug.Log($"Logging at {filePath}");
 
