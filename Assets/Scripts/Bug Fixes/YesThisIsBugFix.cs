@@ -10,7 +10,7 @@ public class YesThisIsBugFix : MonoBehaviour
         theBugToBeFixed++;
         if (theBugToBeFixed == 10)
         {
-            GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
             theBugToBeFixed -= 10;
         }
     }
