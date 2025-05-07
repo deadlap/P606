@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         playerInput.actions["Move"].canceled -= OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
-        playerInput.actions["Interact"].canceled -= OnInteract;
+        playerInput.actions["Interact"].performed -= OnInteract;
         playerInput.actions["Esc"].canceled -= OnEsc;
         PlayerInputEvent.EnterDialog -= () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog -= () => canPlayerAct = true;
