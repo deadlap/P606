@@ -50,6 +50,7 @@ public class NewChatBot : MonoBehaviour
         inputField.onValueChanged.AddListener(OnValueChanged);
         inputField.onSelect.AddListener(InputFieldSelected);
         chatButton.onClick.AddListener(InputFieldDeselected);
+        PlayerInputEvent.CloseUI += InputFieldDeselected;
         PlayerInputEvent.PlayerInteract += UpdateChat;
     }
 
@@ -59,6 +60,7 @@ public class NewChatBot : MonoBehaviour
         inputField.onValueChanged.RemoveListener(OnValueChanged);
         inputField.onSelect.RemoveListener(InputFieldSelected);
         chatButton.onClick.RemoveListener(InputFieldDeselected);
+        PlayerInputEvent.CloseUI -= InputFieldDeselected;
         PlayerInputEvent.PlayerInteract -= UpdateChat;
     }
     
@@ -213,7 +215,7 @@ public class NewChatBot : MonoBehaviour
 
     public void WarmUpCallback()
     {
-        placeholder.text = $"Ask {llmCharacter.AIName} something...";
+        placeholder.text = $"Write a question to {llmCharacter.AIName}...";
         AllowInput();
     }
 

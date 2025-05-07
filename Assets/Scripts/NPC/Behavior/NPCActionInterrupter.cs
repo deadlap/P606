@@ -46,6 +46,7 @@ public class NPCActionInterrupter : MonoBehaviour
 
     void Resume()
     {
+        if (PlayerController.instance.currentInteractable == null) return;
         if (PlayerController.instance.currentInteractable.transform.parent == null) return;
         if (PlayerController.instance.currentInteractable.transform.parent.gameObject != gameObject) return;
         behaviorGraphAgent.enabled = true;

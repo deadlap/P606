@@ -13,11 +13,13 @@ public class CoolMouseSFX : MonoBehaviour
 
     void OnEnable()
     {
+        if(playerInput == null) return;
         playerInput.actions["Click"].performed += DoMouseSound;
     }
 
     void OnDisable()
     {
+        if (playerInput == null) return;
         playerInput.actions["Click"].performed -= DoMouseSound;
     }
 

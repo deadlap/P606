@@ -58,15 +58,17 @@ public class PlayerController : MonoBehaviour
         playerInput.actions["Move"].performed += OnMove;
         playerInput.actions["Move"].canceled += OnMove;
         playerInput.actions["Interact"].performed += OnInteract;
+        playerInput.actions["Esc"].performed += OnEsc;
         PlayerInputEvent.EnterDialog += () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog += () => canPlayerAct = true;
     }
 
     void OnDisable()
     {
-        playerInput.actions["Move"].performed -= OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
-        playerInput.actions["Interact"].performed -= OnInteract;
+        playerInput.actions["Move"].canceled -= OnMove;
+        playerInput.actions["Interact"].canceled -= OnInteract;
+        playerInput.actions["Esc"].canceled -= OnEsc;
         PlayerInputEvent.EnterDialog -= () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog -= () => canPlayerAct = true;
     }
@@ -87,6 +89,10 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Interact(context));
     }
 
+    void OnEsc(InputAction.CallbackContext context)
+    {
+        PlayerInputEvent.OnCloseUI();
+    }
     public void FreezePlayer(bool freeze)
     {
         canPlayerAct = !freeze;

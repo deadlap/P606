@@ -242,6 +242,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 09e4bb21-9c38-4de0-9906-d9ef149da807
+    m_ActionName: 'Player/Click[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -262,8 +266,7 @@ MonoBehaviour:
   movementSpeed: 5.8
   interactButtonPrefab: {fileID: 392154265601354612, guid: 718572254ae65524e8272aa527f24885, type: 3}
   currentInteractable: {fileID: 0}
-  interactFillTime: 0.3
-  interactButtonOffset: {x: 0, y: 2.5, z: 0}
+  interactFillTime: 0.1
   audioSource: {fileID: 0}
 --- !u!82 &3786066731063004480
 AudioSource:

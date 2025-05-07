@@ -11,4 +11,7 @@ public class PlayerInputEvent : MonoBehaviour
 
     public static event Action ExitDialog;
     public static void OnExitDialog() => ExitDialog?.Invoke();
+
+    public static event Action CloseUI;
+    public static void OnCloseUI() => CloseUI?.Invoke();
 }

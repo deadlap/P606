@@ -50,6 +50,15 @@ public class BookManager : MonoBehaviour
         instance = this;
     }
 
+    private void OnEnable()
+    {
+        PlayerInputEvent.CloseUI += CloseBook;
+    }
+
+    private void OnDisable()
+    {
+        PlayerInputEvent.CloseUI += CloseBook;
+    }
     private void Start()
     {
         book.transform.localScale = targetScalebookShrink;
@@ -79,6 +88,14 @@ public class BookManager : MonoBehaviour
     public void FreezeOrUnfreezeBook(bool freeze)
     {
         openWithQ = !freeze;
+    }
+
+    void CloseBook()
+    {
+        if (book.activeSelf)
+        {
+            OpenOrCloseBook();
+        }
     }
 
     public void OpenOrCloseBook()
