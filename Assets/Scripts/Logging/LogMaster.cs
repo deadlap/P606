@@ -105,7 +105,7 @@ public class LogMaster : MonoBehaviour
             if (myDataPath[i] == '/' || myDataPath[i] == '\\')
             {
                 myDataPath = myDataPath.Remove(i);
-                return;
+                break;
             }
         }
 
