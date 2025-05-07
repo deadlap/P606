@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class YesThisIsBugFix : MonoBehaviour
 {
-    private int theBugToBeFixed = 0;
+    private uint theBugToBeFixed = 0;
 
     public void DoTheFixing()
     {
@@ -11,6 +11,7 @@ public class YesThisIsBugFix : MonoBehaviour
         if (theBugToBeFixed == 10)
         {
             GetComponent<AudioSource>().Play();
+            theBugToBeFixed -= 10;
         }
     }
 }
