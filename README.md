@@ -43,6 +43,8 @@ chop .mp3 by FairCashew -- https://freesound.org/s/684856/ -- License: Creative 
 
 frying.loop.ogg by xUMR -- https://freesound.org/s/478655/ -- License: Creative Commons 0
 
+cow mooing loudly.mp3 by LazyChillZone -- https://pixabay.com/sound-effects/cow-mooing-loudly-223546/ -- License: Pixabay Content License
+
 barshake by llupo2 -- https://freesound.org/s/723384/ -- License: Attribution 4.0
 
 Broom 1.mp3 by Hope-Sounds -- https://freesound.org/s/500023/ -- License: Creative Commons 0
