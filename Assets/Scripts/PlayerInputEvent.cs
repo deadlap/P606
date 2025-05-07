@@ -14,4 +14,7 @@ public class PlayerInputEvent : MonoBehaviour
 
     public static event Action CloseUI;
     public static void OnCloseUI() => CloseUI?.Invoke();
+
+    public static event Action NotebookToggle;
+    public static void OnNotebookToggle() => NotebookToggle?.Invoke();
 }

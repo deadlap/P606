@@ -53,11 +53,13 @@ public class BookManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerInputEvent.CloseUI += CloseBook;
+        PlayerInputEvent.NotebookToggle += OpenOrCloseBook;
     }
 
     private void OnDisable()
     {
         PlayerInputEvent.CloseUI += CloseBook;
+        PlayerInputEvent.NotebookToggle -= OpenOrCloseBook;
     }
     private void Start()
     {
@@ -72,17 +74,17 @@ public class BookManager : MonoBehaviour
 
     private void Update()
     {
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-        
+        //float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scrollInput > 0f)
-            ScrollUp();
-        else if (scrollInput < 0f)
-            ScrollDown();
 
-        if (Input.GetKeyDown(KeyCode.Q) && openWithQ) {
-            OpenOrCloseBook();
-        }
+        //if (scrollInput > 0f)
+        //    ScrollUp();
+        //else if (scrollInput < 0f)
+        //    ScrollDown();
+
+        //if (Input.GetKeyDown(KeyCode.Q) && openWithQ) { //erstattet af PlayerInputEvent i OnEnable og OnDisable
+        //    OpenOrCloseBook();
+        //}
     }
 
     public void FreezeOrUnfreezeBook(bool freeze)

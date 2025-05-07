@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
         playerInput.actions["Move"].canceled += OnMove;
         playerInput.actions["Interact"].performed += OnInteract;
         playerInput.actions["Esc"].performed += OnEsc;
+        playerInput.actions["NotebookToggle"].performed += OnNotebookToggle;
         PlayerInputEvent.EnterDialog += () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog += () => canPlayerAct = true;
     }
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
         playerInput.actions["Move"].canceled -= OnMove;
         playerInput.actions["Interact"].performed -= OnInteract;
         playerInput.actions["Esc"].canceled -= OnEsc;
+        playerInput.actions["NotebookToggle"].canceled -= OnNotebookToggle;
         PlayerInputEvent.EnterDialog -= () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog -= () => canPlayerAct = true;
     }
@@ -92,6 +94,11 @@ public class PlayerController : MonoBehaviour
     void OnEsc(InputAction.CallbackContext context)
     {
         PlayerInputEvent.OnCloseUI();
+    }
+
+    void OnNotebookToggle(InputAction.CallbackContext context)
+    {
+        PlayerInputEvent.OnNotebookToggle();
     }
     public void FreezePlayer(bool freeze)
     {
