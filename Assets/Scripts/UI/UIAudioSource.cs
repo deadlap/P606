@@ -45,6 +45,8 @@ public class UIAudioSource : MonoBehaviour
 
     public void PlaySound(AudioClip clip = null)
     {
+        if(clip == null && audioClips.Length > 0)
+            clip = audioClips[Random.Range(0, audioClips.Length)];
         audioSource.clip = clip == null ? audioSource.clip : clip;
         RandomisePitchVol();
         audioSource.Play();

@@ -50,7 +50,7 @@ public class PatrolArea : MonoBehaviour
         for (int i = 0; i < patrolPoints.Count; i++)
         {
             var patrolPoint = patrolPoints[i].GetComponent<PatrolPoint>();
-            if (!patrolPoint.isReserved && 
+            if (!patrolPoint.occupant && 
                 !availablePoints.Contains(patrolPoints[i]))
             {
                 availablePoints.Add(patrolPoints[i]);
@@ -58,7 +58,6 @@ public class PatrolArea : MonoBehaviour
         }
         if (availablePoints.Count == 0) return RandomPatrolPoint();
         var randomPosition = availablePoints[Random.Range(0, availablePoints.Count)].GetComponent<PatrolPoint>();
-        randomPosition.isReserved = true;
         randomPosition.isBeingServed = false;
         randomPosition.hasBeenServed = false;
         randomPosition.occupant = occupant;
@@ -95,9 +94,8 @@ public class PatrolArea : MonoBehaviour
             }
             var patrolPoint = patrolPoints[i].GetComponent<PatrolPoint>();
             patrolPoint.patrolPointIndex = i;
-            if (!patrolPoint.isReserved)
+            if (patrolPoint.occupant == null)
             {
-                patrolPoint.isReserved = true;
                 patrolPoint.occupant = occupant;
                 return patrolPoints[i];
             }

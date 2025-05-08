@@ -25,7 +25,7 @@ public class BookManager : MonoBehaviour
 
     public GameObject areYouSurePopup;
 
-    [HideInInspector, Tooltip("Whether the book opens when pressing Q or not")] public bool openWithQ = true;
+    //[HideInInspector, Tooltip("Whether the book opens when pressing Q or not")] public bool openWithQ = true;
 
     public GameObject book;
 
@@ -87,13 +87,14 @@ public class BookManager : MonoBehaviour
         //}
     }
 
-    public void FreezeOrUnfreezeBook(bool freeze)
-    {
-        openWithQ = !freeze;
-    }
+    //public void FreezeOrUnfreezeBook(bool freeze)
+    //{
+    //    openWithQ = !freeze;
+    //}
 
     void CloseBook()
     {
+        if (book == null) return;
         if (book.activeSelf)
         {
             OpenOrCloseBook();
@@ -102,6 +103,8 @@ public class BookManager : MonoBehaviour
 
     public void OpenOrCloseBook()
     {
+        if(PlayerInputEvent.escMenuOpen) return; // Prevents the menu from opening if another UI is open
+        PlayerInputEvent.isUIOpen = true;
         if (istransitioning) return;
 
         if (bookOpenClose != null)
@@ -110,13 +113,10 @@ public class BookManager : MonoBehaviour
         if (!book.activeSelf)
         {
             book.SetActive(true);
-
-
             StartCoroutine(EnlargeBookCoroutine(book.transform, targetScalebook, shrinkDuration));
         }
         else
         {
-
             StartCoroutine(ShrinkBookCoroutine(book.transform, targetScalebookShrink, shrinkDuration));
             if (GameStats.INSTANCE.CheckedNoteBook == false) {
                 GameStats.INSTANCE.CheckedNoteBook = true;
@@ -140,11 +140,9 @@ public class BookManager : MonoBehaviour
         }
         
         bookTrans.localScale = targetScalebook; // Make sure it's exact
+
         istransitioning = false;
-
-
-
-        
+        PlayerInputEvent.isUIOpen = false;
     }
 
     private IEnumerator ShrinkBookCoroutine(Transform bookTrans, Vector3 targetScalebook, float shrinkDuration)
@@ -158,10 +156,11 @@ public class BookManager : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        
+
         bookTrans.localScale = targetScalebook; // Make sure it's exact
         book.SetActive(false);
         istransitioning = false;
+        PlayerInputEvent.isUIOpen = false;
     }
     private void ScrollUp()
     {

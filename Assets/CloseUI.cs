@@ -4,6 +4,9 @@ public class CloseUI : MonoBehaviour
 {
     public void Close()
     {
-        PlayerInputEvent.OnCloseUI();
+        if(PlayerInputEvent.isUIOpen)
+        {
+            PlayerInputEvent.OnCloseUI();
+        }
     }
 }

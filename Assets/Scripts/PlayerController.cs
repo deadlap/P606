@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     Vector3 movement;
-    bool canPlayerAct = true;
+    public bool canPlayerAct = true;
     [SerializeField] float movementSpeed = 5f;
     CharacterController characterController;
     PlayerInput playerInput;
@@ -47,30 +47,50 @@ public class PlayerController : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
+        canPlayerAct = true;
 #if UNITY_EDITOR
         // Double movespeed in the editor
         movementSpeed *= 2f;
 #endif
     }
 
+    public void Resubscribe()
+    {
+        playerInput.actions["Move"].performed += OnMove;
+        playerInput.actions["Move"].canceled += OnMove;
+        playerInput.actions["Interact"].performed += OnInteract;
+        playerInput.actions["NotebookToggle"].performed += OnNotebookToggle;
+    }
+
+    public void Unsubscribe()
+    {
+        playerInput.actions["Move"].performed -= OnMove;
+        playerInput.actions["Move"].canceled -= OnMove;
+        playerInput.actions["Interact"].performed -= OnInteract;
+        playerInput.actions["NotebookToggle"].performed -= OnNotebookToggle;
+        movement = Vector3.zero; // Stop the player from moving when the menu is open
+        animator.SetBool("isWalking", false); // Stop the player from walking when the menu is open
+    }
+
+
     void OnEnable()
     {
         playerInput.actions["Move"].performed += OnMove;
         playerInput.actions["Move"].canceled += OnMove;
         playerInput.actions["Interact"].performed += OnInteract;
-        playerInput.actions["Esc"].performed += OnEsc;
         playerInput.actions["NotebookToggle"].performed += OnNotebookToggle;
+        playerInput.actions["Esc"].performed += OnEsc;
         PlayerInputEvent.EnterDialog += () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog += () => canPlayerAct = true;
     }
 
     void OnDisable()
     {
-        playerInput.actions["Move"].canceled -= OnMove;
+        playerInput.actions["Move"].performed += OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
         playerInput.actions["Interact"].performed -= OnInteract;
-        playerInput.actions["Esc"].canceled -= OnEsc;
-        playerInput.actions["NotebookToggle"].canceled -= OnNotebookToggle;
+        playerInput.actions["NotebookToggle"].performed -= OnNotebookToggle;
+        playerInput.actions["Esc"].performed -= OnEsc;
         PlayerInputEvent.EnterDialog -= () => canPlayerAct = false;
         PlayerInputEvent.ExitDialog -= () => canPlayerAct = true;
     }
@@ -137,6 +157,8 @@ public class PlayerController : MonoBehaviour
     {
         currentInteractable = closestInteractable;
         if(currentInteractButton == null) yield break;
+        if(PlayerInputEvent.escMenuOpen) yield break;
+        PlayerInputEvent.isUIOpen = true;
         var start = interactButtonFillImage.fillAmount;
         var end = 1f;
         float elapsedTime = 0;

@@ -41,9 +41,12 @@ public class GameStats : MonoBehaviour {
     }
 
     void Awake() {
+        if(INSTANCE == null)
+            INSTANCE = this;
+        else 
+            Destroy(gameObject);
         EvidenceGathered = 0;
         EvidenceToGather = 4;
-        INSTANCE = this;
         IntroPlayed = false;
         CivillianNPCs = new List<NPC>();
     }

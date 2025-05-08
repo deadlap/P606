@@ -23,8 +23,15 @@ public class NPCGenerator : MonoBehaviour {
     [Tooltip("Enum of relationtypes that can be used multiple times.")]
     [SerializeField] Identity.RelationTypes MultiUseRelationTypes;
 
+    void Awake()
+    {
+        if (INSTANCE == null)
+            INSTANCE = this;
+        else
+            Destroy(gameObject);
+    }
+
     void Start() {
-        INSTANCE = this;
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
         unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length-1);
         unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length-1);
