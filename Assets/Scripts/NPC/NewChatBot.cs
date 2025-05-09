@@ -32,7 +32,7 @@ public class NewChatBot : MonoBehaviour
     string playerMessage;
     string npcMessage;
     bool blockInput = true;
-    bool chatIsActive;
+    public bool chatIsActive;
     bool canExitChat = true;
 
     void Awake()
@@ -217,6 +217,11 @@ public class NewChatBot : MonoBehaviour
         PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().AddTextToLog(playerTextBubble.GetComponentInChildren<TMP_Text>().text, npcMessage);
         chatContainer.GetComponent<ContentSizeFitter>().enabled = false;
         chatContainer.GetComponent<ContentSizeFitter>().enabled = true;
+    }
+
+    public void GetText(string text)
+    {
+        inputField.text = text;
     }
 
     public void AllowInput()

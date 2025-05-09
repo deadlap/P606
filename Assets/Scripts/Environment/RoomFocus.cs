@@ -94,6 +94,11 @@ namespace RoomFocusing
             }
         }
 
+        //private void OnTriggerStay(Collider other)
+        //{
+        //    RoomName.Instance.DisplayRoomName(nameOfRoom);
+        //}
+
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("NPC"))
@@ -112,7 +117,15 @@ namespace RoomFocusing
             //Debug.Log($"{other.name} exited {name}");
             if (!other.CompareTag("Player")) return;
 
-            RoomName.Instance.RemoveRoomName(nameOfRoom);
+            if (isCabin)
+            {
+                RoomName.Instance.RemoveRoomName(cabin.name);
+
+            }
+            else
+            {
+                RoomName.Instance.RemoveRoomName(nameOfRoom);
+            }
             playersInside--;
 
             foreach (ShadowPerson npcShadow in npcsInside)

@@ -5,8 +5,8 @@ using UnityEngine;
 public class RoomName : MonoBehaviour
 {
     public static RoomName Instance;
-    List<string> roomNames = new();
     TextMeshProUGUI roomText;
+    List<string> roomNames = new();
     string lastRoomName;
 
     void Awake()
@@ -24,7 +24,7 @@ public class RoomName : MonoBehaviour
 
     public void AddRoomName(string roomName)
     {
-        if(roomName == "") return;
+        if (roomName == "") return;
         roomNames.Add(roomName);
         UpdateRoomName();
     }
@@ -32,7 +32,7 @@ public class RoomName : MonoBehaviour
     {
         if (roomName == "") return;
         lastRoomName = roomName;
-        roomNames.Remove(roomName);
+        roomNames.Remove(lastRoomName);
         UpdateRoomName();
     }
 

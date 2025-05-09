@@ -20,6 +20,7 @@ public partial class PatrolOccupationAreaAction : Action
     [SerializeReference] public BlackboardVariable<NavMeshAgent> NavMeshAgent;
     [SerializeReference] public BlackboardVariable<string> Occupation;
     [SerializeReference] public BlackboardVariable<float> StoppingDistance;
+    [SerializeReference] public BlackboardVariable<bool> IsDead;
 
     Transform currentPoint;
     bool pointGiven;
@@ -45,6 +46,7 @@ public partial class PatrolOccupationAreaAction : Action
         {
             DeadPersonOccupation.Value = Agent.Value.GetComponent<Identity>().Occupation.ToString();
             Debug.LogWarning($"{Agent.Value.name} the {DeadPersonOccupation.Value} is dead.");
+            IsDead.Value = true;
             return Status.Failure;
         }
         Initialize();

@@ -18,6 +18,7 @@ public class EscMenu : MonoBehaviour
         fadedBackground.SetActive(false);
         PlayerInputEvent.escMenuOpen = false;
         PlayerInputEvent.isUIOpen = false;
+        fadeAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate; 
     }
     void OnEnable()
     {
@@ -44,6 +45,7 @@ public class EscMenu : MonoBehaviour
         }
         else
         {
+            fadeAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
             fadeAnimator.Play("ReturnToMainMenuEnd");
             if (stopTime)
                 Time.timeScale = 1f; // Resume the game

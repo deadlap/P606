@@ -96,7 +96,8 @@ namespace RoomFocusing
                     accessories[0],
                     accessories[1],
                     accessories[2],
-                    accessories[3]
+                    accessories[3],
+                    accessories[4]
                 };
 
                 if (head.transform.childCount > 0)

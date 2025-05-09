@@ -1,15 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;   
 
 public class LLMWarmup : MonoBehaviour
 {
+    [SerializeField] Image warmupIndicator;
     [SerializeField] [Tooltip("Warms up all active LLM Characters, eliminating the initial wait time when starting a conversation." +
         "\n\nWARNING: This may result in pseudo-crashes if runtime is terminated before all LLM Characters are warmed up. " +
         "\nThis may take a long time, up to 10 minutes atleast.")] 
         bool warmUpOnStart;
+    int warmupCount;
 
     private void Awake()
     {
-        Invoke(nameof(WarmUp), 5f);
+        Invoke(nameof(WarmUp), 3f); // Should find a better way to do this, but this works for now
+        warmupCount = 0;
     }
 
     /// <summary>
@@ -33,6 +37,30 @@ public class LLMWarmup : MonoBehaviour
 
     void WarmedUp()
     {
+        UpdateWarmupCount();
         Debug.Log($"LLMCharacter warmed up.");
+    }
+
+    void UpdateWarmupCount()
+    {
+        warmupCount++;
+        if (warmupCount < (NPCGenerator.INSTANCE.NPCs.Count / 2))
+        {
+            Debug.Log("Less than half of LLM Characters warmed up.");
+            if(warmupIndicator == null) return;
+            warmupIndicator.color = Color.red;
+        }
+        if (warmupCount >= (NPCGenerator.INSTANCE.NPCs.Count / 2))
+        {
+            Debug.Log("Half of LLM Characters warmed up.");
+            if (warmupIndicator == null) return;
+            warmupIndicator.color = Color.yellow;
+        }
+        if (warmupCount >= NPCGenerator.INSTANCE.NPCs.Count)
+        { 
+            Debug.Log("All LLM Characters warmed up.");
+            if(warmupIndicator == null) return;
+            warmupIndicator.color = Color.green;
+        }
     }
 }
