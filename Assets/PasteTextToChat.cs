@@ -7,6 +7,8 @@ public class PasteTextToChat : MonoBehaviour
     
     public void PasteText()
     {
+        if (!NewChatBot.instance.inputField.interactable || !NewChatBot.instance.isChatActive) return;
         NewChatBot.instance.GetText(textMeshProUGUI.text);
+        NewChatBot.instance.AllowInput();
     }
 }

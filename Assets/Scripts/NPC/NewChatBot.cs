@@ -23,7 +23,7 @@ public class NewChatBot : MonoBehaviour
     [SerializeField] Button chatButton;
     [SerializeField] Transform chatContainer;
     [SerializeField] ScrollRect scrollRect;
-    [SerializeField] TMP_InputField inputField;
+    [SerializeField] public TMP_InputField inputField;
     [SerializeField] TMP_Text placeholder;
 
     GameObject playerTextBubble;
@@ -32,7 +32,7 @@ public class NewChatBot : MonoBehaviour
     string playerMessage;
     string npcMessage;
     bool blockInput = true;
-    public bool chatIsActive;
+    public bool isChatActive;
     bool canExitChat = true;
 
     void Awake()
@@ -121,7 +121,7 @@ public class NewChatBot : MonoBehaviour
     
     void InputFieldSelected(string arg0)
     {
-        chatIsActive = true;
+        isChatActive = true;
         PlayerInputEvent.OnEnterDialog();
     }
 
@@ -129,7 +129,7 @@ public class NewChatBot : MonoBehaviour
     {
         if (!canExitChat) return;
         PlayerInputEvent.isUIOpen = false;
-        chatIsActive = false;
+        isChatActive = false;
         PlayerInputEvent.OnExitDialog();
         //if(piperTTS)
             //piperTTS.audioSource.Stop();
@@ -144,7 +144,7 @@ public class NewChatBot : MonoBehaviour
 
     void UpdateChat()
     {
-        if(chatIsActive) return;
+        if(isChatActive) return;
         StartCoroutine(UpdateChatView());
     }
 

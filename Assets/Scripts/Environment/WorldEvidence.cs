@@ -18,9 +18,10 @@ public class WorldEvidence : MonoBehaviour {
         PlayerInputEvent.PlayerInteract -= OnInteract; 
     }
     public void OnInteract(){
-        if (!GameStats.INSTANCE.IntroPlayed || interactedWith) return; // Check if the intro has been played
+        if (!GameStats.INSTANCE.IntroPlayed || interactedWith) return; // Check if the intro has been played and if the evidence has already been interacted with
         if (PlayerController.instance.currentInteractable != gameObject) return; // Check if the player is interacting with this object
         if (PlayerController.instance.currentInteractable == null) return; // Check if the player is interacting with anything
+        interactedWith = true; // Set the interacted flag to true
         EvidenceDisplayManager.OnShowEvidenceEvent(evidenceType);
         Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.NewEvidence); // Update the objective text
         LogMaster.Instance.RememberEvidenceForLog(evidenceType); // Make LogMaster know of this evidence
