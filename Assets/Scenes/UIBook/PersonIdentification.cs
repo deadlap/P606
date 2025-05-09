@@ -35,6 +35,11 @@ public class PersonIdentification : MonoBehaviour, IPointerClickHandler
 
     private ChatLog npcChatLog;
 
+    void Awake()
+    {
+        NPCS = null;
+    }
+
     void Start() {
 
         if (NPCS == null){

@@ -1,10 +1,6 @@
 using UnityEngine;
 using LLMUnity;
 using UnityEngine.AI;
-using Unity.VisualScripting;
-using RoomFocusing;
-using System.Collections.Generic;
-using System;
 using Unity.Behavior;
 using UnityEngine.VFX;
 

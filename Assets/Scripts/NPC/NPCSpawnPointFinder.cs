@@ -10,7 +10,10 @@ public class NPCSpawnPointFinder : MonoBehaviour {
     [SerializeField] NPCSpawnPoint FallBackSpawnPoint;
 
     void Awake(){
-        Instance = this;
+        if(Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
         var temp_list = GameObject.FindGameObjectsWithTag("NPCSpawnPoint");
         foreach (GameObject obj in temp_list) {
             UnusedSpawnPoints.Add(obj.GetComponent<NPCSpawnPoint>());

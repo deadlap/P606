@@ -4,12 +4,7 @@ using UnityEngine.InputSystem;
 public class CoolMouseSFX : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
-    private UIAudioSource coolAudio;
-
-    private void Awake()
-    {
-        coolAudio = GetComponent<UIAudioSource>();
-    }
+    [SerializeField] private UIAudioSource coolAudio;
 
     void OnEnable()
     {

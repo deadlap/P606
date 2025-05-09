@@ -13,10 +13,7 @@ public class UIAudioSource : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-
-        startPitch = audioSource.pitch;
-        startVolume = audioSource.volume;
+        CheckSource();
 
         audioSource.playOnAwake = false;
         audioSource.Stop();
@@ -43,10 +40,19 @@ public class UIAudioSource : MonoBehaviour
         PlaySound(audioClips[Random.Range(0, audioClips.Length)]);
     }
 
+    private void CheckSource()
+    {
+        if (audioSource != null) return;
+
+        audioSource = GetComponent<AudioSource>();
+
+        startPitch = audioSource.pitch;
+        startVolume = audioSource.volume;
+    }
+
     public void PlaySound(AudioClip clip = null)
     {
-        if(clip == null && audioClips.Length > 0)
-            clip = audioClips[Random.Range(0, audioClips.Length)];
+        CheckSource();
         audioSource.clip = clip == null ? audioSource.clip : clip;
         RandomisePitchVol();
         audioSource.Play();
