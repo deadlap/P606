@@ -16,6 +16,8 @@ public class EscMenu : MonoBehaviour
             return;
         }
         fadedBackground.SetActive(false);
+        PlayerInputEvent.escMenuOpen = false;
+        PlayerInputEvent.isUIOpen = false;
     }
     void OnEnable()
     {
@@ -59,6 +61,7 @@ public class EscMenu : MonoBehaviour
 
     public void ClickYes()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 

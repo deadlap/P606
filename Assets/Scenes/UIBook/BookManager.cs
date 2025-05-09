@@ -48,6 +48,8 @@ public class BookManager : MonoBehaviour
             return;
         }
         instance = this;
+        bookOpenClose = null;
+        istransitioning = false;
     }
 
     private void OnEnable()
@@ -103,10 +105,12 @@ public class BookManager : MonoBehaviour
 
     public void OpenOrCloseBook()
     {
-        if(PlayerInputEvent.escMenuOpen) return; // Prevents the menu from opening if another UI is open
+        Debug.Log("try to open book");
+        if(PlayerInputEvent.escMenuOpen) return; // Prevents the menu from opening if escape menu is open
+        Debug.Log("almost open book");
+
         PlayerInputEvent.isUIOpen = true;
         if (istransitioning) return;
-
         if (bookOpenClose != null)
             bookOpenClose(!book.activeSelf);
 
@@ -123,7 +127,7 @@ public class BookManager : MonoBehaviour
                 Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.locateVictim);
             }
         }
-
+        Debug.Log("book opened");
         istransitioning = true;
     }
 

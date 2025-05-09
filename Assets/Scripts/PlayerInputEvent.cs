@@ -18,13 +18,16 @@ public class PlayerInputEvent : MonoBehaviour
     public static event Action NotebookToggle;
     public static void OnNotebookToggle() => NotebookToggle?.Invoke();
 
-    public static bool isUIOpen = false;
+    public static bool isUIOpen;
 
-    public static bool escMenuOpen = false;
+    public static bool escMenuOpen;
 
-    private void OnEnable()
+    private void Awake()
     {
-        PlayerInputEvent.isUIOpen = false;
-        PlayerInputEvent.escMenuOpen = false;
+        PlayerInteract = null;
+        EnterDialog = null;
+        ExitDialog = null;
+        NotebookToggle = null;
+        CloseUI = null;
     }
 }

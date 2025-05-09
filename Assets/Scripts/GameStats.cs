@@ -20,6 +20,9 @@ public class GameStats : MonoBehaviour {
     public bool CheckedNoteBook;
     public static event Action SetIntroPlayed;
     public static void OnSetIntroPlayed() => SetIntroPlayed?.Invoke();
+    
+    public static List<int> usedFaces = new List<int>();
+
     public int EvidenceToGather;
 
     // Data to be gathered for the log system
@@ -49,5 +52,6 @@ public class GameStats : MonoBehaviour {
         EvidenceToGather = 4;
         IntroPlayed = false;
         CivillianNPCs = new List<NPC>();
+        usedFaces = new List<int>();
     }
 }

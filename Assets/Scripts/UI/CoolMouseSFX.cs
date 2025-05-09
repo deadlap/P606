@@ -20,6 +20,7 @@ public class CoolMouseSFX : MonoBehaviour
 
     public void DoMouseSound(InputAction.CallbackContext ctx)
     {
+        if(coolAudio == null) return;
         coolAudio.PlaySound();
     }
 }

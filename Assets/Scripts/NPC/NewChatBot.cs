@@ -83,7 +83,7 @@ public class NewChatBot : MonoBehaviour
     async Task InputFieldSubmit(string newText)
     {
         canExitChat = false;
-        inputField.ActivateInputField();
+        Invoke(nameof(ActivateInputField), 1f);
 
         if (blockInput || newText.Trim() == "" || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
@@ -108,47 +108,16 @@ public class NewChatBot : MonoBehaviour
             }
 
             playerMessage = await ragData.CheckRAG(playerMessage, 1);
-            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
         }
-        else
-        {
-            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
-        }
+        _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
+        
         inputField.text = "";
     }
-    /*
-    async void OnInputFieldSubmit(string newText)
+
+    void ActivateInputField()
     {
-        canExitChat = false;
         inputField.ActivateInputField();
-        if (blockInput || newText.Trim() == "" || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            StartCoroutine(BlockInteraction());
-            return;
-        }
-        blockInput = true;
-        // replace vertical_tab
-        playerMessage = inputField.text.Replace("\v", "\n");
-        playerTextBubble = CreateChatBubble(playerMessage, true);
-        UpdateScrollView();
-        npcTextBubble = CreateChatBubble("Let me think...", false);
-        if (usingRagData)
-        {
-            if (ragData == null)
-            {
-                Debug.LogError("No RAG Data is found. \"Disable Using Rag Data\" or add a RAG Data and try again.");   
-                return;
-            }
-            playerMessage = await ragData.CheckRAG(playerMessage, 1);
-            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
-        }
-        else
-        {
-            _ = llmCharacter.Chat(playerMessage, SetText, AllowInputAgain);
-        }
-        inputField.text = "";
     }
-    */
     
     void InputFieldSelected(string arg0)
     {
@@ -276,10 +245,11 @@ public class NewChatBot : MonoBehaviour
 
     void OnValueChanged(string newText)
     {
-        if(newText.Contains("\\"))
+        if (newText.Contains("\\"))
         {
             inputField.text = newText.Replace("\\", "");
         }
+        
         // Get rid of newline character added when we press enter
         if (Input.GetKey(KeyCode.Return))
         {

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-
+        
         if (GetComponent<CharacterController>() == null)
             characterController = gameObject.AddComponent<CharacterController>();
         else
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
             animator = GetComponentInChildren<Animator>();
 
         audioSource = GetComponent<AudioSource>();
+        playerInput.enabled = true;
 
         canPlayerAct = true;
 #if UNITY_EDITOR
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
     void OnNotebookToggle(InputAction.CallbackContext context)
     {
+        Debug.Log("NotebookToggle");
         PlayerInputEvent.OnNotebookToggle();
     }
     public void FreezePlayer(bool freeze)
@@ -244,7 +246,7 @@ public class PlayerController : MonoBehaviour
         {
             if(closestInteractable.transform.parent.tag == "NPC")
             {
-                // Måske tilføj endnu en getchild her også? (ligesom linje 202)
+                // Mï¿½ske tilfï¿½j endnu en getchild her ogsï¿½? (ligesom linje 202)
                 currentInteractButton.transform.SetParent(closestInteractable.transform.parent.GetChild(0).GetChild(0));
             }
             else
