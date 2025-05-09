@@ -9,24 +9,50 @@ public class LoadSceneDelay : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
     [SerializeField] Animator animator;
+    private bool buttonPressed;
     
-    void Start()
+    void Awake()
     {
+        buttonPressed = false;
         delay = audioClip.length;
     }
 
-    public void PlaySoundThenLoad()
+    public void PlaySoundThenLoadTimeTrial(int sceneIndex)
+    {
+        GameTimer.IsTimeTrial = true;
+        if (buttonPressed) return;
+        buttonPressed = true;
+        StartCoroutine(PlaySoundThenLoadScene(sceneIndex));
+    }
+    
+    public void PlaySoundThenLoad(int sceneIndex)
+    {
+        GameTimer.IsTimeTrial = false;
+        if (buttonPressed) return;
+        buttonPressed = true;
+        StartCoroutine(PlaySoundThenLoadScene(sceneIndex));
+    }
+    
+    public void QuitGame()
+    {
+        if (buttonPressed) return;
+        buttonPressed = true;
+        Debug.LogError("GAME QUIT");
+        Application.Quit();
+    }
+
+    IEnumerator PlaySoundThenLoadScene(int sceneIndex)
     {
         audioSource.PlayOneShot(audioClip);
         StartCoroutine(FadeMusic(audioSource));
         StartCoroutine(FadeMusic(music));
         animator.Play("FadeOut");
-        Invoke(nameof(LoadScene), delay);
+        yield return new WaitForSeconds(delay);
+        LoadScene(sceneIndex);   
     }
-
-    void LoadScene()
+    void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     IEnumerator FadeMusic(AudioSource audio)
