@@ -13,16 +13,34 @@ public class GameTimer : MonoBehaviour {
     Animator animator;
 
     public static GameTimer INSTANCE { get; private set; }
+    
+    public static bool IsTimeTrial;
     public static event Action<bool> ToggleTimer;
     public static void OnToggleTimer(bool value) => ToggleTimer?.Invoke(value);
 
     bool timerTick0, timerTick1, timerTick2, timerTick3, timerTick4, timerTick5;
+
+    void Awake()
+    {
+        if (!IsTimeTrial)
+            Destroy(gameObject);
+        
+        if (INSTANCE == null)
+        {
+            INSTANCE = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     void Start() {
         runTimer = false;
         timer = GameStats.INSTANCE.TimeLimit*60f;
         timerDisc = 0;
         hasTriggeredObjectiveEvent = false;
-        INSTANCE = this;
+        
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
     }

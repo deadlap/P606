@@ -241,6 +241,8 @@ public class PlayerController : MonoBehaviour
 
     void SetInteractButtonPosition()
     {
+        if(!(GameStats.INSTANCE.IntroPlayed || IsDeadNPC())) return;
+        if(GameStats.INSTANCE.IntroPlayed && IsDeadNPC()) return;
         if (closestInteractable == null) return;
         if (currentInteractButton != null)
         {
@@ -267,6 +269,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
+            if(!(GameStats.INSTANCE.IntroPlayed || 
+                 other.transform.parent != null && 
+                 other.transform.parent == GameStats.INSTANCE.Victim.transform)) return;
+            if(GameStats.INSTANCE.IntroPlayed && 
+               other.transform.parent != null && 
+               other.transform.parent == GameStats.INSTANCE.Victim.transform) return;
             interactables.Add(other.gameObject);
         }
     }
@@ -275,6 +283,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
+            if(!(GameStats.INSTANCE.IntroPlayed || 
+                 other.transform.parent != null && 
+                 other.transform.parent == GameStats.INSTANCE.Victim.transform)) return;
+            if(GameStats.INSTANCE.IntroPlayed && 
+               other.transform.parent != null && 
+               other.transform.parent == GameStats.INSTANCE.Victim.transform) return;
             interactables.Remove(other.gameObject);
         }
     }
