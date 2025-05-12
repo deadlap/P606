@@ -204,20 +204,23 @@ public class PlayerController : MonoBehaviour
     void IdentifyClosestInteractable()
     {
         if(!canPlayerAct) return;
-        float minDistance = float.MaxValue;
+        float minDistance = Mathf.Infinity;
         if (interactables.Count == 0)
         {
             closestInteractable = null;
+            interactables.Clear();
         }
         else
         {
             for (int i = 0; i < interactables.Count; i++)
             {
-                if (interactables[i] == null) {
+                if (interactables[i] == null)
+                {
                     interactables.RemoveAt(i);
                     i--;
                     continue;
-                };
+                }
+                ;
                 float distance = Vector3.Distance(transform.position, interactables[i].transform.position);
                 if (distance < minDistance)
                 {
@@ -248,7 +251,6 @@ public class PlayerController : MonoBehaviour
         {
             if(closestInteractable.transform.parent.tag == "NPC")
             {
-                // M�ske tilf�j endnu en getchild her ogs�? (ligesom linje 202)
                 currentInteractButton.transform.SetParent(closestInteractable.transform.parent.GetChild(0).GetChild(0));
             }
             else

@@ -16,6 +16,7 @@ public class Evidence : MonoBehaviour
     public EvidenceType type;
     public static List<int> NonDeathTimes;
     void Awake() {
+        NonDeathTimes = null;
         if (NonDeathTimes == null){
             NonDeathTimes = new List<int>(GameStats.INSTANCE.Times);
             NonDeathTimes.Remove(GameStats.INSTANCE.TimeOfDeath+GameStats.INSTANCE.ScheduleOffset);

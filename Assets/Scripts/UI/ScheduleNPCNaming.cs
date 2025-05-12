@@ -7,6 +7,7 @@ public class ScheduleNPCNaming : MonoBehaviour {
     [SerializeField] TextMeshProUGUI nameDisplay;
     [SerializeField] RawImage image; 
     void Start() {
+        NPCS = null;
         if (NPCS == null){
             NPCS = new List<NPC>(NPCGenerator.INSTANCE.NPCs);
         }

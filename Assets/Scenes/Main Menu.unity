@@ -3403,6 +3403,7 @@ GameObject:
   - component: {fileID: 1136918430}
   - component: {fileID: 1136918429}
   - component: {fileID: 1136918428}
+  - component: {fileID: 1136918431}
   m_Layer: 0
   m_Name: SceneLoadDelay
   m_TagString: Untagged
@@ -3538,6 +3539,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1136918431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136918427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929d5bd06bef55d45b3f5dcdae076f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chair: {fileID: 1357869375}
+  player: {fileID: 1819312446}
 --- !u!1 &1153664165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4248,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353284552}
   m_CullTransparentMesh: 1
+--- !u!1 &1357869375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8891837164913137839, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+  m_PrefabInstance: {fileID: 765888253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1395100099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,6 +5505,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1819312446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4911221733861849526, guid: 6e03012e2775b1449bd106fc7e91ef06, type: 3}
+  m_PrefabInstance: {fileID: 821678652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858583468
 GameObject:
   m_ObjectHideFlags: 0

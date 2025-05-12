@@ -35,6 +35,8 @@ public class Ending : MonoBehaviour
     public static event Action EndGameEvent;
     public static void OnEndGameEvent() => EndGameEvent?.Invoke();
 
+    public static bool goodEndingAchieved = false;
+
     public void ShowPopup()
     {
         if (PersonIdentification.SomeoneIsSelected == true)
@@ -112,21 +114,28 @@ public class Ending : MonoBehaviour
     }
         yield return new WaitForSeconds(1f); // 
 
-        newspaper.SetActive(true); 
-        if(GameTimer.INSTANCE.IsTimeUp() || bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
+        newspaper.SetActive(true);
+        if (GameTimer.INSTANCE.runTimer && GameTimer.INSTANCE.IsTimeUp()) {
+            endingText.text = "Indecisive Detective Fails to Act: Murderer Still on the Loose!";
+            audioSourceBadEnding.Play();
+            GameTimer.INSTANCE.runTimer = false;
+        }
+        if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
             endingText.text = "Passenger Wrongfully Accused of Murder by Rookie Detective: Murderer Still on the Loose!"; 
-            audioSourceBadEnding.Play(); 
-        } else {
-            if (GameStats.INSTANCE.EvidenceGathered == GameStats.INSTANCE.EvidenceToGather) {
+            audioSourceBadEnding.Play();
+        }
+        else {
+            if (GameStats.INSTANCE.EvidenceGathered >= GameStats.INSTANCE.EvidenceToGather) {
                 endingText.text = "Brilliant Detective Strikes Again: Murder Case Solved with Mountains of Evidence!";
                 audioSourceGoodEnding.Play();
+                goodEndingAchieved = true;
             } else {
                 endingText.text = "Prime Suspect Escapes Justice: Lack of Evidence Sinks Case in Court!";
                 audioSourceMediumEnding.Play();
             }
         }
 
-        whoMurdererText.text = string.Format(whoMurdererText.text, $"{GameStats.INSTANCE.Murderer.NPCIdentity.Name} the {GameStats.INSTANCE.Murderer.NPCIdentity.Occupation}");
+        whoMurdererText.text = string.Format(whoMurdererText.text, $"{GameStats.INSTANCE.Murderer.NPCIdentity.Name} the {GameStats.INSTANCE.Murderer.NPCIdentity.Occupation.ToString().Replace("_", " ")}");
 
     }
 }

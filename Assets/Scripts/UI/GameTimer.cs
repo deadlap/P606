@@ -5,7 +5,7 @@ public class GameTimer : MonoBehaviour {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timer;
     [SerializeField] float timerDisc;
-    [SerializeField] bool runTimer;
+    [SerializeField] public bool runTimer;
     [SerializeField] bool hasTriggeredObjectiveEvent;
     [SerializeField] UnityEngine.UI.Image image;
     
@@ -115,7 +115,6 @@ public class GameTimer : MonoBehaviour {
 
     public void TimesUp(){
         Ending.OnEndGameEvent();
-
     }
     public bool IsTimeUp() {
         return timer <= 0;

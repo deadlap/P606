@@ -31,7 +31,7 @@ public class NewChatBot : MonoBehaviour
     string placeholderText = "Hold on...";
     string playerMessage;
     string npcMessage;
-    bool blockInput = true;
+    public bool blockInput = true;
     public bool isChatActive;
     bool canExitChat = true;
 
