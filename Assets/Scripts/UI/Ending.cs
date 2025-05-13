@@ -115,12 +115,11 @@ public class Ending : MonoBehaviour
         yield return new WaitForSeconds(1f); // 
 
         newspaper.SetActive(true);
-        if (GameTimer.INSTANCE.runTimer && GameTimer.INSTANCE.IsTimeUp()) {
+        if (GameTimer.IsTimeTrial && GameTimer.INSTANCE.IsTimeUp()) {
             endingText.text = "Indecisive Detective Fails to Act: Murderer Still on the Loose!";
             audioSourceBadEnding.Play();
-            GameTimer.INSTANCE.runTimer = false;
         }
-        if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
+        else if (bookManager.SelectedNPC.NPCIdentity.PrimaryRole != Identity.PrimaryRoles.Murderer) {
             endingText.text = "Passenger Wrongfully Accused of Murder by Rookie Detective: Murderer Still on the Loose!"; 
             audioSourceBadEnding.Play();
         }

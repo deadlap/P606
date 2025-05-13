@@ -20,8 +20,7 @@ public class GameTimer : MonoBehaviour {
 
     bool timerTick0, timerTick1, timerTick2, timerTick3, timerTick4, timerTick5;
 
-    void Awake()
-    {
+    void Awake() {
         if (!IsTimeTrial)
             Destroy(gameObject);
         
@@ -67,6 +66,7 @@ public class GameTimer : MonoBehaviour {
             timerDisc = GameStats.INSTANCE.TimeLimit * 60 - timer;
             UpdateDisplay();
             if (timer <= GameStats.INSTANCE.EventTriggerTime*60f && !hasTriggeredObjectiveEvent) {
+                timer = 0;
                 hasTriggeredObjectiveEvent = true;
                 Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.AccuseMurderer);
             }
