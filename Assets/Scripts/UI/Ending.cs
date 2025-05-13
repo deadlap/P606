@@ -112,7 +112,7 @@ public class Ending : MonoBehaviour
         // Ensure it ends exactly at full alpha
         blackScreenGraphic.color = new Color(color.r, color.g, color.b, 1f);
     }
-        yield return new WaitForSeconds(1f); // 
+        yield return new WaitForSeconds(1f);
 
         newspaper.SetActive(true);
         if (GameTimer.IsTimeTrial && GameTimer.INSTANCE.IsTimeUp()) {
