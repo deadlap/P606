@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 public class ScheduleNPCNaming : MonoBehaviour {
-    public static List<NPC> NPCS;
+    public static List<NPC> NPCS = new();
     [SerializeField] TextMeshProUGUI nameDisplay;
-    [SerializeField] RawImage image; 
-    void Start() {
+    [SerializeField] RawImage image;
+
+    void Awake() {
         NPCS = null;
+    }
+
+    void Start() {
         if (NPCS == null){
             NPCS = new List<NPC>(NPCGenerator.INSTANCE.NPCs);
         }
