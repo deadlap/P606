@@ -6,7 +6,7 @@ public class Identity : MonoBehaviour {
     public PrimaryRoles PrimaryRole;
     public Occupations Occupation;
     public Dictionary<NPC, RelationTypes> Relations;
-    public Motives Motive;
+    // public Motives Motive;
     public List<Locations> Schedule;
     public List<List<NPC>> SchedulePairings;
 
