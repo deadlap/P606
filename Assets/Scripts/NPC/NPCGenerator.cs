@@ -54,11 +54,11 @@ public class NPCGenerator : MonoBehaviour {
             
             _identity.Name = (Identity.Names)SelectName();
             _identity.PrimaryRole = Identity.PrimaryRoles.Civilian;
-            _identity.Openness = Random.Range(0,2)*100;
-            _identity.Conscientiousness = Random.Range(0,2)*100;
-            _identity.Extraversion = Random.Range(0,2)*100;
-            _identity.Agreeableness = Random.Range(0,2)*100;
-            _identity.Neuroticism = Random.Range(0,2)*100;
+            // _identity.Openness = Random.Range(0,2)*100;
+            // _identity.Conscientiousness = Random.Range(0,2)*100;
+            // _identity.Extraversion = Random.Range(0,2)*100;
+            // _identity.Agreeableness = Random.Range(0,2)*100;
+            // _identity.Neuroticism = Random.Range(0,2)*100;
             _npc.SetIdentity(_identity);
             NPCs.Add(_npc);
             npc_gameobject.gameObject.name = System.Enum.GetName(typeof(Identity.Names),_identity.Name);

@@ -10,20 +10,15 @@ public class Identity : MonoBehaviour {
     public List<Locations> Schedule;
     public List<List<NPC>> SchedulePairings;
 
-    public int Openness;
-    public int Conscientiousness;
-    public int Extraversion;
-    public int Agreeableness;
-    public int Neuroticism;
+    // public int Openness;
+    // public int Conscientiousness;
+    // public int Extraversion;
+    // public int Agreeableness;
+    // public int Neuroticism;
 
-    public int RelationsAmount;
     void Awake() {
-        RelationsAmount = 2;
         Relations = new Dictionary<NPC, RelationTypes>();
     }
-    // public void MakeInitialScheduleList(){
-        
-    // }
     public enum PrimaryRoles {
         None,
         Civilian,
