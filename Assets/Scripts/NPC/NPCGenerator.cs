@@ -33,9 +33,9 @@ public class NPCGenerator : MonoBehaviour {
 
     void Start() {
         //Generate lists of indexes, from given lengths and starting points. Will Correspond to values in the identity enums.
-        unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length-1);
-        unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length-1);
-        unusedRelations = PopulateListType2(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length-1);
+        unusedNames = PopulateList(1, Identity.Names.GetNames(typeof(Identity.Names)).Length);
+        unusedOccupations = PopulateList(LockedRoleAmount+1, Identity.Occupations.GetNames(typeof(Identity.Occupations)).Length);
+        unusedRelations = PopulateListType2(2, Identity.RelationTypes.GetNames(typeof(Identity.RelationTypes)).Length);
         NPCs = new List<NPC>();
 
 
