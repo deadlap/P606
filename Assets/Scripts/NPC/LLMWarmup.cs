@@ -1,6 +1,8 @@
+using System;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;   
-
+using Debug = UnityEngine.Debug;
 public class LLMWarmup : MonoBehaviour
 {
     [SerializeField] Image warmupIndicator;
@@ -9,11 +11,14 @@ public class LLMWarmup : MonoBehaviour
         "\nThis may take a long time, up to 10 minutes atleast.")] 
         bool warmUpOnStart;
     int warmupCount;
+    Stopwatch stopwatch = new Stopwatch();
+    float time;
 
-    private void Awake()
+    void Awake()
     {
         Invoke(nameof(WarmUp), 3f); // Should find a better way to do this, but this works for now
         warmupCount = 0;
+        stopwatch.Start();
     }
 
     /// <summary>
@@ -61,6 +66,9 @@ public class LLMWarmup : MonoBehaviour
             Debug.Log("All LLM Characters warmed up.");
             if(warmupIndicator == null) return;
             warmupIndicator.color = Color.green;
+            TimeSpan ts = stopwatch.Elapsed;
+            Debug.Log($"Warmup time: {ts.Hours}:{ts.Minutes}:{ts.Seconds}");
+            stopwatch.Stop();
         }
     }
 }
