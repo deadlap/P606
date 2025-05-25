@@ -69,3 +69,9 @@ Charlie Charleston
 https://pixabay.com/music/vintage-charlie-charleston-251735/
 
 "Vintage Grammophone" (https://skfb.ly/6uGOT) by christoffersch is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Garbage Icon by OpenClipart-Vectors -- https://pixabay.com/vectors/garbage-icon-rubbish-trash-1295900/ -- License: Pixabay Content License
+
+Newspaper by geralt -- https://pixabay.com/illustrations/newspaper-news-design-schema-412809/ -- License: Pixabay Content License
+
+Paper Flutter.mp3 by freesound_community -- https://pixabay.com/sound-effects/paper-flutter-5933/ -- License: Pixabay Content License
