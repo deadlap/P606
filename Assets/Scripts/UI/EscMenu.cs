@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -63,6 +65,13 @@ public class EscMenu : MonoBehaviour
 
     public void ClickYes()
     {
+        StartCoroutine(Yes());
+    }
+
+    IEnumerator Yes()
+    {
+        PlayerInputEvent.OnQuitToMainMenu();
+        yield return new WaitForSeconds(0.1f);
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }

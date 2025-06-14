@@ -1,8 +1,9 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MouseOverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MouseOverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] Animator animator;
     [SerializeField] TextMeshProUGUI UIText;
@@ -16,7 +17,8 @@ public class MouseOverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     Material originalMaterial;
     Color originalWorldTextColor;
     [SerializeField] Color targetColor;
-    [SerializeField] Material targetMaterial; 
+    [SerializeField] Material targetMaterial;
+    [SerializeField] Material clickMaterial;
 
     void Start()
     {
@@ -48,6 +50,14 @@ public class MouseOverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         MouseExit();    
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        MouseDown();
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        MouseUp();
     }
 
     void MouseEnter()
@@ -94,6 +104,22 @@ public class MouseOverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             worldText.color = originalWorldTextColor;
         }
+        if (planeBehindButton != null)
+        {
+            planeBehindButton.material = originalMaterial;
+        }
+    }
+
+    void MouseDown()
+    {
+        if (planeBehindButton != null)
+        {
+            planeBehindButton.material = clickMaterial;
+        }
+    }
+
+    void MouseUp()
+    {
         if (planeBehindButton != null)
         {
             planeBehindButton.material = originalMaterial;

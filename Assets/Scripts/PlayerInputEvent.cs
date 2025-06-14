@@ -18,6 +18,9 @@ public class PlayerInputEvent : MonoBehaviour
     public static event Action NotebookToggle;
     public static void OnNotebookToggle() => NotebookToggle?.Invoke();
 
+    public static event Action QuitToMainMenu;
+    public static void OnQuitToMainMenu() => QuitToMainMenu?.Invoke();
+
     public static bool isUIOpen;
 
     public static bool escMenuOpen;

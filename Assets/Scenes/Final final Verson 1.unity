@@ -6195,7 +6195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 647934163913757483, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 984940729033240719, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_Pivot.x
@@ -6283,7 +6283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1579630736046106069, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 271.5
+      value: 271.50006
       objectReference: {fileID: 0}
     - target: {fileID: 2818600903594984806, guid: b26746fc626e18647b073d9ec12a4d86, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8480,13 +8480,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1248030910680349767, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+      propertyPath: font
+      value: 
+      objectReference: {fileID: 11400000, guid: abf54d2908672294d896f596f4c18aea, type: 2}
+    - target: {fileID: 1248030910680349767, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: warmUpOnStart
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248030910680349767, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+      propertyPath: textPosition.x
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 1248030910680349767, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: warmupIndicator
       value: 
       objectReference: {fileID: 1355489742}
+    - target: {fileID: 1248030910680349767, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
+      propertyPath: percentagePosition.x
+      value: 560
+      objectReference: {fileID: 0}
     - target: {fileID: 1337538753933877411, guid: dcb7451cb714e384b968cdb52f5bd08f, type: 3}
       propertyPath: saveCache
       value: 1
@@ -14082,6 +14094,7 @@ MonoBehaviour:
   mouseExitAudio: {fileID: 0}
   targetColor: {r: 0.6745098, g: 0.50980395, b: 0.24313726, a: 1}
   targetMaterial: {fileID: 0}
+  clickMaterial: {fileID: 0}
 --- !u!95 &1207736848
 Animator:
   serializedVersion: 7
@@ -16455,6 +16468,7 @@ MonoBehaviour:
   mouseExitAudio: {fileID: 0}
   targetColor: {r: 0.6745098, g: 0.50980395, b: 0.24313726, a: 1}
   targetMaterial: {fileID: 0}
+  clickMaterial: {fileID: 0}
 --- !u!95 &1396848742
 Animator:
   serializedVersion: 7
@@ -37451,7 +37465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2662499446171245944, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2662499446171245944, guid: 8d675ea24edd09f4b90da2dbea383667, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

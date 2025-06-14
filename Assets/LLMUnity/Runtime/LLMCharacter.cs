@@ -1,5 +1,6 @@
 /// @file
 /// @brief File implementing the LLM characters.
+using NUnit.Framework.Constraints;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -109,6 +110,11 @@ namespace LLMUnity
         public List<ChatMessage> chat = new List<ChatMessage>();
         /// <summary> the grammar to use </summary>
         public string grammarString;
+
+
+        /// <summary> NEW Token to cancel awaits </summary>
+        public CancellationTokenSource warmupCancellationTokenSource = new();
+
 
         /// \cond HIDE
         protected SemaphoreSlim chatLock = new SemaphoreSlim(1, 1);
@@ -513,8 +519,33 @@ namespace LLMUnity
             ChatRequest request = GenerateRequest(prompt);
             request.n_predict = 0;
             string json = JsonUtility.ToJson(request);
-            await CompletionRequest(json);
-            completionCallback?.Invoke();
+
+            // Some new code to cancel the warmup request when needed.
+            try
+            {
+                // This task will complete if the token is cancelled.
+                Task cancelTask = Task.Run(() =>
+                {
+                    warmupCancellationTokenSource.Token.WaitHandle.WaitOne();
+                    warmupCancellationTokenSource.Token.ThrowIfCancellationRequested();
+                });
+
+                // Wait for either the completion request or the cancellation task to complete (they are NOT started here! it ONLY CHECKS if they are completed).
+                await Task.WhenAny(CompletionRequest(json), cancelTask);
+
+                // If the cancellation token was cancelled, this will throw the exception.
+                warmupCancellationTokenSource.Token.ThrowIfCancellationRequested();
+
+                // Start the completetion request here.
+                await CompletionRequest(json);
+                
+                completionCallback?.Invoke();
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("Warmup request cancelled.");
+                return;
+            }
         }
 
         /// <summary>
@@ -618,11 +649,6 @@ namespace LLMUnity
             Ret result = ConvertContent(callResult, getContent);
             if (!callbackCalled) callback?.Invoke(result);
             return result;
-        }
-
-        public async Task Warmup(object v)
-        {
-            throw new System.NotImplementedException();
         }
     }
 
