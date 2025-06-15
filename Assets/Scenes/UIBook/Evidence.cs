@@ -14,15 +14,6 @@ public class Evidence : MonoBehaviour
     [TextArea] public string info;
     public string evidenceName;
     public EvidenceType type;
-    public static List<int> NonDeathTimes;
-    void Awake() {
-        NonDeathTimes = null;
-        if (NonDeathTimes == null){
-            NonDeathTimes = new List<int>(GameStats.INSTANCE.Times);
-            NonDeathTimes.Remove(GameStats.INSTANCE.TimeOfDeath+GameStats.INSTANCE.ScheduleOffset);
-            Debug.Log(string.Join(", ",NonDeathTimes));
-        }
-    }
     void Start() {
 
         switch(type) {
@@ -52,27 +43,14 @@ public class Evidence : MonoBehaviour
             randomNPC = GameStats.INSTANCE.CivillianNPCs[UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count)];
         } while (suspects.Contains(randomNPC));
         suspects.Add(randomNPC);
-        // int ndex = UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count);
-        // int secondIndex;
-        // do {
-        //     secondIndex = UnityEngine.Random.Range(0, GameStats.INSTANCE.CivillianNPCs.Count);
-        // } while (secondIndex == firstIndex);
-        // suspects.Add(GameStats.INSTANCE.CivillianNPCs[firstIndex]);
-        // suspects.Add(GameStats.INSTANCE.CivillianNPCs[secondIndex]);
-        // suspects.Add(GameStats.INSTANCE.CivillianNPCs[secondIndex]);
         suspects = ShuffleList(suspects);
         foreach (NPC npc in suspects) {
             info += "- " + npc.NPCIdentity.Name + "\n";
         }
     }
     void GenerateTimeBasedInfo(){
-        info += " " + NonDeathTimes[0] + " and " + (NonDeathTimes[0]+1);
-        NonDeathTimes.RemoveAt(0);
-        // if (NonDeathTimes.Count <= 2){
-        //     info += " " + NonDeathTimes[0] + " and " + (NonDeathTimes[0]+1)
-        //         + " and not between " + NonDeathTimes[1] + " and " + (NonDeathTimes[1]+1);
-        // } else {
-        // }
+        info += " " + EvidenceSpawner.NonDeathTimes[0] + " and " + (EvidenceSpawner.NonDeathTimes[0]+1);
+        EvidenceSpawner.NonDeathTimes.RemoveAt(0);
     }
     void GenerateDiaryInfo(){
         foreach (var pair in GameStats.INSTANCE.Victim.NPCIdentity.Relations) {
