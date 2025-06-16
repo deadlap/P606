@@ -5,8 +5,6 @@ using System;
 public class EvidenceDisplayManager : MonoBehaviour
 {
     public static EvidenceDisplayManager Instance;
- 
-    public static event Action<Evidence.EvidenceType> OnPickUpEvidence;
 
     [Header("Evidence")]
 

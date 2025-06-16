@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    Camera camera;
+    new Camera camera;
     [SerializeField] [Range(0.001f, 1)] float followDelay;
     [SerializeField] Vector3 camOffset;
     [SerializeField] Vector3 initialRotation;

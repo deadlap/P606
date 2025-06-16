@@ -2133,6 +2133,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 923520010656053068, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1055809109591884394, guid: f56d98dd6eda54b45843a7f4c09ba505, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3681,6 +3685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebb88a541bf71c4088b8b23ea32702d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayAudio: {fileID: 24100000, guid: 86d134fc33404a24292eda36119b799e, type: 2}
   music: {fileID: 83465831}
   audioSource: {fileID: 1136918428}
   audioClip: {fileID: 8300000, guid: 93a17f4bfb8a80443809912d64ec76af, type: 3}

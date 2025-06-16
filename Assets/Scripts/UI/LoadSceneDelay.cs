@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class LoadSceneDelay : MonoBehaviour
 {
     private float delay;
+    [SerializeField] AudioMixer gameplayAudio;
     [SerializeField] AudioSource music;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
@@ -13,6 +15,7 @@ public class LoadSceneDelay : MonoBehaviour
     
     void Awake()
     {
+        gameplayAudio.SetFloat("gameplayVol", Mathf.Log10(1f) * 20f);
         buttonPressed = false;
         delay = audioClip.length;
     }

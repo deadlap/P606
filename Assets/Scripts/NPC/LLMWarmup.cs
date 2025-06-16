@@ -1,14 +1,8 @@
-using LLMUnity;
 using System;
 using System.Collections;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;   
 using Debug = UnityEngine.Debug;
 public class LLMWarmup : MonoBehaviour
@@ -67,7 +61,7 @@ public class LLMWarmup : MonoBehaviour
         return textMesh;
     }
 
-    private void Update()
+    void Update()
     {
         if (warmupText && warmupPercentage)
         {
@@ -148,11 +142,7 @@ public class LLMWarmup : MonoBehaviour
             warmupIndicator.color = Color.green;
             StopCoroutine(TextAnimation());
             isUpdating = false;
-            warmupText.text = "LLM warmup completed!";
-            warmupPercentage.text = "";
-            Invoke(nameof(WarmupComplete), 5f);
-
-            Debug.Log("All LLM Characters warmed up.");
+            Invoke(nameof(WarmupComplete), 1f);
             TimeSpan ts = stopwatch.Elapsed;
             Debug.Log($"Warmup time: {ts.Hours}:{ts.Minutes}:{ts.Seconds}");
             stopwatch.Stop();
@@ -160,6 +150,14 @@ public class LLMWarmup : MonoBehaviour
     }
 
     void WarmupComplete()
+    {
+        warmupText.text = "LLM warmup completed!";
+        warmupPercentage.text = "";
+        Debug.Log("LLM Warmup complete.");
+        Invoke(nameof(RemoveUI), 3f);
+    }
+
+    void RemoveUI()
     {
         if (warmupText != null)
         {
@@ -169,7 +167,6 @@ public class LLMWarmup : MonoBehaviour
         {
             warmupIndicator.color = Color.clear;
         }
-        Debug.Log("LLM Warmup complete.");
     }
 
     void OnApplicationQuit()

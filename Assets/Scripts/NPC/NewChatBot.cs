@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
@@ -17,7 +16,6 @@ public class NewChatBot : MonoBehaviour
     [SerializeField] RAGData ragData;
     [SerializeField] bool usingRagData;
     [SerializeField] LLMCharacter llmCharacter;
-    //[SerializeField] PiperTTS piperTTS;
     [SerializeField] PhoneticSoundPlayer phoneticSoundPlayer;
     [SerializeField] GameObject chatGraphics;
     [SerializeField] Button chatButton;
@@ -128,11 +126,10 @@ public class NewChatBot : MonoBehaviour
     void InputFieldDeselected()
     {
         if (!canExitChat) return;
-        PlayerInputEvent.isUIOpen = false;
         isChatActive = false;
+        Invoke(nameof(CloseUI), 0.5f); // Delay to avoid the esc menu to open immediately after closing the chat
         PlayerInputEvent.OnExitDialog();
-        //if(piperTTS)
-            //piperTTS.audioSource.Stop();
+
         if(phoneticSoundPlayer)
             phoneticSoundPlayer.audioSource.Stop();
         chatGraphics.SetActive(false);
@@ -141,10 +138,14 @@ public class NewChatBot : MonoBehaviour
         CancelRequests();
     }
 
+    void CloseUI()
+    {
+        PlayerInputEvent.isUIOpen = false;
+    }
 
     void UpdateChat()
     {
-        if(isChatActive) return;
+        if(isChatActive || !GameStats.INSTANCE.IntroPlayed) return;
         StartCoroutine(UpdateChatView());
     }
 
@@ -163,16 +164,15 @@ public class NewChatBot : MonoBehaviour
             }
         }
         chatGraphics.SetActive(true);
-        PlayerInputEvent.isUIOpen = true;
         placeholder.text = placeholderText;
         inputField.text = "";
         InputFieldSelected(null);
         yield return new WaitForSeconds(0.1f);
         llmCharacter = PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<LLMCharacter>();
-        //if (PlayerController.instance.currentInteractable.GetComponentInChildren<PiperTTS>())
-            //piperTTS = PlayerController.instance.currentInteractable.GetComponentInChildren<PiperTTS>();
+
         if (PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<PhoneticSoundPlayer>())
             phoneticSoundPlayer = PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<PhoneticSoundPlayer>();
+        
         ragData = PlayerController.instance.currentInteractable.transform.parent.GetComponentInChildren<RAGData>();
         for (int i = 0; i < PlayerController.instance.currentInteractable.transform.parent.GetComponent<ChatLog>().playerMessages.Count; i++)
         {
@@ -207,8 +207,6 @@ public class NewChatBot : MonoBehaviour
         }
         AllowInput();
         RefreshContentSizeFitter();
-        //if (piperTTS == null || npcMessage == "" || npcMessage == null) return;
-        //piperTTS.OnInputSubmit(npcMessage);
         canExitChat = true;
     }
 
@@ -226,6 +224,8 @@ public class NewChatBot : MonoBehaviour
 
     public void AllowInput()
     {
+        if(phoneticSoundPlayer != null)
+            phoneticSoundPlayer.lastSpokenIndex = 0; // Reset the last spoken index to allow speaking the new text
         blockInput = false;
         inputField.interactable = true;
         inputField.Select();
@@ -284,5 +284,7 @@ public class NewChatBot : MonoBehaviour
     void Update()
     {
         UpdateScrollView();
+        if(isChatActive)
+            PlayerInputEvent.isUIOpen = true;
     }
 }

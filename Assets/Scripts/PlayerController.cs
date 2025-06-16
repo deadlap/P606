@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     [HideInInspector] public AudioSource audioSource;
     Vector2 moveDirection;
+
     void Awake()
     {
         if(instance == null)
@@ -160,7 +161,6 @@ public class PlayerController : MonoBehaviour
         currentInteractable = closestInteractable;
         if(currentInteractButton == null) yield break;
         if(PlayerInputEvent.escMenuOpen) yield break;
-        PlayerInputEvent.isUIOpen = true;
         var start = interactButtonFillImage.fillAmount;
         var end = 1f;
         float elapsedTime = 0;
@@ -199,6 +199,7 @@ public class PlayerController : MonoBehaviour
             DestroyInteractButton();
         if(IsDeadNPC() && GameStats.INSTANCE.IntroPlayed)
             DestroyInteractButton();
+        transform.position = new Vector3(transform.position.x, 1.05f, transform.position.z);
     }
 
     void IdentifyClosestInteractable()
@@ -271,11 +272,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
-            if(!(GameStats.INSTANCE.IntroPlayed || 
-                 other.transform.parent != null && 
+            if (!(GameStats.INSTANCE.IntroPlayed ||
+                 other.transform.parent != null &&
                  other.transform.parent == GameStats.INSTANCE.Victim.transform)) return;
-            if(GameStats.INSTANCE.IntroPlayed && 
-               other.transform.parent != null && 
+            if (GameStats.INSTANCE.IntroPlayed &&
+               other.transform.parent != null &&
                other.transform.parent == GameStats.INSTANCE.Victim.transform) return;
             interactables.Add(other.gameObject);
         }
@@ -285,11 +286,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
-            if(!(GameStats.INSTANCE.IntroPlayed || 
-                 other.transform.parent != null && 
+            if (!(GameStats.INSTANCE.IntroPlayed ||
+                 other.transform.parent != null &&
                  other.transform.parent == GameStats.INSTANCE.Victim.transform)) return;
-            if(GameStats.INSTANCE.IntroPlayed && 
-               other.transform.parent != null && 
+            if (GameStats.INSTANCE.IntroPlayed &&
+               other.transform.parent != null &&
                other.transform.parent == GameStats.INSTANCE.Victim.transform) return;
             interactables.Remove(other.gameObject);
         }

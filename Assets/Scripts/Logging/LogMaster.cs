@@ -33,6 +33,7 @@ public class LogMaster : MonoBehaviour
             return;
         }
         Instance = this;
+        
 
 #if UNITY_EDITOR
         alreadyFinishedLog = true;
@@ -160,7 +161,10 @@ public class LogMaster : MonoBehaviour
         AddLine("--Interactions with NPCs--");
         foreach(NPC lad in NPCGenerator.INSTANCE.NPCs)
         {
-            AddLine($"{lad.NPCIdentity.Name}: {interactionsPerNpc[lad]}");
+            if(interactionsPerNpc == null)
+                AddLine($"{lad.NPCIdentity.Name}: 0");
+            else
+                AddLine($"{lad.NPCIdentity.Name}: {interactionsPerNpc[lad]}");
         }
 
         AddLine("");

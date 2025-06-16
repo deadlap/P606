@@ -3,7 +3,6 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using Unity.Sentis.Layers;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "OccupationChecker", story: "[Agent] is assigned its [Occupation]", category: "Action", id: "bc98d80f6773202c17c5a88d273a5c4b")]
@@ -15,7 +14,7 @@ public partial class SetOccupationAction : Action
     [SerializeReference] public BlackboardVariable<Identity> Identity;
     [SerializeReference] public BlackboardVariable<PatrolArea> OwnCabin;
     [SerializeReference] public BlackboardVariable<bool> OccupationGiven;
-
+    PatrolArea spawnPoint;
 
     protected override Status OnStart()
     {
@@ -49,9 +48,9 @@ public partial class SetOccupationAction : Action
 
     protected override Status OnUpdate()
     {
-        if (Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>())
+        if (Agent.Value?.GetComponent<NPC>().SpawnPoint?.GetComponent<PatrolArea>() != null)
         {
-            OwnCabin.Value = Identity.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
+            OwnCabin.Value = Agent.Value.GetComponent<NPC>().SpawnPoint.GetComponent<PatrolArea>();
             OccupationGiven.Value = true;
             return Status.Success;
         }

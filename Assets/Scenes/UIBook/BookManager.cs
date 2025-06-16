@@ -2,17 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using System.Collections.Generic;
 using System;
 
 public class BookManager : MonoBehaviour
 {
     [SerializeField] private ScrollRect scrollRect;
-    [SerializeField] private float scrollSpeed = 0.1f;
     [SerializeField] private Button scrollUpButton;
     [SerializeField] private Button scrollDownButton;
-
-    private Vector3 targetScale = Vector3.one; // Set your desired target scale here
 
     private Vector3 targetScalebook = Vector3.one; // Set your desired target scale here
     private Vector3 targetScalebookShrink = Vector3.zero;
@@ -24,8 +20,6 @@ public class BookManager : MonoBehaviour
     private bool istransitioning = false;
 
     public GameObject areYouSurePopup;
-
-    //[HideInInspector, Tooltip("Whether the book opens when pressing Q or not")] public bool openWithQ = true;
 
     public GameObject book;
 
@@ -66,33 +60,8 @@ public class BookManager : MonoBehaviour
     private void Start()
     {
         book.transform.localScale = targetScalebookShrink;
-
-        if (scrollUpButton != null)
-            scrollUpButton.onClick.AddListener(ScrollUp);
-
-        if (scrollDownButton != null)
-            scrollDownButton.onClick.AddListener(ScrollDown);
     }
 
-    private void Update()
-    {
-        //float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-
-
-        //if (scrollInput > 0f)
-        //    ScrollUp();
-        //else if (scrollInput < 0f)
-        //    ScrollDown();
-
-        //if (Input.GetKeyDown(KeyCode.Q) && openWithQ) { //erstattet af PlayerInputEvent i OnEnable og OnDisable
-        //    OpenOrCloseBook();
-        //}
-    }
-
-    //public void FreezeOrUnfreezeBook(bool freeze)
-    //{
-    //    openWithQ = !freeze;
-    //}
 
     void CloseBook()
     {
@@ -143,7 +112,7 @@ public class BookManager : MonoBehaviour
         bookTrans.localScale = targetScalebook; // Make sure it's exact
 
         istransitioning = false;
-        PlayerInputEvent.isUIOpen = false;
+        PlayerInputEvent.isUIOpen = true;
     }
 
     private IEnumerator ShrinkBookCoroutine(Transform bookTrans, Vector3 targetScalebook, float shrinkDuration)
@@ -163,18 +132,6 @@ public class BookManager : MonoBehaviour
         istransitioning = false;
         PlayerInputEvent.isUIOpen = false;
     }
-    private void ScrollUp()
-    {
-        // scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition + scrollSpeed);
-    }
-
-    private void ScrollDown()
-    {
-        // scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition - scrollSpeed);
-    }
-
-
-
 
     // BookMark Things________________________________________________________________________________________________
 

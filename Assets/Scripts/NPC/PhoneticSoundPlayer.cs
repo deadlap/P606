@@ -11,9 +11,11 @@ public class PhoneticSoundPlayer : MonoBehaviour
     [SerializeField] [Range(-3, 3)] float pitchMin, pitchMax = 1; 
     [SerializeField] AudioClip[] phoneticSounds;
     Dictionary<char, AudioClip> phoneticSoundsMap = new();
-    string currentWord;
+    
     string previousText;
-
+    
+    public int lastSpokenIndex;
+    bool newContent;
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -32,34 +34,65 @@ public class PhoneticSoundPlayer : MonoBehaviour
 
     string GetNewText(string text)
     {
-        if(string.IsNullOrEmpty(previousText))
+        if (text.Length <= lastSpokenIndex)
         {
-            previousText = text;
-            return text;
+            // No new content to speak
+            newContent = false;
+            return "";
         }
-        int minLength = Mathf.Min(previousText.Length, text.Length);
-        var i = 0;
-        for (i = 0; i < minLength; i++)
+        newContent = true;
+
+        string newPart = text.Substring(lastSpokenIndex);
+        lastSpokenIndex = text.Length;
+
+        if (!string.IsNullOrEmpty(newPart))
         {
-            if (previousText[i] != text[i])
-            {
-                break;
-            }
+            print($"\"{newPart}\" will now be spoken by the NPC");
         }
-        string newText = text.Substring(i);
-        previousText = text;
-        return newText;
-    }        
+
+        return newPart;
+    }
+    //string GetNewText(string text)
+    //{
+    //    if (string.IsNullOrEmpty(previousText))
+    //    {
+    //        previousText = text;
+    //        print($"\"{text}\" will now be spoken by the NPC");
+    //        return text;
+    //    }
+
+    //    int minLength = Mathf.Min(previousText.Length, text.Length);
+    //    int commonPrefixLength = 0;
+
+    //    for (int i = 0; i < minLength; i++)
+    //    {
+    //        if (previousText[i] != text[i])
+    //            break;
+    //        commonPrefixLength++;
+    //    }
+
+    //    string newPart = text.Substring(commonPrefixLength);
+
+    //    previousText = text;
+
+    //    if (!string.IsNullOrEmpty(newPart))
+    //    {
+    //        print($"\"{newPart}\" will now be spoken by the NPC");
+    //    }
+
+    //    return newPart;
+    //}
 
     IEnumerator SpeakPhonetic(string word)
     {
+        if(newContent) yield return null;
         word = word.ToLower();
         for (int i = 0; i < word.Length; i++)
         {
             if (phoneticSoundsMap.ContainsKey(word[i]))
             {
                 // Would make the pitch higher if next character is a questionmark (which it will never be due to the way text Streaming of the LLM Character is)
-                if (i < word.Length - 1)
+                if (i < word.Length)
                 {
                     if (word[i+1] == '?')
                     {

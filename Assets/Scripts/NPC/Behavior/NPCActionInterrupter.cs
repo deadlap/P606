@@ -10,7 +10,7 @@ public class NPCActionInterrupter : MonoBehaviour
     BehaviorGraphAgent behaviorGraphAgent;
     float originalSpeed;
     float originalAcceleration;
-    float originalYRotation;
+    Quaternion originalRotation;
     [SerializeField] VisualEffect actionVFX;
     [SerializeField] Transform foodSpawnPosition;
     GameObject workItem;
@@ -49,7 +49,7 @@ public class NPCActionInterrupter : MonoBehaviour
             workItem = foodSpawnPosition.GetChild(0).gameObject;
             workItem.SetActive(false);
         }
-        originalYRotation = transform.rotation.eulerAngles.y;
+        originalRotation = transform.rotation;
         behaviorGraphAgent.enabled = false;
         animator.SetBool("isBeingTalkedTo", true);
         transform.LookAt(PlayerController.instance.transform);
@@ -75,6 +75,6 @@ public class NPCActionInterrupter : MonoBehaviour
         animator.SetBool("isBeingTalkedTo", false);
         navMeshAgent.speed = originalSpeed;
         navMeshAgent.acceleration = originalAcceleration;
-        transform.rotation = Quaternion.Euler(0, originalYRotation, 0);
+        transform.rotation = originalRotation;
     }
 }
