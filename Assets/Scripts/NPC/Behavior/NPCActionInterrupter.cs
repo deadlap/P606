@@ -71,10 +71,10 @@ public class NPCActionInterrupter : MonoBehaviour
             workItem.SetActive(true);
             workItem = null;
         }
+        transform.rotation = originalRotation;
         behaviorGraphAgent.enabled = true;
         animator.SetBool("isBeingTalkedTo", false);
         navMeshAgent.speed = originalSpeed;
         navMeshAgent.acceleration = originalAcceleration;
-        transform.rotation = originalRotation;
     }
 }

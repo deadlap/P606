@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
     PlayerInput playerInput;
     List<GameObject> interactables = new();
+    [SerializeField] float interactRange = 3f;
     [SerializeField] GameObject interactButtonPrefab;
     GameObject currentInteractButton;
     Image interactButtonFillImage;
@@ -199,13 +200,20 @@ public class PlayerController : MonoBehaviour
             DestroyInteractButton();
         if(IsDeadNPC() && GameStats.INSTANCE.IntroPlayed)
             DestroyInteractButton();
+        // If the player is too far away from the closest interactable, destroy the interact button and reset the closest interactable (psychic bond fix).
+        if (Vector3.Distance(transform.position, closestInteractable?.transform.position ?? Vector3.zero) > interactRange)
+        {
+            DestroyInteractButton();
+            closestInteractable = null;
+            currentInteractable = null;
+        }
         transform.position = new Vector3(transform.position.x, 1.05f, transform.position.z);
     }
 
     void IdentifyClosestInteractable()
     {
         if(!canPlayerAct) return;
-        float minDistance = Mathf.Infinity;
+        float minDistance = interactRange;
         if (interactables.Count == 0)
         {
             closestInteractable = null;
@@ -221,13 +229,15 @@ public class PlayerController : MonoBehaviour
                     i--;
                     continue;
                 }
-                ;
+                
                 float distance = Vector3.Distance(transform.position, interactables[i].transform.position);
+                
                 if (distance < minDistance)
                 {
+                    print("DISTANCE: " + distance);
                     minDistance = distance;
                     closestInteractable = interactables[i];
-                }
+                }                
             }
         }
     }

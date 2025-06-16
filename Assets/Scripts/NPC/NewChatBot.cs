@@ -151,8 +151,8 @@ public class NewChatBot : MonoBehaviour
 
     IEnumerator UpdateChatView()
     {
-        if(PlayerController.instance.currentInteractable.transform.parent == null) yield break;
-        if(PlayerController.instance.currentInteractable.transform.parent.transform.tag != "NPC") yield break;
+        if(PlayerController.instance?.currentInteractable?.transform?.parent == null) yield break;
+        if(PlayerController.instance?.currentInteractable?.transform?.parent?.transform?.tag != "NPC") yield break;
 
         //BookManager.instance.FreezeOrUnfreezeBook(true);
 
