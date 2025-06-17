@@ -6,9 +6,11 @@ public class AwwManAnotherStupidBug : MonoBehaviour
     bool audioHasPlayedRecently = false;
     float time;
     float timeToWait = 10f; 
+    bool hasPlayedFirstTime = false;
 
     void Awake()
     {
+        hasPlayedFirstTime = false;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -30,6 +32,11 @@ public class AwwManAnotherStupidBug : MonoBehaviour
             if (audioSource.isPlaying || audioHasPlayedRecently) return;
             audioSource.Play();
             audioHasPlayedRecently = true;
+            if(!hasPlayedFirstTime)
+            {
+                BugfixManager.Instance.CountBugfixes();
+                hasPlayedFirstTime = true;
+            }
         }
     }
 }

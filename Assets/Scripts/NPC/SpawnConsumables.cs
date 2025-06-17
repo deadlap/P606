@@ -21,7 +21,7 @@ public class SpawnConsumables : MonoBehaviour
     public GameObject SpawnDrink(GameObject agent)
     {
         var randomDrink = Random.Range(0, drinkPrefabs.Length);
-        return Instantiate(drinkPrefabs[0], agent.transform.position + drinkSpawnPosition, Quaternion.identity, agent.transform);
+        return Instantiate(drinkPrefabs[randomDrink], agent.transform.position + drinkSpawnPosition, Quaternion.identity, agent.transform);
     }
 
     public GameObject SpawnShaker(GameObject agent)

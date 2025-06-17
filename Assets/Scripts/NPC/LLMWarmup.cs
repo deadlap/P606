@@ -43,21 +43,24 @@ public class LLMWarmup : MonoBehaviour
 
     void Start()
     {
-        warmupText = CreateText(warmupIndicator.transform, textPosition, "Warming up LLM Characters");
-        warmupPercentage = CreateText(warmupIndicator.transform, percentagePosition, "0%");
+        warmupText = CreateText(warmupIndicator.transform, textPosition, "left", "Warming up LLM Characters");
+        warmupPercentage = CreateText(warmupText.transform, percentagePosition, "right", "0%");
         StartCoroutine(TextAnimation());
     }
 
-    TextMeshProUGUI CreateText(Transform parent, Vector3 position, string text)
+    TextMeshProUGUI CreateText(Transform parent, Vector3 position, string allignment, string text)
     {
         var textMesh = new GameObject().AddComponent<TextMeshProUGUI>();
         textMesh.font = font;
         textMesh.fontSize = fontSize;
-        textMesh.alignment = TextAlignmentOptions.MidlineLeft;
+        if (allignment.ToLower() == "right")
+            textMesh.alignment = TextAlignmentOptions.MidlineRight;
+        else
+            textMesh.alignment = TextAlignmentOptions.MidlineLeft;
         textMesh.textWrappingMode = TextWrappingModes.NoWrap;
+        textMesh.text = text;
         textMesh.transform.parent = parent;
         textMesh.transform.localPosition = position;
-        textMesh.text = text;
         return textMesh;
     }
 

@@ -201,11 +201,14 @@ public class PlayerController : MonoBehaviour
         if(IsDeadNPC() && GameStats.INSTANCE.IntroPlayed)
             DestroyInteractButton();
         // If the player is too far away from the closest interactable, destroy the interact button and reset the closest interactable (psychic bond fix).
-        if (Vector3.Distance(transform.position, closestInteractable?.transform.position ?? Vector3.zero) > interactRange)
+        if (closestInteractable != null)
         {
-            DestroyInteractButton();
-            closestInteractable = null;
-            currentInteractable = null;
+            if (Vector3.Distance(transform.position, closestInteractable?.transform.position ?? Vector3.zero) > interactRange)
+            {
+                DestroyInteractButton();
+                closestInteractable = null;
+                currentInteractable = null;
+            }
         }
         transform.position = new Vector3(transform.position.x, 1.05f, transform.position.z);
     }
@@ -234,7 +237,6 @@ public class PlayerController : MonoBehaviour
                 
                 if (distance < minDistance)
                 {
-                    print("DISTANCE: " + distance);
                     minDistance = distance;
                     closestInteractable = interactables[i];
                 }                
