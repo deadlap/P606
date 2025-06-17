@@ -20,27 +20,29 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WoodPlanks
+  m_Name: Paper Xray
   m_Shader: {fileID: -6465566751694194690, guid: f27cb65a99de1494897696f93af4ae3b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _MAIN_LIGHT_SHADOWS
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: Opaque
+    RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Texture:
-        m_Texture: {fileID: 2800000, guid: 0b7a8a96c6e2ae543995b3e6a9c85bc3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 539af94f7b257754e86777ec288d22bc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Height_Map:
@@ -70,7 +72,7 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _Falloff_Threshold: 0
     - _Full_Lit_Min: 1
     - _Full_Shadow_Max: 0.701
@@ -83,19 +85,19 @@ Material:
     - _QueueOffset: 0
     - _Shadow_Size_Max: 0.88
     - _Shadow_Size_Min: 0
-    - _Shadow_Strength: 0.95
+    - _Shadow_Strength: 0.8
     - _Smoothness: 0.4
     - _Softness: 0
     - _Specular_Light_Max: 1
     - _Specular_Light_Min: 0
     - _Specular_Size_Max: 1
     - _Specular_Size_Min: 0
-    - _SrcBlend: 1
-    - _Surface: 0
+    - _SrcBlend: 5
+    - _Surface: 1
     - _Use_Screen_Space: 1
     - _Use_Specular: 0
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 1}
