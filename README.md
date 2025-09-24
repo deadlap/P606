@@ -1,5 +1,11 @@
 **Meta-Prompt:**
-https://docs.google.com/document/d/1B8d6LI-QWXvDpwLwnMcCmBouKkhcYSemy1DgNH0sMJc/
+- https://docs.google.com/document/d/1B8d6LI-QWXvDpwLwnMcCmBouKkhcYSemy1DgNH0sMJc/
+
+**Testing Procedure (In-Person):**
+- https://docs.google.com/document/d/1F2WZKMS7ESSKsnA3lsPGU5ghWhcxsNLZmPurWa9lHPM/edit?usp=sharing
+
+**Testing Procedure (Remotely):**
+- https://docs.google.com/document/d/1UHAEFAyg38_FZMeqRAzd5JFNdAAzrGQzyxX8cdf0l_A/edit?usp=sharing
 
 **Graphics:**
 - Sink: https://sketchfab.com/3d-models/waschbecken-sink-bathroom-fb63261631eb48639adeeabe911a527a
