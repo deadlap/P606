@@ -1,5 +1,9 @@
 ----
-<h2>Available on itch.io: https://deadpiegamer.itch.io/killer-on-board</h2>  
+<h2><a href="https://deadpiegamer.itch.io/killer-on-board">Available on itch.io</a></h2>  
+
+----
+
+<h2><a href="https://huggingface.co/NousResearch/Hermes-3-Llama-3.2-3B">Hermes 3 Llama 3.2 3B</a></h2>
 
 ----
 
