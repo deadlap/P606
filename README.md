@@ -1,9 +1,8 @@
--------------------------------------------------
--------------------------------------------------
-**Available on itch.io:**
-- https://deadpiegamer.itch.io/killer-on-board
--------------------------------------------------
--------------------------------------------------
+----
+<h2>Available on itch.io: https://deadpiegamer.itch.io/killer-on-board</h2>  
+
+----
+
 **Meta-Prompt:**
 - https://docs.google.com/document/d/1B8d6LI-QWXvDpwLwnMcCmBouKkhcYSemy1DgNH0sMJc/
 
