@@ -14,6 +14,7 @@ public class LLMWarmup : MonoBehaviour
     [SerializeField] Vector3 textPosition = new(120, 0, 0);
     [SerializeField] Vector3 percentagePosition = new(470, 0, 0);
     [SerializeField] Image warmupIndicator;
+    [SerializeField] Image warmupScreen;
     [SerializeField] [Tooltip("Warms up all active LLM Characters, eliminating the initial wait time when starting a conversation." +
         "\n\nWARNING: This may result in pseudo-crashes if runtime is terminated before all LLM Characters are warmed up. " +
         "\nThis may take a long time, up to 10 minutes atleast.")] 
@@ -29,16 +30,23 @@ public class LLMWarmup : MonoBehaviour
         Invoke(nameof(WarmUp), 3f); // Should find a better way to do this, but this works for now
         warmupCount = 0;
         stopwatch.Start();
+        if (warmupScreen != null)
+        {
+            warmupScreen.color = Color.clear;
+            warmupScreen.gameObject.SetActive(false);
+        }
     }
 
     void OnEnable()
     {
         PlayerInputEvent.QuitToMainMenu += CancelWarmUp;
+        GameStats.SetIntroPlayed += WaitingScreen;
     }
 
     void OnDisable()
     {
         PlayerInputEvent.QuitToMainMenu -= CancelWarmUp;
+        GameStats.SetIntroPlayed -= WaitingScreen;
     }
 
     void Start()
@@ -103,13 +111,13 @@ public class LLMWarmup : MonoBehaviour
             while (isUpdating)
             {
                 yield return new WaitForSeconds(0.5f);
-                warmupText.text = "Warming up LLM Characters";
+                warmupText.text = "Please wait while LLM Characters are warming up";
                 yield return new WaitForSeconds(0.5f);
-                warmupText.text = "Warming up LLM Characters.";
+                warmupText.text = "Please wait while LLM Characters are warming up.";
                 yield return new WaitForSeconds(0.5f);
-                warmupText.text = "Warming up LLM Characters..";
+                warmupText.text = "Please wait while LLM Characters are warming up..";
                 yield return new WaitForSeconds(0.5f);
-                warmupText.text = "Warming up LLM Characters...";
+                warmupText.text = "Please wait while LLM Characters are warming up...";
             }
         }
     }
@@ -157,7 +165,7 @@ public class LLMWarmup : MonoBehaviour
         warmupText.text = "LLM warmup completed!";
         warmupPercentage.text = "";
         Debug.Log("LLM Warmup complete.");
-        Invoke(nameof(RemoveUI), 3f);
+        Invoke(nameof(RemoveUI), 2f);
     }
 
     void RemoveUI()
@@ -170,6 +178,39 @@ public class LLMWarmup : MonoBehaviour
         {
             warmupIndicator.color = Color.clear;
         }
+        if (warmupScreen != null)
+        {
+            StartCoroutine(FadeScreen(1f));
+        }
+    }
+
+    void WaitingScreen()
+    {
+        if (warmupScreen != null && isUpdating)
+        {
+
+            PlayerController.instance.FreezePlayer(true);
+            warmupScreen.gameObject.SetActive(true);
+            warmupScreen.color = Color.black;
+        }
+    }
+
+    IEnumerator FadeScreen(float fadeTime)
+    {
+        float time = 0;
+        if (warmupScreen == null) yield break;
+        while (time < fadeTime)
+        {
+            time += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, time / fadeTime);
+            var color = warmupScreen.color;
+            color.a = alpha;
+            warmupScreen.color = color;
+            yield return null;
+        }
+        PlayerController.instance.FreezePlayer(false);
+        warmupScreen.gameObject.SetActive(false);
+        GameTimer.OnToggleTimer(true);
     }
 
     void OnApplicationQuit()
@@ -190,8 +231,7 @@ public class LLMWarmup : MonoBehaviour
             var npc = NPCGenerator.INSTANCE.NPCs[i];
             if (npc == null) return;
             if (npc.llmCharacter == null) return;
-            npc.llmCharacter.warmupCancellationTokenSource.Cancel();
-            
+            npc.llmCharacter.warmupCancellationTokenSource.Token.ThrowIfCancellationRequested();
         }
         Debug.Log("LLM Warmup cancelled.");
     }

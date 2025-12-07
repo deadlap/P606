@@ -258,7 +258,7 @@ namespace Cutscene
 
             // Ting Lucas vil have sker
             GameStats.OnSetIntroPlayed();
-            GameTimer.OnToggleTimer(true);
+            // GameTimer.OnToggleTimer(true); --- Rykket til LLMWarmup.cs for at tiden ikke går mens der er sort skærm.
             Objectives.OnChangeTextEvent(Objectives.ObjectiveEnum.UncoverMurderer);
         }
     }
